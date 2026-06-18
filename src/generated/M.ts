@@ -135,6 +135,12 @@ export interface Manuscript {
   url?: string | Array<string>;
 }
 
+export const Manuscript = {
+  validate: (data: any): data is Manuscript => s.validate(data, 'Manuscript'),
+  deserialize: (json: string): Manuscript => s.deserialize(json, 'Manuscript'),
+  serialize: (data: Manuscript): string => s.serialize(data),
+};
+
 
 export interface Map {
   '@context'?: any;
@@ -272,6 +278,12 @@ export interface Map {
   url?: string | Array<string>;
 }
 
+export const Map = {
+  validate: (data: any): data is Map => s.validate(data, 'Map'),
+  deserialize: (json: string): Map => s.deserialize(json, 'Map'),
+  serialize: (data: Map): string => s.serialize(data),
+};
+
 
 export interface MapCategoryType {
   '@context'?: any;
@@ -292,6 +304,12 @@ export interface MapCategoryType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MapCategoryType = {
+  validate: (data: any): data is MapCategoryType => s.validate(data, 'MapCategoryType'),
+  deserialize: (json: string): MapCategoryType => s.deserialize(json, 'MapCategoryType'),
+  serialize: (data: MapCategoryType): string => s.serialize(data),
+};
 
 
 export interface MarryAction {
@@ -326,12 +344,24 @@ export interface MarryAction {
   url?: string | Array<string>;
 }
 
+export const MarryAction = {
+  validate: (data: any): data is MarryAction => s.validate(data, 'MarryAction'),
+  deserialize: (json: string): MarryAction => s.deserialize(json, 'MarryAction'),
+  serialize: (data: MarryAction): string => s.serialize(data),
+};
+
 
 export interface Mass {
   '@context'?: any;
   '@type'?: 'Mass' | Array<'Mass'>;
   '@id'?: string;
 }
+
+export const Mass = {
+  validate: (data: any): data is Mass => s.validate(data, 'Mass'),
+  deserialize: (json: string): Mass => s.deserialize(json, 'Mass'),
+  serialize: (data: Mass): string => s.serialize(data),
+};
 
 
 export interface MathSolver {
@@ -470,6 +500,12 @@ export interface MathSolver {
   url?: string | Array<string>;
 }
 
+export const MathSolver = {
+  validate: (data: any): data is MathSolver => s.validate(data, 'MathSolver'),
+  deserialize: (json: string): MathSolver => s.deserialize(json, 'MathSolver'),
+  serialize: (data: MathSolver): string => s.serialize(data),
+};
+
 
 export interface MaximumDoseSchedule {
   '@context'?: any;
@@ -502,6 +538,12 @@ export interface MaximumDoseSchedule {
   url?: string | Array<string>;
 }
 
+export const MaximumDoseSchedule = {
+  validate: (data: any): data is MaximumDoseSchedule => s.validate(data, 'MaximumDoseSchedule'),
+  deserialize: (json: string): MaximumDoseSchedule => s.deserialize(json, 'MaximumDoseSchedule'),
+  serialize: (data: MaximumDoseSchedule): string => s.serialize(data),
+};
+
 
 export interface MeasurementMethodEnum {
   '@context'?: any;
@@ -522,6 +564,12 @@ export interface MeasurementMethodEnum {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MeasurementMethodEnum = {
+  validate: (data: any): data is MeasurementMethodEnum => s.validate(data, 'MeasurementMethodEnum'),
+  deserialize: (json: string): MeasurementMethodEnum => s.deserialize(json, 'MeasurementMethodEnum'),
+  serialize: (data: MeasurementMethodEnum): string => s.serialize(data),
+};
 
 
 export interface MeasurementTypeEnumeration {
@@ -544,6 +592,12 @@ export interface MeasurementTypeEnumeration {
   url?: string | Array<string>;
 }
 
+export const MeasurementTypeEnumeration = {
+  validate: (data: any): data is MeasurementTypeEnumeration => s.validate(data, 'MeasurementTypeEnumeration'),
+  deserialize: (json: string): MeasurementTypeEnumeration => s.deserialize(json, 'MeasurementTypeEnumeration'),
+  serialize: (data: MeasurementTypeEnumeration): string => s.serialize(data),
+};
+
 
 export interface MediaEnumeration {
   '@context'?: any;
@@ -564,6 +618,12 @@ export interface MediaEnumeration {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MediaEnumeration = {
+  validate: (data: any): data is MediaEnumeration => s.validate(data, 'MediaEnumeration'),
+  deserialize: (json: string): MediaEnumeration => s.deserialize(json, 'MediaEnumeration'),
+  serialize: (data: MediaEnumeration): string => s.serialize(data),
+};
 
 
 export interface MediaGallery {
@@ -711,6 +771,12 @@ export interface MediaGallery {
   url?: string | Array<string>;
 }
 
+export const MediaGallery = {
+  validate: (data: any): data is MediaGallery => s.validate(data, 'MediaGallery'),
+  deserialize: (json: string): MediaGallery => s.deserialize(json, 'MediaGallery'),
+  serialize: (data: MediaGallery): string => s.serialize(data),
+};
+
 
 export interface MediaManipulationRatingEnumeration {
   '@context'?: any;
@@ -731,6 +797,12 @@ export interface MediaManipulationRatingEnumeration {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MediaManipulationRatingEnumeration = {
+  validate: (data: any): data is MediaManipulationRatingEnumeration => s.validate(data, 'MediaManipulationRatingEnumeration'),
+  deserialize: (json: string): MediaManipulationRatingEnumeration => s.deserialize(json, 'MediaManipulationRatingEnumeration'),
+  serialize: (data: MediaManipulationRatingEnumeration): string => s.serialize(data),
+};
 
 
 export interface MediaObject {
@@ -886,6 +958,12 @@ export interface MediaObject {
   url?: string | Array<string>;
 }
 
+export const MediaObject = {
+  validate: (data: any): data is MediaObject => s.validate(data, 'MediaObject'),
+  deserialize: (json: string): MediaObject => s.deserialize(json, 'MediaObject'),
+  serialize: (data: MediaObject): string => s.serialize(data),
+};
+
 
 export interface MediaReview {
   '@context'?: any;
@@ -1034,6 +1112,12 @@ export interface MediaReview {
   url?: string | Array<string>;
 }
 
+export const MediaReview = {
+  validate: (data: any): data is MediaReview => s.validate(data, 'MediaReview'),
+  deserialize: (json: string): MediaReview => s.deserialize(json, 'MediaReview'),
+  serialize: (data: MediaReview): string => s.serialize(data),
+};
+
 
 export interface MediaReviewItem {
   '@context'?: any;
@@ -1171,6 +1255,12 @@ export interface MediaReviewItem {
   url?: string | Array<string>;
 }
 
+export const MediaReviewItem = {
+  validate: (data: any): data is MediaReviewItem => s.validate(data, 'MediaReviewItem'),
+  deserialize: (json: string): MediaReviewItem => s.deserialize(json, 'MediaReviewItem'),
+  serialize: (data: MediaReviewItem): string => s.serialize(data),
+};
+
 
 export interface MediaSubscription {
   '@context'?: any;
@@ -1192,6 +1282,12 @@ export interface MediaSubscription {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MediaSubscription = {
+  validate: (data: any): data is MediaSubscription => s.validate(data, 'MediaSubscription'),
+  deserialize: (json: string): MediaSubscription => s.deserialize(json, 'MediaSubscription'),
+  serialize: (data: MediaSubscription): string => s.serialize(data),
+};
 
 
 export interface MedicalAudience {
@@ -1224,6 +1320,12 @@ export interface MedicalAudience {
   suggestedMinAge?: number | Array<number>;
 }
 
+export const MedicalAudience = {
+  validate: (data: any): data is MedicalAudience => s.validate(data, 'MedicalAudience'),
+  deserialize: (json: string): MedicalAudience => s.deserialize(json, 'MedicalAudience'),
+  serialize: (data: MedicalAudience): string => s.serialize(data),
+};
+
 
 export interface MedicalAudienceType {
   '@context'?: any;
@@ -1244,6 +1346,12 @@ export interface MedicalAudienceType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalAudienceType = {
+  validate: (data: any): data is MedicalAudienceType => s.validate(data, 'MedicalAudienceType'),
+  deserialize: (json: string): MedicalAudienceType => s.deserialize(json, 'MedicalAudienceType'),
+  serialize: (data: MedicalAudienceType): string => s.serialize(data),
+};
 
 
 export interface MedicalBusiness {
@@ -1379,6 +1487,12 @@ export interface MedicalBusiness {
   tourBookingPage?: string | Array<string>;
 }
 
+export const MedicalBusiness = {
+  validate: (data: any): data is MedicalBusiness => s.validate(data, 'MedicalBusiness'),
+  deserialize: (json: string): MedicalBusiness => s.deserialize(json, 'MedicalBusiness'),
+  serialize: (data: MedicalBusiness): string => s.serialize(data),
+};
+
 
 export interface MedicalCause {
   '@context'?: any;
@@ -1407,6 +1521,12 @@ export interface MedicalCause {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalCause = {
+  validate: (data: any): data is MedicalCause => s.validate(data, 'MedicalCause'),
+  deserialize: (json: string): MedicalCause => s.deserialize(json, 'MedicalCause'),
+  serialize: (data: MedicalCause): string => s.serialize(data),
+};
 
 
 export interface MedicalClinic {
@@ -1546,6 +1666,12 @@ export interface MedicalClinic {
   isAcceptingNewPatients?: boolean | Array<boolean>;
 }
 
+export const MedicalClinic = {
+  validate: (data: any): data is MedicalClinic => s.validate(data, 'MedicalClinic'),
+  deserialize: (json: string): MedicalClinic => s.deserialize(json, 'MedicalClinic'),
+  serialize: (data: MedicalClinic): string => s.serialize(data),
+};
+
 
 export interface MedicalCode {
   '@context'?: any;
@@ -1579,6 +1705,12 @@ export interface MedicalCode {
   relevantSpecialty?: s.MedicalSpecialty | Array<s.MedicalSpecialty>;
   study?: s.MedicalStudy | Array<s.MedicalStudy>;
 }
+
+export const MedicalCode = {
+  validate: (data: any): data is MedicalCode => s.validate(data, 'MedicalCode'),
+  deserialize: (json: string): MedicalCode => s.deserialize(json, 'MedicalCode'),
+  serialize: (data: MedicalCode): string => s.serialize(data),
+};
 
 
 export interface MedicalCondition {
@@ -1625,6 +1757,12 @@ export interface MedicalCondition {
   url?: string | Array<string>;
 }
 
+export const MedicalCondition = {
+  validate: (data: any): data is MedicalCondition => s.validate(data, 'MedicalCondition'),
+  deserialize: (json: string): MedicalCondition => s.deserialize(json, 'MedicalCondition'),
+  serialize: (data: MedicalCondition): string => s.serialize(data),
+};
+
 
 export interface MedicalConditionStage {
   '@context'?: any;
@@ -1655,6 +1793,12 @@ export interface MedicalConditionStage {
   url?: string | Array<string>;
 }
 
+export const MedicalConditionStage = {
+  validate: (data: any): data is MedicalConditionStage => s.validate(data, 'MedicalConditionStage'),
+  deserialize: (json: string): MedicalConditionStage => s.deserialize(json, 'MedicalConditionStage'),
+  serialize: (data: MedicalConditionStage): string => s.serialize(data),
+};
+
 
 export interface MedicalContraindication {
   '@context'?: any;
@@ -1682,6 +1826,12 @@ export interface MedicalContraindication {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalContraindication = {
+  validate: (data: any): data is MedicalContraindication => s.validate(data, 'MedicalContraindication'),
+  deserialize: (json: string): MedicalContraindication => s.deserialize(json, 'MedicalContraindication'),
+  serialize: (data: MedicalContraindication): string => s.serialize(data),
+};
 
 
 export interface MedicalDevice {
@@ -1717,6 +1867,12 @@ export interface MedicalDevice {
   url?: string | Array<string>;
 }
 
+export const MedicalDevice = {
+  validate: (data: any): data is MedicalDevice => s.validate(data, 'MedicalDevice'),
+  deserialize: (json: string): MedicalDevice => s.deserialize(json, 'MedicalDevice'),
+  serialize: (data: MedicalDevice): string => s.serialize(data),
+};
+
 
 export interface MedicalDevicePurpose {
   '@context'?: any;
@@ -1737,6 +1893,12 @@ export interface MedicalDevicePurpose {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalDevicePurpose = {
+  validate: (data: any): data is MedicalDevicePurpose => s.validate(data, 'MedicalDevicePurpose'),
+  deserialize: (json: string): MedicalDevicePurpose => s.deserialize(json, 'MedicalDevicePurpose'),
+  serialize: (data: MedicalDevicePurpose): string => s.serialize(data),
+};
 
 
 export interface MedicalEntity {
@@ -1766,6 +1928,12 @@ export interface MedicalEntity {
   url?: string | Array<string>;
 }
 
+export const MedicalEntity = {
+  validate: (data: any): data is MedicalEntity => s.validate(data, 'MedicalEntity'),
+  deserialize: (json: string): MedicalEntity => s.deserialize(json, 'MedicalEntity'),
+  serialize: (data: MedicalEntity): string => s.serialize(data),
+};
+
 
 export interface MedicalEnumeration {
   '@context'?: any;
@@ -1787,6 +1955,12 @@ export interface MedicalEnumeration {
   url?: string | Array<string>;
 }
 
+export const MedicalEnumeration = {
+  validate: (data: any): data is MedicalEnumeration => s.validate(data, 'MedicalEnumeration'),
+  deserialize: (json: string): MedicalEnumeration => s.deserialize(json, 'MedicalEnumeration'),
+  serialize: (data: MedicalEnumeration): string => s.serialize(data),
+};
+
 
 export interface MedicalEvidenceLevel {
   '@context'?: any;
@@ -1807,6 +1981,12 @@ export interface MedicalEvidenceLevel {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalEvidenceLevel = {
+  validate: (data: any): data is MedicalEvidenceLevel => s.validate(data, 'MedicalEvidenceLevel'),
+  deserialize: (json: string): MedicalEvidenceLevel => s.deserialize(json, 'MedicalEvidenceLevel'),
+  serialize: (data: MedicalEvidenceLevel): string => s.serialize(data),
+};
 
 
 export interface MedicalGuideline {
@@ -1840,6 +2020,12 @@ export interface MedicalGuideline {
   url?: string | Array<string>;
 }
 
+export const MedicalGuideline = {
+  validate: (data: any): data is MedicalGuideline => s.validate(data, 'MedicalGuideline'),
+  deserialize: (json: string): MedicalGuideline => s.deserialize(json, 'MedicalGuideline'),
+  serialize: (data: MedicalGuideline): string => s.serialize(data),
+};
+
 
 export interface MedicalGuidelineContraindication {
   '@context'?: any;
@@ -1871,6 +2057,12 @@ export interface MedicalGuidelineContraindication {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalGuidelineContraindication = {
+  validate: (data: any): data is MedicalGuidelineContraindication => s.validate(data, 'MedicalGuidelineContraindication'),
+  deserialize: (json: string): MedicalGuidelineContraindication => s.deserialize(json, 'MedicalGuidelineContraindication'),
+  serialize: (data: MedicalGuidelineContraindication): string => s.serialize(data),
+};
 
 
 export interface MedicalGuidelineRecommendation {
@@ -1905,6 +2097,12 @@ export interface MedicalGuidelineRecommendation {
   url?: string | Array<string>;
 }
 
+export const MedicalGuidelineRecommendation = {
+  validate: (data: any): data is MedicalGuidelineRecommendation => s.validate(data, 'MedicalGuidelineRecommendation'),
+  deserialize: (json: string): MedicalGuidelineRecommendation => s.deserialize(json, 'MedicalGuidelineRecommendation'),
+  serialize: (data: MedicalGuidelineRecommendation): string => s.serialize(data),
+};
+
 
 export interface MedicalImagingTechnique {
   '@context'?: any;
@@ -1925,6 +2123,12 @@ export interface MedicalImagingTechnique {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalImagingTechnique = {
+  validate: (data: any): data is MedicalImagingTechnique => s.validate(data, 'MedicalImagingTechnique'),
+  deserialize: (json: string): MedicalImagingTechnique => s.deserialize(json, 'MedicalImagingTechnique'),
+  serialize: (data: MedicalImagingTechnique): string => s.serialize(data),
+};
 
 
 export interface MedicalIndication {
@@ -1954,6 +2158,12 @@ export interface MedicalIndication {
   url?: string | Array<string>;
 }
 
+export const MedicalIndication = {
+  validate: (data: any): data is MedicalIndication => s.validate(data, 'MedicalIndication'),
+  deserialize: (json: string): MedicalIndication => s.deserialize(json, 'MedicalIndication'),
+  serialize: (data: MedicalIndication): string => s.serialize(data),
+};
+
 
 export interface MedicalIntangible {
   '@context'?: any;
@@ -1981,6 +2191,12 @@ export interface MedicalIntangible {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalIntangible = {
+  validate: (data: any): data is MedicalIntangible => s.validate(data, 'MedicalIntangible'),
+  deserialize: (json: string): MedicalIntangible => s.deserialize(json, 'MedicalIntangible'),
+  serialize: (data: MedicalIntangible): string => s.serialize(data),
+};
 
 
 export interface MedicalObservationalStudy {
@@ -2016,6 +2232,12 @@ export interface MedicalObservationalStudy {
   url?: string | Array<string>;
 }
 
+export const MedicalObservationalStudy = {
+  validate: (data: any): data is MedicalObservationalStudy => s.validate(data, 'MedicalObservationalStudy'),
+  deserialize: (json: string): MedicalObservationalStudy => s.deserialize(json, 'MedicalObservationalStudy'),
+  serialize: (data: MedicalObservationalStudy): string => s.serialize(data),
+};
+
 
 export interface MedicalObservationalStudyDesign {
   '@context'?: any;
@@ -2036,6 +2258,12 @@ export interface MedicalObservationalStudyDesign {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalObservationalStudyDesign = {
+  validate: (data: any): data is MedicalObservationalStudyDesign => s.validate(data, 'MedicalObservationalStudyDesign'),
+  deserialize: (json: string): MedicalObservationalStudyDesign => s.deserialize(json, 'MedicalObservationalStudyDesign'),
+  serialize: (data: MedicalObservationalStudyDesign): string => s.serialize(data),
+};
 
 
 export interface MedicalOrganization {
@@ -2136,6 +2364,12 @@ export interface MedicalOrganization {
   url?: string | Array<string>;
 }
 
+export const MedicalOrganization = {
+  validate: (data: any): data is MedicalOrganization => s.validate(data, 'MedicalOrganization'),
+  deserialize: (json: string): MedicalOrganization => s.deserialize(json, 'MedicalOrganization'),
+  serialize: (data: MedicalOrganization): string => s.serialize(data),
+};
+
 
 export interface MedicalProcedure {
   '@context'?: any;
@@ -2170,6 +2404,12 @@ export interface MedicalProcedure {
   url?: string | Array<string>;
 }
 
+export const MedicalProcedure = {
+  validate: (data: any): data is MedicalProcedure => s.validate(data, 'MedicalProcedure'),
+  deserialize: (json: string): MedicalProcedure => s.deserialize(json, 'MedicalProcedure'),
+  serialize: (data: MedicalProcedure): string => s.serialize(data),
+};
+
 
 export interface MedicalProcedureType {
   '@context'?: any;
@@ -2190,6 +2430,12 @@ export interface MedicalProcedureType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalProcedureType = {
+  validate: (data: any): data is MedicalProcedureType => s.validate(data, 'MedicalProcedureType'),
+  deserialize: (json: string): MedicalProcedureType => s.deserialize(json, 'MedicalProcedureType'),
+  serialize: (data: MedicalProcedureType): string => s.serialize(data),
+};
 
 
 export interface MedicalRiskCalculator {
@@ -2221,6 +2467,12 @@ export interface MedicalRiskCalculator {
   url?: string | Array<string>;
 }
 
+export const MedicalRiskCalculator = {
+  validate: (data: any): data is MedicalRiskCalculator => s.validate(data, 'MedicalRiskCalculator'),
+  deserialize: (json: string): MedicalRiskCalculator => s.deserialize(json, 'MedicalRiskCalculator'),
+  serialize: (data: MedicalRiskCalculator): string => s.serialize(data),
+};
+
 
 export interface MedicalRiskEstimator {
   '@context'?: any;
@@ -2251,6 +2503,12 @@ export interface MedicalRiskEstimator {
   url?: string | Array<string>;
 }
 
+export const MedicalRiskEstimator = {
+  validate: (data: any): data is MedicalRiskEstimator => s.validate(data, 'MedicalRiskEstimator'),
+  deserialize: (json: string): MedicalRiskEstimator => s.deserialize(json, 'MedicalRiskEstimator'),
+  serialize: (data: MedicalRiskEstimator): string => s.serialize(data),
+};
+
 
 export interface MedicalRiskFactor {
   '@context'?: any;
@@ -2279,6 +2537,12 @@ export interface MedicalRiskFactor {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalRiskFactor = {
+  validate: (data: any): data is MedicalRiskFactor => s.validate(data, 'MedicalRiskFactor'),
+  deserialize: (json: string): MedicalRiskFactor => s.deserialize(json, 'MedicalRiskFactor'),
+  serialize: (data: MedicalRiskFactor): string => s.serialize(data),
+};
 
 
 export interface MedicalRiskScore {
@@ -2310,6 +2574,12 @@ export interface MedicalRiskScore {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalRiskScore = {
+  validate: (data: any): data is MedicalRiskScore => s.validate(data, 'MedicalRiskScore'),
+  deserialize: (json: string): MedicalRiskScore => s.deserialize(json, 'MedicalRiskScore'),
+  serialize: (data: MedicalRiskScore): string => s.serialize(data),
+};
 
 
 export interface MedicalScholarlyArticle {
@@ -2455,6 +2725,12 @@ export interface MedicalScholarlyArticle {
   url?: string | Array<string>;
 }
 
+export const MedicalScholarlyArticle = {
+  validate: (data: any): data is MedicalScholarlyArticle => s.validate(data, 'MedicalScholarlyArticle'),
+  deserialize: (json: string): MedicalScholarlyArticle => s.deserialize(json, 'MedicalScholarlyArticle'),
+  serialize: (data: MedicalScholarlyArticle): string => s.serialize(data),
+};
+
 
 export interface MedicalSign {
   '@context'?: any;
@@ -2502,6 +2778,12 @@ export interface MedicalSign {
   url?: string | Array<string>;
 }
 
+export const MedicalSign = {
+  validate: (data: any): data is MedicalSign => s.validate(data, 'MedicalSign'),
+  deserialize: (json: string): MedicalSign => s.deserialize(json, 'MedicalSign'),
+  serialize: (data: MedicalSign): string => s.serialize(data),
+};
+
 
 export interface MedicalSignOrSymptom {
   '@context'?: any;
@@ -2547,6 +2829,12 @@ export interface MedicalSignOrSymptom {
   url?: string | Array<string>;
 }
 
+export const MedicalSignOrSymptom = {
+  validate: (data: any): data is MedicalSignOrSymptom => s.validate(data, 'MedicalSignOrSymptom'),
+  deserialize: (json: string): MedicalSignOrSymptom => s.deserialize(json, 'MedicalSignOrSymptom'),
+  serialize: (data: MedicalSignOrSymptom): string => s.serialize(data),
+};
+
 
 export interface MedicalSpecialty {
   '@context'?: any;
@@ -2567,6 +2855,12 @@ export interface MedicalSpecialty {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalSpecialty = {
+  validate: (data: any): data is MedicalSpecialty => s.validate(data, 'MedicalSpecialty'),
+  deserialize: (json: string): MedicalSpecialty => s.deserialize(json, 'MedicalSpecialty'),
+  serialize: (data: MedicalSpecialty): string => s.serialize(data),
+};
 
 
 export interface MedicalStudy {
@@ -2601,6 +2895,12 @@ export interface MedicalStudy {
   url?: string | Array<string>;
 }
 
+export const MedicalStudy = {
+  validate: (data: any): data is MedicalStudy => s.validate(data, 'MedicalStudy'),
+  deserialize: (json: string): MedicalStudy => s.deserialize(json, 'MedicalStudy'),
+  serialize: (data: MedicalStudy): string => s.serialize(data),
+};
+
 
 export interface MedicalStudyStatus {
   '@context'?: any;
@@ -2621,6 +2921,12 @@ export interface MedicalStudyStatus {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalStudyStatus = {
+  validate: (data: any): data is MedicalStudyStatus => s.validate(data, 'MedicalStudyStatus'),
+  deserialize: (json: string): MedicalStudyStatus => s.deserialize(json, 'MedicalStudyStatus'),
+  serialize: (data: MedicalStudyStatus): string => s.serialize(data),
+};
 
 
 export interface MedicalSymptom {
@@ -2667,6 +2973,12 @@ export interface MedicalSymptom {
   url?: string | Array<string>;
 }
 
+export const MedicalSymptom = {
+  validate: (data: any): data is MedicalSymptom => s.validate(data, 'MedicalSymptom'),
+  deserialize: (json: string): MedicalSymptom => s.deserialize(json, 'MedicalSymptom'),
+  serialize: (data: MedicalSymptom): string => s.serialize(data),
+};
+
 
 export interface MedicalTest {
   '@context'?: any;
@@ -2699,6 +3011,12 @@ export interface MedicalTest {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalTest = {
+  validate: (data: any): data is MedicalTest => s.validate(data, 'MedicalTest'),
+  deserialize: (json: string): MedicalTest => s.deserialize(json, 'MedicalTest'),
+  serialize: (data: MedicalTest): string => s.serialize(data),
+};
 
 
 export interface MedicalTestPanel {
@@ -2733,6 +3051,12 @@ export interface MedicalTestPanel {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalTestPanel = {
+  validate: (data: any): data is MedicalTestPanel => s.validate(data, 'MedicalTestPanel'),
+  deserialize: (json: string): MedicalTestPanel => s.deserialize(json, 'MedicalTestPanel'),
+  serialize: (data: MedicalTestPanel): string => s.serialize(data),
+};
 
 
 export interface MedicalTherapy {
@@ -2774,6 +3098,12 @@ export interface MedicalTherapy {
   url?: string | Array<string>;
 }
 
+export const MedicalTherapy = {
+  validate: (data: any): data is MedicalTherapy => s.validate(data, 'MedicalTherapy'),
+  deserialize: (json: string): MedicalTherapy => s.deserialize(json, 'MedicalTherapy'),
+  serialize: (data: MedicalTherapy): string => s.serialize(data),
+};
+
 
 export interface MedicalTrial {
   '@context'?: any;
@@ -2808,6 +3138,12 @@ export interface MedicalTrial {
   url?: string | Array<string>;
 }
 
+export const MedicalTrial = {
+  validate: (data: any): data is MedicalTrial => s.validate(data, 'MedicalTrial'),
+  deserialize: (json: string): MedicalTrial => s.deserialize(json, 'MedicalTrial'),
+  serialize: (data: MedicalTrial): string => s.serialize(data),
+};
+
 
 export interface MedicalTrialDesign {
   '@context'?: any;
@@ -2828,6 +3164,12 @@ export interface MedicalTrialDesign {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicalTrialDesign = {
+  validate: (data: any): data is MedicalTrialDesign => s.validate(data, 'MedicalTrialDesign'),
+  deserialize: (json: string): MedicalTrialDesign => s.deserialize(json, 'MedicalTrialDesign'),
+  serialize: (data: MedicalTrialDesign): string => s.serialize(data),
+};
 
 
 export interface MedicalWebPage {
@@ -2977,6 +3319,12 @@ export interface MedicalWebPage {
   url?: string | Array<string>;
 }
 
+export const MedicalWebPage = {
+  validate: (data: any): data is MedicalWebPage => s.validate(data, 'MedicalWebPage'),
+  deserialize: (json: string): MedicalWebPage => s.deserialize(json, 'MedicalWebPage'),
+  serialize: (data: MedicalWebPage): string => s.serialize(data),
+};
+
 
 export interface MedicineSystem {
   '@context'?: any;
@@ -2997,6 +3345,12 @@ export interface MedicineSystem {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MedicineSystem = {
+  validate: (data: any): data is MedicineSystem => s.validate(data, 'MedicineSystem'),
+  deserialize: (json: string): MedicineSystem => s.deserialize(json, 'MedicineSystem'),
+  serialize: (data: MedicineSystem): string => s.serialize(data),
+};
 
 
 export interface MeetingRoom {
@@ -3080,6 +3434,12 @@ export interface MeetingRoom {
   url?: string | Array<string>;
 }
 
+export const MeetingRoom = {
+  validate: (data: any): data is MeetingRoom => s.validate(data, 'MeetingRoom'),
+  deserialize: (json: string): MeetingRoom => s.deserialize(json, 'MeetingRoom'),
+  serialize: (data: MeetingRoom): string => s.serialize(data),
+};
+
 
 export interface MemberProgram {
   '@context'?: any;
@@ -3101,6 +3461,12 @@ export interface MemberProgram {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MemberProgram = {
+  validate: (data: any): data is MemberProgram => s.validate(data, 'MemberProgram'),
+  deserialize: (json: string): MemberProgram => s.deserialize(json, 'MemberProgram'),
+  serialize: (data: MemberProgram): string => s.serialize(data),
+};
 
 
 export interface MemberProgramTier {
@@ -3125,6 +3491,12 @@ export interface MemberProgramTier {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MemberProgramTier = {
+  validate: (data: any): data is MemberProgramTier => s.validate(data, 'MemberProgramTier'),
+  deserialize: (json: string): MemberProgramTier => s.deserialize(json, 'MemberProgramTier'),
+  serialize: (data: MemberProgramTier): string => s.serialize(data),
+};
 
 
 export interface MensClothingStore {
@@ -3259,6 +3631,12 @@ export interface MensClothingStore {
   specialOpeningHoursSpecification?: s.OpeningHoursSpecification | Array<s.OpeningHoursSpecification>;
   tourBookingPage?: string | Array<string>;
 }
+
+export const MensClothingStore = {
+  validate: (data: any): data is MensClothingStore => s.validate(data, 'MensClothingStore'),
+  deserialize: (json: string): MensClothingStore => s.deserialize(json, 'MensClothingStore'),
+  serialize: (data: MensClothingStore): string => s.serialize(data),
+};
 
 
 export interface Menu {
@@ -3398,6 +3776,12 @@ export interface Menu {
   url?: string | Array<string>;
 }
 
+export const Menu = {
+  validate: (data: any): data is Menu => s.validate(data, 'Menu'),
+  deserialize: (json: string): Menu => s.deserialize(json, 'Menu'),
+  serialize: (data: Menu): string => s.serialize(data),
+};
+
 
 export interface MenuItem {
   '@context'?: any;
@@ -3421,6 +3805,12 @@ export interface MenuItem {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MenuItem = {
+  validate: (data: any): data is MenuItem => s.validate(data, 'MenuItem'),
+  deserialize: (json: string): MenuItem => s.deserialize(json, 'MenuItem'),
+  serialize: (data: MenuItem): string => s.serialize(data),
+};
 
 
 export interface MenuSection {
@@ -3560,6 +3950,12 @@ export interface MenuSection {
   url?: string | Array<string>;
 }
 
+export const MenuSection = {
+  validate: (data: any): data is MenuSection => s.validate(data, 'MenuSection'),
+  deserialize: (json: string): MenuSection => s.deserialize(json, 'MenuSection'),
+  serialize: (data: MenuSection): string => s.serialize(data),
+};
+
 
 export interface MerchantReturnEnumeration {
   '@context'?: any;
@@ -3580,6 +3976,12 @@ export interface MerchantReturnEnumeration {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MerchantReturnEnumeration = {
+  validate: (data: any): data is MerchantReturnEnumeration => s.validate(data, 'MerchantReturnEnumeration'),
+  deserialize: (json: string): MerchantReturnEnumeration => s.deserialize(json, 'MerchantReturnEnumeration'),
+  serialize: (data: MerchantReturnEnumeration): string => s.serialize(data),
+};
 
 
 export interface MerchantReturnPolicy {
@@ -3623,6 +4025,12 @@ export interface MerchantReturnPolicy {
   url?: string | Array<string>;
 }
 
+export const MerchantReturnPolicy = {
+  validate: (data: any): data is MerchantReturnPolicy => s.validate(data, 'MerchantReturnPolicy'),
+  deserialize: (json: string): MerchantReturnPolicy => s.deserialize(json, 'MerchantReturnPolicy'),
+  serialize: (data: MerchantReturnPolicy): string => s.serialize(data),
+};
+
 
 export interface MerchantReturnPolicySeasonalOverride {
   '@context'?: any;
@@ -3651,6 +4059,12 @@ export interface MerchantReturnPolicySeasonalOverride {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MerchantReturnPolicySeasonalOverride = {
+  validate: (data: any): data is MerchantReturnPolicySeasonalOverride => s.validate(data, 'MerchantReturnPolicySeasonalOverride'),
+  deserialize: (json: string): MerchantReturnPolicySeasonalOverride => s.deserialize(json, 'MerchantReturnPolicySeasonalOverride'),
+  serialize: (data: MerchantReturnPolicySeasonalOverride): string => s.serialize(data),
+};
 
 
 export interface Message {
@@ -3797,6 +4211,12 @@ export interface Message {
   url?: string | Array<string>;
 }
 
+export const Message = {
+  validate: (data: any): data is Message => s.validate(data, 'Message'),
+  deserialize: (json: string): Message => s.deserialize(json, 'Message'),
+  serialize: (data: Message): string => s.serialize(data),
+};
+
 
 export interface MiddleSchool {
   '@context'?: any;
@@ -3925,6 +4345,12 @@ export interface MiddleSchool {
   unnamedSourcesPolicy?: s.CreativeWork | string | Array<s.CreativeWork | string>;
   vatID?: string | Array<string>;
 }
+
+export const MiddleSchool = {
+  validate: (data: any): data is MiddleSchool => s.validate(data, 'MiddleSchool'),
+  deserialize: (json: string): MiddleSchool => s.deserialize(json, 'MiddleSchool'),
+  serialize: (data: MiddleSchool): string => s.serialize(data),
+};
 
 
 export interface MobileApplication {
@@ -4088,6 +4514,12 @@ export interface MobileApplication {
   url?: string | Array<string>;
 }
 
+export const MobileApplication = {
+  validate: (data: any): data is MobileApplication => s.validate(data, 'MobileApplication'),
+  deserialize: (json: string): MobileApplication => s.deserialize(json, 'MobileApplication'),
+  serialize: (data: MobileApplication): string => s.serialize(data),
+};
+
 
 export interface MobilePhoneStore {
   '@context'?: any;
@@ -4222,6 +4654,12 @@ export interface MobilePhoneStore {
   tourBookingPage?: string | Array<string>;
 }
 
+export const MobilePhoneStore = {
+  validate: (data: any): data is MobilePhoneStore => s.validate(data, 'MobilePhoneStore'),
+  deserialize: (json: string): MobilePhoneStore => s.deserialize(json, 'MobilePhoneStore'),
+  serialize: (data: MobilePhoneStore): string => s.serialize(data),
+};
+
 
 export interface MolecularEntity {
   '@context'?: any;
@@ -4264,6 +4702,12 @@ export interface MolecularEntity {
   url?: string | Array<string>;
 }
 
+export const MolecularEntity = {
+  validate: (data: any): data is MolecularEntity => s.validate(data, 'MolecularEntity'),
+  deserialize: (json: string): MolecularEntity => s.deserialize(json, 'MolecularEntity'),
+  serialize: (data: MolecularEntity): string => s.serialize(data),
+};
+
 
 export interface MonetaryAmount {
   '@context'?: any;
@@ -4289,6 +4733,12 @@ export interface MonetaryAmount {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MonetaryAmount = {
+  validate: (data: any): data is MonetaryAmount => s.validate(data, 'MonetaryAmount'),
+  deserialize: (json: string): MonetaryAmount => s.deserialize(json, 'MonetaryAmount'),
+  serialize: (data: MonetaryAmount): string => s.serialize(data),
+};
 
 
 export interface MonetaryAmountDistribution {
@@ -4317,6 +4767,12 @@ export interface MonetaryAmountDistribution {
   url?: string | Array<string>;
 }
 
+export const MonetaryAmountDistribution = {
+  validate: (data: any): data is MonetaryAmountDistribution => s.validate(data, 'MonetaryAmountDistribution'),
+  deserialize: (json: string): MonetaryAmountDistribution => s.deserialize(json, 'MonetaryAmountDistribution'),
+  serialize: (data: MonetaryAmountDistribution): string => s.serialize(data),
+};
+
 
 export interface MonetaryGrant {
   '@context'?: any;
@@ -4340,6 +4796,12 @@ export interface MonetaryGrant {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MonetaryGrant = {
+  validate: (data: any): data is MonetaryGrant => s.validate(data, 'MonetaryGrant'),
+  deserialize: (json: string): MonetaryGrant => s.deserialize(json, 'MonetaryGrant'),
+  serialize: (data: MonetaryGrant): string => s.serialize(data),
+};
 
 
 export interface MoneyTransfer {
@@ -4377,6 +4839,12 @@ export interface MoneyTransfer {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MoneyTransfer = {
+  validate: (data: any): data is MoneyTransfer => s.validate(data, 'MoneyTransfer'),
+  deserialize: (json: string): MoneyTransfer => s.deserialize(json, 'MoneyTransfer'),
+  serialize: (data: MoneyTransfer): string => s.serialize(data),
+};
 
 
 export interface MortgageLoan {
@@ -4436,6 +4904,12 @@ export interface MortgageLoan {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MortgageLoan = {
+  validate: (data: any): data is MortgageLoan => s.validate(data, 'MortgageLoan'),
+  deserialize: (json: string): MortgageLoan => s.deserialize(json, 'MortgageLoan'),
+  serialize: (data: MortgageLoan): string => s.serialize(data),
+};
 
 
 export interface Mosque {
@@ -4504,6 +4978,12 @@ export interface Mosque {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Mosque = {
+  validate: (data: any): data is Mosque => s.validate(data, 'Mosque'),
+  deserialize: (json: string): Mosque => s.deserialize(json, 'Mosque'),
+  serialize: (data: Mosque): string => s.serialize(data),
+};
 
 
 export interface Motel {
@@ -4646,6 +5126,12 @@ export interface Motel {
   tourBookingPage?: string | Array<string>;
 }
 
+export const Motel = {
+  validate: (data: any): data is Motel => s.validate(data, 'Motel'),
+  deserialize: (json: string): Motel => s.deserialize(json, 'Motel'),
+  serialize: (data: Motel): string => s.serialize(data),
+};
+
 
 export interface Motorcycle {
   '@context'?: any;
@@ -4761,6 +5247,12 @@ export interface Motorcycle {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Motorcycle = {
+  validate: (data: any): data is Motorcycle => s.validate(data, 'Motorcycle'),
+  deserialize: (json: string): Motorcycle => s.deserialize(json, 'Motorcycle'),
+  serialize: (data: Motorcycle): string => s.serialize(data),
+};
 
 
 export interface MotorcycleDealer {
@@ -4896,6 +5388,12 @@ export interface MotorcycleDealer {
   tourBookingPage?: string | Array<string>;
 }
 
+export const MotorcycleDealer = {
+  validate: (data: any): data is MotorcycleDealer => s.validate(data, 'MotorcycleDealer'),
+  deserialize: (json: string): MotorcycleDealer => s.deserialize(json, 'MotorcycleDealer'),
+  serialize: (data: MotorcycleDealer): string => s.serialize(data),
+};
+
 
 export interface MotorcycleRepair {
   '@context'?: any;
@@ -5030,6 +5528,12 @@ export interface MotorcycleRepair {
   tourBookingPage?: string | Array<string>;
 }
 
+export const MotorcycleRepair = {
+  validate: (data: any): data is MotorcycleRepair => s.validate(data, 'MotorcycleRepair'),
+  deserialize: (json: string): MotorcycleRepair => s.deserialize(json, 'MotorcycleRepair'),
+  serialize: (data: MotorcycleRepair): string => s.serialize(data),
+};
+
 
 export interface MotorizedBicycle {
   '@context'?: any;
@@ -5146,6 +5650,12 @@ export interface MotorizedBicycle {
   url?: string | Array<string>;
 }
 
+export const MotorizedBicycle = {
+  validate: (data: any): data is MotorizedBicycle => s.validate(data, 'MotorizedBicycle'),
+  deserialize: (json: string): MotorizedBicycle => s.deserialize(json, 'MotorizedBicycle'),
+  serialize: (data: MotorizedBicycle): string => s.serialize(data),
+};
+
 
 export interface Mountain {
   '@context'?: any;
@@ -5213,6 +5723,12 @@ export interface Mountain {
   url?: string | Array<string>;
 }
 
+export const Mountain = {
+  validate: (data: any): data is Mountain => s.validate(data, 'Mountain'),
+  deserialize: (json: string): Mountain => s.deserialize(json, 'Mountain'),
+  serialize: (data: Mountain): string => s.serialize(data),
+};
+
 
 export interface MoveAction {
   '@context'?: any;
@@ -5247,6 +5763,12 @@ export interface MoveAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MoveAction = {
+  validate: (data: any): data is MoveAction => s.validate(data, 'MoveAction'),
+  deserialize: (json: string): MoveAction => s.deserialize(json, 'MoveAction'),
+  serialize: (data: MoveAction): string => s.serialize(data),
+};
 
 
 export interface Movie {
@@ -5393,6 +5915,12 @@ export interface Movie {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Movie = {
+  validate: (data: any): data is Movie => s.validate(data, 'Movie'),
+  deserialize: (json: string): Movie => s.deserialize(json, 'Movie'),
+  serialize: (data: Movie): string => s.serialize(data),
+};
 
 
 export interface MovieClip {
@@ -5541,6 +6069,12 @@ export interface MovieClip {
   url?: string | Array<string>;
 }
 
+export const MovieClip = {
+  validate: (data: any): data is MovieClip => s.validate(data, 'MovieClip'),
+  deserialize: (json: string): MovieClip => s.deserialize(json, 'MovieClip'),
+  serialize: (data: MovieClip): string => s.serialize(data),
+};
+
 
 export interface MovieRentalStore {
   '@context'?: any;
@@ -5674,6 +6208,12 @@ export interface MovieRentalStore {
   specialOpeningHoursSpecification?: s.OpeningHoursSpecification | Array<s.OpeningHoursSpecification>;
   tourBookingPage?: string | Array<string>;
 }
+
+export const MovieRentalStore = {
+  validate: (data: any): data is MovieRentalStore => s.validate(data, 'MovieRentalStore'),
+  deserialize: (json: string): MovieRentalStore => s.deserialize(json, 'MovieRentalStore'),
+  serialize: (data: MovieRentalStore): string => s.serialize(data),
+};
 
 
 export interface MovieSeries {
@@ -5821,6 +6361,12 @@ export interface MovieSeries {
   url?: string | Array<string>;
 }
 
+export const MovieSeries = {
+  validate: (data: any): data is MovieSeries => s.validate(data, 'MovieSeries'),
+  deserialize: (json: string): MovieSeries => s.deserialize(json, 'MovieSeries'),
+  serialize: (data: MovieSeries): string => s.serialize(data),
+};
+
 
 export interface MovieTheater {
   '@context'?: any;
@@ -5956,6 +6502,12 @@ export interface MovieTheater {
   vatID?: string | Array<string>;
 }
 
+export const MovieTheater = {
+  validate: (data: any): data is MovieTheater => s.validate(data, 'MovieTheater'),
+  deserialize: (json: string): MovieTheater => s.deserialize(json, 'MovieTheater'),
+  serialize: (data: MovieTheater): string => s.serialize(data),
+};
+
 
 export interface MovingCompany {
   '@context'?: any;
@@ -6090,6 +6642,12 @@ export interface MovingCompany {
   tourBookingPage?: string | Array<string>;
 }
 
+export const MovingCompany = {
+  validate: (data: any): data is MovingCompany => s.validate(data, 'MovingCompany'),
+  deserialize: (json: string): MovingCompany => s.deserialize(json, 'MovingCompany'),
+  serialize: (data: MovingCompany): string => s.serialize(data),
+};
+
 
 export interface Muscle {
   '@context'?: any;
@@ -6130,6 +6688,12 @@ export interface Muscle {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Muscle = {
+  validate: (data: any): data is Muscle => s.validate(data, 'Muscle'),
+  deserialize: (json: string): Muscle => s.deserialize(json, 'Muscle'),
+  serialize: (data: Muscle): string => s.serialize(data),
+};
 
 
 export interface Museum {
@@ -6198,6 +6762,12 @@ export interface Museum {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Museum = {
+  validate: (data: any): data is Museum => s.validate(data, 'Museum'),
+  deserialize: (json: string): Museum => s.deserialize(json, 'Museum'),
+  serialize: (data: Museum): string => s.serialize(data),
+};
 
 
 export interface MusicAlbum {
@@ -6342,6 +6912,12 @@ export interface MusicAlbum {
   url?: string | Array<string>;
 }
 
+export const MusicAlbum = {
+  validate: (data: any): data is MusicAlbum => s.validate(data, 'MusicAlbum'),
+  deserialize: (json: string): MusicAlbum => s.deserialize(json, 'MusicAlbum'),
+  serialize: (data: MusicAlbum): string => s.serialize(data),
+};
+
 
 export interface MusicAlbumProductionType {
   '@context'?: any;
@@ -6363,6 +6939,12 @@ export interface MusicAlbumProductionType {
   url?: string | Array<string>;
 }
 
+export const MusicAlbumProductionType = {
+  validate: (data: any): data is MusicAlbumProductionType => s.validate(data, 'MusicAlbumProductionType'),
+  deserialize: (json: string): MusicAlbumProductionType => s.deserialize(json, 'MusicAlbumProductionType'),
+  serialize: (data: MusicAlbumProductionType): string => s.serialize(data),
+};
+
 
 export interface MusicAlbumReleaseType {
   '@context'?: any;
@@ -6383,6 +6965,12 @@ export interface MusicAlbumReleaseType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicAlbumReleaseType = {
+  validate: (data: any): data is MusicAlbumReleaseType => s.validate(data, 'MusicAlbumReleaseType'),
+  deserialize: (json: string): MusicAlbumReleaseType => s.deserialize(json, 'MusicAlbumReleaseType'),
+  serialize: (data: MusicAlbumReleaseType): string => s.serialize(data),
+};
 
 
 export interface MusicComposition {
@@ -6530,6 +7118,12 @@ export interface MusicComposition {
   url?: string | Array<string>;
 }
 
+export const MusicComposition = {
+  validate: (data: any): data is MusicComposition => s.validate(data, 'MusicComposition'),
+  deserialize: (json: string): MusicComposition => s.deserialize(json, 'MusicComposition'),
+  serialize: (data: MusicComposition): string => s.serialize(data),
+};
+
 
 export interface MusicEvent {
   '@context'?: any;
@@ -6592,6 +7186,12 @@ export interface MusicEvent {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicEvent = {
+  validate: (data: any): data is MusicEvent => s.validate(data, 'MusicEvent'),
+  deserialize: (json: string): MusicEvent => s.deserialize(json, 'MusicEvent'),
+  serialize: (data: MusicEvent): string => s.serialize(data),
+};
 
 
 export interface MusicGroup {
@@ -6694,6 +7294,12 @@ export interface MusicGroup {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicGroup = {
+  validate: (data: any): data is MusicGroup => s.validate(data, 'MusicGroup'),
+  deserialize: (json: string): MusicGroup => s.deserialize(json, 'MusicGroup'),
+  serialize: (data: MusicGroup): string => s.serialize(data),
+};
 
 
 export interface MusicPlaylist {
@@ -6833,6 +7439,12 @@ export interface MusicPlaylist {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicPlaylist = {
+  validate: (data: any): data is MusicPlaylist => s.validate(data, 'MusicPlaylist'),
+  deserialize: (json: string): MusicPlaylist => s.deserialize(json, 'MusicPlaylist'),
+  serialize: (data: MusicPlaylist): string => s.serialize(data),
+};
 
 
 export interface MusicRecording {
@@ -6975,6 +7587,12 @@ export interface MusicRecording {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicRecording = {
+  validate: (data: any): data is MusicRecording => s.validate(data, 'MusicRecording'),
+  deserialize: (json: string): MusicRecording => s.deserialize(json, 'MusicRecording'),
+  serialize: (data: MusicRecording): string => s.serialize(data),
+};
 
 
 export interface MusicRelease {
@@ -7121,6 +7739,12 @@ export interface MusicRelease {
   url?: string | Array<string>;
 }
 
+export const MusicRelease = {
+  validate: (data: any): data is MusicRelease => s.validate(data, 'MusicRelease'),
+  deserialize: (json: string): MusicRelease => s.deserialize(json, 'MusicRelease'),
+  serialize: (data: MusicRelease): string => s.serialize(data),
+};
+
 
 export interface MusicReleaseFormatType {
   '@context'?: any;
@@ -7141,6 +7765,12 @@ export interface MusicReleaseFormatType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicReleaseFormatType = {
+  validate: (data: any): data is MusicReleaseFormatType => s.validate(data, 'MusicReleaseFormatType'),
+  deserialize: (json: string): MusicReleaseFormatType => s.deserialize(json, 'MusicReleaseFormatType'),
+  serialize: (data: MusicReleaseFormatType): string => s.serialize(data),
+};
 
 
 export interface MusicStore {
@@ -7276,6 +7906,12 @@ export interface MusicStore {
   tourBookingPage?: string | Array<string>;
 }
 
+export const MusicStore = {
+  validate: (data: any): data is MusicStore => s.validate(data, 'MusicStore'),
+  deserialize: (json: string): MusicStore => s.deserialize(json, 'MusicStore'),
+  serialize: (data: MusicStore): string => s.serialize(data),
+};
+
 
 export interface MusicVenue {
   '@context'?: any;
@@ -7343,6 +7979,12 @@ export interface MusicVenue {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicVenue = {
+  validate: (data: any): data is MusicVenue => s.validate(data, 'MusicVenue'),
+  deserialize: (json: string): MusicVenue => s.deserialize(json, 'MusicVenue'),
+  serialize: (data: MusicVenue): string => s.serialize(data),
+};
 
 
 export interface MusicVideoObject {
@@ -7497,3 +8139,9 @@ export interface MusicVideoObject {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const MusicVideoObject = {
+  validate: (data: any): data is MusicVideoObject => s.validate(data, 'MusicVideoObject'),
+  deserialize: (json: string): MusicVideoObject => s.deserialize(json, 'MusicVideoObject'),
+  serialize: (data: MusicVideoObject): string => s.serialize(data),
+};

@@ -145,6 +145,12 @@ export interface QAPage {
   url?: string | Array<string>;
 }
 
+export const QAPage = {
+  validate: (data: any): data is QAPage => s.validate(data, 'QAPage'),
+  deserialize: (json: string): QAPage => s.deserialize(json, 'QAPage'),
+  serialize: (data: QAPage): string => s.serialize(data),
+};
+
 
 export interface QualitativeValue {
   '@context'?: any;
@@ -174,6 +180,12 @@ export interface QualitativeValue {
   url?: string | Array<string>;
 }
 
+export const QualitativeValue = {
+  validate: (data: any): data is QualitativeValue => s.validate(data, 'QualitativeValue'),
+  deserialize: (json: string): QualitativeValue => s.deserialize(json, 'QualitativeValue'),
+  serialize: (data: QualitativeValue): string => s.serialize(data),
+};
+
 
 export interface QuantitativeValue {
   '@context'?: any;
@@ -201,6 +213,12 @@ export interface QuantitativeValue {
   url?: string | Array<string>;
 }
 
+export const QuantitativeValue = {
+  validate: (data: any): data is QuantitativeValue => s.validate(data, 'QuantitativeValue'),
+  deserialize: (json: string): QuantitativeValue => s.deserialize(json, 'QuantitativeValue'),
+  serialize: (data: QuantitativeValue): string => s.serialize(data),
+};
+
 
 export interface QuantitativeValueDistribution {
   '@context'?: any;
@@ -227,12 +245,24 @@ export interface QuantitativeValueDistribution {
   url?: string | Array<string>;
 }
 
+export const QuantitativeValueDistribution = {
+  validate: (data: any): data is QuantitativeValueDistribution => s.validate(data, 'QuantitativeValueDistribution'),
+  deserialize: (json: string): QuantitativeValueDistribution => s.deserialize(json, 'QuantitativeValueDistribution'),
+  serialize: (data: QuantitativeValueDistribution): string => s.serialize(data),
+};
+
 
 export interface Quantity {
   '@context'?: any;
   '@type'?: 'Quantity' | 'Distance' | 'Duration' | 'Energy' | 'Mass' | Array<'Quantity' | 'Distance' | 'Duration' | 'Energy' | 'Mass'>;
   '@id'?: string;
 }
+
+export const Quantity = {
+  validate: (data: any): data is Quantity => s.validate(data, 'Quantity'),
+  deserialize: (json: string): Quantity => s.deserialize(json, 'Quantity'),
+  serialize: (data: Quantity): string => s.serialize(data),
+};
 
 
 export interface Question {
@@ -378,6 +408,12 @@ export interface Question {
   url?: string | Array<string>;
 }
 
+export const Question = {
+  validate: (data: any): data is Question => s.validate(data, 'Question'),
+  deserialize: (json: string): Question => s.deserialize(json, 'Question'),
+  serialize: (data: Question): string => s.serialize(data),
+};
+
 
 export interface Quiz {
   '@context'?: any;
@@ -514,6 +550,12 @@ export interface Quiz {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Quiz = {
+  validate: (data: any): data is Quiz => s.validate(data, 'Quiz'),
+  deserialize: (json: string): Quiz => s.deserialize(json, 'Quiz'),
+  serialize: (data: Quiz): string => s.serialize(data),
+};
 
 
 export interface Quotation {
@@ -652,6 +694,12 @@ export interface Quotation {
   url?: string | Array<string>;
 }
 
+export const Quotation = {
+  validate: (data: any): data is Quotation => s.validate(data, 'Quotation'),
+  deserialize: (json: string): Quotation => s.deserialize(json, 'Quotation'),
+  serialize: (data: Quotation): string => s.serialize(data),
+};
+
 
 export interface QuoteAction {
   '@context'?: any;
@@ -687,3 +735,9 @@ export interface QuoteAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const QuoteAction = {
+  validate: (data: any): data is QuoteAction => s.validate(data, 'QuoteAction'),
+  deserialize: (json: string): QuoteAction => s.deserialize(json, 'QuoteAction'),
+  serialize: (data: QuoteAction): string => s.serialize(data),
+};

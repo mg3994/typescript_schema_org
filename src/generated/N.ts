@@ -95,6 +95,12 @@ export interface NGO {
   url?: string | Array<string>;
 }
 
+export const NGO = {
+  validate: (data: any): data is NGO => s.validate(data, 'NGO'),
+  deserialize: (json: string): NGO => s.deserialize(json, 'NGO'),
+  serialize: (data: NGO): string => s.serialize(data),
+};
+
 
 export interface NLNonprofitType {
   '@context'?: any;
@@ -115,6 +121,12 @@ export interface NLNonprofitType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const NLNonprofitType = {
+  validate: (data: any): data is NLNonprofitType => s.validate(data, 'NLNonprofitType'),
+  deserialize: (json: string): NLNonprofitType => s.deserialize(json, 'NLNonprofitType'),
+  serialize: (data: NLNonprofitType): string => s.serialize(data),
+};
 
 
 export interface NailSalon {
@@ -250,6 +262,12 @@ export interface NailSalon {
   tourBookingPage?: string | Array<string>;
 }
 
+export const NailSalon = {
+  validate: (data: any): data is NailSalon => s.validate(data, 'NailSalon'),
+  deserialize: (json: string): NailSalon => s.deserialize(json, 'NailSalon'),
+  serialize: (data: NailSalon): string => s.serialize(data),
+};
+
 
 export interface Nerve {
   '@context'?: any;
@@ -289,6 +307,12 @@ export interface Nerve {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Nerve = {
+  validate: (data: any): data is Nerve => s.validate(data, 'Nerve'),
+  deserialize: (json: string): Nerve => s.deserialize(json, 'Nerve'),
+  serialize: (data: Nerve): string => s.serialize(data),
+};
 
 
 export interface NewsArticle {
@@ -438,6 +462,12 @@ export interface NewsArticle {
   url?: string | Array<string>;
 }
 
+export const NewsArticle = {
+  validate: (data: any): data is NewsArticle => s.validate(data, 'NewsArticle'),
+  deserialize: (json: string): NewsArticle => s.deserialize(json, 'NewsArticle'),
+  serialize: (data: NewsArticle): string => s.serialize(data),
+};
+
 
 export interface NewsMediaOrganization {
   '@context'?: any;
@@ -537,6 +567,12 @@ export interface NewsMediaOrganization {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const NewsMediaOrganization = {
+  validate: (data: any): data is NewsMediaOrganization => s.validate(data, 'NewsMediaOrganization'),
+  deserialize: (json: string): NewsMediaOrganization => s.deserialize(json, 'NewsMediaOrganization'),
+  serialize: (data: NewsMediaOrganization): string => s.serialize(data),
+};
 
 
 export interface Newspaper {
@@ -677,6 +713,12 @@ export interface Newspaper {
   url?: string | Array<string>;
 }
 
+export const Newspaper = {
+  validate: (data: any): data is Newspaper => s.validate(data, 'Newspaper'),
+  deserialize: (json: string): Newspaper => s.deserialize(json, 'Newspaper'),
+  serialize: (data: Newspaper): string => s.serialize(data),
+};
+
 
 export interface NightClub {
   '@context'?: any;
@@ -811,6 +853,12 @@ export interface NightClub {
   tourBookingPage?: string | Array<string>;
 }
 
+export const NightClub = {
+  validate: (data: any): data is NightClub => s.validate(data, 'NightClub'),
+  deserialize: (json: string): NightClub => s.deserialize(json, 'NightClub'),
+  serialize: (data: NightClub): string => s.serialize(data),
+};
+
 
 export interface NonprofitType {
   '@context'?: any;
@@ -831,6 +879,12 @@ export interface NonprofitType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const NonprofitType = {
+  validate: (data: any): data is NonprofitType => s.validate(data, 'NonprofitType'),
+  deserialize: (json: string): NonprofitType => s.deserialize(json, 'NonprofitType'),
+  serialize: (data: NonprofitType): string => s.serialize(data),
+};
 
 
 export interface Notary {
@@ -965,6 +1019,12 @@ export interface Notary {
   specialOpeningHoursSpecification?: s.OpeningHoursSpecification | Array<s.OpeningHoursSpecification>;
   tourBookingPage?: string | Array<string>;
 }
+
+export const Notary = {
+  validate: (data: any): data is Notary => s.validate(data, 'Notary'),
+  deserialize: (json: string): Notary => s.deserialize(json, 'Notary'),
+  serialize: (data: Notary): string => s.serialize(data),
+};
 
 
 export interface NoteDigitalDocument {
@@ -1103,12 +1163,24 @@ export interface NoteDigitalDocument {
   url?: string | Array<string>;
 }
 
+export const NoteDigitalDocument = {
+  validate: (data: any): data is NoteDigitalDocument => s.validate(data, 'NoteDigitalDocument'),
+  deserialize: (json: string): NoteDigitalDocument => s.deserialize(json, 'NoteDigitalDocument'),
+  serialize: (data: NoteDigitalDocument): string => s.serialize(data),
+};
+
 
 export interface Number {
   '@context'?: any;
   '@type'?: 'Number' | 'Float' | 'Integer' | Array<'Number' | 'Float' | 'Integer'>;
   '@id'?: string;
 }
+
+export const Number = {
+  validate: (data: any): data is Number => s.validate(data, 'Number'),
+  deserialize: (json: string): Number => s.deserialize(json, 'Number'),
+  serialize: (data: Number): string => s.serialize(data),
+};
 
 
 export interface NutritionInformation {
@@ -1141,3 +1213,9 @@ export interface NutritionInformation {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const NutritionInformation = {
+  validate: (data: any): data is NutritionInformation => s.validate(data, 'NutritionInformation'),
+  deserialize: (json: string): NutritionInformation => s.deserialize(json, 'NutritionInformation'),
+  serialize: (data: NutritionInformation): string => s.serialize(data),
+};

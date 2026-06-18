@@ -25,3 +25,5 @@ export * from './X';
 export * from './Z';
 export * from './shared';
 export * from './typeHierarchy';
+export * from './propertyMetadata';
+export * from '../utils';

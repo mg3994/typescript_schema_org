@@ -6,12 +6,24 @@ export interface fibo_be_corp_corp_Corporation {
   '@id'?: string;
 }
 
+export const fibo_be_corp_corp_Corporation = {
+  validate: (data: any): data is fibo_be_corp_corp_Corporation => s.validate(data, 'fibo-be-corp-corp:Corporation'),
+  deserialize: (json: string): fibo_be_corp_corp_Corporation => s.deserialize(json, 'fibo-be-corp-corp:Corporation'),
+  serialize: (data: fibo_be_corp_corp_Corporation): string => s.serialize(data),
+};
+
 
 export interface fibo_be_le_cb_CooperativeSociety {
   '@context'?: any;
   '@type'?: 'fibo-be-le-cb:CooperativeSociety' | Array<'fibo-be-le-cb:CooperativeSociety'>;
   '@id'?: string;
 }
+
+export const fibo_be_le_cb_CooperativeSociety = {
+  validate: (data: any): data is fibo_be_le_cb_CooperativeSociety => s.validate(data, 'fibo-be-le-cb:CooperativeSociety'),
+  deserialize: (json: string): fibo_be_le_cb_CooperativeSociety => s.deserialize(json, 'fibo-be-le-cb:CooperativeSociety'),
+  serialize: (data: fibo_be_le_cb_CooperativeSociety): string => s.serialize(data),
+};
 
 
 export interface fibo_be_nfp_nfp_NonGovernmentalOrganization {
@@ -20,12 +32,24 @@ export interface fibo_be_nfp_nfp_NonGovernmentalOrganization {
   '@id'?: string;
 }
 
+export const fibo_be_nfp_nfp_NonGovernmentalOrganization = {
+  validate: (data: any): data is fibo_be_nfp_nfp_NonGovernmentalOrganization => s.validate(data, 'fibo-be-nfp-nfp:NonGovernmentalOrganization'),
+  deserialize: (json: string): fibo_be_nfp_nfp_NonGovernmentalOrganization => s.deserialize(json, 'fibo-be-nfp-nfp:NonGovernmentalOrganization'),
+  serialize: (data: fibo_be_nfp_nfp_NonGovernmentalOrganization): string => s.serialize(data),
+};
+
 
 export interface fibo_fbc_pas_fpas_BankAccount {
   '@context'?: any;
   '@type'?: 'fibo-fbc-pas-fpas:BankAccount' | Array<'fibo-fbc-pas-fpas:BankAccount'>;
   '@id'?: string;
 }
+
+export const fibo_fbc_pas_fpas_BankAccount = {
+  validate: (data: any): data is fibo_fbc_pas_fpas_BankAccount => s.validate(data, 'fibo-fbc-pas-fpas:BankAccount'),
+  deserialize: (json: string): fibo_fbc_pas_fpas_BankAccount => s.deserialize(json, 'fibo-fbc-pas-fpas:BankAccount'),
+  serialize: (data: fibo_fbc_pas_fpas_BankAccount): string => s.serialize(data),
+};
 
 
 export interface fibo_fbc_pas_fpas_PaymentMechanism {
@@ -34,12 +58,24 @@ export interface fibo_fbc_pas_fpas_PaymentMechanism {
   '@id'?: string;
 }
 
+export const fibo_fbc_pas_fpas_PaymentMechanism = {
+  validate: (data: any): data is fibo_fbc_pas_fpas_PaymentMechanism => s.validate(data, 'fibo-fbc-pas-fpas:PaymentMechanism'),
+  deserialize: (json: string): fibo_fbc_pas_fpas_PaymentMechanism => s.deserialize(json, 'fibo-fbc-pas-fpas:PaymentMechanism'),
+  serialize: (data: fibo_fbc_pas_fpas_PaymentMechanism): string => s.serialize(data),
+};
+
 
 export interface fibo_fnd_agr_ctr_MutualContractualAgreement {
   '@context'?: any;
   '@type'?: 'fibo-fnd-agr-ctr:MutualContractualAgreement' | 'WarrantyPromise' | Array<'fibo-fnd-agr-ctr:MutualContractualAgreement' | 'WarrantyPromise'>;
   '@id'?: string;
 }
+
+export const fibo_fnd_agr_ctr_MutualContractualAgreement = {
+  validate: (data: any): data is fibo_fnd_agr_ctr_MutualContractualAgreement => s.validate(data, 'fibo-fnd-agr-ctr:MutualContractualAgreement'),
+  deserialize: (json: string): fibo_fnd_agr_ctr_MutualContractualAgreement => s.deserialize(json, 'fibo-fnd-agr-ctr:MutualContractualAgreement'),
+  serialize: (data: fibo_fnd_agr_ctr_MutualContractualAgreement): string => s.serialize(data),
+};
 
 
 export interface fibo_fnd_arr_doc_Certificate {
@@ -48,12 +84,24 @@ export interface fibo_fnd_arr_doc_Certificate {
   '@id'?: string;
 }
 
+export const fibo_fnd_arr_doc_Certificate = {
+  validate: (data: any): data is fibo_fnd_arr_doc_Certificate => s.validate(data, 'fibo-fnd-arr-doc:Certificate'),
+  deserialize: (json: string): fibo_fnd_arr_doc_Certificate => s.deserialize(json, 'fibo-fnd-arr-doc:Certificate'),
+  serialize: (data: fibo_fnd_arr_doc_Certificate): string => s.serialize(data),
+};
+
 
 export interface fibo_fnd_arr_doc_Document {
   '@context'?: any;
   '@type'?: 'fibo-fnd-arr-doc:Document' | 'DigitalDocument' | 'NoteDigitalDocument' | 'PresentationDigitalDocument' | 'SpreadsheetDigitalDocument' | 'TextDigitalDocument' | Array<'fibo-fnd-arr-doc:Document' | 'DigitalDocument' | 'NoteDigitalDocument' | 'PresentationDigitalDocument' | 'SpreadsheetDigitalDocument' | 'TextDigitalDocument'>;
   '@id'?: string;
 }
+
+export const fibo_fnd_arr_doc_Document = {
+  validate: (data: any): data is fibo_fnd_arr_doc_Document => s.validate(data, 'fibo-fnd-arr-doc:Document'),
+  deserialize: (json: string): fibo_fnd_arr_doc_Document => s.deserialize(json, 'fibo-fnd-arr-doc:Document'),
+  serialize: (data: fibo_fnd_arr_doc_Document): string => s.serialize(data),
+};
 
 
 export interface fibo_fnd_arr_doc_LegalDocument {
@@ -62,12 +110,24 @@ export interface fibo_fnd_arr_doc_LegalDocument {
   '@id'?: string;
 }
 
+export const fibo_fnd_arr_doc_LegalDocument = {
+  validate: (data: any): data is fibo_fnd_arr_doc_LegalDocument => s.validate(data, 'fibo-fnd-arr-doc:LegalDocument'),
+  deserialize: (json: string): fibo_fnd_arr_doc_LegalDocument => s.deserialize(json, 'fibo-fnd-arr-doc:LegalDocument'),
+  serialize: (data: fibo_fnd_arr_doc_LegalDocument): string => s.serialize(data),
+};
+
 
 export interface fibo_fnd_dt_oc_Occurrence {
   '@context'?: any;
   '@type'?: 'fibo-fnd-dt-oc:Occurrence' | Array<'fibo-fnd-dt-oc:Occurrence'>;
   '@id'?: string;
 }
+
+export const fibo_fnd_dt_oc_Occurrence = {
+  validate: (data: any): data is fibo_fnd_dt_oc_Occurrence => s.validate(data, 'fibo-fnd-dt-oc:Occurrence'),
+  deserialize: (json: string): fibo_fnd_dt_oc_Occurrence => s.deserialize(json, 'fibo-fnd-dt-oc:Occurrence'),
+  serialize: (data: fibo_fnd_dt_oc_Occurrence): string => s.serialize(data),
+};
 
 
 export interface fibo_fnd_org_org_ContactPoint {
@@ -76,12 +136,24 @@ export interface fibo_fnd_org_org_ContactPoint {
   '@id'?: string;
 }
 
+export const fibo_fnd_org_org_ContactPoint = {
+  validate: (data: any): data is fibo_fnd_org_org_ContactPoint => s.validate(data, 'fibo-fnd-org-org:ContactPoint'),
+  deserialize: (json: string): fibo_fnd_org_org_ContactPoint => s.deserialize(json, 'fibo-fnd-org-org:ContactPoint'),
+  serialize: (data: fibo_fnd_org_org_ContactPoint): string => s.serialize(data),
+};
+
 
 export interface fibo_fnd_org_org_Organization {
   '@context'?: any;
   '@type'?: 'fibo-fnd-org-org:Organization' | Array<'fibo-fnd-org-org:Organization'>;
   '@id'?: string;
 }
+
+export const fibo_fnd_org_org_Organization = {
+  validate: (data: any): data is fibo_fnd_org_org_Organization => s.validate(data, 'fibo-fnd-org-org:Organization'),
+  deserialize: (json: string): fibo_fnd_org_org_Organization => s.deserialize(json, 'fibo-fnd-org-org:Organization'),
+  serialize: (data: fibo_fnd_org_org_Organization): string => s.serialize(data),
+};
 
 
 export interface fibo_fnd_pas_pas_Offer {
@@ -90,12 +162,24 @@ export interface fibo_fnd_pas_pas_Offer {
   '@id'?: string;
 }
 
+export const fibo_fnd_pas_pas_Offer = {
+  validate: (data: any): data is fibo_fnd_pas_pas_Offer => s.validate(data, 'fibo-fnd-pas-pas:Offer'),
+  deserialize: (json: string): fibo_fnd_pas_pas_Offer => s.deserialize(json, 'fibo-fnd-pas-pas:Offer'),
+  serialize: (data: fibo_fnd_pas_pas_Offer): string => s.serialize(data),
+};
+
 
 export interface fibo_fnd_pas_pas_Price {
   '@context'?: any;
   '@type'?: 'fibo-fnd-pas-pas:Price' | Array<'fibo-fnd-pas-pas:Price'>;
   '@id'?: string;
 }
+
+export const fibo_fnd_pas_pas_Price = {
+  validate: (data: any): data is fibo_fnd_pas_pas_Price => s.validate(data, 'fibo-fnd-pas-pas:Price'),
+  deserialize: (json: string): fibo_fnd_pas_pas_Price => s.deserialize(json, 'fibo-fnd-pas-pas:Price'),
+  serialize: (data: fibo_fnd_pas_pas_Price): string => s.serialize(data),
+};
 
 
 export interface fibo_fnd_pas_pas_Product {
@@ -104,12 +188,24 @@ export interface fibo_fnd_pas_pas_Product {
   '@id'?: string;
 }
 
+export const fibo_fnd_pas_pas_Product = {
+  validate: (data: any): data is fibo_fnd_pas_pas_Product => s.validate(data, 'fibo-fnd-pas-pas:Product'),
+  deserialize: (json: string): fibo_fnd_pas_pas_Product => s.deserialize(json, 'fibo-fnd-pas-pas:Product'),
+  serialize: (data: fibo_fnd_pas_pas_Product): string => s.serialize(data),
+};
+
 
 export interface fibo_fnd_plc_adr_PostalAddress {
   '@context'?: any;
   '@type'?: 'fibo-fnd-plc-adr:PostalAddress' | Array<'fibo-fnd-plc-adr:PostalAddress'>;
   '@id'?: string;
 }
+
+export const fibo_fnd_plc_adr_PostalAddress = {
+  validate: (data: any): data is fibo_fnd_plc_adr_PostalAddress => s.validate(data, 'fibo-fnd-plc-adr:PostalAddress'),
+  deserialize: (json: string): fibo_fnd_plc_adr_PostalAddress => s.deserialize(json, 'fibo-fnd-plc-adr:PostalAddress'),
+  serialize: (data: fibo_fnd_plc_adr_PostalAddress): string => s.serialize(data),
+};
 
 
 export interface fibo_fnd_plc_loc_Municipality {
@@ -118,6 +214,12 @@ export interface fibo_fnd_plc_loc_Municipality {
   '@id'?: string;
 }
 
+export const fibo_fnd_plc_loc_Municipality = {
+  validate: (data: any): data is fibo_fnd_plc_loc_Municipality => s.validate(data, 'fibo-fnd-plc-loc:Municipality'),
+  deserialize: (json: string): fibo_fnd_plc_loc_Municipality => s.deserialize(json, 'fibo-fnd-plc-loc:Municipality'),
+  serialize: (data: fibo_fnd_plc_loc_Municipality): string => s.serialize(data),
+};
+
 
 export interface fibo_pay_ps_ps_PaymentService {
   '@context'?: any;
@@ -125,12 +227,24 @@ export interface fibo_pay_ps_ps_PaymentService {
   '@id'?: string;
 }
 
+export const fibo_pay_ps_ps_PaymentService = {
+  validate: (data: any): data is fibo_pay_ps_ps_PaymentService => s.validate(data, 'fibo-pay-ps-ps:PaymentService'),
+  deserialize: (json: string): fibo_pay_ps_ps_PaymentService => s.deserialize(json, 'fibo-pay-ps-ps:PaymentService'),
+  serialize: (data: fibo_pay_ps_ps_PaymentService): string => s.serialize(data),
+};
+
 
 export interface foaf_Person {
   '@context'?: any;
   '@type'?: 'foaf:Person' | Array<'foaf:Person'>;
   '@id'?: string;
 }
+
+export const foaf_Person = {
+  validate: (data: any): data is foaf_Person => s.validate(data, 'foaf:Person'),
+  deserialize: (json: string): foaf_Person => s.deserialize(json, 'foaf:Person'),
+  serialize: (data: foaf_Person): string => s.serialize(data),
+};
 
 
 export interface FAQPage {
@@ -278,6 +392,12 @@ export interface FAQPage {
   url?: string | Array<string>;
 }
 
+export const FAQPage = {
+  validate: (data: any): data is FAQPage => s.validate(data, 'FAQPage'),
+  deserialize: (json: string): FAQPage => s.deserialize(json, 'FAQPage'),
+  serialize: (data: FAQPage): string => s.serialize(data),
+};
+
 
 export interface FMRadioChannel {
   '@context'?: any;
@@ -303,6 +423,12 @@ export interface FMRadioChannel {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FMRadioChannel = {
+  validate: (data: any): data is FMRadioChannel => s.validate(data, 'FMRadioChannel'),
+  deserialize: (json: string): FMRadioChannel => s.deserialize(json, 'FMRadioChannel'),
+  serialize: (data: FMRadioChannel): string => s.serialize(data),
+};
 
 
 export interface FastFoodRestaurant {
@@ -443,6 +569,12 @@ export interface FastFoodRestaurant {
   tourBookingPage?: string | Array<string>;
 }
 
+export const FastFoodRestaurant = {
+  validate: (data: any): data is FastFoodRestaurant => s.validate(data, 'FastFoodRestaurant'),
+  deserialize: (json: string): FastFoodRestaurant => s.deserialize(json, 'FastFoodRestaurant'),
+  serialize: (data: FastFoodRestaurant): string => s.serialize(data),
+};
+
 
 export interface Festival {
   '@context'?: any;
@@ -506,6 +638,12 @@ export interface Festival {
   url?: string | Array<string>;
 }
 
+export const Festival = {
+  validate: (data: any): data is Festival => s.validate(data, 'Festival'),
+  deserialize: (json: string): Festival => s.deserialize(json, 'Festival'),
+  serialize: (data: Festival): string => s.serialize(data),
+};
+
 
 export interface FilmAction {
   '@context'?: any;
@@ -538,6 +676,12 @@ export interface FilmAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FilmAction = {
+  validate: (data: any): data is FilmAction => s.validate(data, 'FilmAction'),
+  deserialize: (json: string): FilmAction => s.deserialize(json, 'FilmAction'),
+  serialize: (data: FilmAction): string => s.serialize(data),
+};
 
 
 export interface FinancialIncentive {
@@ -572,6 +716,12 @@ export interface FinancialIncentive {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FinancialIncentive = {
+  validate: (data: any): data is FinancialIncentive => s.validate(data, 'FinancialIncentive'),
+  deserialize: (json: string): FinancialIncentive => s.deserialize(json, 'FinancialIncentive'),
+  serialize: (data: FinancialIncentive): string => s.serialize(data),
+};
 
 
 export interface FinancialProduct {
@@ -620,6 +770,12 @@ export interface FinancialProduct {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FinancialProduct = {
+  validate: (data: any): data is FinancialProduct => s.validate(data, 'FinancialProduct'),
+  deserialize: (json: string): FinancialProduct => s.deserialize(json, 'FinancialProduct'),
+  serialize: (data: FinancialProduct): string => s.serialize(data),
+};
 
 
 export interface FinancialService {
@@ -756,6 +912,12 @@ export interface FinancialService {
   tourBookingPage?: string | Array<string>;
 }
 
+export const FinancialService = {
+  validate: (data: any): data is FinancialService => s.validate(data, 'FinancialService'),
+  deserialize: (json: string): FinancialService => s.deserialize(json, 'FinancialService'),
+  serialize: (data: FinancialService): string => s.serialize(data),
+};
+
 
 export interface FindAction {
   '@context'?: any;
@@ -788,6 +950,12 @@ export interface FindAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FindAction = {
+  validate: (data: any): data is FindAction => s.validate(data, 'FindAction'),
+  deserialize: (json: string): FindAction => s.deserialize(json, 'FindAction'),
+  serialize: (data: FindAction): string => s.serialize(data),
+};
 
 
 export interface FireStation {
@@ -923,6 +1091,12 @@ export interface FireStation {
   vatID?: string | Array<string>;
 }
 
+export const FireStation = {
+  validate: (data: any): data is FireStation => s.validate(data, 'FireStation'),
+  deserialize: (json: string): FireStation => s.deserialize(json, 'FireStation'),
+  serialize: (data: FireStation): string => s.serialize(data),
+};
+
 
 export interface Flight {
   '@context'?: any;
@@ -966,6 +1140,12 @@ export interface Flight {
   url?: string | Array<string>;
 }
 
+export const Flight = {
+  validate: (data: any): data is Flight => s.validate(data, 'Flight'),
+  deserialize: (json: string): Flight => s.deserialize(json, 'Flight'),
+  serialize: (data: Flight): string => s.serialize(data),
+};
+
 
 export interface FlightReservation {
   '@context'?: any;
@@ -1003,12 +1183,24 @@ export interface FlightReservation {
   url?: string | Array<string>;
 }
 
+export const FlightReservation = {
+  validate: (data: any): data is FlightReservation => s.validate(data, 'FlightReservation'),
+  deserialize: (json: string): FlightReservation => s.deserialize(json, 'FlightReservation'),
+  serialize: (data: FlightReservation): string => s.serialize(data),
+};
+
 
 export interface Float {
   '@context'?: any;
   '@type'?: 'Float' | Array<'Float'>;
   '@id'?: string;
 }
+
+export const Float = {
+  validate: (data: any): data is Float => s.validate(data, 'Float'),
+  deserialize: (json: string): Float => s.deserialize(json, 'Float'),
+  serialize: (data: Float): string => s.serialize(data),
+};
 
 
 export interface FloorPlan {
@@ -1041,6 +1233,12 @@ export interface FloorPlan {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FloorPlan = {
+  validate: (data: any): data is FloorPlan => s.validate(data, 'FloorPlan'),
+  deserialize: (json: string): FloorPlan => s.deserialize(json, 'FloorPlan'),
+  serialize: (data: FloorPlan): string => s.serialize(data),
+};
 
 
 export interface Florist {
@@ -1176,6 +1374,12 @@ export interface Florist {
   tourBookingPage?: string | Array<string>;
 }
 
+export const Florist = {
+  validate: (data: any): data is Florist => s.validate(data, 'Florist'),
+  deserialize: (json: string): Florist => s.deserialize(json, 'Florist'),
+  serialize: (data: Florist): string => s.serialize(data),
+};
+
 
 export interface FollowAction {
   '@context'?: any;
@@ -1209,6 +1413,12 @@ export interface FollowAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FollowAction = {
+  validate: (data: any): data is FollowAction => s.validate(data, 'FollowAction'),
+  deserialize: (json: string): FollowAction => s.deserialize(json, 'FollowAction'),
+  serialize: (data: FollowAction): string => s.serialize(data),
+};
 
 
 export interface FoodEstablishment {
@@ -1349,6 +1559,12 @@ export interface FoodEstablishment {
   tourBookingPage?: string | Array<string>;
 }
 
+export const FoodEstablishment = {
+  validate: (data: any): data is FoodEstablishment => s.validate(data, 'FoodEstablishment'),
+  deserialize: (json: string): FoodEstablishment => s.deserialize(json, 'FoodEstablishment'),
+  serialize: (data: FoodEstablishment): string => s.serialize(data),
+};
+
 
 export interface FoodEstablishmentReservation {
   '@context'?: any;
@@ -1384,6 +1600,12 @@ export interface FoodEstablishmentReservation {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FoodEstablishmentReservation = {
+  validate: (data: any): data is FoodEstablishmentReservation => s.validate(data, 'FoodEstablishmentReservation'),
+  deserialize: (json: string): FoodEstablishmentReservation => s.deserialize(json, 'FoodEstablishmentReservation'),
+  serialize: (data: FoodEstablishmentReservation): string => s.serialize(data),
+};
 
 
 export interface FoodEvent {
@@ -1448,6 +1670,12 @@ export interface FoodEvent {
   url?: string | Array<string>;
 }
 
+export const FoodEvent = {
+  validate: (data: any): data is FoodEvent => s.validate(data, 'FoodEvent'),
+  deserialize: (json: string): FoodEvent => s.deserialize(json, 'FoodEvent'),
+  serialize: (data: FoodEvent): string => s.serialize(data),
+};
+
 
 export interface FoodService {
   '@context'?: any;
@@ -1493,6 +1721,12 @@ export interface FoodService {
   url?: string | Array<string>;
 }
 
+export const FoodService = {
+  validate: (data: any): data is FoodService => s.validate(data, 'FoodService'),
+  deserialize: (json: string): FoodService => s.deserialize(json, 'FoodService'),
+  serialize: (data: FoodService): string => s.serialize(data),
+};
+
 
 export interface FulfillmentTypeEnumeration {
   '@context'?: any;
@@ -1513,6 +1747,12 @@ export interface FulfillmentTypeEnumeration {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FulfillmentTypeEnumeration = {
+  validate: (data: any): data is FulfillmentTypeEnumeration => s.validate(data, 'FulfillmentTypeEnumeration'),
+  deserialize: (json: string): FulfillmentTypeEnumeration => s.deserialize(json, 'FulfillmentTypeEnumeration'),
+  serialize: (data: FulfillmentTypeEnumeration): string => s.serialize(data),
+};
 
 
 export interface FundingAgency {
@@ -1610,6 +1850,12 @@ export interface FundingAgency {
   url?: string | Array<string>;
 }
 
+export const FundingAgency = {
+  validate: (data: any): data is FundingAgency => s.validate(data, 'FundingAgency'),
+  deserialize: (json: string): FundingAgency => s.deserialize(json, 'FundingAgency'),
+  serialize: (data: FundingAgency): string => s.serialize(data),
+};
+
 
 export interface FundingScheme {
   '@context'?: any;
@@ -1705,6 +1951,12 @@ export interface FundingScheme {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const FundingScheme = {
+  validate: (data: any): data is FundingScheme => s.validate(data, 'FundingScheme'),
+  deserialize: (json: string): FundingScheme => s.deserialize(json, 'FundingScheme'),
+  serialize: (data: FundingScheme): string => s.serialize(data),
+};
 
 
 export interface FurnitureStore {
@@ -1839,3 +2091,9 @@ export interface FurnitureStore {
   specialOpeningHoursSpecification?: s.OpeningHoursSpecification | Array<s.OpeningHoursSpecification>;
   tourBookingPage?: string | Array<string>;
 }
+
+export const FurnitureStore = {
+  validate: (data: any): data is FurnitureStore => s.validate(data, 'FurnitureStore'),
+  deserialize: (json: string): FurnitureStore => s.deserialize(json, 'FurnitureStore'),
+  serialize: (data: FurnitureStore): string => s.serialize(data),
+};

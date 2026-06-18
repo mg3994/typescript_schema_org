@@ -20,12 +20,24 @@ export interface UKNonprofitType {
   url?: string | Array<string>;
 }
 
+export const UKNonprofitType = {
+  validate: (data: any): data is UKNonprofitType => s.validate(data, 'UKNonprofitType'),
+  deserialize: (json: string): UKNonprofitType => s.deserialize(json, 'UKNonprofitType'),
+  serialize: (data: UKNonprofitType): string => s.serialize(data),
+};
+
 
 export interface URL {
   '@context'?: any;
   '@type'?: 'URL' | Array<'URL'>;
   '@id'?: string;
 }
+
+export const URL = {
+  validate: (data: any): data is URL => s.validate(data, 'URL'),
+  deserialize: (json: string): URL => s.deserialize(json, 'URL'),
+  serialize: (data: URL): string => s.serialize(data),
+};
 
 
 export interface USNonprofitType {
@@ -47,6 +59,12 @@ export interface USNonprofitType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const USNonprofitType = {
+  validate: (data: any): data is USNonprofitType => s.validate(data, 'USNonprofitType'),
+  deserialize: (json: string): USNonprofitType => s.deserialize(json, 'USNonprofitType'),
+  serialize: (data: USNonprofitType): string => s.serialize(data),
+};
 
 
 export interface UnRegisterAction {
@@ -80,6 +98,12 @@ export interface UnRegisterAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const UnRegisterAction = {
+  validate: (data: any): data is UnRegisterAction => s.validate(data, 'UnRegisterAction'),
+  deserialize: (json: string): UnRegisterAction => s.deserialize(json, 'UnRegisterAction'),
+  serialize: (data: UnRegisterAction): string => s.serialize(data),
+};
 
 
 export interface UnitPriceSpecification {
@@ -120,6 +144,12 @@ export interface UnitPriceSpecification {
   url?: string | Array<string>;
 }
 
+export const UnitPriceSpecification = {
+  validate: (data: any): data is UnitPriceSpecification => s.validate(data, 'UnitPriceSpecification'),
+  deserialize: (json: string): UnitPriceSpecification => s.deserialize(json, 'UnitPriceSpecification'),
+  serialize: (data: UnitPriceSpecification): string => s.serialize(data),
+};
+
 
 export interface UpdateAction {
   '@context'?: any;
@@ -155,6 +185,12 @@ export interface UpdateAction {
   url?: string | Array<string>;
 }
 
+export const UpdateAction = {
+  validate: (data: any): data is UpdateAction => s.validate(data, 'UpdateAction'),
+  deserialize: (json: string): UpdateAction => s.deserialize(json, 'UpdateAction'),
+  serialize: (data: UpdateAction): string => s.serialize(data),
+};
+
 
 export interface UseAction {
   '@context'?: any;
@@ -189,6 +225,12 @@ export interface UseAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const UseAction = {
+  validate: (data: any): data is UseAction => s.validate(data, 'UseAction'),
+  deserialize: (json: string): UseAction => s.deserialize(json, 'UseAction'),
+  serialize: (data: UseAction): string => s.serialize(data),
+};
 
 
 export interface UserBlocks {
@@ -253,6 +295,12 @@ export interface UserBlocks {
   url?: string | Array<string>;
 }
 
+export const UserBlocks = {
+  validate: (data: any): data is UserBlocks => s.validate(data, 'UserBlocks'),
+  deserialize: (json: string): UserBlocks => s.deserialize(json, 'UserBlocks'),
+  serialize: (data: UserBlocks): string => s.serialize(data),
+};
+
 
 export interface UserCheckins {
   '@context'?: any;
@@ -315,6 +363,12 @@ export interface UserCheckins {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const UserCheckins = {
+  validate: (data: any): data is UserCheckins => s.validate(data, 'UserCheckins'),
+  deserialize: (json: string): UserCheckins => s.deserialize(json, 'UserCheckins'),
+  serialize: (data: UserCheckins): string => s.serialize(data),
+};
 
 
 export interface UserComments {
@@ -384,6 +438,12 @@ export interface UserComments {
   url?: string | Array<string>;
 }
 
+export const UserComments = {
+  validate: (data: any): data is UserComments => s.validate(data, 'UserComments'),
+  deserialize: (json: string): UserComments => s.deserialize(json, 'UserComments'),
+  serialize: (data: UserComments): string => s.serialize(data),
+};
+
 
 export interface UserDownloads {
   '@context'?: any;
@@ -446,6 +506,12 @@ export interface UserDownloads {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const UserDownloads = {
+  validate: (data: any): data is UserDownloads => s.validate(data, 'UserDownloads'),
+  deserialize: (json: string): UserDownloads => s.deserialize(json, 'UserDownloads'),
+  serialize: (data: UserDownloads): string => s.serialize(data),
+};
 
 
 export interface UserInteraction {
@@ -510,6 +576,12 @@ export interface UserInteraction {
   url?: string | Array<string>;
 }
 
+export const UserInteraction = {
+  validate: (data: any): data is UserInteraction => s.validate(data, 'UserInteraction'),
+  deserialize: (json: string): UserInteraction => s.deserialize(json, 'UserInteraction'),
+  serialize: (data: UserInteraction): string => s.serialize(data),
+};
+
 
 export interface UserLikes {
   '@context'?: any;
@@ -572,6 +644,12 @@ export interface UserLikes {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const UserLikes = {
+  validate: (data: any): data is UserLikes => s.validate(data, 'UserLikes'),
+  deserialize: (json: string): UserLikes => s.deserialize(json, 'UserLikes'),
+  serialize: (data: UserLikes): string => s.serialize(data),
+};
 
 
 export interface UserPageVisits {
@@ -636,6 +714,12 @@ export interface UserPageVisits {
   url?: string | Array<string>;
 }
 
+export const UserPageVisits = {
+  validate: (data: any): data is UserPageVisits => s.validate(data, 'UserPageVisits'),
+  deserialize: (json: string): UserPageVisits => s.deserialize(json, 'UserPageVisits'),
+  serialize: (data: UserPageVisits): string => s.serialize(data),
+};
+
 
 export interface UserPlays {
   '@context'?: any;
@@ -699,6 +783,12 @@ export interface UserPlays {
   url?: string | Array<string>;
 }
 
+export const UserPlays = {
+  validate: (data: any): data is UserPlays => s.validate(data, 'UserPlays'),
+  deserialize: (json: string): UserPlays => s.deserialize(json, 'UserPlays'),
+  serialize: (data: UserPlays): string => s.serialize(data),
+};
+
 
 export interface UserPlusOnes {
   '@context'?: any;
@@ -761,6 +851,12 @@ export interface UserPlusOnes {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const UserPlusOnes = {
+  validate: (data: any): data is UserPlusOnes => s.validate(data, 'UserPlusOnes'),
+  deserialize: (json: string): UserPlusOnes => s.deserialize(json, 'UserPlusOnes'),
+  serialize: (data: UserPlusOnes): string => s.serialize(data),
+};
 
 
 export interface UserReview {
@@ -907,6 +1003,12 @@ export interface UserReview {
   url?: string | Array<string>;
 }
 
+export const UserReview = {
+  validate: (data: any): data is UserReview => s.validate(data, 'UserReview'),
+  deserialize: (json: string): UserReview => s.deserialize(json, 'UserReview'),
+  serialize: (data: UserReview): string => s.serialize(data),
+};
+
 
 export interface UserTweets {
   '@context'?: any;
@@ -970,12 +1072,24 @@ export interface UserTweets {
   url?: string | Array<string>;
 }
 
+export const UserTweets = {
+  validate: (data: any): data is UserTweets => s.validate(data, 'UserTweets'),
+  deserialize: (json: string): UserTweets => s.deserialize(json, 'UserTweets'),
+  serialize: (data: UserTweets): string => s.serialize(data),
+};
+
 
 export interface unece_AmountType {
   '@context'?: any;
   '@type'?: 'unece:AmountType' | Array<'unece:AmountType'>;
   '@id'?: string;
 }
+
+export const unece_AmountType = {
+  validate: (data: any): data is unece_AmountType => s.validate(data, 'unece:AmountType'),
+  deserialize: (json: string): unece_AmountType => s.deserialize(json, 'unece:AmountType'),
+  serialize: (data: unece_AmountType): string => s.serialize(data),
+};
 
 
 export interface unece_BrandName {
@@ -984,12 +1098,24 @@ export interface unece_BrandName {
   '@id'?: string;
 }
 
+export const unece_BrandName = {
+  validate: (data: any): data is unece_BrandName => s.validate(data, 'unece:BrandName'),
+  deserialize: (json: string): unece_BrandName => s.deserialize(json, 'unece:BrandName'),
+  serialize: (data: unece_BrandName): string => s.serialize(data),
+};
+
 
 export interface unece_Country {
   '@context'?: any;
   '@type'?: 'unece:Country' | Array<'unece:Country'>;
   '@id'?: string;
 }
+
+export const unece_Country = {
+  validate: (data: any): data is unece_Country => s.validate(data, 'unece:Country'),
+  deserialize: (json: string): unece_Country => s.deserialize(json, 'unece:Country'),
+  serialize: (data: unece_Country): string => s.serialize(data),
+};
 
 
 export interface unece_ElectronicDocument {
@@ -998,12 +1124,24 @@ export interface unece_ElectronicDocument {
   '@id'?: string;
 }
 
+export const unece_ElectronicDocument = {
+  validate: (data: any): data is unece_ElectronicDocument => s.validate(data, 'unece:ElectronicDocument'),
+  deserialize: (json: string): unece_ElectronicDocument => s.deserialize(json, 'unece:ElectronicDocument'),
+  serialize: (data: unece_ElectronicDocument): string => s.serialize(data),
+};
+
 
 export interface unece_FinancialCard {
   '@context'?: any;
   '@type'?: 'unece:FinancialCard' | Array<'unece:FinancialCard'>;
   '@id'?: string;
 }
+
+export const unece_FinancialCard = {
+  validate: (data: any): data is unece_FinancialCard => s.validate(data, 'unece:FinancialCard'),
+  deserialize: (json: string): unece_FinancialCard => s.deserialize(json, 'unece:FinancialCard'),
+  serialize: (data: unece_FinancialCard): string => s.serialize(data),
+};
 
 
 export interface unece_GeographicalCoordinate {
@@ -1012,12 +1150,24 @@ export interface unece_GeographicalCoordinate {
   '@id'?: string;
 }
 
+export const unece_GeographicalCoordinate = {
+  validate: (data: any): data is unece_GeographicalCoordinate => s.validate(data, 'unece:GeographicalCoordinate'),
+  deserialize: (json: string): unece_GeographicalCoordinate => s.deserialize(json, 'unece:GeographicalCoordinate'),
+  serialize: (data: unece_GeographicalCoordinate): string => s.serialize(data),
+};
+
 
 export interface unece_Invoice {
   '@context'?: any;
   '@type'?: 'unece:Invoice' | Array<'unece:Invoice'>;
   '@id'?: string;
 }
+
+export const unece_Invoice = {
+  validate: (data: any): data is unece_Invoice => s.validate(data, 'unece:Invoice'),
+  deserialize: (json: string): unece_Invoice => s.deserialize(json, 'unece:Invoice'),
+  serialize: (data: unece_Invoice): string => s.serialize(data),
+};
 
 
 export interface unece_LineTradeAgreement {
@@ -1026,12 +1176,24 @@ export interface unece_LineTradeAgreement {
   '@id'?: string;
 }
 
+export const unece_LineTradeAgreement = {
+  validate: (data: any): data is unece_LineTradeAgreement => s.validate(data, 'unece:LineTradeAgreement'),
+  deserialize: (json: string): unece_LineTradeAgreement => s.deserialize(json, 'unece:LineTradeAgreement'),
+  serialize: (data: unece_LineTradeAgreement): string => s.serialize(data),
+};
+
 
 export interface unece_Offer {
   '@context'?: any;
   '@type'?: 'unece:Offer' | Array<'unece:Offer'>;
   '@id'?: string;
 }
+
+export const unece_Offer = {
+  validate: (data: any): data is unece_Offer => s.validate(data, 'unece:Offer'),
+  deserialize: (json: string): unece_Offer => s.deserialize(json, 'unece:Offer'),
+  serialize: (data: unece_Offer): string => s.serialize(data),
+};
 
 
 export interface unece_Order {
@@ -1040,12 +1202,24 @@ export interface unece_Order {
   '@id'?: string;
 }
 
+export const unece_Order = {
+  validate: (data: any): data is unece_Order => s.validate(data, 'unece:Order'),
+  deserialize: (json: string): unece_Order => s.deserialize(json, 'unece:Order'),
+  serialize: (data: unece_Order): string => s.serialize(data),
+};
+
 
 export interface unece_PaymentMeans {
   '@context'?: any;
   '@type'?: 'unece:PaymentMeans' | Array<'unece:PaymentMeans'>;
   '@id'?: string;
 }
+
+export const unece_PaymentMeans = {
+  validate: (data: any): data is unece_PaymentMeans => s.validate(data, 'unece:PaymentMeans'),
+  deserialize: (json: string): unece_PaymentMeans => s.deserialize(json, 'unece:PaymentMeans'),
+  serialize: (data: unece_PaymentMeans): string => s.serialize(data),
+};
 
 
 export interface unece_RequestForQuotation {
@@ -1054,12 +1228,24 @@ export interface unece_RequestForQuotation {
   '@id'?: string;
 }
 
+export const unece_RequestForQuotation = {
+  validate: (data: any): data is unece_RequestForQuotation => s.validate(data, 'unece:RequestForQuotation'),
+  deserialize: (json: string): unece_RequestForQuotation => s.deserialize(json, 'unece:RequestForQuotation'),
+  serialize: (data: unece_RequestForQuotation): string => s.serialize(data),
+};
+
 
 export interface unece_SpecifiedCertificate {
   '@context'?: any;
   '@type'?: 'unece:SpecifiedCertificate' | Array<'unece:SpecifiedCertificate'>;
   '@id'?: string;
 }
+
+export const unece_SpecifiedCertificate = {
+  validate: (data: any): data is unece_SpecifiedCertificate => s.validate(data, 'unece:SpecifiedCertificate'),
+  deserialize: (json: string): unece_SpecifiedCertificate => s.deserialize(json, 'unece:SpecifiedCertificate'),
+  serialize: (data: unece_SpecifiedCertificate): string => s.serialize(data),
+};
 
 
 export interface unece_SpecifiedTradeProduct {
@@ -1068,12 +1254,24 @@ export interface unece_SpecifiedTradeProduct {
   '@id'?: string;
 }
 
+export const unece_SpecifiedTradeProduct = {
+  validate: (data: any): data is unece_SpecifiedTradeProduct => s.validate(data, 'unece:SpecifiedTradeProduct'),
+  deserialize: (json: string): unece_SpecifiedTradeProduct => s.deserialize(json, 'unece:SpecifiedTradeProduct'),
+  serialize: (data: unece_SpecifiedTradeProduct): string => s.serialize(data),
+};
+
 
 export interface unece_TradeAddress {
   '@context'?: any;
   '@type'?: 'unece:TradeAddress' | Array<'unece:TradeAddress'>;
   '@id'?: string;
 }
+
+export const unece_TradeAddress = {
+  validate: (data: any): data is unece_TradeAddress => s.validate(data, 'unece:TradeAddress'),
+  deserialize: (json: string): unece_TradeAddress => s.deserialize(json, 'unece:TradeAddress'),
+  serialize: (data: unece_TradeAddress): string => s.serialize(data),
+};
 
 
 export interface unece_TradeProduct {
@@ -1082,9 +1280,21 @@ export interface unece_TradeProduct {
   '@id'?: string;
 }
 
+export const unece_TradeProduct = {
+  validate: (data: any): data is unece_TradeProduct => s.validate(data, 'unece:TradeProduct'),
+  deserialize: (json: string): unece_TradeProduct => s.deserialize(json, 'unece:TradeProduct'),
+  serialize: (data: unece_TradeProduct): string => s.serialize(data),
+};
+
 
 export interface unece_TransportMethod {
   '@context'?: any;
   '@type'?: 'unece:TransportMethod' | Array<'unece:TransportMethod'>;
   '@id'?: string;
 }
+
+export const unece_TransportMethod = {
+  validate: (data: any): data is unece_TransportMethod => s.validate(data, 'unece:TransportMethod'),
+  deserialize: (json: string): unece_TransportMethod => s.deserialize(json, 'unece:TransportMethod'),
+  serialize: (data: unece_TransportMethod): string => s.serialize(data),
+};

@@ -36,6 +36,12 @@ export interface Observation {
   valueReference?: s.DefinedTerm | s.Enumeration | s.MeasurementTypeEnumeration | s.PropertyValue | s.QualitativeValue | s.QuantitativeValue | s.StructuredValue | string | Array<s.DefinedTerm | s.Enumeration | s.MeasurementTypeEnumeration | s.PropertyValue | s.QualitativeValue | s.QuantitativeValue | s.StructuredValue | string>;
 }
 
+export const Observation = {
+  validate: (data: any): data is Observation => s.validate(data, 'Observation'),
+  deserialize: (json: string): Observation => s.deserialize(json, 'Observation'),
+  serialize: (data: Observation): string => s.serialize(data),
+};
+
 
 export interface Occupation {
   '@context'?: any;
@@ -64,6 +70,12 @@ export interface Occupation {
   url?: string | Array<string>;
 }
 
+export const Occupation = {
+  validate: (data: any): data is Occupation => s.validate(data, 'Occupation'),
+  deserialize: (json: string): Occupation => s.deserialize(json, 'Occupation'),
+  serialize: (data: Occupation): string => s.serialize(data),
+};
+
 
 export interface OccupationalExperienceRequirements {
   '@context'?: any;
@@ -84,6 +96,12 @@ export interface OccupationalExperienceRequirements {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OccupationalExperienceRequirements = {
+  validate: (data: any): data is OccupationalExperienceRequirements => s.validate(data, 'OccupationalExperienceRequirements'),
+  deserialize: (json: string): OccupationalExperienceRequirements => s.deserialize(json, 'OccupationalExperienceRequirements'),
+  serialize: (data: OccupationalExperienceRequirements): string => s.serialize(data),
+};
 
 
 export interface OccupationalTherapy {
@@ -124,6 +142,12 @@ export interface OccupationalTherapy {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OccupationalTherapy = {
+  validate: (data: any): data is OccupationalTherapy => s.validate(data, 'OccupationalTherapy'),
+  deserialize: (json: string): OccupationalTherapy => s.deserialize(json, 'OccupationalTherapy'),
+  serialize: (data: OccupationalTherapy): string => s.serialize(data),
+};
 
 
 export interface OceanBodyOfWater {
@@ -191,6 +215,12 @@ export interface OceanBodyOfWater {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OceanBodyOfWater = {
+  validate: (data: any): data is OceanBodyOfWater => s.validate(data, 'OceanBodyOfWater'),
+  deserialize: (json: string): OceanBodyOfWater => s.deserialize(json, 'OceanBodyOfWater'),
+  serialize: (data: OceanBodyOfWater): string => s.serialize(data),
+};
 
 
 export interface Offer {
@@ -266,6 +296,12 @@ export interface Offer {
   url?: string | Array<string>;
 }
 
+export const Offer = {
+  validate: (data: any): data is Offer => s.validate(data, 'Offer'),
+  deserialize: (json: string): Offer => s.deserialize(json, 'Offer'),
+  serialize: (data: Offer): string => s.serialize(data),
+};
+
 
 export interface OfferCatalog {
   '@context'?: any;
@@ -289,6 +325,12 @@ export interface OfferCatalog {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OfferCatalog = {
+  validate: (data: any): data is OfferCatalog => s.validate(data, 'OfferCatalog'),
+  deserialize: (json: string): OfferCatalog => s.deserialize(json, 'OfferCatalog'),
+  serialize: (data: OfferCatalog): string => s.serialize(data),
+};
 
 
 export interface OfferForLease {
@@ -364,6 +406,12 @@ export interface OfferForLease {
   url?: string | Array<string>;
 }
 
+export const OfferForLease = {
+  validate: (data: any): data is OfferForLease => s.validate(data, 'OfferForLease'),
+  deserialize: (json: string): OfferForLease => s.deserialize(json, 'OfferForLease'),
+  serialize: (data: OfferForLease): string => s.serialize(data),
+};
+
 
 export interface OfferForPurchase {
   '@context'?: any;
@@ -438,6 +486,12 @@ export interface OfferForPurchase {
   url?: string | Array<string>;
 }
 
+export const OfferForPurchase = {
+  validate: (data: any): data is OfferForPurchase => s.validate(data, 'OfferForPurchase'),
+  deserialize: (json: string): OfferForPurchase => s.deserialize(json, 'OfferForPurchase'),
+  serialize: (data: OfferForPurchase): string => s.serialize(data),
+};
+
 
 export interface OfferItemCondition {
   '@context'?: any;
@@ -458,6 +512,12 @@ export interface OfferItemCondition {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OfferItemCondition = {
+  validate: (data: any): data is OfferItemCondition => s.validate(data, 'OfferItemCondition'),
+  deserialize: (json: string): OfferItemCondition => s.deserialize(json, 'OfferItemCondition'),
+  serialize: (data: OfferItemCondition): string => s.serialize(data),
+};
 
 
 export interface OfferShippingDetails {
@@ -489,6 +549,12 @@ export interface OfferShippingDetails {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OfferShippingDetails = {
+  validate: (data: any): data is OfferShippingDetails => s.validate(data, 'OfferShippingDetails'),
+  deserialize: (json: string): OfferShippingDetails => s.deserialize(json, 'OfferShippingDetails'),
+  serialize: (data: OfferShippingDetails): string => s.serialize(data),
+};
 
 
 export interface OfficeEquipmentStore {
@@ -624,6 +690,12 @@ export interface OfficeEquipmentStore {
   tourBookingPage?: string | Array<string>;
 }
 
+export const OfficeEquipmentStore = {
+  validate: (data: any): data is OfficeEquipmentStore => s.validate(data, 'OfficeEquipmentStore'),
+  deserialize: (json: string): OfficeEquipmentStore => s.deserialize(json, 'OfficeEquipmentStore'),
+  serialize: (data: OfficeEquipmentStore): string => s.serialize(data),
+};
+
 
 export interface OnDemandEvent {
   '@context'?: any;
@@ -689,6 +761,12 @@ export interface OnDemandEvent {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OnDemandEvent = {
+  validate: (data: any): data is OnDemandEvent => s.validate(data, 'OnDemandEvent'),
+  deserialize: (json: string): OnDemandEvent => s.deserialize(json, 'OnDemandEvent'),
+  serialize: (data: OnDemandEvent): string => s.serialize(data),
+};
 
 
 export interface OnlineBusiness {
@@ -785,6 +863,12 @@ export interface OnlineBusiness {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OnlineBusiness = {
+  validate: (data: any): data is OnlineBusiness => s.validate(data, 'OnlineBusiness'),
+  deserialize: (json: string): OnlineBusiness => s.deserialize(json, 'OnlineBusiness'),
+  serialize: (data: OnlineBusiness): string => s.serialize(data),
+};
 
 
 export interface OnlineMarketplace {
@@ -884,6 +968,12 @@ export interface OnlineMarketplace {
   url?: string | Array<string>;
 }
 
+export const OnlineMarketplace = {
+  validate: (data: any): data is OnlineMarketplace => s.validate(data, 'OnlineMarketplace'),
+  deserialize: (json: string): OnlineMarketplace => s.deserialize(json, 'OnlineMarketplace'),
+  serialize: (data: OnlineMarketplace): string => s.serialize(data),
+};
+
 
 export interface OnlineStore {
   '@context'?: any;
@@ -981,6 +1071,12 @@ export interface OnlineStore {
   url?: string | Array<string>;
 }
 
+export const OnlineStore = {
+  validate: (data: any): data is OnlineStore => s.validate(data, 'OnlineStore'),
+  deserialize: (json: string): OnlineStore => s.deserialize(json, 'OnlineStore'),
+  serialize: (data: OnlineStore): string => s.serialize(data),
+};
+
 
 export interface OpeningHoursSpecification {
   '@context'?: any;
@@ -1005,6 +1101,12 @@ export interface OpeningHoursSpecification {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OpeningHoursSpecification = {
+  validate: (data: any): data is OpeningHoursSpecification => s.validate(data, 'OpeningHoursSpecification'),
+  deserialize: (json: string): OpeningHoursSpecification => s.deserialize(json, 'OpeningHoursSpecification'),
+  serialize: (data: OpeningHoursSpecification): string => s.serialize(data),
+};
 
 
 export interface OperatingSystem {
@@ -1167,6 +1269,12 @@ export interface OperatingSystem {
   url?: string | Array<string>;
 }
 
+export const OperatingSystem = {
+  validate: (data: any): data is OperatingSystem => s.validate(data, 'OperatingSystem'),
+  deserialize: (json: string): OperatingSystem => s.deserialize(json, 'OperatingSystem'),
+  serialize: (data: OperatingSystem): string => s.serialize(data),
+};
+
 
 export interface OpinionNewsArticle {
   '@context'?: any;
@@ -1315,6 +1423,12 @@ export interface OpinionNewsArticle {
   url?: string | Array<string>;
 }
 
+export const OpinionNewsArticle = {
+  validate: (data: any): data is OpinionNewsArticle => s.validate(data, 'OpinionNewsArticle'),
+  deserialize: (json: string): OpinionNewsArticle => s.deserialize(json, 'OpinionNewsArticle'),
+  serialize: (data: OpinionNewsArticle): string => s.serialize(data),
+};
+
 
 export interface Optician {
   '@context'?: any;
@@ -1449,6 +1563,12 @@ export interface Optician {
   tourBookingPage?: string | Array<string>;
 }
 
+export const Optician = {
+  validate: (data: any): data is Optician => s.validate(data, 'Optician'),
+  deserialize: (json: string): Optician => s.deserialize(json, 'Optician'),
+  serialize: (data: Optician): string => s.serialize(data),
+};
+
 
 export interface Order {
   '@context'?: any;
@@ -1491,6 +1611,12 @@ export interface Order {
   url?: string | Array<string>;
 }
 
+export const Order = {
+  validate: (data: any): data is Order => s.validate(data, 'Order'),
+  deserialize: (json: string): Order => s.deserialize(json, 'Order'),
+  serialize: (data: Order): string => s.serialize(data),
+};
+
 
 export interface OrderAction {
   '@context'?: any;
@@ -1528,6 +1654,12 @@ export interface OrderAction {
   url?: string | Array<string>;
 }
 
+export const OrderAction = {
+  validate: (data: any): data is OrderAction => s.validate(data, 'OrderAction'),
+  deserialize: (json: string): OrderAction => s.deserialize(json, 'OrderAction'),
+  serialize: (data: OrderAction): string => s.serialize(data),
+};
+
 
 export interface OrderItem {
   '@context'?: any;
@@ -1553,6 +1685,12 @@ export interface OrderItem {
   url?: string | Array<string>;
 }
 
+export const OrderItem = {
+  validate: (data: any): data is OrderItem => s.validate(data, 'OrderItem'),
+  deserialize: (json: string): OrderItem => s.deserialize(json, 'OrderItem'),
+  serialize: (data: OrderItem): string => s.serialize(data),
+};
+
 
 export interface OrderStatus {
   '@context'?: any;
@@ -1573,6 +1711,12 @@ export interface OrderStatus {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OrderStatus = {
+  validate: (data: any): data is OrderStatus => s.validate(data, 'OrderStatus'),
+  deserialize: (json: string): OrderStatus => s.deserialize(json, 'OrderStatus'),
+  serialize: (data: OrderStatus): string => s.serialize(data),
+};
 
 
 export interface Organization {
@@ -1670,6 +1814,12 @@ export interface Organization {
   url?: string | Array<string>;
 }
 
+export const Organization = {
+  validate: (data: any): data is Organization => s.validate(data, 'Organization'),
+  deserialize: (json: string): Organization => s.deserialize(json, 'Organization'),
+  serialize: (data: Organization): string => s.serialize(data),
+};
+
 
 export interface OrganizationRole {
   '@context'?: any;
@@ -1694,6 +1844,12 @@ export interface OrganizationRole {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OrganizationRole = {
+  validate: (data: any): data is OrganizationRole => s.validate(data, 'OrganizationRole'),
+  deserialize: (json: string): OrganizationRole => s.deserialize(json, 'OrganizationRole'),
+  serialize: (data: OrganizationRole): string => s.serialize(data),
+};
 
 
 export interface OrganizeAction {
@@ -1727,6 +1883,12 @@ export interface OrganizeAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OrganizeAction = {
+  validate: (data: any): data is OrganizeAction => s.validate(data, 'OrganizeAction'),
+  deserialize: (json: string): OrganizeAction => s.deserialize(json, 'OrganizeAction'),
+  serialize: (data: OrganizeAction): string => s.serialize(data),
+};
 
 
 export interface OutletStore {
@@ -1862,6 +2024,12 @@ export interface OutletStore {
   tourBookingPage?: string | Array<string>;
 }
 
+export const OutletStore = {
+  validate: (data: any): data is OutletStore => s.validate(data, 'OutletStore'),
+  deserialize: (json: string): OutletStore => s.deserialize(json, 'OutletStore'),
+  serialize: (data: OutletStore): string => s.serialize(data),
+};
+
 
 export interface OwnershipInfo {
   '@context'?: any;
@@ -1885,3 +2053,9 @@ export interface OwnershipInfo {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const OwnershipInfo = {
+  validate: (data: any): data is OwnershipInfo => s.validate(data, 'OwnershipInfo'),
+  deserialize: (json: string): OwnershipInfo => s.deserialize(json, 'OwnershipInfo'),
+  serialize: (data: OwnershipInfo): string => s.serialize(data),
+};

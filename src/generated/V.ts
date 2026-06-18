@@ -140,6 +140,12 @@ export interface VacationRental {
   tourBookingPage?: string | Array<string>;
 }
 
+export const VacationRental = {
+  validate: (data: any): data is VacationRental => s.validate(data, 'VacationRental'),
+  deserialize: (json: string): VacationRental => s.deserialize(json, 'VacationRental'),
+  serialize: (data: VacationRental): string => s.serialize(data),
+};
+
 
 export interface Vehicle {
   '@context'?: any;
@@ -256,6 +262,12 @@ export interface Vehicle {
   url?: string | Array<string>;
 }
 
+export const Vehicle = {
+  validate: (data: any): data is Vehicle => s.validate(data, 'Vehicle'),
+  deserialize: (json: string): Vehicle => s.deserialize(json, 'Vehicle'),
+  serialize: (data: Vehicle): string => s.serialize(data),
+};
+
 
 export interface Vein {
   '@context'?: any;
@@ -295,6 +307,12 @@ export interface Vein {
   url?: string | Array<string>;
 }
 
+export const Vein = {
+  validate: (data: any): data is Vein => s.validate(data, 'Vein'),
+  deserialize: (json: string): Vein => s.deserialize(json, 'Vein'),
+  serialize: (data: Vein): string => s.serialize(data),
+};
+
 
 export interface Vessel {
   '@context'?: any;
@@ -330,6 +348,12 @@ export interface Vessel {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Vessel = {
+  validate: (data: any): data is Vessel => s.validate(data, 'Vessel'),
+  deserialize: (json: string): Vessel => s.deserialize(json, 'Vessel'),
+  serialize: (data: Vessel): string => s.serialize(data),
+};
 
 
 export interface VeterinaryCare {
@@ -429,6 +453,12 @@ export interface VeterinaryCare {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const VeterinaryCare = {
+  validate: (data: any): data is VeterinaryCare => s.validate(data, 'VeterinaryCare'),
+  deserialize: (json: string): VeterinaryCare => s.deserialize(json, 'VeterinaryCare'),
+  serialize: (data: VeterinaryCare): string => s.serialize(data),
+};
 
 
 export interface VideoGallery {
@@ -575,6 +605,12 @@ export interface VideoGallery {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const VideoGallery = {
+  validate: (data: any): data is VideoGallery => s.validate(data, 'VideoGallery'),
+  deserialize: (json: string): VideoGallery => s.deserialize(json, 'VideoGallery'),
+  serialize: (data: VideoGallery): string => s.serialize(data),
+};
 
 
 export interface VideoGame {
@@ -754,6 +790,12 @@ export interface VideoGame {
   supportingData?: s.DataFeed | Array<s.DataFeed>;
 }
 
+export const VideoGame = {
+  validate: (data: any): data is VideoGame => s.validate(data, 'VideoGame'),
+  deserialize: (json: string): VideoGame => s.deserialize(json, 'VideoGame'),
+  serialize: (data: VideoGame): string => s.serialize(data),
+};
+
 
 export interface VideoGameClip {
   '@context'?: any;
@@ -900,6 +942,12 @@ export interface VideoGameClip {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const VideoGameClip = {
+  validate: (data: any): data is VideoGameClip => s.validate(data, 'VideoGameClip'),
+  deserialize: (json: string): VideoGameClip => s.deserialize(json, 'VideoGameClip'),
+  serialize: (data: VideoGameClip): string => s.serialize(data),
+};
 
 
 export interface VideoGameSeries {
@@ -1061,6 +1109,12 @@ export interface VideoGameSeries {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const VideoGameSeries = {
+  validate: (data: any): data is VideoGameSeries => s.validate(data, 'VideoGameSeries'),
+  deserialize: (json: string): VideoGameSeries => s.deserialize(json, 'VideoGameSeries'),
+  serialize: (data: VideoGameSeries): string => s.serialize(data),
+};
 
 
 export interface VideoObject {
@@ -1226,6 +1280,12 @@ export interface VideoObject {
   url?: string | Array<string>;
 }
 
+export const VideoObject = {
+  validate: (data: any): data is VideoObject => s.validate(data, 'VideoObject'),
+  deserialize: (json: string): VideoObject => s.deserialize(json, 'VideoObject'),
+  serialize: (data: VideoObject): string => s.serialize(data),
+};
+
 
 export interface VideoObjectSnapshot {
   '@context'?: any;
@@ -1390,6 +1450,12 @@ export interface VideoObjectSnapshot {
   url?: string | Array<string>;
 }
 
+export const VideoObjectSnapshot = {
+  validate: (data: any): data is VideoObjectSnapshot => s.validate(data, 'VideoObjectSnapshot'),
+  deserialize: (json: string): VideoObjectSnapshot => s.deserialize(json, 'VideoObjectSnapshot'),
+  serialize: (data: VideoObjectSnapshot): string => s.serialize(data),
+};
+
 
 export interface ViewAction {
   '@context'?: any;
@@ -1425,6 +1491,12 @@ export interface ViewAction {
   url?: string | Array<string>;
 }
 
+export const ViewAction = {
+  validate: (data: any): data is ViewAction => s.validate(data, 'ViewAction'),
+  deserialize: (json: string): ViewAction => s.deserialize(json, 'ViewAction'),
+  serialize: (data: ViewAction): string => s.serialize(data),
+};
+
 
 export interface VirtualLocation {
   '@context'?: any;
@@ -1444,6 +1516,12 @@ export interface VirtualLocation {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const VirtualLocation = {
+  validate: (data: any): data is VirtualLocation => s.validate(data, 'VirtualLocation'),
+  deserialize: (json: string): VirtualLocation => s.deserialize(json, 'VirtualLocation'),
+  serialize: (data: VirtualLocation): string => s.serialize(data),
+};
 
 
 export interface VisualArtsEvent {
@@ -1507,6 +1585,12 @@ export interface VisualArtsEvent {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const VisualArtsEvent = {
+  validate: (data: any): data is VisualArtsEvent => s.validate(data, 'VisualArtsEvent'),
+  deserialize: (json: string): VisualArtsEvent => s.deserialize(json, 'VisualArtsEvent'),
+  serialize: (data: VisualArtsEvent): string => s.serialize(data),
+};
 
 
 export interface VisualArtwork {
@@ -1658,6 +1742,12 @@ export interface VisualArtwork {
   url?: string | Array<string>;
 }
 
+export const VisualArtwork = {
+  validate: (data: any): data is VisualArtwork => s.validate(data, 'VisualArtwork'),
+  deserialize: (json: string): VisualArtwork => s.deserialize(json, 'VisualArtwork'),
+  serialize: (data: VisualArtwork): string => s.serialize(data),
+};
+
 
 export interface VitalSign {
   '@context'?: any;
@@ -1704,6 +1794,12 @@ export interface VitalSign {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const VitalSign = {
+  validate: (data: any): data is VitalSign => s.validate(data, 'VitalSign'),
+  deserialize: (json: string): VitalSign => s.deserialize(json, 'VitalSign'),
+  serialize: (data: VitalSign): string => s.serialize(data),
+};
 
 
 export interface Volcano {
@@ -1772,6 +1868,12 @@ export interface Volcano {
   url?: string | Array<string>;
 }
 
+export const Volcano = {
+  validate: (data: any): data is Volcano => s.validate(data, 'Volcano'),
+  deserialize: (json: string): Volcano => s.deserialize(json, 'Volcano'),
+  serialize: (data: Volcano): string => s.serialize(data),
+};
+
 
 export interface VoteAction {
   '@context'?: any;
@@ -1808,6 +1910,12 @@ export interface VoteAction {
   url?: string | Array<string>;
 }
 
+export const VoteAction = {
+  validate: (data: any): data is VoteAction => s.validate(data, 'VoteAction'),
+  deserialize: (json: string): VoteAction => s.deserialize(json, 'VoteAction'),
+  serialize: (data: VoteAction): string => s.serialize(data),
+};
+
 
 export interface vcard_VCard {
   '@context'?: any;
@@ -1815,9 +1923,21 @@ export interface vcard_VCard {
   '@id'?: string;
 }
 
+export const vcard_VCard = {
+  validate: (data: any): data is vcard_VCard => s.validate(data, 'vcard:VCard'),
+  deserialize: (json: string): vcard_VCard => s.deserialize(json, 'vcard:VCard'),
+  serialize: (data: vcard_VCard): string => s.serialize(data),
+};
+
 
 export interface void_Dataset {
   '@context'?: any;
   '@type'?: 'void:Dataset' | Array<'void:Dataset'>;
   '@id'?: string;
 }
+
+export const void_Dataset = {
+  validate: (data: any): data is void_Dataset => s.validate(data, 'void:Dataset'),
+  deserialize: (json: string): void_Dataset => s.deserialize(json, 'void:Dataset'),
+  serialize: (data: void_Dataset): string => s.serialize(data),
+};

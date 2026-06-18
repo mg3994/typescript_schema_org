@@ -153,3 +153,9 @@ export interface _3DModel {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const _3DModel = {
+  validate: (data: any): data is _3DModel => s.validate(data, '3DModel'),
+  deserialize: (json: string): _3DModel => s.deserialize(json, '3DModel'),
+  serialize: (data: _3DModel): string => s.serialize(data),
+};

@@ -34,8 +34,8 @@ async function generate() {
   const classMap = new Map();
   classes.forEach(c => classMap.set(c['@id'], c));
 
-  const propertyMap = new Map();
-  properties.forEach(p => propertyMap.set(p['@id'], p));
+  const propertyMapNode = new Map();
+  properties.forEach(p => propertyMapNode.set(p['@id'], p));
 
   const subclassesMap = new Map<string, string[]>();
   classes.forEach(c => {
@@ -91,9 +91,10 @@ async function generate() {
     return Array.from(new Set(props));
   }
 
+  const propertyMetadata: Record<string, Record<string, string[]>> = {};
   const filesByLetter: Record<string, string[]> = {};
 
-  console.log('Generating TypeScript interfaces...');
+  console.log('Generating TypeScript interfaces and metadata...');
 
   classes.forEach(c => {
     const classId = c['@id'];
@@ -115,11 +116,15 @@ async function generate() {
     interfaceContent += `  '@id'?: string;\n`;
 
     const classProps = getInheritedProperties(classId);
+    const classPropMeta: Record<string, string[]> = {};
+
     classProps.forEach(propId => {
       const propName = propId.replace('schema:', '');
       const ranges = propertyToRanges.get(propId) || [];
-      const tsRanges = ranges.map(r => {
-        const rName = r.replace('schema:', '');
+      const rangeNames = ranges.map(r => r.replace('schema:', ''));
+      classPropMeta[propName] = rangeNames;
+
+      const tsRanges = rangeNames.map(rName => {
         if (['Text', 'URL', 'CssSelectorType', 'PronounceableText'].includes(rName)) return 'string';
         if (['Number', 'Integer', 'Float'].includes(rName)) return 'number';
         if (['Boolean'].includes(rName)) return 'boolean';
@@ -138,7 +143,15 @@ async function generate() {
     });
 
     interfaceContent += `}\n\n`;
-    filesByLetter[letter].push(interfaceContent);
+
+    let classObjectContent = `export const ${sanitizedClassName} = {\n`;
+    classObjectContent += `  validate: (data: any): data is ${sanitizedClassName} => s.validate(data, '${className}'),\n`;
+    classObjectContent += `  deserialize: (json: string): ${sanitizedClassName} => s.deserialize(json, '${className}'),\n`;
+    classObjectContent += `  serialize: (data: ${sanitizedClassName}): string => s.serialize(data),\n`;
+    classObjectContent += `};\n\n`;
+
+    filesByLetter[letter].push(interfaceContent + classObjectContent);
+    propertyMetadata[className] = classPropMeta;
   });
 
   // Write files
@@ -155,11 +168,17 @@ async function generate() {
   fs.writeFileSync(path.join(OUTPUT_DIR, 'shared.ts'), sharedTypes);
   indexExports.push(`export * from './shared';`);
 
-  // Write typeHierarchy for runtime validation
+  // Write typeHierarchy
   const hierarchyContent = `export const typeHierarchy: Record<string, string[]> = ${JSON.stringify(typeHierarchy, null, 2)};\n`;
   fs.writeFileSync(path.join(OUTPUT_DIR, 'typeHierarchy.ts'), hierarchyContent);
   indexExports.push(`export * from './typeHierarchy';`);
 
+  // Write propertyMetadata
+  const metadataContent = `export const propertyMetadata: Record<string, Record<string, string[]>> = ${JSON.stringify(propertyMetadata, null, 2)};\n`;
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'propertyMetadata.ts'), metadataContent);
+  indexExports.push(`export * from './propertyMetadata';`);
+
+  indexExports.push(`export * from '../utils';`);
   fs.writeFileSync(path.join(OUTPUT_DIR, 'index.ts'), indexExports.join('\n'));
 
   console.log('Generation complete!');

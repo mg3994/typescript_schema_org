@@ -6,12 +6,24 @@ export interface gs1_CertificationDetails {
   '@id'?: string;
 }
 
+export const gs1_CertificationDetails = {
+  validate: (data: any): data is gs1_CertificationDetails => s.validate(data, 'gs1:CertificationDetails'),
+  deserialize: (json: string): gs1_CertificationDetails => s.deserialize(json, 'gs1:CertificationDetails'),
+  serialize: (data: gs1_CertificationDetails): string => s.serialize(data),
+};
+
 
 export interface gs1_ContactPoint {
   '@context'?: any;
   '@type'?: 'gs1:ContactPoint' | Array<'gs1:ContactPoint'>;
   '@id'?: string;
 }
+
+export const gs1_ContactPoint = {
+  validate: (data: any): data is gs1_ContactPoint => s.validate(data, 'gs1:ContactPoint'),
+  deserialize: (json: string): gs1_ContactPoint => s.deserialize(json, 'gs1:ContactPoint'),
+  serialize: (data: gs1_ContactPoint): string => s.serialize(data),
+};
 
 
 export interface gs1_Country {
@@ -20,6 +32,12 @@ export interface gs1_Country {
   '@id'?: string;
 }
 
+export const gs1_Country = {
+  validate: (data: any): data is gs1_Country => s.validate(data, 'gs1:Country'),
+  deserialize: (json: string): gs1_Country => s.deserialize(json, 'gs1:Country'),
+  serialize: (data: gs1_Country): string => s.serialize(data),
+};
+
 
 export interface gs1_Organization {
   '@context'?: any;
@@ -27,12 +45,24 @@ export interface gs1_Organization {
   '@id'?: string;
 }
 
+export const gs1_Organization = {
+  validate: (data: any): data is gs1_Organization => s.validate(data, 'gs1:Organization'),
+  deserialize: (json: string): gs1_Organization => s.deserialize(json, 'gs1:Organization'),
+  serialize: (data: gs1_Organization): string => s.serialize(data),
+};
+
 
 export interface gs1_PostalAddress {
   '@context'?: any;
   '@type'?: 'gs1:PostalAddress' | Array<'gs1:PostalAddress'>;
   '@id'?: string;
 }
+
+export const gs1_PostalAddress = {
+  validate: (data: any): data is gs1_PostalAddress => s.validate(data, 'gs1:PostalAddress'),
+  deserialize: (json: string): gs1_PostalAddress => s.deserialize(json, 'gs1:PostalAddress'),
+  serialize: (data: gs1_PostalAddress): string => s.serialize(data),
+};
 
 
 export interface Game {
@@ -175,6 +205,12 @@ export interface Game {
   url?: string | Array<string>;
 }
 
+export const Game = {
+  validate: (data: any): data is Game => s.validate(data, 'Game'),
+  deserialize: (json: string): Game => s.deserialize(json, 'Game'),
+  serialize: (data: Game): string => s.serialize(data),
+};
+
 
 export interface GameAvailabilityEnumeration {
   '@context'?: any;
@@ -196,6 +232,12 @@ export interface GameAvailabilityEnumeration {
   url?: string | Array<string>;
 }
 
+export const GameAvailabilityEnumeration = {
+  validate: (data: any): data is GameAvailabilityEnumeration => s.validate(data, 'GameAvailabilityEnumeration'),
+  deserialize: (json: string): GameAvailabilityEnumeration => s.deserialize(json, 'GameAvailabilityEnumeration'),
+  serialize: (data: GameAvailabilityEnumeration): string => s.serialize(data),
+};
+
 
 export interface GamePlayMode {
   '@context'?: any;
@@ -216,6 +258,12 @@ export interface GamePlayMode {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GamePlayMode = {
+  validate: (data: any): data is GamePlayMode => s.validate(data, 'GamePlayMode'),
+  deserialize: (json: string): GamePlayMode => s.deserialize(json, 'GamePlayMode'),
+  serialize: (data: GamePlayMode): string => s.serialize(data),
+};
 
 
 export interface GameServer {
@@ -240,6 +288,12 @@ export interface GameServer {
   url?: string | Array<string>;
 }
 
+export const GameServer = {
+  validate: (data: any): data is GameServer => s.validate(data, 'GameServer'),
+  deserialize: (json: string): GameServer => s.deserialize(json, 'GameServer'),
+  serialize: (data: GameServer): string => s.serialize(data),
+};
+
 
 export interface GameServerStatus {
   '@context'?: any;
@@ -260,6 +314,12 @@ export interface GameServerStatus {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GameServerStatus = {
+  validate: (data: any): data is GameServerStatus => s.validate(data, 'GameServerStatus'),
+  deserialize: (json: string): GameServerStatus => s.deserialize(json, 'GameServerStatus'),
+  serialize: (data: GameServerStatus): string => s.serialize(data),
+};
 
 
 export interface GardenStore {
@@ -395,6 +455,12 @@ export interface GardenStore {
   tourBookingPage?: string | Array<string>;
 }
 
+export const GardenStore = {
+  validate: (data: any): data is GardenStore => s.validate(data, 'GardenStore'),
+  deserialize: (json: string): GardenStore => s.deserialize(json, 'GardenStore'),
+  serialize: (data: GardenStore): string => s.serialize(data),
+};
+
 
 export interface GasStation {
   '@context'?: any;
@@ -529,6 +595,12 @@ export interface GasStation {
   tourBookingPage?: string | Array<string>;
 }
 
+export const GasStation = {
+  validate: (data: any): data is GasStation => s.validate(data, 'GasStation'),
+  deserialize: (json: string): GasStation => s.deserialize(json, 'GasStation'),
+  serialize: (data: GasStation): string => s.serialize(data),
+};
+
 
 export interface GatedResidenceCommunity {
   '@context'?: any;
@@ -598,6 +670,12 @@ export interface GatedResidenceCommunity {
   url?: string | Array<string>;
 }
 
+export const GatedResidenceCommunity = {
+  validate: (data: any): data is GatedResidenceCommunity => s.validate(data, 'GatedResidenceCommunity'),
+  deserialize: (json: string): GatedResidenceCommunity => s.deserialize(json, 'GatedResidenceCommunity'),
+  serialize: (data: GatedResidenceCommunity): string => s.serialize(data),
+};
+
 
 export interface GenderType {
   '@context'?: any;
@@ -618,6 +696,12 @@ export interface GenderType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GenderType = {
+  validate: (data: any): data is GenderType => s.validate(data, 'GenderType'),
+  deserialize: (json: string): GenderType => s.deserialize(json, 'GenderType'),
+  serialize: (data: GenderType): string => s.serialize(data),
+};
 
 
 export interface Gene {
@@ -655,6 +739,12 @@ export interface Gene {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Gene = {
+  validate: (data: any): data is Gene => s.validate(data, 'Gene'),
+  deserialize: (json: string): Gene => s.deserialize(json, 'Gene'),
+  serialize: (data: Gene): string => s.serialize(data),
+};
 
 
 export interface GeneralContractor {
@@ -790,6 +880,12 @@ export interface GeneralContractor {
   tourBookingPage?: string | Array<string>;
 }
 
+export const GeneralContractor = {
+  validate: (data: any): data is GeneralContractor => s.validate(data, 'GeneralContractor'),
+  deserialize: (json: string): GeneralContractor => s.deserialize(json, 'GeneralContractor'),
+  serialize: (data: GeneralContractor): string => s.serialize(data),
+};
+
 
 export interface GeoCircle {
   '@context'?: any;
@@ -820,6 +916,12 @@ export interface GeoCircle {
   url?: string | Array<string>;
 }
 
+export const GeoCircle = {
+  validate: (data: any): data is GeoCircle => s.validate(data, 'GeoCircle'),
+  deserialize: (json: string): GeoCircle => s.deserialize(json, 'GeoCircle'),
+  serialize: (data: GeoCircle): string => s.serialize(data),
+};
+
 
 export interface GeoCoordinates {
   '@context'?: any;
@@ -845,6 +947,12 @@ export interface GeoCoordinates {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GeoCoordinates = {
+  validate: (data: any): data is GeoCoordinates => s.validate(data, 'GeoCoordinates'),
+  deserialize: (json: string): GeoCoordinates => s.deserialize(json, 'GeoCoordinates'),
+  serialize: (data: GeoCoordinates): string => s.serialize(data),
+};
 
 
 export interface GeoShape {
@@ -873,6 +981,12 @@ export interface GeoShape {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GeoShape = {
+  validate: (data: any): data is GeoShape => s.validate(data, 'GeoShape'),
+  deserialize: (json: string): GeoShape => s.deserialize(json, 'GeoShape'),
+  serialize: (data: GeoShape): string => s.serialize(data),
+};
 
 
 export interface GeospatialGeometry {
@@ -903,6 +1017,12 @@ export interface GeospatialGeometry {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GeospatialGeometry = {
+  validate: (data: any): data is GeospatialGeometry => s.validate(data, 'GeospatialGeometry'),
+  deserialize: (json: string): GeospatialGeometry => s.deserialize(json, 'GeospatialGeometry'),
+  serialize: (data: GeospatialGeometry): string => s.serialize(data),
+};
 
 
 export interface GiveAction {
@@ -939,6 +1059,12 @@ export interface GiveAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GiveAction = {
+  validate: (data: any): data is GiveAction => s.validate(data, 'GiveAction'),
+  deserialize: (json: string): GiveAction => s.deserialize(json, 'GiveAction'),
+  serialize: (data: GiveAction): string => s.serialize(data),
+};
 
 
 export interface GolfCourse {
@@ -1074,6 +1200,12 @@ export interface GolfCourse {
   tourBookingPage?: string | Array<string>;
 }
 
+export const GolfCourse = {
+  validate: (data: any): data is GolfCourse => s.validate(data, 'GolfCourse'),
+  deserialize: (json: string): GolfCourse => s.deserialize(json, 'GolfCourse'),
+  serialize: (data: GolfCourse): string => s.serialize(data),
+};
+
 
 export interface GovernmentBenefitsType {
   '@context'?: any;
@@ -1094,6 +1226,12 @@ export interface GovernmentBenefitsType {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GovernmentBenefitsType = {
+  validate: (data: any): data is GovernmentBenefitsType => s.validate(data, 'GovernmentBenefitsType'),
+  deserialize: (json: string): GovernmentBenefitsType => s.deserialize(json, 'GovernmentBenefitsType'),
+  serialize: (data: GovernmentBenefitsType): string => s.serialize(data),
+};
 
 
 export interface GovernmentBuilding {
@@ -1162,6 +1300,12 @@ export interface GovernmentBuilding {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GovernmentBuilding = {
+  validate: (data: any): data is GovernmentBuilding => s.validate(data, 'GovernmentBuilding'),
+  deserialize: (json: string): GovernmentBuilding => s.deserialize(json, 'GovernmentBuilding'),
+  serialize: (data: GovernmentBuilding): string => s.serialize(data),
+};
 
 
 export interface GovernmentOffice {
@@ -1297,6 +1441,12 @@ export interface GovernmentOffice {
   tourBookingPage?: string | Array<string>;
 }
 
+export const GovernmentOffice = {
+  validate: (data: any): data is GovernmentOffice => s.validate(data, 'GovernmentOffice'),
+  deserialize: (json: string): GovernmentOffice => s.deserialize(json, 'GovernmentOffice'),
+  serialize: (data: GovernmentOffice): string => s.serialize(data),
+};
+
 
 export interface GovernmentOrganization {
   '@context'?: any;
@@ -1393,6 +1543,12 @@ export interface GovernmentOrganization {
   url?: string | Array<string>;
 }
 
+export const GovernmentOrganization = {
+  validate: (data: any): data is GovernmentOrganization => s.validate(data, 'GovernmentOrganization'),
+  deserialize: (json: string): GovernmentOrganization => s.deserialize(json, 'GovernmentOrganization'),
+  serialize: (data: GovernmentOrganization): string => s.serialize(data),
+};
+
 
 export interface GovernmentPermit {
   '@context'?: any;
@@ -1419,6 +1575,12 @@ export interface GovernmentPermit {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const GovernmentPermit = {
+  validate: (data: any): data is GovernmentPermit => s.validate(data, 'GovernmentPermit'),
+  deserialize: (json: string): GovernmentPermit => s.deserialize(json, 'GovernmentPermit'),
+  serialize: (data: GovernmentPermit): string => s.serialize(data),
+};
 
 
 export interface GovernmentService {
@@ -1467,6 +1629,12 @@ export interface GovernmentService {
   url?: string | Array<string>;
 }
 
+export const GovernmentService = {
+  validate: (data: any): data is GovernmentService => s.validate(data, 'GovernmentService'),
+  deserialize: (json: string): GovernmentService => s.deserialize(json, 'GovernmentService'),
+  serialize: (data: GovernmentService): string => s.serialize(data),
+};
+
 
 export interface Grant {
   '@context'?: any;
@@ -1489,6 +1657,12 @@ export interface Grant {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Grant = {
+  validate: (data: any): data is Grant => s.validate(data, 'Grant'),
+  deserialize: (json: string): Grant => s.deserialize(json, 'Grant'),
+  serialize: (data: Grant): string => s.serialize(data),
+};
 
 
 export interface GroceryStore {
@@ -1623,6 +1797,12 @@ export interface GroceryStore {
   specialOpeningHoursSpecification?: s.OpeningHoursSpecification | Array<s.OpeningHoursSpecification>;
   tourBookingPage?: string | Array<string>;
 }
+
+export const GroceryStore = {
+  validate: (data: any): data is GroceryStore => s.validate(data, 'GroceryStore'),
+  deserialize: (json: string): GroceryStore => s.deserialize(json, 'GroceryStore'),
+  serialize: (data: GroceryStore): string => s.serialize(data),
+};
 
 
 export interface Guide {
@@ -1761,3 +1941,9 @@ export interface Guide {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Guide = {
+  validate: (data: any): data is Guide => s.validate(data, 'Guide'),
+  deserialize: (json: string): Guide => s.deserialize(json, 'Guide'),
+  serialize: (data: Guide): string => s.serialize(data),
+};

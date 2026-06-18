@@ -1,4 +1,51 @@
 import { typeHierarchy } from './generated/typeHierarchy';
+import { propertyMetadata } from './generated/propertyMetadata';
+
+/**
+ * Recursively adds @type to an object and its children if missing,
+ * based on the expected type and Schema.org metadata.
+ */
+export function hydrate(data: any, expectedType: string): any {
+  if (data === null || data === undefined || typeof data !== 'object') {
+    return data;
+  }
+
+  if (Array.isArray(data)) {
+    return data.map(item => hydrate(item, expectedType));
+  }
+
+  // Use a copy to avoid mutation if needed, but for now we mutate for performance
+  const result = data;
+
+  // 1. Set @type if missing
+  if (!result['@type']) {
+    result['@type'] = expectedType;
+  }
+
+  // 2. Hydrate children based on property metadata
+  const actualType = Array.isArray(result['@type']) ? result['@type'][0] : result['@type'];
+  const props = propertyMetadata[actualType];
+
+  if (props) {
+    for (const propName of Object.keys(result)) {
+      if (propName.startsWith('@')) continue;
+
+      const allowedRanges = props[propName];
+      if (allowedRanges && allowedRanges.length > 0) {
+        // Find the first non-primitive range to use as a hint for hydration
+        const complexRange = allowedRanges.find(r =>
+          !['Text', 'Number', 'Integer', 'Float', 'Boolean', 'Date', 'DateTime', 'Time', 'URL'].includes(r)
+        );
+
+        if (complexRange) {
+          result[propName] = hydrate(result[propName], complexRange);
+        }
+      }
+    }
+  }
+
+  return result;
+}
 
 /**
  * Serializes a Schema.org object to a JSON-LD string.
@@ -14,19 +61,15 @@ export function serialize(data: any): string {
 
 /**
  * Deserializes a JSON-LD string into a Schema.org object.
- * Does not perform validation.
+ * Automatically adds @type if missing.
  */
-export function deserialize<T>(json: string): T {
-  return JSON.parse(json) as T;
+export function deserialize<T>(json: string, expectedType: string): T {
+  const data = JSON.parse(json);
+  return hydrate(data, expectedType) as T;
 }
 
 /**
  * Validates that an object conforms to the expected Schema.org type based on its @type property.
- * This is a lightweight check that verifies if the object's @type is the expected type or a valid subclass.
- *
- * @param data The object to validate
- * @param expectedType The Schema.org class name (e.g., 'Person')
- * @returns boolean
  */
 export function validate(data: any, expectedType: string): boolean {
   if (!data || typeof data !== 'object') return false;
@@ -35,11 +78,9 @@ export function validate(data: any, expectedType: string): boolean {
   const validTypes = typeHierarchy[expectedType];
 
   if (!validTypes) {
-    // If the expected type is not in our hierarchy, we can only check for exact match
     return actualTypes.includes(expectedType);
   }
 
-  // Check if any of the actual types are valid for the expected type (itself or subclasses)
   return actualTypes.some((type: string) => validTypes.includes(type));
 }
 

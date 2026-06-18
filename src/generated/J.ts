@@ -133,6 +133,12 @@ export interface JewelryStore {
   tourBookingPage?: string | Array<string>;
 }
 
+export const JewelryStore = {
+  validate: (data: any): data is JewelryStore => s.validate(data, 'JewelryStore'),
+  deserialize: (json: string): JewelryStore => s.deserialize(json, 'JewelryStore'),
+  serialize: (data: JewelryStore): string => s.serialize(data),
+};
+
 
 export interface JobPosting {
   '@context'?: any;
@@ -191,6 +197,12 @@ export interface JobPosting {
   url?: string | Array<string>;
 }
 
+export const JobPosting = {
+  validate: (data: any): data is JobPosting => s.validate(data, 'JobPosting'),
+  deserialize: (json: string): JobPosting => s.deserialize(json, 'JobPosting'),
+  serialize: (data: JobPosting): string => s.serialize(data),
+};
+
 
 export interface JoinAction {
   '@context'?: any;
@@ -224,6 +236,12 @@ export interface JoinAction {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const JoinAction = {
+  validate: (data: any): data is JoinAction => s.validate(data, 'JoinAction'),
+  deserialize: (json: string): JoinAction => s.deserialize(json, 'JoinAction'),
+  serialize: (data: JoinAction): string => s.serialize(data),
+};
 
 
 export interface Joint {
@@ -263,3 +281,9 @@ export interface Joint {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Joint = {
+  validate: (data: any): data is Joint => s.validate(data, 'Joint'),
+  deserialize: (json: string): Joint => s.deserialize(json, 'Joint'),
+  serialize: (data: Joint): string => s.serialize(data),
+};

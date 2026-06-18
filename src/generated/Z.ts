@@ -66,3 +66,9 @@ export interface Zoo {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
+
+export const Zoo = {
+  validate: (data: any): data is Zoo => s.validate(data, 'Zoo'),
+  deserialize: (json: string): Zoo => s.deserialize(json, 'Zoo'),
+  serialize: (data: Zoo): string => s.serialize(data),
+};
