@@ -9,7 +9,7 @@ export const USNonprofitTypeSchema = z.union([z.literal('schema:Nonprofit501a'),
 
 export interface UnRegisterAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UnRegisterAction' | Array<'UnRegisterAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
   actionStatus?: s.ActionStatusType | Array<s.ActionStatusType>;
@@ -41,7 +41,7 @@ export interface UnRegisterAction {
 
 export const UnRegisterActionSchema: z.ZodType<UnRegisterAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UnRegisterAction'), z.array(z.literal('UnRegisterAction'))]).optional(),
   '@id': z.string().optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
   actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
@@ -73,7 +73,7 @@ export const UnRegisterActionSchema: z.ZodType<UnRegisterAction> = z.lazy(() => 
 
 export interface UnitPriceSpecification {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UnitPriceSpecification' | Array<'UnitPriceSpecification'>;
   '@id'?: string;
   billingDuration?: s.Duration | number | s.QuantitativeValue | Array<s.Duration | number | s.QuantitativeValue>;
   billingIncrement?: number | Array<number>;
@@ -111,7 +111,7 @@ export interface UnitPriceSpecification {
 
 export const UnitPriceSpecificationSchema: z.ZodType<UnitPriceSpecification> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UnitPriceSpecification'), z.array(z.literal('UnitPriceSpecification'))]).optional(),
   '@id': z.string().optional(),
   billingDuration: z.union([z.union([s.DurationSchema, z.number(), s.QuantitativeValueSchema]), z.array(z.union([s.DurationSchema, z.number(), s.QuantitativeValueSchema]))]).optional(),
   billingIncrement: z.union([z.number(), z.array(z.number())]).optional(),
@@ -149,7 +149,7 @@ export const UnitPriceSpecificationSchema: z.ZodType<UnitPriceSpecification> = z
 
 export interface UpdateAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UpdateAction' | 'AddAction' | 'InsertAction' | 'AppendAction' | 'PrependAction' | 'DeleteAction' | 'ReplaceAction' | Array<'UpdateAction' | 'AddAction' | 'InsertAction' | 'AppendAction' | 'PrependAction' | 'DeleteAction' | 'ReplaceAction'>;
   '@id'?: string;
   collection?: s.Thing | Array<s.Thing>;
   targetCollection?: s.Thing | Array<s.Thing>;
@@ -183,7 +183,7 @@ export interface UpdateAction {
 
 export const UpdateActionSchema: z.ZodType<UpdateAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('UpdateAction'), z.literal('AddAction'), z.literal('InsertAction'), z.literal('AppendAction'), z.literal('PrependAction'), z.literal('DeleteAction'), z.literal('ReplaceAction')]), z.array(z.union([z.literal('UpdateAction'), z.literal('AddAction'), z.literal('InsertAction'), z.literal('AppendAction'), z.literal('PrependAction'), z.literal('DeleteAction'), z.literal('ReplaceAction')]))]).optional(),
   '@id': z.string().optional(),
   collection: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   targetCollection: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -217,7 +217,7 @@ export const UpdateActionSchema: z.ZodType<UpdateAction> = z.lazy(() => z.object
 
 export interface UseAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UseAction' | 'WearAction' | Array<'UseAction' | 'WearAction'>;
   '@id'?: string;
   actionAccessibilityRequirement?: s.ActionAccessSpecification | Array<s.ActionAccessSpecification>;
   expectsAcceptanceOf?: s.Offer | Array<s.Offer>;
@@ -251,7 +251,7 @@ export interface UseAction {
 
 export const UseActionSchema: z.ZodType<UseAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('UseAction'), z.literal('WearAction')]), z.array(z.union([z.literal('UseAction'), z.literal('WearAction')]))]).optional(),
   '@id': z.string().optional(),
   actionAccessibilityRequirement: z.union([s.ActionAccessSpecificationSchema, z.array(s.ActionAccessSpecificationSchema)]).optional(),
   expectsAcceptanceOf: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -285,7 +285,7 @@ export const UseActionSchema: z.ZodType<UseAction> = z.lazy(() => z.object({
 
 export interface UserBlocks {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserBlocks' | Array<'UserBlocks'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -347,7 +347,7 @@ export interface UserBlocks {
 
 export const UserBlocksSchema: z.ZodType<UserBlocks> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserBlocks'), z.array(z.literal('UserBlocks'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -409,7 +409,7 @@ export const UserBlocksSchema: z.ZodType<UserBlocks> = z.lazy(() => z.object({
 
 export interface UserCheckins {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserCheckins' | Array<'UserCheckins'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -471,7 +471,7 @@ export interface UserCheckins {
 
 export const UserCheckinsSchema: z.ZodType<UserCheckins> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserCheckins'), z.array(z.literal('UserCheckins'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -533,7 +533,7 @@ export const UserCheckinsSchema: z.ZodType<UserCheckins> = z.lazy(() => z.object
 
 export interface UserComments {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserComments' | Array<'UserComments'>;
   '@id'?: string;
   commentText?: string | Array<string>;
   commentTime?: string | Array<string>;
@@ -600,7 +600,7 @@ export interface UserComments {
 
 export const UserCommentsSchema: z.ZodType<UserComments> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserComments'), z.array(z.literal('UserComments'))]).optional(),
   '@id': z.string().optional(),
   commentText: z.union([z.string(), z.array(z.string())]).optional(),
   commentTime: z.union([z.string(), z.array(z.string())]).optional(),
@@ -667,7 +667,7 @@ export const UserCommentsSchema: z.ZodType<UserComments> = z.lazy(() => z.object
 
 export interface UserDownloads {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserDownloads' | Array<'UserDownloads'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -729,7 +729,7 @@ export interface UserDownloads {
 
 export const UserDownloadsSchema: z.ZodType<UserDownloads> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserDownloads'), z.array(z.literal('UserDownloads'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -791,7 +791,7 @@ export const UserDownloadsSchema: z.ZodType<UserDownloads> = z.lazy(() => z.obje
 
 export interface UserInteraction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserInteraction' | 'UserBlocks' | 'UserCheckins' | 'UserComments' | 'UserDownloads' | 'UserLikes' | 'UserPageVisits' | 'UserPlays' | 'UserPlusOnes' | 'UserTweets' | Array<'UserInteraction' | 'UserBlocks' | 'UserCheckins' | 'UserComments' | 'UserDownloads' | 'UserLikes' | 'UserPageVisits' | 'UserPlays' | 'UserPlusOnes' | 'UserTweets'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -853,7 +853,7 @@ export interface UserInteraction {
 
 export const UserInteractionSchema: z.ZodType<UserInteraction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('UserInteraction'), z.literal('UserBlocks'), z.literal('UserCheckins'), z.literal('UserComments'), z.literal('UserDownloads'), z.literal('UserLikes'), z.literal('UserPageVisits'), z.literal('UserPlays'), z.literal('UserPlusOnes'), z.literal('UserTweets')]), z.array(z.union([z.literal('UserInteraction'), z.literal('UserBlocks'), z.literal('UserCheckins'), z.literal('UserComments'), z.literal('UserDownloads'), z.literal('UserLikes'), z.literal('UserPageVisits'), z.literal('UserPlays'), z.literal('UserPlusOnes'), z.literal('UserTweets')]))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -915,7 +915,7 @@ export const UserInteractionSchema: z.ZodType<UserInteraction> = z.lazy(() => z.
 
 export interface UserLikes {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserLikes' | Array<'UserLikes'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -977,7 +977,7 @@ export interface UserLikes {
 
 export const UserLikesSchema: z.ZodType<UserLikes> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserLikes'), z.array(z.literal('UserLikes'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -1039,7 +1039,7 @@ export const UserLikesSchema: z.ZodType<UserLikes> = z.lazy(() => z.object({
 
 export interface UserPageVisits {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserPageVisits' | Array<'UserPageVisits'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -1101,7 +1101,7 @@ export interface UserPageVisits {
 
 export const UserPageVisitsSchema: z.ZodType<UserPageVisits> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserPageVisits'), z.array(z.literal('UserPageVisits'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -1163,7 +1163,7 @@ export const UserPageVisitsSchema: z.ZodType<UserPageVisits> = z.lazy(() => z.ob
 
 export interface UserPlays {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserPlays' | Array<'UserPlays'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -1225,7 +1225,7 @@ export interface UserPlays {
 
 export const UserPlaysSchema: z.ZodType<UserPlays> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserPlays'), z.array(z.literal('UserPlays'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -1287,7 +1287,7 @@ export const UserPlaysSchema: z.ZodType<UserPlays> = z.lazy(() => z.object({
 
 export interface UserPlusOnes {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserPlusOnes' | Array<'UserPlusOnes'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -1349,7 +1349,7 @@ export interface UserPlusOnes {
 
 export const UserPlusOnesSchema: z.ZodType<UserPlusOnes> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserPlusOnes'), z.array(z.literal('UserPlusOnes'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -1411,7 +1411,7 @@ export const UserPlusOnesSchema: z.ZodType<UserPlusOnes> = z.lazy(() => z.object
 
 export interface UserReview {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserReview' | Array<'UserReview'>;
   '@id'?: string;
   associatedClaimReview?: s.Review | Array<s.Review>;
   associatedMediaReview?: s.Review | Array<s.Review>;
@@ -1555,7 +1555,7 @@ export interface UserReview {
 
 export const UserReviewSchema: z.ZodType<UserReview> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserReview'), z.array(z.literal('UserReview'))]).optional(),
   '@id': z.string().optional(),
   associatedClaimReview: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
   associatedMediaReview: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
@@ -1699,7 +1699,7 @@ export const UserReviewSchema: z.ZodType<UserReview> = z.lazy(() => z.object({
 
 export interface UserTweets {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'UserTweets' | Array<'UserTweets'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -1761,7 +1761,7 @@ export interface UserTweets {
 
 export const UserTweetsSchema: z.ZodType<UserTweets> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('UserTweets'), z.array(z.literal('UserTweets'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -1823,204 +1823,204 @@ export const UserTweetsSchema: z.ZodType<UserTweets> = z.lazy(() => z.object({
 
 export interface unece_AmountType {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:AmountType' | Array<'unece:AmountType'>;
   '@id'?: string;
 }
 
 export const unece_AmountTypeSchema: z.ZodType<unece_AmountType> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:AmountType'), z.array(z.literal('unece:AmountType'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_BrandName {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:BrandName' | Array<'unece:BrandName'>;
   '@id'?: string;
 }
 
 export const unece_BrandNameSchema: z.ZodType<unece_BrandName> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:BrandName'), z.array(z.literal('unece:BrandName'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_Country {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:Country' | Array<'unece:Country'>;
   '@id'?: string;
 }
 
 export const unece_CountrySchema: z.ZodType<unece_Country> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:Country'), z.array(z.literal('unece:Country'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_ElectronicDocument {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:ElectronicDocument' | Array<'unece:ElectronicDocument'>;
   '@id'?: string;
 }
 
 export const unece_ElectronicDocumentSchema: z.ZodType<unece_ElectronicDocument> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:ElectronicDocument'), z.array(z.literal('unece:ElectronicDocument'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_FinancialCard {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:FinancialCard' | Array<'unece:FinancialCard'>;
   '@id'?: string;
 }
 
 export const unece_FinancialCardSchema: z.ZodType<unece_FinancialCard> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:FinancialCard'), z.array(z.literal('unece:FinancialCard'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_GeographicalCoordinate {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:GeographicalCoordinate' | Array<'unece:GeographicalCoordinate'>;
   '@id'?: string;
 }
 
 export const unece_GeographicalCoordinateSchema: z.ZodType<unece_GeographicalCoordinate> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:GeographicalCoordinate'), z.array(z.literal('unece:GeographicalCoordinate'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_Invoice {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:Invoice' | Array<'unece:Invoice'>;
   '@id'?: string;
 }
 
 export const unece_InvoiceSchema: z.ZodType<unece_Invoice> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:Invoice'), z.array(z.literal('unece:Invoice'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_LineTradeAgreement {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:LineTradeAgreement' | Array<'unece:LineTradeAgreement'>;
   '@id'?: string;
 }
 
 export const unece_LineTradeAgreementSchema: z.ZodType<unece_LineTradeAgreement> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:LineTradeAgreement'), z.array(z.literal('unece:LineTradeAgreement'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_Offer {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:Offer' | Array<'unece:Offer'>;
   '@id'?: string;
 }
 
 export const unece_OfferSchema: z.ZodType<unece_Offer> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:Offer'), z.array(z.literal('unece:Offer'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_Order {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:Order' | Array<'unece:Order'>;
   '@id'?: string;
 }
 
 export const unece_OrderSchema: z.ZodType<unece_Order> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:Order'), z.array(z.literal('unece:Order'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_PaymentMeans {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:PaymentMeans' | Array<'unece:PaymentMeans'>;
   '@id'?: string;
 }
 
 export const unece_PaymentMeansSchema: z.ZodType<unece_PaymentMeans> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:PaymentMeans'), z.array(z.literal('unece:PaymentMeans'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_RequestForQuotation {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:RequestForQuotation' | Array<'unece:RequestForQuotation'>;
   '@id'?: string;
 }
 
 export const unece_RequestForQuotationSchema: z.ZodType<unece_RequestForQuotation> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:RequestForQuotation'), z.array(z.literal('unece:RequestForQuotation'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_SpecifiedCertificate {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:SpecifiedCertificate' | Array<'unece:SpecifiedCertificate'>;
   '@id'?: string;
 }
 
 export const unece_SpecifiedCertificateSchema: z.ZodType<unece_SpecifiedCertificate> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:SpecifiedCertificate'), z.array(z.literal('unece:SpecifiedCertificate'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_SpecifiedTradeProduct {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:SpecifiedTradeProduct' | Array<'unece:SpecifiedTradeProduct'>;
   '@id'?: string;
 }
 
 export const unece_SpecifiedTradeProductSchema: z.ZodType<unece_SpecifiedTradeProduct> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:SpecifiedTradeProduct'), z.array(z.literal('unece:SpecifiedTradeProduct'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_TradeAddress {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:TradeAddress' | Array<'unece:TradeAddress'>;
   '@id'?: string;
 }
 
 export const unece_TradeAddressSchema: z.ZodType<unece_TradeAddress> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:TradeAddress'), z.array(z.literal('unece:TradeAddress'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_TradeProduct {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:TradeProduct' | Array<'unece:TradeProduct'>;
   '@id'?: string;
 }
 
 export const unece_TradeProductSchema: z.ZodType<unece_TradeProduct> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:TradeProduct'), z.array(z.literal('unece:TradeProduct'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface unece_TransportMethod {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'unece:TransportMethod' | Array<'unece:TransportMethod'>;
   '@id'?: string;
 }
 
 export const unece_TransportMethodSchema: z.ZodType<unece_TransportMethod> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('unece:TransportMethod'), z.array(z.literal('unece:TransportMethod'))]).optional(),
   '@id': z.string().optional(),
 }));

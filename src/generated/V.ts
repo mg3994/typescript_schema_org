@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface VacationRental {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VacationRental' | Array<'VacationRental'>;
   '@id'?: string;
   amenityFeature?: s.LocationFeatureSpecification | Array<s.LocationFeatureSpecification>;
   audience?: s.Audience | Array<s.Audience>;
@@ -143,7 +143,7 @@ export interface VacationRental {
 
 export const VacationRentalSchema: z.ZodType<VacationRental> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VacationRental'), z.array(z.literal('VacationRental'))]).optional(),
   '@id': z.string().optional(),
   amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
   audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
@@ -283,7 +283,7 @@ export const VacationRentalSchema: z.ZodType<VacationRental> = z.lazy(() => z.ob
 
 export interface Vehicle {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Vehicle' | 'BusOrCoach' | 'Car' | 'Motorcycle' | 'MotorizedBicycle' | Array<'Vehicle' | 'BusOrCoach' | 'Car' | 'Motorcycle' | 'MotorizedBicycle'>;
   '@id'?: string;
   accelerationTime?: s.QuantitativeValue | Array<s.QuantitativeValue>;
   bodyType?: s.QualitativeValue | string | Array<s.QualitativeValue | string>;
@@ -398,7 +398,7 @@ export interface Vehicle {
 
 export const VehicleSchema: z.ZodType<Vehicle> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('Vehicle'), z.literal('BusOrCoach'), z.literal('Car'), z.literal('Motorcycle'), z.literal('MotorizedBicycle')]), z.array(z.union([z.literal('Vehicle'), z.literal('BusOrCoach'), z.literal('Car'), z.literal('Motorcycle'), z.literal('MotorizedBicycle')]))]).optional(),
   '@id': z.string().optional(),
   accelerationTime: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
   bodyType: z.union([z.union([s.QualitativeValueSchema, z.string(), z.string().url()]), z.array(z.union([s.QualitativeValueSchema, z.string(), z.string().url()]))]).optional(),
@@ -513,7 +513,7 @@ export const VehicleSchema: z.ZodType<Vehicle> = z.lazy(() => z.object({
 
 export interface Vein {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Vein' | Array<'Vein'>;
   '@id'?: string;
   drainsTo?: s.Vessel | Array<s.Vessel>;
   regionDrained?: s.AnatomicalStructure | s.AnatomicalSystem | Array<s.AnatomicalStructure | s.AnatomicalSystem>;
@@ -551,7 +551,7 @@ export interface Vein {
 
 export const VeinSchema: z.ZodType<Vein> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Vein'), z.array(z.literal('Vein'))]).optional(),
   '@id': z.string().optional(),
   drainsTo: z.union([s.VesselSchema, z.array(s.VesselSchema)]).optional(),
   regionDrained: z.union([z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema]), z.array(z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema]))]).optional(),
@@ -589,7 +589,7 @@ export const VeinSchema: z.ZodType<Vein> = z.lazy(() => z.object({
 
 export interface Vessel {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Vessel' | 'Artery' | 'LymphaticVessel' | 'Vein' | Array<'Vessel' | 'Artery' | 'LymphaticVessel' | 'Vein'>;
   '@id'?: string;
   associatedPathophysiology?: string | Array<string>;
   bodyLocation?: string | Array<string>;
@@ -624,7 +624,7 @@ export interface Vessel {
 
 export const VesselSchema: z.ZodType<Vessel> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('Vessel'), z.literal('Artery'), z.literal('LymphaticVessel'), z.literal('Vein')]), z.array(z.union([z.literal('Vessel'), z.literal('Artery'), z.literal('LymphaticVessel'), z.literal('Vein')]))]).optional(),
   '@id': z.string().optional(),
   associatedPathophysiology: z.union([z.string(), z.array(z.string())]).optional(),
   bodyLocation: z.union([z.string(), z.array(z.string())]).optional(),
@@ -659,7 +659,7 @@ export const VesselSchema: z.ZodType<Vessel> = z.lazy(() => z.object({
 
 export interface VeterinaryCare {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VeterinaryCare' | Array<'VeterinaryCare'>;
   '@id'?: string;
   healthPlanNetworkId?: string | Array<string>;
   isAcceptingNewPatients?: boolean | Array<boolean>;
@@ -757,7 +757,7 @@ export interface VeterinaryCare {
 
 export const VeterinaryCareSchema: z.ZodType<VeterinaryCare> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VeterinaryCare'), z.array(z.literal('VeterinaryCare'))]).optional(),
   '@id': z.string().optional(),
   healthPlanNetworkId: z.union([z.string(), z.array(z.string())]).optional(),
   isAcceptingNewPatients: z.union([z.boolean(), z.array(z.boolean())]).optional(),
@@ -855,7 +855,7 @@ export const VeterinaryCareSchema: z.ZodType<VeterinaryCare> = z.lazy(() => z.ob
 
 export interface VideoGallery {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VideoGallery' | Array<'VideoGallery'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
   lastReviewed?: string | Array<string>;
@@ -1000,7 +1000,7 @@ export interface VideoGallery {
 
 export const VideoGallerySchema: z.ZodType<VideoGallery> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VideoGallery'), z.array(z.literal('VideoGallery'))]).optional(),
   '@id': z.string().optional(),
   breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
   lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1145,7 +1145,7 @@ export const VideoGallerySchema: z.ZodType<VideoGallery> = z.lazy(() => z.object
 
 export interface VideoGame {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VideoGame' | Array<'VideoGame'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -1322,7 +1322,7 @@ export interface VideoGame {
 
 export const VideoGameSchema: z.ZodType<VideoGame> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VideoGame'), z.array(z.literal('VideoGame'))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -1499,7 +1499,7 @@ export const VideoGameSchema: z.ZodType<VideoGame> = z.lazy(() => z.object({
 
 export interface VideoGameClip {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VideoGameClip' | Array<'VideoGameClip'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -1645,7 +1645,7 @@ export interface VideoGameClip {
 
 export const VideoGameClipSchema: z.ZodType<VideoGameClip> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VideoGameClip'), z.array(z.literal('VideoGameClip'))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -1791,7 +1791,7 @@ export const VideoGameClipSchema: z.ZodType<VideoGameClip> = z.lazy(() => z.obje
 
 export interface VideoGameSeries {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VideoGameSeries' | Array<'VideoGameSeries'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -1951,7 +1951,7 @@ export interface VideoGameSeries {
 
 export const VideoGameSeriesSchema: z.ZodType<VideoGameSeries> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VideoGameSeries'), z.array(z.literal('VideoGameSeries'))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -2111,7 +2111,7 @@ export const VideoGameSeriesSchema: z.ZodType<VideoGameSeries> = z.lazy(() => z.
 
 export interface VideoObject {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VideoObject' | 'VideoObjectSnapshot' | Array<'VideoObject' | 'VideoObjectSnapshot'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -2274,7 +2274,7 @@ export interface VideoObject {
 
 export const VideoObjectSchema: z.ZodType<VideoObject> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('VideoObject'), z.literal('VideoObjectSnapshot')]), z.array(z.union([z.literal('VideoObject'), z.literal('VideoObjectSnapshot')]))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -2437,7 +2437,7 @@ export const VideoObjectSchema: z.ZodType<VideoObject> = z.lazy(() => z.object({
 
 export interface VideoObjectSnapshot {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VideoObjectSnapshot' | Array<'VideoObjectSnapshot'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -2600,7 +2600,7 @@ export interface VideoObjectSnapshot {
 
 export const VideoObjectSnapshotSchema: z.ZodType<VideoObjectSnapshot> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VideoObjectSnapshot'), z.array(z.literal('VideoObjectSnapshot'))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -2763,7 +2763,7 @@ export const VideoObjectSnapshotSchema: z.ZodType<VideoObjectSnapshot> = z.lazy(
 
 export interface ViewAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'ViewAction' | Array<'ViewAction'>;
   '@id'?: string;
   actionAccessibilityRequirement?: s.ActionAccessSpecification | Array<s.ActionAccessSpecification>;
   expectsAcceptanceOf?: s.Offer | Array<s.Offer>;
@@ -2797,7 +2797,7 @@ export interface ViewAction {
 
 export const ViewActionSchema: z.ZodType<ViewAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('ViewAction'), z.array(z.literal('ViewAction'))]).optional(),
   '@id': z.string().optional(),
   actionAccessibilityRequirement: z.union([s.ActionAccessSpecificationSchema, z.array(s.ActionAccessSpecificationSchema)]).optional(),
   expectsAcceptanceOf: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -2831,7 +2831,7 @@ export const ViewActionSchema: z.ZodType<ViewAction> = z.lazy(() => z.object({
 
 export interface VirtualLocation {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VirtualLocation' | Array<'VirtualLocation'>;
   '@id'?: string;
   additionalType?: string | Array<string>;
   alternateName?: string | Array<string>;
@@ -2850,7 +2850,7 @@ export interface VirtualLocation {
 
 export const VirtualLocationSchema: z.ZodType<VirtualLocation> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VirtualLocation'), z.array(z.literal('VirtualLocation'))]).optional(),
   '@id': z.string().optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
   alternateName: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2869,7 +2869,7 @@ export const VirtualLocationSchema: z.ZodType<VirtualLocation> = z.lazy(() => z.
 
 export interface VisualArtsEvent {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VisualArtsEvent' | Array<'VisualArtsEvent'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -2931,7 +2931,7 @@ export interface VisualArtsEvent {
 
 export const VisualArtsEventSchema: z.ZodType<VisualArtsEvent> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VisualArtsEvent'), z.array(z.literal('VisualArtsEvent'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -2993,7 +2993,7 @@ export const VisualArtsEventSchema: z.ZodType<VisualArtsEvent> = z.lazy(() => z.
 
 export interface VisualArtwork {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VisualArtwork' | 'CoverArt' | 'ComicCoverArt' | 'SequentialArt' | Array<'VisualArtwork' | 'CoverArt' | 'ComicCoverArt' | 'SequentialArt'>;
   '@id'?: string;
   artEdition?: number | string | Array<number | string>;
   artMedium?: string | Array<string>;
@@ -3142,7 +3142,7 @@ export interface VisualArtwork {
 
 export const VisualArtworkSchema: z.ZodType<VisualArtwork> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('VisualArtwork'), z.literal('CoverArt'), z.literal('ComicCoverArt'), z.literal('SequentialArt')]), z.array(z.union([z.literal('VisualArtwork'), z.literal('CoverArt'), z.literal('ComicCoverArt'), z.literal('SequentialArt')]))]).optional(),
   '@id': z.string().optional(),
   artEdition: z.union([z.union([z.number().int(), z.string()]), z.array(z.union([z.number().int(), z.string()]))]).optional(),
   artMedium: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -3291,7 +3291,7 @@ export const VisualArtworkSchema: z.ZodType<VisualArtwork> = z.lazy(() => z.obje
 
 export interface VitalSign {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VitalSign' | Array<'VitalSign'>;
   '@id'?: string;
   identifyingExam?: s.PhysicalExam | Array<s.PhysicalExam>;
   identifyingTest?: s.MedicalTest | Array<s.MedicalTest>;
@@ -3337,7 +3337,7 @@ export interface VitalSign {
 
 export const VitalSignSchema: z.ZodType<VitalSign> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VitalSign'), z.array(z.literal('VitalSign'))]).optional(),
   '@id': z.string().optional(),
   identifyingExam: z.union([s.PhysicalExamSchema, z.array(s.PhysicalExamSchema)]).optional(),
   identifyingTest: z.union([s.MedicalTestSchema, z.array(s.MedicalTestSchema)]).optional(),
@@ -3383,7 +3383,7 @@ export const VitalSignSchema: z.ZodType<VitalSign> = z.lazy(() => z.object({
 
 export interface Volcano {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Volcano' | Array<'Volcano'>;
   '@id'?: string;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
   address?: s.PostalAddress | string | Array<s.PostalAddress | string>;
@@ -3449,7 +3449,7 @@ export interface Volcano {
 
 export const VolcanoSchema: z.ZodType<Volcano> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Volcano'), z.array(z.literal('Volcano'))]).optional(),
   '@id': z.string().optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
   address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
@@ -3515,7 +3515,7 @@ export const VolcanoSchema: z.ZodType<Volcano> = z.lazy(() => z.object({
 
 export interface VoteAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'VoteAction' | Array<'VoteAction'>;
   '@id'?: string;
   candidate?: s.Person | Array<s.Person>;
   actionOption?: string | s.Thing | Array<string | s.Thing>;
@@ -3550,7 +3550,7 @@ export interface VoteAction {
 
 export const VoteActionSchema: z.ZodType<VoteAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('VoteAction'), z.array(z.literal('VoteAction'))]).optional(),
   '@id': z.string().optional(),
   candidate: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
   actionOption: z.union([z.union([z.string(), s.ThingSchema]), z.array(z.union([z.string(), s.ThingSchema]))]).optional(),
@@ -3585,24 +3585,24 @@ export const VoteActionSchema: z.ZodType<VoteAction> = z.lazy(() => z.object({
 
 export interface vcard_VCard {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'vcard:VCard' | Array<'vcard:VCard'>;
   '@id'?: string;
 }
 
 export const vcard_VCardSchema: z.ZodType<vcard_VCard> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('vcard:VCard'), z.array(z.literal('vcard:VCard'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface void_Dataset {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'void:Dataset' | Array<'void:Dataset'>;
   '@id'?: string;
 }
 
 export const void_DatasetSchema: z.ZodType<void_Dataset> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('void:Dataset'), z.array(z.literal('void:Dataset'))]).optional(),
   '@id': z.string().optional(),
 }));

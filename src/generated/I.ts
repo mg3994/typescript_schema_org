@@ -9,7 +9,7 @@ export const ITNonprofitTypeSchema = z.union([z.literal('schema:ITCooperativeCha
 
 export interface IceCreamShop {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'IceCreamShop' | Array<'IceCreamShop'>;
   '@id'?: string;
   acceptsReservations?: boolean | string | Array<boolean | string>;
   hasMenu?: s.Menu | string | Array<s.Menu | string>;
@@ -147,7 +147,7 @@ export interface IceCreamShop {
 
 export const IceCreamShopSchema: z.ZodType<IceCreamShop> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('IceCreamShop'), z.array(z.literal('IceCreamShop'))]).optional(),
   '@id': z.string().optional(),
   acceptsReservations: z.union([z.union([z.boolean(), z.string(), z.string().url()]), z.array(z.union([z.boolean(), z.string(), z.string().url()]))]).optional(),
   hasMenu: z.union([z.union([s.MenuSchema, z.string(), z.string().url()]), z.array(z.union([s.MenuSchema, z.string(), z.string().url()]))]).optional(),
@@ -285,7 +285,7 @@ export const IceCreamShopSchema: z.ZodType<IceCreamShop> = z.lazy(() => z.object
 
 export interface IgnoreAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'IgnoreAction' | Array<'IgnoreAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
   actionStatus?: s.ActionStatusType | Array<s.ActionStatusType>;
@@ -317,7 +317,7 @@ export interface IgnoreAction {
 
 export const IgnoreActionSchema: z.ZodType<IgnoreAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('IgnoreAction'), z.array(z.literal('IgnoreAction'))]).optional(),
   '@id': z.string().optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
   actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
@@ -349,7 +349,7 @@ export const IgnoreActionSchema: z.ZodType<IgnoreAction> = z.lazy(() => z.object
 
 export interface ImageGallery {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'ImageGallery' | Array<'ImageGallery'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
   lastReviewed?: string | Array<string>;
@@ -494,7 +494,7 @@ export interface ImageGallery {
 
 export const ImageGallerySchema: z.ZodType<ImageGallery> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('ImageGallery'), z.array(z.literal('ImageGallery'))]).optional(),
   '@id': z.string().optional(),
   breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
   lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),
@@ -639,7 +639,7 @@ export const ImageGallerySchema: z.ZodType<ImageGallery> = z.lazy(() => z.object
 
 export interface ImageObject {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'ImageObject' | 'Barcode' | 'ImageObjectSnapshot' | Array<'ImageObject' | 'Barcode' | 'ImageObjectSnapshot'>;
   '@id'?: string;
   caption?: s.MediaObject | string | Array<s.MediaObject | string>;
   embeddedTextCaption?: string | Array<string>;
@@ -796,7 +796,7 @@ export interface ImageObject {
 
 export const ImageObjectSchema: z.ZodType<ImageObject> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('ImageObject'), z.literal('Barcode'), z.literal('ImageObjectSnapshot')]), z.array(z.union([z.literal('ImageObject'), z.literal('Barcode'), z.literal('ImageObjectSnapshot')]))]).optional(),
   '@id': z.string().optional(),
   caption: z.union([z.union([s.MediaObjectSchema, z.string()]), z.array(z.union([s.MediaObjectSchema, z.string()]))]).optional(),
   embeddedTextCaption: z.union([z.string(), z.array(z.string())]).optional(),
@@ -953,7 +953,7 @@ export const ImageObjectSchema: z.ZodType<ImageObject> = z.lazy(() => z.object({
 
 export interface ImageObjectSnapshot {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'ImageObjectSnapshot' | Array<'ImageObjectSnapshot'>;
   '@id'?: string;
   caption?: s.MediaObject | string | Array<s.MediaObject | string>;
   embeddedTextCaption?: string | Array<string>;
@@ -1110,7 +1110,7 @@ export interface ImageObjectSnapshot {
 
 export const ImageObjectSnapshotSchema: z.ZodType<ImageObjectSnapshot> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('ImageObjectSnapshot'), z.array(z.literal('ImageObjectSnapshot'))]).optional(),
   '@id': z.string().optional(),
   caption: z.union([z.union([s.MediaObjectSchema, z.string()]), z.array(z.union([s.MediaObjectSchema, z.string()]))]).optional(),
   embeddedTextCaption: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1267,7 +1267,7 @@ export const ImageObjectSnapshotSchema: z.ZodType<ImageObjectSnapshot> = z.lazy(
 
 export interface ImagingTest {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'ImagingTest' | Array<'ImagingTest'>;
   '@id'?: string;
   imagingTechnique?: s.MedicalImagingTechnique | Array<s.MedicalImagingTechnique>;
   affectedBy?: s.Drug | Array<s.Drug>;
@@ -1300,7 +1300,7 @@ export interface ImagingTest {
 
 export const ImagingTestSchema: z.ZodType<ImagingTest> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('ImagingTest'), z.array(z.literal('ImagingTest'))]).optional(),
   '@id': z.string().optional(),
   imagingTechnique: z.union([s.MedicalImagingTechniqueSchema, z.array(s.MedicalImagingTechniqueSchema)]).optional(),
   affectedBy: z.union([s.DrugSchema, z.array(s.DrugSchema)]).optional(),
@@ -1342,7 +1342,7 @@ export const IncentiveTypeSchema = z.union([z.literal('schema:IncentiveTypeLoan'
 
 export interface IndividualPhysician {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'IndividualPhysician' | Array<'IndividualPhysician'>;
   '@id'?: string;
   practicesAt?: s.MedicalOrganization | Array<s.MedicalOrganization>;
   availableService?: s.MedicalProcedure | s.MedicalTest | s.MedicalTherapy | Array<s.MedicalProcedure | s.MedicalTest | s.MedicalTherapy>;
@@ -1483,7 +1483,7 @@ export interface IndividualPhysician {
 
 export const IndividualPhysicianSchema: z.ZodType<IndividualPhysician> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('IndividualPhysician'), z.array(z.literal('IndividualPhysician'))]).optional(),
   '@id': z.string().optional(),
   practicesAt: z.union([s.MedicalOrganizationSchema, z.array(s.MedicalOrganizationSchema)]).optional(),
   availableService: z.union([z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]), z.array(z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]))]).optional(),
@@ -1624,7 +1624,7 @@ export const IndividualPhysicianSchema: z.ZodType<IndividualPhysician> = z.lazy(
 
 export interface IndividualProduct {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'IndividualProduct' | Array<'IndividualProduct'>;
   '@id'?: string;
   serialNumber?: string | Array<string>;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
@@ -1703,7 +1703,7 @@ export interface IndividualProduct {
 
 export const IndividualProductSchema: z.ZodType<IndividualProduct> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('IndividualProduct'), z.array(z.literal('IndividualProduct'))]).optional(),
   '@id': z.string().optional(),
   serialNumber: z.union([z.string(), z.array(z.string())]).optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
@@ -1785,7 +1785,7 @@ export const InfectiousAgentClassSchema = z.union([z.literal('schema:Bacteria'),
 
 export interface InfectiousDisease {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InfectiousDisease' | Array<'InfectiousDisease'>;
   '@id'?: string;
   infectiousAgent?: string | Array<string>;
   infectiousAgentClass?: s.InfectiousAgentClass | Array<s.InfectiousAgentClass>;
@@ -1832,7 +1832,7 @@ export interface InfectiousDisease {
 
 export const InfectiousDiseaseSchema: z.ZodType<InfectiousDisease> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('InfectiousDisease'), z.array(z.literal('InfectiousDisease'))]).optional(),
   '@id': z.string().optional(),
   infectiousAgent: z.union([z.string(), z.array(z.string())]).optional(),
   infectiousAgentClass: z.union([s.InfectiousAgentClassSchema, z.array(s.InfectiousAgentClassSchema)]).optional(),
@@ -1879,7 +1879,7 @@ export const InfectiousDiseaseSchema: z.ZodType<InfectiousDisease> = z.lazy(() =
 
 export interface InformAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InformAction' | 'ConfirmAction' | 'RsvpAction' | Array<'InformAction' | 'ConfirmAction' | 'RsvpAction'>;
   '@id'?: string;
   event?: s.Event | Array<s.Event>;
   about?: s.Thing | Array<s.Thing>;
@@ -1916,7 +1916,7 @@ export interface InformAction {
 
 export const InformActionSchema: z.ZodType<InformAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction')]), z.array(z.union([z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction')]))]).optional(),
   '@id': z.string().optional(),
   event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -1953,7 +1953,7 @@ export const InformActionSchema: z.ZodType<InformAction> = z.lazy(() => z.object
 
 export interface InsertAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InsertAction' | 'AppendAction' | 'PrependAction' | Array<'InsertAction' | 'AppendAction' | 'PrependAction'>;
   '@id'?: string;
   toLocation?: s.Place | Array<s.Place>;
   collection?: s.Thing | Array<s.Thing>;
@@ -1988,7 +1988,7 @@ export interface InsertAction {
 
 export const InsertActionSchema: z.ZodType<InsertAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('InsertAction'), z.literal('AppendAction'), z.literal('PrependAction')]), z.array(z.union([z.literal('InsertAction'), z.literal('AppendAction'), z.literal('PrependAction')]))]).optional(),
   '@id': z.string().optional(),
   toLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
   collection: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -2023,7 +2023,7 @@ export const InsertActionSchema: z.ZodType<InsertAction> = z.lazy(() => z.object
 
 export interface InstallAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InstallAction' | Array<'InstallAction'>;
   '@id'?: string;
   actionAccessibilityRequirement?: s.ActionAccessSpecification | Array<s.ActionAccessSpecification>;
   expectsAcceptanceOf?: s.Offer | Array<s.Offer>;
@@ -2057,7 +2057,7 @@ export interface InstallAction {
 
 export const InstallActionSchema: z.ZodType<InstallAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('InstallAction'), z.array(z.literal('InstallAction'))]).optional(),
   '@id': z.string().optional(),
   actionAccessibilityRequirement: z.union([s.ActionAccessSpecificationSchema, z.array(s.ActionAccessSpecificationSchema)]).optional(),
   expectsAcceptanceOf: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -2091,7 +2091,7 @@ export const InstallActionSchema: z.ZodType<InstallAction> = z.lazy(() => z.obje
 
 export interface InstantaneousEvent {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InstantaneousEvent' | 'Error' | Array<'InstantaneousEvent' | 'Error'>;
   '@id'?: string;
   data?: s.Thing | Array<s.Thing>;
   source?: s.Thing | Array<s.Thing>;
@@ -2113,7 +2113,7 @@ export interface InstantaneousEvent {
 
 export const InstantaneousEventSchema: z.ZodType<InstantaneousEvent> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('InstantaneousEvent'), z.literal('Error')]), z.array(z.union([z.literal('InstantaneousEvent'), z.literal('Error')]))]).optional(),
   '@id': z.string().optional(),
   data: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   source: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -2135,7 +2135,7 @@ export const InstantaneousEventSchema: z.ZodType<InstantaneousEvent> = z.lazy(()
 
 export interface InsuranceAgency {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InsuranceAgency' | Array<'InsuranceAgency'>;
   '@id'?: string;
   feesAndCommissionsSpecification?: string | Array<string>;
   branchOf?: s.Organization | Array<s.Organization>;
@@ -2269,7 +2269,7 @@ export interface InsuranceAgency {
 
 export const InsuranceAgencySchema: z.ZodType<InsuranceAgency> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('InsuranceAgency'), z.array(z.literal('InsuranceAgency'))]).optional(),
   '@id': z.string().optional(),
   feesAndCommissionsSpecification: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
@@ -2403,7 +2403,7 @@ export const InsuranceAgencySchema: z.ZodType<InsuranceAgency> = z.lazy(() => z.
 
 export interface Intangible {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Intangible' | 'ActionAccessSpecification' | 'AlignmentObject' | 'Audience' | 'BusinessAudience' | 'EducationalAudience' | 'MedicalAudience' | 'Patient' | 'PeopleAudience' | 'ParentAudience' | 'Researcher' | 'BedDetails' | 'Brand' | 'BroadcastChannel' | 'RadioChannel' | 'AMRadioChannel' | 'FMRadioChannel' | 'TelevisionChannel' | 'BroadcastFrequencySpecification' | 'Class' | 'ComputerLanguage' | 'ConstraintNode' | 'StatisticalVariable' | 'DataFeedItem' | 'DefinedTerm' | 'CategoryCode' | 'MedicalCode' | 'Demand' | 'DigitalDocumentPermission' | 'EducationalOccupationalProgram' | 'WorkBasedProgram' | 'EnergyConsumptionDetails' | 'EntryPoint' | 'Enumeration' | 'AdultOrientedEnumeration' | 'BoardingPolicyType' | 'BookFormatType' | 'BusinessEntityType' | 'BusinessFunction' | 'CarUsageType' | 'CertificationStatusEnumeration' | 'ContactPointOption' | 'DayOfWeek' | 'DeliveryMethod' | 'DigitalDocumentPermissionType' | 'DigitalPlatformEnumeration' | 'EnergyEfficiencyEnumeration' | 'EUEnergyEfficiencyEnumeration' | 'EnergyStarEnergyEfficiencyEnumeration' | 'EventAttendanceModeEnumeration' | 'FulfillmentTypeEnumeration' | 'GameAvailabilityEnumeration' | 'GamePlayMode' | 'GenderType' | 'GovernmentBenefitsType' | 'HealthAspectEnumeration' | 'IncentiveQualifiedExpenseType' | 'IncentiveStatus' | 'IncentiveType' | 'ItemAvailability' | 'ItemListOrderType' | 'LegalValueLevel' | 'MapCategoryType' | 'MeasurementMethodEnum' | 'MeasurementTypeEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration' | 'MediaEnumeration' | 'IPTCDigitalSourceEnumeration' | 'MediaManipulationRatingEnumeration' | 'MedicalEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam' | 'MerchantReturnEnumeration' | 'MusicAlbumProductionType' | 'MusicAlbumReleaseType' | 'MusicReleaseFormatType' | 'NonprofitType' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType' | 'OfferItemCondition' | 'PaymentMethodType' | 'PhysicalActivityCategory' | 'PriceComponentTypeEnumeration' | 'PriceTypeEnumeration' | 'PurchaseType' | 'QualitativeValue' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue' | 'RefundTypeEnumeration' | 'RestrictedDiet' | 'ReturnFeesEnumeration' | 'ReturnLabelSourceEnumeration' | 'ReturnMethodEnumeration' | 'RsvpResponseType' | 'SizeGroupEnumeration' | 'WearableSizeGroupEnumeration' | 'SizeSystemEnumeration' | 'WearableSizeSystemEnumeration' | 'Specialty' | 'StatusEnumeration' | 'ActionStatusType' | 'EventStatusType' | 'GameServerStatus' | 'LegalForceStatus' | 'OrderStatus' | 'PaymentStatusType' | 'ReservationStatusType' | 'TierBenefitEnumeration' | 'WarrantyScope' | 'FinancialIncentive' | 'FloorPlan' | 'GameServer' | 'GeospatialGeometry' | 'Grant' | 'MonetaryGrant' | 'HealthInsurancePlan' | 'HealthPlanCostSharingSpecification' | 'HealthPlanFormulary' | 'HealthPlanNetwork' | 'Invoice' | 'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | 'JobPosting' | 'Language' | 'ListItem' | 'HowToDirection' | 'HowToItem' | 'HowToSupply' | 'HowToTool' | 'HowToTip' | 'MediaSubscription' | 'MemberProgram' | 'MemberProgramTier' | 'MenuItem' | 'MerchantReturnPolicy' | 'MerchantReturnPolicySeasonalOverride' | 'Observation' | 'Occupation' | 'OccupationalExperienceRequirements' | 'Offer' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase' | 'Order' | 'ParcelDelivery' | 'PaymentMethod' | 'PaymentCard' | 'CreditCard' | 'PaymentService' | 'Permit' | 'GovernmentPermit' | 'ProgramMembership' | 'Property' | 'PropertyValueSpecification' | 'Rating' | 'AggregateRating' | 'EmployerAggregateRating' | 'EndorsementRating' | 'Reservation' | 'BoatReservation' | 'BusReservation' | 'EventReservation' | 'FlightReservation' | 'FoodEstablishmentReservation' | 'LodgingReservation' | 'RentalCarReservation' | 'ReservationPackage' | 'TaxiReservation' | 'TrainReservation' | 'Role' | 'LinkRole' | 'OrganizationRole' | 'EmployeeRole' | 'PerformanceRole' | 'Schedule' | 'Seat' | 'Series' | 'CreativeWorkSeries' | 'BookSeries' | 'MovieSeries' | 'Periodical' | 'ComicSeries' | 'Newspaper' | 'PodcastSeries' | 'RadioSeries' | 'TVSeries' | 'VideoGameSeries' | 'EventSeries' | 'Service' | 'BroadcastService' | 'RadioBroadcastService' | 'CableOrSatelliteService' | 'FinancialProduct' | 'BankAccount' | 'DepositAccount' | 'CurrencyConversionService' | 'InvestmentOrDeposit' | 'BrokerageAccount' | 'InvestmentFund' | 'LoanOrCredit' | 'MortgageLoan' | 'FoodService' | 'GovernmentService' | 'Taxi' | 'TaxiService' | 'WebAPI' | 'ServiceChannel' | 'SpeakableSpecification' | 'StatisticalPopulation' | 'StructuredValue' | 'CDCPMDRecord' | 'ContactPoint' | 'PostalAddress' | 'DatedMoneySpecification' | 'DefinedRegion' | 'EngineSpecification' | 'ExchangeRateSpecification' | 'GeoCoordinates' | 'GeoShape' | 'GeoCircle' | 'InstantaneousEvent' | 'Error' | 'InteractionCounter' | 'MonetaryAmount' | 'NutritionInformation' | 'OfferShippingDetails' | 'OpeningHoursSpecification' | 'OrderItem' | 'OwnershipInfo' | 'PostalCodeRangeSpecification' | 'PriceSpecification' | 'CompoundPriceSpecification' | 'DeliveryChargeSpecification' | 'PaymentChargeSpecification' | 'UnitPriceSpecification' | 'PropertyValue' | 'LocationFeatureSpecification' | 'QuantitativeValue' | 'QuantitativeValueDistribution' | 'MonetaryAmountDistribution' | 'RepaymentSpecification' | 'ServicePeriod' | 'ShippingConditions' | 'ShippingDeliveryTime' | 'ShippingRateSettings' | 'ShippingService' | 'TypeAndQuantityNode' | 'WarrantyPromise' | 'Ticket' | 'Trip' | 'BoatTrip' | 'BusTrip' | 'Flight' | 'TouristTrip' | 'TrainTrip' | 'VirtualLocation' | Array<'Intangible' | 'ActionAccessSpecification' | 'AlignmentObject' | 'Audience' | 'BusinessAudience' | 'EducationalAudience' | 'MedicalAudience' | 'Patient' | 'PeopleAudience' | 'ParentAudience' | 'Researcher' | 'BedDetails' | 'Brand' | 'BroadcastChannel' | 'RadioChannel' | 'AMRadioChannel' | 'FMRadioChannel' | 'TelevisionChannel' | 'BroadcastFrequencySpecification' | 'Class' | 'ComputerLanguage' | 'ConstraintNode' | 'StatisticalVariable' | 'DataFeedItem' | 'DefinedTerm' | 'CategoryCode' | 'MedicalCode' | 'Demand' | 'DigitalDocumentPermission' | 'EducationalOccupationalProgram' | 'WorkBasedProgram' | 'EnergyConsumptionDetails' | 'EntryPoint' | 'Enumeration' | 'AdultOrientedEnumeration' | 'BoardingPolicyType' | 'BookFormatType' | 'BusinessEntityType' | 'BusinessFunction' | 'CarUsageType' | 'CertificationStatusEnumeration' | 'ContactPointOption' | 'DayOfWeek' | 'DeliveryMethod' | 'DigitalDocumentPermissionType' | 'DigitalPlatformEnumeration' | 'EnergyEfficiencyEnumeration' | 'EUEnergyEfficiencyEnumeration' | 'EnergyStarEnergyEfficiencyEnumeration' | 'EventAttendanceModeEnumeration' | 'FulfillmentTypeEnumeration' | 'GameAvailabilityEnumeration' | 'GamePlayMode' | 'GenderType' | 'GovernmentBenefitsType' | 'HealthAspectEnumeration' | 'IncentiveQualifiedExpenseType' | 'IncentiveStatus' | 'IncentiveType' | 'ItemAvailability' | 'ItemListOrderType' | 'LegalValueLevel' | 'MapCategoryType' | 'MeasurementMethodEnum' | 'MeasurementTypeEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration' | 'MediaEnumeration' | 'IPTCDigitalSourceEnumeration' | 'MediaManipulationRatingEnumeration' | 'MedicalEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam' | 'MerchantReturnEnumeration' | 'MusicAlbumProductionType' | 'MusicAlbumReleaseType' | 'MusicReleaseFormatType' | 'NonprofitType' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType' | 'OfferItemCondition' | 'PaymentMethodType' | 'PhysicalActivityCategory' | 'PriceComponentTypeEnumeration' | 'PriceTypeEnumeration' | 'PurchaseType' | 'QualitativeValue' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue' | 'RefundTypeEnumeration' | 'RestrictedDiet' | 'ReturnFeesEnumeration' | 'ReturnLabelSourceEnumeration' | 'ReturnMethodEnumeration' | 'RsvpResponseType' | 'SizeGroupEnumeration' | 'WearableSizeGroupEnumeration' | 'SizeSystemEnumeration' | 'WearableSizeSystemEnumeration' | 'Specialty' | 'StatusEnumeration' | 'ActionStatusType' | 'EventStatusType' | 'GameServerStatus' | 'LegalForceStatus' | 'OrderStatus' | 'PaymentStatusType' | 'ReservationStatusType' | 'TierBenefitEnumeration' | 'WarrantyScope' | 'FinancialIncentive' | 'FloorPlan' | 'GameServer' | 'GeospatialGeometry' | 'Grant' | 'MonetaryGrant' | 'HealthInsurancePlan' | 'HealthPlanCostSharingSpecification' | 'HealthPlanFormulary' | 'HealthPlanNetwork' | 'Invoice' | 'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | 'JobPosting' | 'Language' | 'ListItem' | 'HowToDirection' | 'HowToItem' | 'HowToSupply' | 'HowToTool' | 'HowToTip' | 'MediaSubscription' | 'MemberProgram' | 'MemberProgramTier' | 'MenuItem' | 'MerchantReturnPolicy' | 'MerchantReturnPolicySeasonalOverride' | 'Observation' | 'Occupation' | 'OccupationalExperienceRequirements' | 'Offer' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase' | 'Order' | 'ParcelDelivery' | 'PaymentMethod' | 'PaymentCard' | 'CreditCard' | 'PaymentService' | 'Permit' | 'GovernmentPermit' | 'ProgramMembership' | 'Property' | 'PropertyValueSpecification' | 'Rating' | 'AggregateRating' | 'EmployerAggregateRating' | 'EndorsementRating' | 'Reservation' | 'BoatReservation' | 'BusReservation' | 'EventReservation' | 'FlightReservation' | 'FoodEstablishmentReservation' | 'LodgingReservation' | 'RentalCarReservation' | 'ReservationPackage' | 'TaxiReservation' | 'TrainReservation' | 'Role' | 'LinkRole' | 'OrganizationRole' | 'EmployeeRole' | 'PerformanceRole' | 'Schedule' | 'Seat' | 'Series' | 'CreativeWorkSeries' | 'BookSeries' | 'MovieSeries' | 'Periodical' | 'ComicSeries' | 'Newspaper' | 'PodcastSeries' | 'RadioSeries' | 'TVSeries' | 'VideoGameSeries' | 'EventSeries' | 'Service' | 'BroadcastService' | 'RadioBroadcastService' | 'CableOrSatelliteService' | 'FinancialProduct' | 'BankAccount' | 'DepositAccount' | 'CurrencyConversionService' | 'InvestmentOrDeposit' | 'BrokerageAccount' | 'InvestmentFund' | 'LoanOrCredit' | 'MortgageLoan' | 'FoodService' | 'GovernmentService' | 'Taxi' | 'TaxiService' | 'WebAPI' | 'ServiceChannel' | 'SpeakableSpecification' | 'StatisticalPopulation' | 'StructuredValue' | 'CDCPMDRecord' | 'ContactPoint' | 'PostalAddress' | 'DatedMoneySpecification' | 'DefinedRegion' | 'EngineSpecification' | 'ExchangeRateSpecification' | 'GeoCoordinates' | 'GeoShape' | 'GeoCircle' | 'InstantaneousEvent' | 'Error' | 'InteractionCounter' | 'MonetaryAmount' | 'NutritionInformation' | 'OfferShippingDetails' | 'OpeningHoursSpecification' | 'OrderItem' | 'OwnershipInfo' | 'PostalCodeRangeSpecification' | 'PriceSpecification' | 'CompoundPriceSpecification' | 'DeliveryChargeSpecification' | 'PaymentChargeSpecification' | 'UnitPriceSpecification' | 'PropertyValue' | 'LocationFeatureSpecification' | 'QuantitativeValue' | 'QuantitativeValueDistribution' | 'MonetaryAmountDistribution' | 'RepaymentSpecification' | 'ServicePeriod' | 'ShippingConditions' | 'ShippingDeliveryTime' | 'ShippingRateSettings' | 'ShippingService' | 'TypeAndQuantityNode' | 'WarrantyPromise' | 'Ticket' | 'Trip' | 'BoatTrip' | 'BusTrip' | 'Flight' | 'TouristTrip' | 'TrainTrip' | 'VirtualLocation'>;
   '@id'?: string;
   additionalType?: string | Array<string>;
   alternateName?: string | Array<string>;
@@ -2422,7 +2422,7 @@ export interface Intangible {
 
 export const IntangibleSchema: z.ZodType<Intangible> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('Intangible'), z.literal('ActionAccessSpecification'), z.literal('AlignmentObject'), z.literal('Audience'), z.literal('BusinessAudience'), z.literal('EducationalAudience'), z.literal('MedicalAudience'), z.literal('Patient'), z.literal('PeopleAudience'), z.literal('ParentAudience'), z.literal('Researcher'), z.literal('BedDetails'), z.literal('Brand'), z.literal('BroadcastChannel'), z.literal('RadioChannel'), z.literal('AMRadioChannel'), z.literal('FMRadioChannel'), z.literal('TelevisionChannel'), z.literal('BroadcastFrequencySpecification'), z.literal('Class'), z.literal('ComputerLanguage'), z.literal('ConstraintNode'), z.literal('StatisticalVariable'), z.literal('DataFeedItem'), z.literal('DefinedTerm'), z.literal('CategoryCode'), z.literal('MedicalCode'), z.literal('Demand'), z.literal('DigitalDocumentPermission'), z.literal('EducationalOccupationalProgram'), z.literal('WorkBasedProgram'), z.literal('EnergyConsumptionDetails'), z.literal('EntryPoint'), z.literal('Enumeration'), z.literal('AdultOrientedEnumeration'), z.literal('BoardingPolicyType'), z.literal('BookFormatType'), z.literal('BusinessEntityType'), z.literal('BusinessFunction'), z.literal('CarUsageType'), z.literal('CertificationStatusEnumeration'), z.literal('ContactPointOption'), z.literal('DayOfWeek'), z.literal('DeliveryMethod'), z.literal('DigitalDocumentPermissionType'), z.literal('DigitalPlatformEnumeration'), z.literal('EnergyEfficiencyEnumeration'), z.literal('EUEnergyEfficiencyEnumeration'), z.literal('EnergyStarEnergyEfficiencyEnumeration'), z.literal('EventAttendanceModeEnumeration'), z.literal('FulfillmentTypeEnumeration'), z.literal('GameAvailabilityEnumeration'), z.literal('GamePlayMode'), z.literal('GenderType'), z.literal('GovernmentBenefitsType'), z.literal('HealthAspectEnumeration'), z.literal('IncentiveQualifiedExpenseType'), z.literal('IncentiveStatus'), z.literal('IncentiveType'), z.literal('ItemAvailability'), z.literal('ItemListOrderType'), z.literal('LegalValueLevel'), z.literal('MapCategoryType'), z.literal('MeasurementMethodEnum'), z.literal('MeasurementTypeEnumeration'), z.literal('BodyMeasurementTypeEnumeration'), z.literal('WearableMeasurementTypeEnumeration'), z.literal('MediaEnumeration'), z.literal('IPTCDigitalSourceEnumeration'), z.literal('MediaManipulationRatingEnumeration'), z.literal('MedicalEnumeration'), z.literal('DrugCostCategory'), z.literal('DrugPregnancyCategory'), z.literal('DrugPrescriptionStatus'), z.literal('InfectiousAgentClass'), z.literal('MedicalAudienceType'), z.literal('MedicalDevicePurpose'), z.literal('MedicalEvidenceLevel'), z.literal('MedicalImagingTechnique'), z.literal('MedicalObservationalStudyDesign'), z.literal('MedicalProcedureType'), z.literal('MedicalSpecialty'), z.literal('MedicalStudyStatus'), z.literal('MedicalTrialDesign'), z.literal('MedicineSystem'), z.literal('PhysicalExam'), z.literal('MerchantReturnEnumeration'), z.literal('MusicAlbumProductionType'), z.literal('MusicAlbumReleaseType'), z.literal('MusicReleaseFormatType'), z.literal('NonprofitType'), z.literal('DENonprofitType'), z.literal('ITNonprofitType'), z.literal('NLNonprofitType'), z.literal('UKNonprofitType'), z.literal('USNonprofitType'), z.literal('OfferItemCondition'), z.literal('PaymentMethodType'), z.literal('PhysicalActivityCategory'), z.literal('PriceComponentTypeEnumeration'), z.literal('PriceTypeEnumeration'), z.literal('PurchaseType'), z.literal('QualitativeValue'), z.literal('BedType'), z.literal('DriveWheelConfigurationValue'), z.literal('SizeSpecification'), z.literal('SteeringPositionValue'), z.literal('RefundTypeEnumeration'), z.literal('RestrictedDiet'), z.literal('ReturnFeesEnumeration'), z.literal('ReturnLabelSourceEnumeration'), z.literal('ReturnMethodEnumeration'), z.literal('RsvpResponseType'), z.literal('SizeGroupEnumeration'), z.literal('WearableSizeGroupEnumeration'), z.literal('SizeSystemEnumeration'), z.literal('WearableSizeSystemEnumeration'), z.literal('Specialty'), z.literal('StatusEnumeration'), z.literal('ActionStatusType'), z.literal('EventStatusType'), z.literal('GameServerStatus'), z.literal('LegalForceStatus'), z.literal('OrderStatus'), z.literal('PaymentStatusType'), z.literal('ReservationStatusType'), z.literal('TierBenefitEnumeration'), z.literal('WarrantyScope'), z.literal('FinancialIncentive'), z.literal('FloorPlan'), z.literal('GameServer'), z.literal('GeospatialGeometry'), z.literal('Grant'), z.literal('MonetaryGrant'), z.literal('HealthInsurancePlan'), z.literal('HealthPlanCostSharingSpecification'), z.literal('HealthPlanFormulary'), z.literal('HealthPlanNetwork'), z.literal('Invoice'), z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog'), z.literal('JobPosting'), z.literal('Language'), z.literal('ListItem'), z.literal('HowToDirection'), z.literal('HowToItem'), z.literal('HowToSupply'), z.literal('HowToTool'), z.literal('HowToTip'), z.literal('MediaSubscription'), z.literal('MemberProgram'), z.literal('MemberProgramTier'), z.literal('MenuItem'), z.literal('MerchantReturnPolicy'), z.literal('MerchantReturnPolicySeasonalOverride'), z.literal('Observation'), z.literal('Occupation'), z.literal('OccupationalExperienceRequirements'), z.literal('Offer'), z.literal('AggregateOffer'), z.literal('OfferForLease'), z.literal('OfferForPurchase'), z.literal('Order'), z.literal('ParcelDelivery'), z.literal('PaymentMethod'), z.literal('PaymentCard'), z.literal('CreditCard'), z.literal('PaymentService'), z.literal('Permit'), z.literal('GovernmentPermit'), z.literal('ProgramMembership'), z.literal('Property'), z.literal('PropertyValueSpecification'), z.literal('Rating'), z.literal('AggregateRating'), z.literal('EmployerAggregateRating'), z.literal('EndorsementRating'), z.literal('Reservation'), z.literal('BoatReservation'), z.literal('BusReservation'), z.literal('EventReservation'), z.literal('FlightReservation'), z.literal('FoodEstablishmentReservation'), z.literal('LodgingReservation'), z.literal('RentalCarReservation'), z.literal('ReservationPackage'), z.literal('TaxiReservation'), z.literal('TrainReservation'), z.literal('Role'), z.literal('LinkRole'), z.literal('OrganizationRole'), z.literal('EmployeeRole'), z.literal('PerformanceRole'), z.literal('Schedule'), z.literal('Seat'), z.literal('Series'), z.literal('CreativeWorkSeries'), z.literal('BookSeries'), z.literal('MovieSeries'), z.literal('Periodical'), z.literal('ComicSeries'), z.literal('Newspaper'), z.literal('PodcastSeries'), z.literal('RadioSeries'), z.literal('TVSeries'), z.literal('VideoGameSeries'), z.literal('EventSeries'), z.literal('Service'), z.literal('BroadcastService'), z.literal('RadioBroadcastService'), z.literal('CableOrSatelliteService'), z.literal('FinancialProduct'), z.literal('BankAccount'), z.literal('DepositAccount'), z.literal('CurrencyConversionService'), z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('InvestmentFund'), z.literal('LoanOrCredit'), z.literal('MortgageLoan'), z.literal('FoodService'), z.literal('GovernmentService'), z.literal('Taxi'), z.literal('TaxiService'), z.literal('WebAPI'), z.literal('ServiceChannel'), z.literal('SpeakableSpecification'), z.literal('StatisticalPopulation'), z.literal('StructuredValue'), z.literal('CDCPMDRecord'), z.literal('ContactPoint'), z.literal('PostalAddress'), z.literal('DatedMoneySpecification'), z.literal('DefinedRegion'), z.literal('EngineSpecification'), z.literal('ExchangeRateSpecification'), z.literal('GeoCoordinates'), z.literal('GeoShape'), z.literal('GeoCircle'), z.literal('InstantaneousEvent'), z.literal('Error'), z.literal('InteractionCounter'), z.literal('MonetaryAmount'), z.literal('NutritionInformation'), z.literal('OfferShippingDetails'), z.literal('OpeningHoursSpecification'), z.literal('OrderItem'), z.literal('OwnershipInfo'), z.literal('PostalCodeRangeSpecification'), z.literal('PriceSpecification'), z.literal('CompoundPriceSpecification'), z.literal('DeliveryChargeSpecification'), z.literal('PaymentChargeSpecification'), z.literal('UnitPriceSpecification'), z.literal('PropertyValue'), z.literal('LocationFeatureSpecification'), z.literal('QuantitativeValue'), z.literal('QuantitativeValueDistribution'), z.literal('MonetaryAmountDistribution'), z.literal('RepaymentSpecification'), z.literal('ServicePeriod'), z.literal('ShippingConditions'), z.literal('ShippingDeliveryTime'), z.literal('ShippingRateSettings'), z.literal('ShippingService'), z.literal('TypeAndQuantityNode'), z.literal('WarrantyPromise'), z.literal('Ticket'), z.literal('Trip'), z.literal('BoatTrip'), z.literal('BusTrip'), z.literal('Flight'), z.literal('TouristTrip'), z.literal('TrainTrip'), z.literal('VirtualLocation')]), z.array(z.union([z.literal('Intangible'), z.literal('ActionAccessSpecification'), z.literal('AlignmentObject'), z.literal('Audience'), z.literal('BusinessAudience'), z.literal('EducationalAudience'), z.literal('MedicalAudience'), z.literal('Patient'), z.literal('PeopleAudience'), z.literal('ParentAudience'), z.literal('Researcher'), z.literal('BedDetails'), z.literal('Brand'), z.literal('BroadcastChannel'), z.literal('RadioChannel'), z.literal('AMRadioChannel'), z.literal('FMRadioChannel'), z.literal('TelevisionChannel'), z.literal('BroadcastFrequencySpecification'), z.literal('Class'), z.literal('ComputerLanguage'), z.literal('ConstraintNode'), z.literal('StatisticalVariable'), z.literal('DataFeedItem'), z.literal('DefinedTerm'), z.literal('CategoryCode'), z.literal('MedicalCode'), z.literal('Demand'), z.literal('DigitalDocumentPermission'), z.literal('EducationalOccupationalProgram'), z.literal('WorkBasedProgram'), z.literal('EnergyConsumptionDetails'), z.literal('EntryPoint'), z.literal('Enumeration'), z.literal('AdultOrientedEnumeration'), z.literal('BoardingPolicyType'), z.literal('BookFormatType'), z.literal('BusinessEntityType'), z.literal('BusinessFunction'), z.literal('CarUsageType'), z.literal('CertificationStatusEnumeration'), z.literal('ContactPointOption'), z.literal('DayOfWeek'), z.literal('DeliveryMethod'), z.literal('DigitalDocumentPermissionType'), z.literal('DigitalPlatformEnumeration'), z.literal('EnergyEfficiencyEnumeration'), z.literal('EUEnergyEfficiencyEnumeration'), z.literal('EnergyStarEnergyEfficiencyEnumeration'), z.literal('EventAttendanceModeEnumeration'), z.literal('FulfillmentTypeEnumeration'), z.literal('GameAvailabilityEnumeration'), z.literal('GamePlayMode'), z.literal('GenderType'), z.literal('GovernmentBenefitsType'), z.literal('HealthAspectEnumeration'), z.literal('IncentiveQualifiedExpenseType'), z.literal('IncentiveStatus'), z.literal('IncentiveType'), z.literal('ItemAvailability'), z.literal('ItemListOrderType'), z.literal('LegalValueLevel'), z.literal('MapCategoryType'), z.literal('MeasurementMethodEnum'), z.literal('MeasurementTypeEnumeration'), z.literal('BodyMeasurementTypeEnumeration'), z.literal('WearableMeasurementTypeEnumeration'), z.literal('MediaEnumeration'), z.literal('IPTCDigitalSourceEnumeration'), z.literal('MediaManipulationRatingEnumeration'), z.literal('MedicalEnumeration'), z.literal('DrugCostCategory'), z.literal('DrugPregnancyCategory'), z.literal('DrugPrescriptionStatus'), z.literal('InfectiousAgentClass'), z.literal('MedicalAudienceType'), z.literal('MedicalDevicePurpose'), z.literal('MedicalEvidenceLevel'), z.literal('MedicalImagingTechnique'), z.literal('MedicalObservationalStudyDesign'), z.literal('MedicalProcedureType'), z.literal('MedicalSpecialty'), z.literal('MedicalStudyStatus'), z.literal('MedicalTrialDesign'), z.literal('MedicineSystem'), z.literal('PhysicalExam'), z.literal('MerchantReturnEnumeration'), z.literal('MusicAlbumProductionType'), z.literal('MusicAlbumReleaseType'), z.literal('MusicReleaseFormatType'), z.literal('NonprofitType'), z.literal('DENonprofitType'), z.literal('ITNonprofitType'), z.literal('NLNonprofitType'), z.literal('UKNonprofitType'), z.literal('USNonprofitType'), z.literal('OfferItemCondition'), z.literal('PaymentMethodType'), z.literal('PhysicalActivityCategory'), z.literal('PriceComponentTypeEnumeration'), z.literal('PriceTypeEnumeration'), z.literal('PurchaseType'), z.literal('QualitativeValue'), z.literal('BedType'), z.literal('DriveWheelConfigurationValue'), z.literal('SizeSpecification'), z.literal('SteeringPositionValue'), z.literal('RefundTypeEnumeration'), z.literal('RestrictedDiet'), z.literal('ReturnFeesEnumeration'), z.literal('ReturnLabelSourceEnumeration'), z.literal('ReturnMethodEnumeration'), z.literal('RsvpResponseType'), z.literal('SizeGroupEnumeration'), z.literal('WearableSizeGroupEnumeration'), z.literal('SizeSystemEnumeration'), z.literal('WearableSizeSystemEnumeration'), z.literal('Specialty'), z.literal('StatusEnumeration'), z.literal('ActionStatusType'), z.literal('EventStatusType'), z.literal('GameServerStatus'), z.literal('LegalForceStatus'), z.literal('OrderStatus'), z.literal('PaymentStatusType'), z.literal('ReservationStatusType'), z.literal('TierBenefitEnumeration'), z.literal('WarrantyScope'), z.literal('FinancialIncentive'), z.literal('FloorPlan'), z.literal('GameServer'), z.literal('GeospatialGeometry'), z.literal('Grant'), z.literal('MonetaryGrant'), z.literal('HealthInsurancePlan'), z.literal('HealthPlanCostSharingSpecification'), z.literal('HealthPlanFormulary'), z.literal('HealthPlanNetwork'), z.literal('Invoice'), z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog'), z.literal('JobPosting'), z.literal('Language'), z.literal('ListItem'), z.literal('HowToDirection'), z.literal('HowToItem'), z.literal('HowToSupply'), z.literal('HowToTool'), z.literal('HowToTip'), z.literal('MediaSubscription'), z.literal('MemberProgram'), z.literal('MemberProgramTier'), z.literal('MenuItem'), z.literal('MerchantReturnPolicy'), z.literal('MerchantReturnPolicySeasonalOverride'), z.literal('Observation'), z.literal('Occupation'), z.literal('OccupationalExperienceRequirements'), z.literal('Offer'), z.literal('AggregateOffer'), z.literal('OfferForLease'), z.literal('OfferForPurchase'), z.literal('Order'), z.literal('ParcelDelivery'), z.literal('PaymentMethod'), z.literal('PaymentCard'), z.literal('CreditCard'), z.literal('PaymentService'), z.literal('Permit'), z.literal('GovernmentPermit'), z.literal('ProgramMembership'), z.literal('Property'), z.literal('PropertyValueSpecification'), z.literal('Rating'), z.literal('AggregateRating'), z.literal('EmployerAggregateRating'), z.literal('EndorsementRating'), z.literal('Reservation'), z.literal('BoatReservation'), z.literal('BusReservation'), z.literal('EventReservation'), z.literal('FlightReservation'), z.literal('FoodEstablishmentReservation'), z.literal('LodgingReservation'), z.literal('RentalCarReservation'), z.literal('ReservationPackage'), z.literal('TaxiReservation'), z.literal('TrainReservation'), z.literal('Role'), z.literal('LinkRole'), z.literal('OrganizationRole'), z.literal('EmployeeRole'), z.literal('PerformanceRole'), z.literal('Schedule'), z.literal('Seat'), z.literal('Series'), z.literal('CreativeWorkSeries'), z.literal('BookSeries'), z.literal('MovieSeries'), z.literal('Periodical'), z.literal('ComicSeries'), z.literal('Newspaper'), z.literal('PodcastSeries'), z.literal('RadioSeries'), z.literal('TVSeries'), z.literal('VideoGameSeries'), z.literal('EventSeries'), z.literal('Service'), z.literal('BroadcastService'), z.literal('RadioBroadcastService'), z.literal('CableOrSatelliteService'), z.literal('FinancialProduct'), z.literal('BankAccount'), z.literal('DepositAccount'), z.literal('CurrencyConversionService'), z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('InvestmentFund'), z.literal('LoanOrCredit'), z.literal('MortgageLoan'), z.literal('FoodService'), z.literal('GovernmentService'), z.literal('Taxi'), z.literal('TaxiService'), z.literal('WebAPI'), z.literal('ServiceChannel'), z.literal('SpeakableSpecification'), z.literal('StatisticalPopulation'), z.literal('StructuredValue'), z.literal('CDCPMDRecord'), z.literal('ContactPoint'), z.literal('PostalAddress'), z.literal('DatedMoneySpecification'), z.literal('DefinedRegion'), z.literal('EngineSpecification'), z.literal('ExchangeRateSpecification'), z.literal('GeoCoordinates'), z.literal('GeoShape'), z.literal('GeoCircle'), z.literal('InstantaneousEvent'), z.literal('Error'), z.literal('InteractionCounter'), z.literal('MonetaryAmount'), z.literal('NutritionInformation'), z.literal('OfferShippingDetails'), z.literal('OpeningHoursSpecification'), z.literal('OrderItem'), z.literal('OwnershipInfo'), z.literal('PostalCodeRangeSpecification'), z.literal('PriceSpecification'), z.literal('CompoundPriceSpecification'), z.literal('DeliveryChargeSpecification'), z.literal('PaymentChargeSpecification'), z.literal('UnitPriceSpecification'), z.literal('PropertyValue'), z.literal('LocationFeatureSpecification'), z.literal('QuantitativeValue'), z.literal('QuantitativeValueDistribution'), z.literal('MonetaryAmountDistribution'), z.literal('RepaymentSpecification'), z.literal('ServicePeriod'), z.literal('ShippingConditions'), z.literal('ShippingDeliveryTime'), z.literal('ShippingRateSettings'), z.literal('ShippingService'), z.literal('TypeAndQuantityNode'), z.literal('WarrantyPromise'), z.literal('Ticket'), z.literal('Trip'), z.literal('BoatTrip'), z.literal('BusTrip'), z.literal('Flight'), z.literal('TouristTrip'), z.literal('TrainTrip'), z.literal('VirtualLocation')]))]).optional(),
   '@id': z.string().optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
   alternateName: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2441,7 +2441,7 @@ export const IntangibleSchema: z.ZodType<Intangible> = z.lazy(() => z.object({
 
 export interface InteractAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InteractAction' | 'BefriendAction' | 'CommunicateAction' | 'AskAction' | 'CheckInAction' | 'CheckOutAction' | 'CommentAction' | 'InformAction' | 'ConfirmAction' | 'RsvpAction' | 'InviteAction' | 'ReplyAction' | 'ShareAction' | 'FollowAction' | 'JoinAction' | 'LeaveAction' | 'MarryAction' | 'RegisterAction' | 'SubscribeAction' | 'UnRegisterAction' | Array<'InteractAction' | 'BefriendAction' | 'CommunicateAction' | 'AskAction' | 'CheckInAction' | 'CheckOutAction' | 'CommentAction' | 'InformAction' | 'ConfirmAction' | 'RsvpAction' | 'InviteAction' | 'ReplyAction' | 'ShareAction' | 'FollowAction' | 'JoinAction' | 'LeaveAction' | 'MarryAction' | 'RegisterAction' | 'SubscribeAction' | 'UnRegisterAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
   actionStatus?: s.ActionStatusType | Array<s.ActionStatusType>;
@@ -2473,7 +2473,7 @@ export interface InteractAction {
 
 export const InteractActionSchema: z.ZodType<InteractAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('InteractAction'), z.literal('BefriendAction'), z.literal('CommunicateAction'), z.literal('AskAction'), z.literal('CheckInAction'), z.literal('CheckOutAction'), z.literal('CommentAction'), z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction'), z.literal('InviteAction'), z.literal('ReplyAction'), z.literal('ShareAction'), z.literal('FollowAction'), z.literal('JoinAction'), z.literal('LeaveAction'), z.literal('MarryAction'), z.literal('RegisterAction'), z.literal('SubscribeAction'), z.literal('UnRegisterAction')]), z.array(z.union([z.literal('InteractAction'), z.literal('BefriendAction'), z.literal('CommunicateAction'), z.literal('AskAction'), z.literal('CheckInAction'), z.literal('CheckOutAction'), z.literal('CommentAction'), z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction'), z.literal('InviteAction'), z.literal('ReplyAction'), z.literal('ShareAction'), z.literal('FollowAction'), z.literal('JoinAction'), z.literal('LeaveAction'), z.literal('MarryAction'), z.literal('RegisterAction'), z.literal('SubscribeAction'), z.literal('UnRegisterAction')]))]).optional(),
   '@id': z.string().optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
   actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
@@ -2505,7 +2505,7 @@ export const InteractActionSchema: z.ZodType<InteractAction> = z.lazy(() => z.ob
 
 export interface InteractionCounter {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InteractionCounter' | Array<'InteractionCounter'>;
   '@id'?: string;
   endTime?: string | Array<string>;
   interactionService?: s.SoftwareApplication | s.WebSite | Array<s.SoftwareApplication | s.WebSite>;
@@ -2530,7 +2530,7 @@ export interface InteractionCounter {
 
 export const InteractionCounterSchema: z.ZodType<InteractionCounter> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('InteractionCounter'), z.array(z.literal('InteractionCounter'))]).optional(),
   '@id': z.string().optional(),
   endTime: z.union([z.string(), z.array(z.string())]).optional(),
   interactionService: z.union([z.union([s.SoftwareApplicationSchema, s.WebSiteSchema]), z.array(z.union([s.SoftwareApplicationSchema, s.WebSiteSchema]))]).optional(),
@@ -2555,7 +2555,7 @@ export const InteractionCounterSchema: z.ZodType<InteractionCounter> = z.lazy(()
 
 export interface InternetCafe {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InternetCafe' | Array<'InternetCafe'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -2688,7 +2688,7 @@ export interface InternetCafe {
 
 export const InternetCafeSchema: z.ZodType<InternetCafe> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('InternetCafe'), z.array(z.literal('InternetCafe'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2821,7 +2821,7 @@ export const InternetCafeSchema: z.ZodType<InternetCafe> = z.lazy(() => z.object
 
 export interface InvestmentFund {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InvestmentFund' | Array<'InvestmentFund'>;
   '@id'?: string;
   amount?: s.MonetaryAmount | number | Array<s.MonetaryAmount | number>;
   annualPercentageRate?: number | s.QuantitativeValue | Array<number | s.QuantitativeValue>;
@@ -2869,7 +2869,7 @@ export interface InvestmentFund {
 
 export const InvestmentFundSchema: z.ZodType<InvestmentFund> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('InvestmentFund'), z.array(z.literal('InvestmentFund'))]).optional(),
   '@id': z.string().optional(),
   amount: z.union([z.union([s.MonetaryAmountSchema, z.number()]), z.array(z.union([s.MonetaryAmountSchema, z.number()]))]).optional(),
   annualPercentageRate: z.union([z.union([z.number(), s.QuantitativeValueSchema]), z.array(z.union([z.number(), s.QuantitativeValueSchema]))]).optional(),
@@ -2917,7 +2917,7 @@ export const InvestmentFundSchema: z.ZodType<InvestmentFund> = z.lazy(() => z.ob
 
 export interface InvestmentOrDeposit {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InvestmentOrDeposit' | 'BrokerageAccount' | 'DepositAccount' | 'InvestmentFund' | Array<'InvestmentOrDeposit' | 'BrokerageAccount' | 'DepositAccount' | 'InvestmentFund'>;
   '@id'?: string;
   amount?: s.MonetaryAmount | number | Array<s.MonetaryAmount | number>;
   annualPercentageRate?: number | s.QuantitativeValue | Array<number | s.QuantitativeValue>;
@@ -2965,7 +2965,7 @@ export interface InvestmentOrDeposit {
 
 export const InvestmentOrDepositSchema: z.ZodType<InvestmentOrDeposit> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('DepositAccount'), z.literal('InvestmentFund')]), z.array(z.union([z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('DepositAccount'), z.literal('InvestmentFund')]))]).optional(),
   '@id': z.string().optional(),
   amount: z.union([z.union([s.MonetaryAmountSchema, z.number()]), z.array(z.union([s.MonetaryAmountSchema, z.number()]))]).optional(),
   annualPercentageRate: z.union([z.union([z.number(), s.QuantitativeValueSchema]), z.array(z.union([z.number(), s.QuantitativeValueSchema]))]).optional(),
@@ -3013,7 +3013,7 @@ export const InvestmentOrDepositSchema: z.ZodType<InvestmentOrDeposit> = z.lazy(
 
 export interface InviteAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'InviteAction' | Array<'InviteAction'>;
   '@id'?: string;
   event?: s.Event | Array<s.Event>;
   about?: s.Thing | Array<s.Thing>;
@@ -3050,7 +3050,7 @@ export interface InviteAction {
 
 export const InviteActionSchema: z.ZodType<InviteAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('InviteAction'), z.array(z.literal('InviteAction'))]).optional(),
   '@id': z.string().optional(),
   event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -3087,7 +3087,7 @@ export const InviteActionSchema: z.ZodType<InviteAction> = z.lazy(() => z.object
 
 export interface Invoice {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Invoice' | Array<'Invoice'>;
   '@id'?: string;
   accountId?: string | Array<string>;
   billingPeriod?: s.Duration | Array<s.Duration>;
@@ -3122,7 +3122,7 @@ export interface Invoice {
 
 export const InvoiceSchema: z.ZodType<Invoice> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Invoice'), z.array(z.literal('Invoice'))]).optional(),
   '@id': z.string().optional(),
   accountId: z.union([z.string(), z.array(z.string())]).optional(),
   billingPeriod: z.union([s.DurationSchema, z.array(s.DurationSchema)]).optional(),
@@ -3160,7 +3160,7 @@ export const ItemAvailabilitySchema = z.union([z.literal('schema:BackOrder'), z.
 
 export interface ItemList {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | Array<'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog'>;
   '@id'?: string;
   aggregateElement?: s.Thing | Array<s.Thing>;
   itemListElement?: s.ListItem | string | s.Thing | Array<s.ListItem | string | s.Thing>;
@@ -3183,7 +3183,7 @@ export interface ItemList {
 
 export const ItemListSchema: z.ZodType<ItemList> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog')]), z.array(z.union([z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog')]))]).optional(),
   '@id': z.string().optional(),
   aggregateElement: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   itemListElement: z.union([z.union([s.ListItemSchema, z.string(), s.ThingSchema]), z.array(z.union([s.ListItemSchema, z.string(), s.ThingSchema]))]).optional(),
@@ -3209,7 +3209,7 @@ export const ItemListOrderTypeSchema = z.union([z.literal('schema:ItemListOrderA
 
 export interface ItemPage {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'ItemPage' | Array<'ItemPage'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
   lastReviewed?: string | Array<string>;
@@ -3354,7 +3354,7 @@ export interface ItemPage {
 
 export const ItemPageSchema: z.ZodType<ItemPage> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('ItemPage'), z.array(z.literal('ItemPage'))]).optional(),
   '@id': z.string().optional(),
   breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
   lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),

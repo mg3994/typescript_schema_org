@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface WPAdBlock {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WPAdBlock' | Array<'WPAdBlock'>;
   '@id'?: string;
   cssSelector?: s.CssSelectorType | Array<s.CssSelectorType>;
   xpath?: s.XPathType | Array<s.XPathType>;
@@ -140,7 +140,7 @@ export interface WPAdBlock {
 
 export const WPAdBlockSchema: z.ZodType<WPAdBlock> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WPAdBlock'), z.array(z.literal('WPAdBlock'))]).optional(),
   '@id': z.string().optional(),
   cssSelector: z.union([s.CssSelectorTypeSchema, z.array(s.CssSelectorTypeSchema)]).optional(),
   xpath: z.union([s.XPathTypeSchema, z.array(s.XPathTypeSchema)]).optional(),
@@ -277,7 +277,7 @@ export const WPAdBlockSchema: z.ZodType<WPAdBlock> = z.lazy(() => z.object({
 
 export interface WPFooter {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WPFooter' | Array<'WPFooter'>;
   '@id'?: string;
   cssSelector?: s.CssSelectorType | Array<s.CssSelectorType>;
   xpath?: s.XPathType | Array<s.XPathType>;
@@ -414,7 +414,7 @@ export interface WPFooter {
 
 export const WPFooterSchema: z.ZodType<WPFooter> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WPFooter'), z.array(z.literal('WPFooter'))]).optional(),
   '@id': z.string().optional(),
   cssSelector: z.union([s.CssSelectorTypeSchema, z.array(s.CssSelectorTypeSchema)]).optional(),
   xpath: z.union([s.XPathTypeSchema, z.array(s.XPathTypeSchema)]).optional(),
@@ -551,7 +551,7 @@ export const WPFooterSchema: z.ZodType<WPFooter> = z.lazy(() => z.object({
 
 export interface WPHeader {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WPHeader' | Array<'WPHeader'>;
   '@id'?: string;
   cssSelector?: s.CssSelectorType | Array<s.CssSelectorType>;
   xpath?: s.XPathType | Array<s.XPathType>;
@@ -688,7 +688,7 @@ export interface WPHeader {
 
 export const WPHeaderSchema: z.ZodType<WPHeader> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WPHeader'), z.array(z.literal('WPHeader'))]).optional(),
   '@id': z.string().optional(),
   cssSelector: z.union([s.CssSelectorTypeSchema, z.array(s.CssSelectorTypeSchema)]).optional(),
   xpath: z.union([s.XPathTypeSchema, z.array(s.XPathTypeSchema)]).optional(),
@@ -825,7 +825,7 @@ export const WPHeaderSchema: z.ZodType<WPHeader> = z.lazy(() => z.object({
 
 export interface WPSideBar {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WPSideBar' | Array<'WPSideBar'>;
   '@id'?: string;
   cssSelector?: s.CssSelectorType | Array<s.CssSelectorType>;
   xpath?: s.XPathType | Array<s.XPathType>;
@@ -962,7 +962,7 @@ export interface WPSideBar {
 
 export const WPSideBarSchema: z.ZodType<WPSideBar> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WPSideBar'), z.array(z.literal('WPSideBar'))]).optional(),
   '@id': z.string().optional(),
   cssSelector: z.union([s.CssSelectorTypeSchema, z.array(s.CssSelectorTypeSchema)]).optional(),
   xpath: z.union([s.XPathTypeSchema, z.array(s.XPathTypeSchema)]).optional(),
@@ -1099,7 +1099,7 @@ export const WPSideBarSchema: z.ZodType<WPSideBar> = z.lazy(() => z.object({
 
 export interface WantAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WantAction' | Array<'WantAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
   actionStatus?: s.ActionStatusType | Array<s.ActionStatusType>;
@@ -1131,7 +1131,7 @@ export interface WantAction {
 
 export const WantActionSchema: z.ZodType<WantAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WantAction'), z.array(z.literal('WantAction'))]).optional(),
   '@id': z.string().optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
   actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
@@ -1163,7 +1163,7 @@ export const WantActionSchema: z.ZodType<WantAction> = z.lazy(() => z.object({
 
 export interface WarrantyPromise {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WarrantyPromise' | Array<'WarrantyPromise'>;
   '@id'?: string;
   durationOfWarranty?: s.QuantitativeValue | Array<s.QuantitativeValue>;
   warrantyScope?: s.WarrantyScope | Array<s.WarrantyScope>;
@@ -1184,7 +1184,7 @@ export interface WarrantyPromise {
 
 export const WarrantyPromiseSchema: z.ZodType<WarrantyPromise> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WarrantyPromise'), z.array(z.literal('WarrantyPromise'))]).optional(),
   '@id': z.string().optional(),
   durationOfWarranty: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
   warrantyScope: z.union([s.WarrantyScopeSchema, z.array(s.WarrantyScopeSchema)]).optional(),
@@ -1205,7 +1205,7 @@ export const WarrantyPromiseSchema: z.ZodType<WarrantyPromise> = z.lazy(() => z.
 
 export interface WarrantyScope {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WarrantyScope' | Array<'WarrantyScope'>;
   '@id'?: string;
   supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
   additionalType?: string | Array<string>;
@@ -1225,7 +1225,7 @@ export interface WarrantyScope {
 
 export const WarrantyScopeSchema: z.ZodType<WarrantyScope> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WarrantyScope'), z.array(z.literal('WarrantyScope'))]).optional(),
   '@id': z.string().optional(),
   supersededBy: z.union([z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]), z.array(z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]))]).optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -1245,7 +1245,7 @@ export const WarrantyScopeSchema: z.ZodType<WarrantyScope> = z.lazy(() => z.obje
 
 export interface WatchAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WatchAction' | Array<'WatchAction'>;
   '@id'?: string;
   actionAccessibilityRequirement?: s.ActionAccessSpecification | Array<s.ActionAccessSpecification>;
   expectsAcceptanceOf?: s.Offer | Array<s.Offer>;
@@ -1279,7 +1279,7 @@ export interface WatchAction {
 
 export const WatchActionSchema: z.ZodType<WatchAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WatchAction'), z.array(z.literal('WatchAction'))]).optional(),
   '@id': z.string().optional(),
   actionAccessibilityRequirement: z.union([s.ActionAccessSpecificationSchema, z.array(s.ActionAccessSpecificationSchema)]).optional(),
   expectsAcceptanceOf: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -1313,7 +1313,7 @@ export const WatchActionSchema: z.ZodType<WatchAction> = z.lazy(() => z.object({
 
 export interface Waterfall {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Waterfall' | Array<'Waterfall'>;
   '@id'?: string;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
   address?: s.PostalAddress | string | Array<s.PostalAddress | string>;
@@ -1379,7 +1379,7 @@ export interface Waterfall {
 
 export const WaterfallSchema: z.ZodType<Waterfall> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Waterfall'), z.array(z.literal('Waterfall'))]).optional(),
   '@id': z.string().optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
   address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
@@ -1445,7 +1445,7 @@ export const WaterfallSchema: z.ZodType<Waterfall> = z.lazy(() => z.object({
 
 export interface WearAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WearAction' | Array<'WearAction'>;
   '@id'?: string;
   actionAccessibilityRequirement?: s.ActionAccessSpecification | Array<s.ActionAccessSpecification>;
   expectsAcceptanceOf?: s.Offer | Array<s.Offer>;
@@ -1479,7 +1479,7 @@ export interface WearAction {
 
 export const WearActionSchema: z.ZodType<WearAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WearAction'), z.array(z.literal('WearAction'))]).optional(),
   '@id': z.string().optional(),
   actionAccessibilityRequirement: z.union([s.ActionAccessSpecificationSchema, z.array(s.ActionAccessSpecificationSchema)]).optional(),
   expectsAcceptanceOf: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -1522,7 +1522,7 @@ export const WearableSizeSystemEnumerationSchema = z.union([z.literal('schema:We
 
 export interface WebAPI {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WebAPI' | Array<'WebAPI'>;
   '@id'?: string;
   documentation?: s.CreativeWork | string | Array<s.CreativeWork | string>;
   aggregateRating?: s.AggregateRating | Array<s.AggregateRating>;
@@ -1567,7 +1567,7 @@ export interface WebAPI {
 
 export const WebAPISchema: z.ZodType<WebAPI> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WebAPI'), z.array(z.literal('WebAPI'))]).optional(),
   '@id': z.string().optional(),
   documentation: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
   aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
@@ -1612,7 +1612,7 @@ export const WebAPISchema: z.ZodType<WebAPI> = z.lazy(() => z.object({
 
 export interface WebApplication {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WebApplication' | Array<'WebApplication'>;
   '@id'?: string;
   browserRequirements?: string | Array<string>;
   applicationCategory?: string | Array<string>;
@@ -1773,7 +1773,7 @@ export interface WebApplication {
 
 export const WebApplicationSchema: z.ZodType<WebApplication> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WebApplication'), z.array(z.literal('WebApplication'))]).optional(),
   '@id': z.string().optional(),
   browserRequirements: z.union([z.string(), z.array(z.string())]).optional(),
   applicationCategory: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -1934,7 +1934,7 @@ export const WebApplicationSchema: z.ZodType<WebApplication> = z.lazy(() => z.ob
 
 export interface WebContent {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WebContent' | 'HealthTopicContent' | Array<'WebContent' | 'HealthTopicContent'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   abstract?: string | Array<string>;
@@ -2069,7 +2069,7 @@ export interface WebContent {
 
 export const WebContentSchema: z.ZodType<WebContent> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('WebContent'), z.literal('HealthTopicContent')]), z.array(z.union([z.literal('WebContent'), z.literal('HealthTopicContent')]))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   abstract: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2204,7 +2204,7 @@ export const WebContentSchema: z.ZodType<WebContent> = z.lazy(() => z.object({
 
 export interface WebPage {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WebPage' | 'AboutPage' | 'CheckoutPage' | 'CollectionPage' | 'MediaGallery' | 'ImageGallery' | 'VideoGallery' | 'ContactPage' | 'FAQPage' | 'ItemPage' | 'MedicalWebPage' | 'ProfilePage' | 'QAPage' | 'RealEstateListing' | 'SearchResultsPage' | Array<'WebPage' | 'AboutPage' | 'CheckoutPage' | 'CollectionPage' | 'MediaGallery' | 'ImageGallery' | 'VideoGallery' | 'ContactPage' | 'FAQPage' | 'ItemPage' | 'MedicalWebPage' | 'ProfilePage' | 'QAPage' | 'RealEstateListing' | 'SearchResultsPage'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
   lastReviewed?: string | Array<string>;
@@ -2349,7 +2349,7 @@ export interface WebPage {
 
 export const WebPageSchema: z.ZodType<WebPage> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('WebPage'), z.literal('AboutPage'), z.literal('CheckoutPage'), z.literal('CollectionPage'), z.literal('MediaGallery'), z.literal('ImageGallery'), z.literal('VideoGallery'), z.literal('ContactPage'), z.literal('FAQPage'), z.literal('ItemPage'), z.literal('MedicalWebPage'), z.literal('ProfilePage'), z.literal('QAPage'), z.literal('RealEstateListing'), z.literal('SearchResultsPage')]), z.array(z.union([z.literal('WebPage'), z.literal('AboutPage'), z.literal('CheckoutPage'), z.literal('CollectionPage'), z.literal('MediaGallery'), z.literal('ImageGallery'), z.literal('VideoGallery'), z.literal('ContactPage'), z.literal('FAQPage'), z.literal('ItemPage'), z.literal('MedicalWebPage'), z.literal('ProfilePage'), z.literal('QAPage'), z.literal('RealEstateListing'), z.literal('SearchResultsPage')]))]).optional(),
   '@id': z.string().optional(),
   breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
   lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2494,7 +2494,7 @@ export const WebPageSchema: z.ZodType<WebPage> = z.lazy(() => z.object({
 
 export interface WebPageElement {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WebPageElement' | 'SiteNavigationElement' | 'Table' | 'WPAdBlock' | 'WPFooter' | 'WPHeader' | 'WPSideBar' | Array<'WebPageElement' | 'SiteNavigationElement' | 'Table' | 'WPAdBlock' | 'WPFooter' | 'WPHeader' | 'WPSideBar'>;
   '@id'?: string;
   cssSelector?: s.CssSelectorType | Array<s.CssSelectorType>;
   xpath?: s.XPathType | Array<s.XPathType>;
@@ -2631,7 +2631,7 @@ export interface WebPageElement {
 
 export const WebPageElementSchema: z.ZodType<WebPageElement> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('WebPageElement'), z.literal('SiteNavigationElement'), z.literal('Table'), z.literal('WPAdBlock'), z.literal('WPFooter'), z.literal('WPHeader'), z.literal('WPSideBar')]), z.array(z.union([z.literal('WebPageElement'), z.literal('SiteNavigationElement'), z.literal('Table'), z.literal('WPAdBlock'), z.literal('WPFooter'), z.literal('WPHeader'), z.literal('WPSideBar')]))]).optional(),
   '@id': z.string().optional(),
   cssSelector: z.union([s.CssSelectorTypeSchema, z.array(s.CssSelectorTypeSchema)]).optional(),
   xpath: z.union([s.XPathTypeSchema, z.array(s.XPathTypeSchema)]).optional(),
@@ -2768,7 +2768,7 @@ export const WebPageElementSchema: z.ZodType<WebPageElement> = z.lazy(() => z.ob
 
 export interface WebSite {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WebSite' | Array<'WebSite'>;
   '@id'?: string;
   issn?: string | Array<string>;
   about?: s.Thing | Array<s.Thing>;
@@ -2904,7 +2904,7 @@ export interface WebSite {
 
 export const WebSiteSchema: z.ZodType<WebSite> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WebSite'), z.array(z.literal('WebSite'))]).optional(),
   '@id': z.string().optional(),
   issn: z.union([z.string(), z.array(z.string())]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -3040,7 +3040,7 @@ export const WebSiteSchema: z.ZodType<WebSite> = z.lazy(() => z.object({
 
 export interface WholesaleStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WholesaleStore' | Array<'WholesaleStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -3173,7 +3173,7 @@ export interface WholesaleStore {
 
 export const WholesaleStoreSchema: z.ZodType<WholesaleStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WholesaleStore'), z.array(z.literal('WholesaleStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3306,7 +3306,7 @@ export const WholesaleStoreSchema: z.ZodType<WholesaleStore> = z.lazy(() => z.ob
 
 export interface WinAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WinAction' | Array<'WinAction'>;
   '@id'?: string;
   loser?: s.Person | Array<s.Person>;
   actionProcess?: s.HowTo | Array<s.HowTo>;
@@ -3339,7 +3339,7 @@ export interface WinAction {
 
 export const WinActionSchema: z.ZodType<WinAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WinAction'), z.array(z.literal('WinAction'))]).optional(),
   '@id': z.string().optional(),
   loser: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
@@ -3372,7 +3372,7 @@ export const WinActionSchema: z.ZodType<WinAction> = z.lazy(() => z.object({
 
 export interface Winery {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Winery' | Array<'Winery'>;
   '@id'?: string;
   acceptsReservations?: boolean | string | Array<boolean | string>;
   hasMenu?: s.Menu | string | Array<s.Menu | string>;
@@ -3510,7 +3510,7 @@ export interface Winery {
 
 export const WinerySchema: z.ZodType<Winery> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Winery'), z.array(z.literal('Winery'))]).optional(),
   '@id': z.string().optional(),
   acceptsReservations: z.union([z.union([z.boolean(), z.string(), z.string().url()]), z.array(z.union([z.boolean(), z.string(), z.string().url()]))]).optional(),
   hasMenu: z.union([z.union([s.MenuSchema, z.string(), z.string().url()]), z.array(z.union([s.MenuSchema, z.string(), z.string().url()]))]).optional(),
@@ -3648,7 +3648,7 @@ export const WinerySchema: z.ZodType<Winery> = z.lazy(() => z.object({
 
 export interface WorkBasedProgram {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WorkBasedProgram' | Array<'WorkBasedProgram'>;
   '@id'?: string;
   occupationalCategory?: s.CategoryCode | string | Array<s.CategoryCode | string>;
   trainingSalary?: s.MonetaryAmountDistribution | Array<s.MonetaryAmountDistribution>;
@@ -3691,7 +3691,7 @@ export interface WorkBasedProgram {
 
 export const WorkBasedProgramSchema: z.ZodType<WorkBasedProgram> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WorkBasedProgram'), z.array(z.literal('WorkBasedProgram'))]).optional(),
   '@id': z.string().optional(),
   occupationalCategory: z.union([z.union([s.CategoryCodeSchema, z.string()]), z.array(z.union([s.CategoryCodeSchema, z.string()]))]).optional(),
   trainingSalary: z.union([s.MonetaryAmountDistributionSchema, z.array(s.MonetaryAmountDistributionSchema)]).optional(),
@@ -3734,7 +3734,7 @@ export const WorkBasedProgramSchema: z.ZodType<WorkBasedProgram> = z.lazy(() => 
 
 export interface WorkersUnion {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WorkersUnion' | Array<'WorkersUnion'>;
   '@id'?: string;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
   actionableFeedbackPolicy?: s.CreativeWork | string | Array<s.CreativeWork | string>;
@@ -3829,7 +3829,7 @@ export interface WorkersUnion {
 
 export const WorkersUnionSchema: z.ZodType<WorkersUnion> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WorkersUnion'), z.array(z.literal('WorkersUnion'))]).optional(),
   '@id': z.string().optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
   actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
@@ -3924,7 +3924,7 @@ export const WorkersUnionSchema: z.ZodType<WorkersUnion> = z.lazy(() => z.object
 
 export interface WriteAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'WriteAction' | Array<'WriteAction'>;
   '@id'?: string;
   inLanguage?: s.Language | string | Array<s.Language | string>;
   language?: s.Language | Array<s.Language>;
@@ -3958,7 +3958,7 @@ export interface WriteAction {
 
 export const WriteActionSchema: z.ZodType<WriteAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('WriteAction'), z.array(z.literal('WriteAction'))]).optional(),
   '@id': z.string().optional(),
   inLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
   language: z.union([s.LanguageSchema, z.array(s.LanguageSchema)]).optional(),

@@ -3,19 +3,19 @@ import * as s from './index';
 
 export interface hydra_Error {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'hydra:Error' | Array<'hydra:Error'>;
   '@id'?: string;
 }
 
 export const hydra_ErrorSchema: z.ZodType<hydra_Error> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('hydra:Error'), z.array(z.literal('hydra:Error'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface HVACBusiness {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HVACBusiness' | Array<'HVACBusiness'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -148,7 +148,7 @@ export interface HVACBusiness {
 
 export const HVACBusinessSchema: z.ZodType<HVACBusiness> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HVACBusiness'), z.array(z.literal('HVACBusiness'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -281,7 +281,7 @@ export const HVACBusinessSchema: z.ZodType<HVACBusiness> = z.lazy(() => z.object
 
 export interface Hackathon {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Hackathon' | Array<'Hackathon'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -343,7 +343,7 @@ export interface Hackathon {
 
 export const HackathonSchema: z.ZodType<Hackathon> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Hackathon'), z.array(z.literal('Hackathon'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -405,7 +405,7 @@ export const HackathonSchema: z.ZodType<Hackathon> = z.lazy(() => z.object({
 
 export interface HairSalon {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HairSalon' | Array<'HairSalon'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -538,7 +538,7 @@ export interface HairSalon {
 
 export const HairSalonSchema: z.ZodType<HairSalon> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HairSalon'), z.array(z.literal('HairSalon'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -671,7 +671,7 @@ export const HairSalonSchema: z.ZodType<HairSalon> = z.lazy(() => z.object({
 
 export interface HardwareStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HardwareStore' | Array<'HardwareStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -804,7 +804,7 @@ export interface HardwareStore {
 
 export const HardwareStoreSchema: z.ZodType<HardwareStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HardwareStore'), z.array(z.literal('HardwareStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -937,7 +937,7 @@ export const HardwareStoreSchema: z.ZodType<HardwareStore> = z.lazy(() => z.obje
 
 export interface HealthAndBeautyBusiness {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HealthAndBeautyBusiness' | 'BeautySalon' | 'DaySpa' | 'HairSalon' | 'HealthClub' | 'NailSalon' | 'TattooParlor' | Array<'HealthAndBeautyBusiness' | 'BeautySalon' | 'DaySpa' | 'HairSalon' | 'HealthClub' | 'NailSalon' | 'TattooParlor'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -1070,7 +1070,7 @@ export interface HealthAndBeautyBusiness {
 
 export const HealthAndBeautyBusinessSchema: z.ZodType<HealthAndBeautyBusiness> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('HealthAndBeautyBusiness'), z.literal('BeautySalon'), z.literal('DaySpa'), z.literal('HairSalon'), z.literal('HealthClub'), z.literal('NailSalon'), z.literal('TattooParlor')]), z.array(z.union([z.literal('HealthAndBeautyBusiness'), z.literal('BeautySalon'), z.literal('DaySpa'), z.literal('HairSalon'), z.literal('HealthClub'), z.literal('NailSalon'), z.literal('TattooParlor')]))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1206,7 +1206,7 @@ export const HealthAspectEnumerationSchema = z.union([z.literal('schema:Allergie
 
 export interface HealthClub {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HealthClub' | Array<'HealthClub'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -1339,7 +1339,7 @@ export interface HealthClub {
 
 export const HealthClubSchema: z.ZodType<HealthClub> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HealthClub'), z.array(z.literal('HealthClub'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1472,7 +1472,7 @@ export const HealthClubSchema: z.ZodType<HealthClub> = z.lazy(() => z.object({
 
 export interface HealthInsurancePlan {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HealthInsurancePlan' | Array<'HealthInsurancePlan'>;
   '@id'?: string;
   benefitsSummaryUrl?: string | Array<string>;
   contactPoint?: s.ContactPoint | Array<s.ContactPoint>;
@@ -1500,7 +1500,7 @@ export interface HealthInsurancePlan {
 
 export const HealthInsurancePlanSchema: z.ZodType<HealthInsurancePlan> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HealthInsurancePlan'), z.array(z.literal('HealthInsurancePlan'))]).optional(),
   '@id': z.string().optional(),
   benefitsSummaryUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
   contactPoint: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
@@ -1528,7 +1528,7 @@ export const HealthInsurancePlanSchema: z.ZodType<HealthInsurancePlan> = z.lazy(
 
 export interface HealthPlanCostSharingSpecification {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HealthPlanCostSharingSpecification' | Array<'HealthPlanCostSharingSpecification'>;
   '@id'?: string;
   healthPlanCoinsuranceOption?: string | Array<string>;
   healthPlanCoinsuranceRate?: number | Array<number>;
@@ -1552,7 +1552,7 @@ export interface HealthPlanCostSharingSpecification {
 
 export const HealthPlanCostSharingSpecificationSchema: z.ZodType<HealthPlanCostSharingSpecification> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HealthPlanCostSharingSpecification'), z.array(z.literal('HealthPlanCostSharingSpecification'))]).optional(),
   '@id': z.string().optional(),
   healthPlanCoinsuranceOption: z.union([z.string(), z.array(z.string())]).optional(),
   healthPlanCoinsuranceRate: z.union([z.number(), z.array(z.number())]).optional(),
@@ -1576,7 +1576,7 @@ export const HealthPlanCostSharingSpecificationSchema: z.ZodType<HealthPlanCostS
 
 export interface HealthPlanFormulary {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HealthPlanFormulary' | Array<'HealthPlanFormulary'>;
   '@id'?: string;
   healthPlanCostSharing?: boolean | s.HealthPlanCostSharingSpecification | Array<boolean | s.HealthPlanCostSharingSpecification>;
   healthPlanDrugTier?: string | Array<string>;
@@ -1598,7 +1598,7 @@ export interface HealthPlanFormulary {
 
 export const HealthPlanFormularySchema: z.ZodType<HealthPlanFormulary> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HealthPlanFormulary'), z.array(z.literal('HealthPlanFormulary'))]).optional(),
   '@id': z.string().optional(),
   healthPlanCostSharing: z.union([z.union([z.boolean(), s.HealthPlanCostSharingSpecificationSchema]), z.array(z.union([z.boolean(), s.HealthPlanCostSharingSpecificationSchema]))]).optional(),
   healthPlanDrugTier: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1620,7 +1620,7 @@ export const HealthPlanFormularySchema: z.ZodType<HealthPlanFormulary> = z.lazy(
 
 export interface HealthPlanNetwork {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HealthPlanNetwork' | Array<'HealthPlanNetwork'>;
   '@id'?: string;
   healthPlanCostSharing?: boolean | s.HealthPlanCostSharingSpecification | Array<boolean | s.HealthPlanCostSharingSpecification>;
   healthPlanNetworkId?: string | Array<string>;
@@ -1642,7 +1642,7 @@ export interface HealthPlanNetwork {
 
 export const HealthPlanNetworkSchema: z.ZodType<HealthPlanNetwork> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HealthPlanNetwork'), z.array(z.literal('HealthPlanNetwork'))]).optional(),
   '@id': z.string().optional(),
   healthPlanCostSharing: z.union([z.union([z.boolean(), s.HealthPlanCostSharingSpecificationSchema]), z.array(z.union([z.boolean(), s.HealthPlanCostSharingSpecificationSchema]))]).optional(),
   healthPlanNetworkId: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1664,7 +1664,7 @@ export const HealthPlanNetworkSchema: z.ZodType<HealthPlanNetwork> = z.lazy(() =
 
 export interface HealthTopicContent {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HealthTopicContent' | Array<'HealthTopicContent'>;
   '@id'?: string;
   hasHealthAspect?: s.HealthAspectEnumeration | Array<s.HealthAspectEnumeration>;
   about?: s.Thing | Array<s.Thing>;
@@ -1800,7 +1800,7 @@ export interface HealthTopicContent {
 
 export const HealthTopicContentSchema: z.ZodType<HealthTopicContent> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HealthTopicContent'), z.array(z.literal('HealthTopicContent'))]).optional(),
   '@id': z.string().optional(),
   hasHealthAspect: z.union([s.HealthAspectEnumerationSchema, z.array(s.HealthAspectEnumerationSchema)]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -1936,7 +1936,7 @@ export const HealthTopicContentSchema: z.ZodType<HealthTopicContent> = z.lazy(()
 
 export interface HighSchool {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HighSchool' | Array<'HighSchool'>;
   '@id'?: string;
   alumni?: s.Person | Array<s.Person>;
   openingHours?: string | Array<string>;
@@ -2064,7 +2064,7 @@ export interface HighSchool {
 
 export const HighSchoolSchema: z.ZodType<HighSchool> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HighSchool'), z.array(z.literal('HighSchool'))]).optional(),
   '@id': z.string().optional(),
   alumni: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2192,7 +2192,7 @@ export const HighSchoolSchema: z.ZodType<HighSchool> = z.lazy(() => z.object({
 
 export interface HinduTemple {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HinduTemple' | Array<'HinduTemple'>;
   '@id'?: string;
   openingHours?: string | Array<string>;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
@@ -2259,7 +2259,7 @@ export interface HinduTemple {
 
 export const HinduTempleSchema: z.ZodType<HinduTemple> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HinduTemple'), z.array(z.literal('HinduTemple'))]).optional(),
   '@id': z.string().optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
@@ -2326,7 +2326,7 @@ export const HinduTempleSchema: z.ZodType<HinduTemple> = z.lazy(() => z.object({
 
 export interface HobbyShop {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HobbyShop' | Array<'HobbyShop'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -2459,7 +2459,7 @@ export interface HobbyShop {
 
 export const HobbyShopSchema: z.ZodType<HobbyShop> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HobbyShop'), z.array(z.literal('HobbyShop'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2592,7 +2592,7 @@ export const HobbyShopSchema: z.ZodType<HobbyShop> = z.lazy(() => z.object({
 
 export interface HomeAndConstructionBusiness {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HomeAndConstructionBusiness' | 'Electrician' | 'GeneralContractor' | 'HVACBusiness' | 'HousePainter' | 'Locksmith' | 'MovingCompany' | 'Plumber' | 'RoofingContractor' | Array<'HomeAndConstructionBusiness' | 'Electrician' | 'GeneralContractor' | 'HVACBusiness' | 'HousePainter' | 'Locksmith' | 'MovingCompany' | 'Plumber' | 'RoofingContractor'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -2725,7 +2725,7 @@ export interface HomeAndConstructionBusiness {
 
 export const HomeAndConstructionBusinessSchema: z.ZodType<HomeAndConstructionBusiness> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('HomeAndConstructionBusiness'), z.literal('Electrician'), z.literal('GeneralContractor'), z.literal('HVACBusiness'), z.literal('HousePainter'), z.literal('Locksmith'), z.literal('MovingCompany'), z.literal('Plumber'), z.literal('RoofingContractor')]), z.array(z.union([z.literal('HomeAndConstructionBusiness'), z.literal('Electrician'), z.literal('GeneralContractor'), z.literal('HVACBusiness'), z.literal('HousePainter'), z.literal('Locksmith'), z.literal('MovingCompany'), z.literal('Plumber'), z.literal('RoofingContractor')]))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2858,7 +2858,7 @@ export const HomeAndConstructionBusinessSchema: z.ZodType<HomeAndConstructionBus
 
 export interface HomeGoodsStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HomeGoodsStore' | Array<'HomeGoodsStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -2991,7 +2991,7 @@ export interface HomeGoodsStore {
 
 export const HomeGoodsStoreSchema: z.ZodType<HomeGoodsStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HomeGoodsStore'), z.array(z.literal('HomeGoodsStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3124,7 +3124,7 @@ export const HomeGoodsStoreSchema: z.ZodType<HomeGoodsStore> = z.lazy(() => z.ob
 
 export interface Hospital {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Hospital' | Array<'Hospital'>;
   '@id'?: string;
   availableService?: s.MedicalProcedure | s.MedicalTest | s.MedicalTherapy | Array<s.MedicalProcedure | s.MedicalTest | s.MedicalTherapy>;
   healthcareReportingData?: s.CDCPMDRecord | s.Dataset | Array<s.CDCPMDRecord | s.Dataset>;
@@ -3262,7 +3262,7 @@ export interface Hospital {
 
 export const HospitalSchema: z.ZodType<Hospital> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Hospital'), z.array(z.literal('Hospital'))]).optional(),
   '@id': z.string().optional(),
   availableService: z.union([z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]), z.array(z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]))]).optional(),
   healthcareReportingData: z.union([z.union([s.CDCPMDRecordSchema, s.DatasetSchema]), z.array(z.union([s.CDCPMDRecordSchema, s.DatasetSchema]))]).optional(),
@@ -3400,7 +3400,7 @@ export const HospitalSchema: z.ZodType<Hospital> = z.lazy(() => z.object({
 
 export interface Hostel {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Hostel' | Array<'Hostel'>;
   '@id'?: string;
   amenityFeature?: s.LocationFeatureSpecification | Array<s.LocationFeatureSpecification>;
   audience?: s.Audience | Array<s.Audience>;
@@ -3540,7 +3540,7 @@ export interface Hostel {
 
 export const HostelSchema: z.ZodType<Hostel> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Hostel'), z.array(z.literal('Hostel'))]).optional(),
   '@id': z.string().optional(),
   amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
   audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
@@ -3680,7 +3680,7 @@ export const HostelSchema: z.ZodType<Hostel> = z.lazy(() => z.object({
 
 export interface Hotel {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Hotel' | Array<'Hotel'>;
   '@id'?: string;
   amenityFeature?: s.LocationFeatureSpecification | Array<s.LocationFeatureSpecification>;
   audience?: s.Audience | Array<s.Audience>;
@@ -3820,7 +3820,7 @@ export interface Hotel {
 
 export const HotelSchema: z.ZodType<Hotel> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Hotel'), z.array(z.literal('Hotel'))]).optional(),
   '@id': z.string().optional(),
   amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
   audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
@@ -3960,7 +3960,7 @@ export const HotelSchema: z.ZodType<Hotel> = z.lazy(() => z.object({
 
 export interface HotelRoom {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HotelRoom' | Array<'HotelRoom'>;
   '@id'?: string;
   bed?: s.BedDetails | s.BedType | string | Array<s.BedDetails | s.BedType | string>;
   occupancy?: s.QuantitativeValue | Array<s.QuantitativeValue>;
@@ -4041,7 +4041,7 @@ export interface HotelRoom {
 
 export const HotelRoomSchema: z.ZodType<HotelRoom> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HotelRoom'), z.array(z.literal('HotelRoom'))]).optional(),
   '@id': z.string().optional(),
   bed: z.union([z.union([s.BedDetailsSchema, s.BedTypeSchema, z.string()]), z.array(z.union([s.BedDetailsSchema, s.BedTypeSchema, z.string()]))]).optional(),
   occupancy: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
@@ -4122,7 +4122,7 @@ export const HotelRoomSchema: z.ZodType<HotelRoom> = z.lazy(() => z.object({
 
 export interface House {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'House' | 'SingleFamilyResidence' | Array<'House' | 'SingleFamilyResidence'>;
   '@id'?: string;
   numberOfRooms?: number | s.QuantitativeValue | Array<number | s.QuantitativeValue>;
   accommodationCategory?: string | Array<string>;
@@ -4203,7 +4203,7 @@ export interface House {
 
 export const HouseSchema: z.ZodType<House> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('House'), z.literal('SingleFamilyResidence')]), z.array(z.union([z.literal('House'), z.literal('SingleFamilyResidence')]))]).optional(),
   '@id': z.string().optional(),
   numberOfRooms: z.union([z.union([z.number(), s.QuantitativeValueSchema]), z.array(z.union([z.number(), s.QuantitativeValueSchema]))]).optional(),
   accommodationCategory: z.union([z.string(), z.array(z.string())]).optional(),
@@ -4284,7 +4284,7 @@ export const HouseSchema: z.ZodType<House> = z.lazy(() => z.object({
 
 export interface HousePainter {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HousePainter' | Array<'HousePainter'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -4417,7 +4417,7 @@ export interface HousePainter {
 
 export const HousePainterSchema: z.ZodType<HousePainter> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HousePainter'), z.array(z.literal('HousePainter'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -4550,7 +4550,7 @@ export const HousePainterSchema: z.ZodType<HousePainter> = z.lazy(() => z.object
 
 export interface HowTo {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowTo' | 'Recipe' | Array<'HowTo' | 'Recipe'>;
   '@id'?: string;
   estimatedCost?: s.MonetaryAmount | string | Array<s.MonetaryAmount | string>;
   performTime?: s.Duration | Array<s.Duration>;
@@ -4694,7 +4694,7 @@ export interface HowTo {
 
 export const HowToSchema: z.ZodType<HowTo> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('HowTo'), z.literal('Recipe')]), z.array(z.union([z.literal('HowTo'), z.literal('Recipe')]))]).optional(),
   '@id': z.string().optional(),
   estimatedCost: z.union([z.union([s.MonetaryAmountSchema, z.string()]), z.array(z.union([s.MonetaryAmountSchema, z.string()]))]).optional(),
   performTime: z.union([s.DurationSchema, z.array(s.DurationSchema)]).optional(),
@@ -4838,7 +4838,7 @@ export const HowToSchema: z.ZodType<HowTo> = z.lazy(() => z.object({
 
 export interface HowToDirection {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowToDirection' | Array<'HowToDirection'>;
   '@id'?: string;
   afterMedia?: s.MediaObject | string | Array<s.MediaObject | string>;
   beforeMedia?: s.MediaObject | string | Array<s.MediaObject | string>;
@@ -4984,7 +4984,7 @@ export interface HowToDirection {
 
 export const HowToDirectionSchema: z.ZodType<HowToDirection> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HowToDirection'), z.array(z.literal('HowToDirection'))]).optional(),
   '@id': z.string().optional(),
   afterMedia: z.union([z.union([s.MediaObjectSchema, z.string().url()]), z.array(z.union([s.MediaObjectSchema, z.string().url()]))]).optional(),
   beforeMedia: z.union([z.union([s.MediaObjectSchema, z.string().url()]), z.array(z.union([s.MediaObjectSchema, z.string().url()]))]).optional(),
@@ -5130,7 +5130,7 @@ export const HowToDirectionSchema: z.ZodType<HowToDirection> = z.lazy(() => z.ob
 
 export interface HowToItem {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowToItem' | 'HowToSupply' | 'HowToTool' | Array<'HowToItem' | 'HowToSupply' | 'HowToTool'>;
   '@id'?: string;
   requiredQuantity?: number | s.QuantitativeValue | string | Array<number | s.QuantitativeValue | string>;
   item?: s.Thing | Array<s.Thing>;
@@ -5154,7 +5154,7 @@ export interface HowToItem {
 
 export const HowToItemSchema: z.ZodType<HowToItem> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('HowToItem'), z.literal('HowToSupply'), z.literal('HowToTool')]), z.array(z.union([z.literal('HowToItem'), z.literal('HowToSupply'), z.literal('HowToTool')]))]).optional(),
   '@id': z.string().optional(),
   requiredQuantity: z.union([z.union([z.number(), s.QuantitativeValueSchema, z.string()]), z.array(z.union([z.number(), s.QuantitativeValueSchema, z.string()]))]).optional(),
   item: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -5178,7 +5178,7 @@ export const HowToItemSchema: z.ZodType<HowToItem> = z.lazy(() => z.object({
 
 export interface HowToSection {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowToSection' | Array<'HowToSection'>;
   '@id'?: string;
   steps?: s.CreativeWork | s.ItemList | string | Array<s.CreativeWork | s.ItemList | string>;
   about?: s.Thing | Array<s.Thing>;
@@ -5321,7 +5321,7 @@ export interface HowToSection {
 
 export const HowToSectionSchema: z.ZodType<HowToSection> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HowToSection'), z.array(z.literal('HowToSection'))]).optional(),
   '@id': z.string().optional(),
   steps: z.union([z.union([s.CreativeWorkSchema, s.ItemListSchema, z.string()]), z.array(z.union([s.CreativeWorkSchema, s.ItemListSchema, z.string()]))]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -5464,7 +5464,7 @@ export const HowToSectionSchema: z.ZodType<HowToSection> = z.lazy(() => z.object
 
 export interface HowToStep {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowToStep' | Array<'HowToStep'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   abstract?: string | Array<string>;
@@ -5606,7 +5606,7 @@ export interface HowToStep {
 
 export const HowToStepSchema: z.ZodType<HowToStep> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HowToStep'), z.array(z.literal('HowToStep'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   abstract: z.union([z.string(), z.array(z.string())]).optional(),
@@ -5748,7 +5748,7 @@ export const HowToStepSchema: z.ZodType<HowToStep> = z.lazy(() => z.object({
 
 export interface HowToSupply {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowToSupply' | Array<'HowToSupply'>;
   '@id'?: string;
   estimatedCost?: s.MonetaryAmount | string | Array<s.MonetaryAmount | string>;
   requiredQuantity?: number | s.QuantitativeValue | string | Array<number | s.QuantitativeValue | string>;
@@ -5773,7 +5773,7 @@ export interface HowToSupply {
 
 export const HowToSupplySchema: z.ZodType<HowToSupply> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HowToSupply'), z.array(z.literal('HowToSupply'))]).optional(),
   '@id': z.string().optional(),
   estimatedCost: z.union([z.union([s.MonetaryAmountSchema, z.string()]), z.array(z.union([s.MonetaryAmountSchema, z.string()]))]).optional(),
   requiredQuantity: z.union([z.union([z.number(), s.QuantitativeValueSchema, z.string()]), z.array(z.union([z.number(), s.QuantitativeValueSchema, z.string()]))]).optional(),
@@ -5798,7 +5798,7 @@ export const HowToSupplySchema: z.ZodType<HowToSupply> = z.lazy(() => z.object({
 
 export interface HowToTip {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowToTip' | Array<'HowToTip'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   abstract?: string | Array<string>;
@@ -5936,7 +5936,7 @@ export interface HowToTip {
 
 export const HowToTipSchema: z.ZodType<HowToTip> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HowToTip'), z.array(z.literal('HowToTip'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   abstract: z.union([z.string(), z.array(z.string())]).optional(),
@@ -6074,7 +6074,7 @@ export const HowToTipSchema: z.ZodType<HowToTip> = z.lazy(() => z.object({
 
 export interface HowToTool {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HowToTool' | Array<'HowToTool'>;
   '@id'?: string;
   requiredQuantity?: number | s.QuantitativeValue | string | Array<number | s.QuantitativeValue | string>;
   item?: s.Thing | Array<s.Thing>;
@@ -6098,7 +6098,7 @@ export interface HowToTool {
 
 export const HowToToolSchema: z.ZodType<HowToTool> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HowToTool'), z.array(z.literal('HowToTool'))]).optional(),
   '@id': z.string().optional(),
   requiredQuantity: z.union([z.union([z.number(), s.QuantitativeValueSchema, z.string()]), z.array(z.union([z.number(), s.QuantitativeValueSchema, z.string()]))]).optional(),
   item: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -6122,7 +6122,7 @@ export const HowToToolSchema: z.ZodType<HowToTool> = z.lazy(() => z.object({
 
 export interface HyperToc {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HyperToc' | Array<'HyperToc'>;
   '@id'?: string;
   associatedMedia?: s.MediaObject | Array<s.MediaObject>;
   tocEntry?: s.HyperTocEntry | Array<s.HyperTocEntry>;
@@ -6258,7 +6258,7 @@ export interface HyperToc {
 
 export const HyperTocSchema: z.ZodType<HyperToc> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HyperToc'), z.array(z.literal('HyperToc'))]).optional(),
   '@id': z.string().optional(),
   associatedMedia: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
   tocEntry: z.union([s.HyperTocEntrySchema, z.array(s.HyperTocEntrySchema)]).optional(),
@@ -6394,7 +6394,7 @@ export const HyperTocSchema: z.ZodType<HyperToc> = z.lazy(() => z.object({
 
 export interface HyperTocEntry {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'HyperTocEntry' | Array<'HyperTocEntry'>;
   '@id'?: string;
   associatedMedia?: s.MediaObject | Array<s.MediaObject>;
   tocContinuation?: s.HyperTocEntry | Array<s.HyperTocEntry>;
@@ -6531,7 +6531,7 @@ export interface HyperTocEntry {
 
 export const HyperTocEntrySchema: z.ZodType<HyperTocEntry> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('HyperTocEntry'), z.array(z.literal('HyperTocEntry'))]).optional(),
   '@id': z.string().optional(),
   associatedMedia: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
   tocContinuation: z.union([s.HyperTocEntrySchema, z.array(s.HyperTocEntrySchema)]).optional(),

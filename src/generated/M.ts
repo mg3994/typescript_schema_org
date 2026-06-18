@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface Manuscript {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Manuscript' | Array<'Manuscript'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   abstract?: string | Array<string>;
@@ -138,7 +138,7 @@ export interface Manuscript {
 
 export const ManuscriptSchema: z.ZodType<Manuscript> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Manuscript'), z.array(z.literal('Manuscript'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   abstract: z.union([z.string(), z.array(z.string())]).optional(),
@@ -273,7 +273,7 @@ export const ManuscriptSchema: z.ZodType<Manuscript> = z.lazy(() => z.object({
 
 export interface Map {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Map' | Array<'Map'>;
   '@id'?: string;
   mapType?: s.MapCategoryType | Array<s.MapCategoryType>;
   about?: s.Thing | Array<s.Thing>;
@@ -409,7 +409,7 @@ export interface Map {
 
 export const MapSchema: z.ZodType<Map> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Map'), z.array(z.literal('Map'))]).optional(),
   '@id': z.string().optional(),
   mapType: z.union([s.MapCategoryTypeSchema, z.array(s.MapCategoryTypeSchema)]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -548,7 +548,7 @@ export const MapCategoryTypeSchema = z.union([z.literal('schema:ParkingMap'), z.
 
 export interface MarryAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MarryAction' | Array<'MarryAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
   actionStatus?: s.ActionStatusType | Array<s.ActionStatusType>;
@@ -580,7 +580,7 @@ export interface MarryAction {
 
 export const MarryActionSchema: z.ZodType<MarryAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MarryAction'), z.array(z.literal('MarryAction'))]).optional(),
   '@id': z.string().optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
   actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
@@ -612,19 +612,19 @@ export const MarryActionSchema: z.ZodType<MarryAction> = z.lazy(() => z.object({
 
 export interface Mass {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Mass' | Array<'Mass'>;
   '@id'?: string;
 }
 
 export const MassSchema: z.ZodType<Mass> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Mass'), z.array(z.literal('Mass'))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface MathSolver {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MathSolver' | Array<'MathSolver'>;
   '@id'?: string;
   mathExpression?: s.SolveMathAction | string | Array<s.SolveMathAction | string>;
   about?: s.Thing | Array<s.Thing>;
@@ -760,7 +760,7 @@ export interface MathSolver {
 
 export const MathSolverSchema: z.ZodType<MathSolver> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MathSolver'), z.array(z.literal('MathSolver'))]).optional(),
   '@id': z.string().optional(),
   mathExpression: z.union([z.union([s.SolveMathActionSchema, z.string()]), z.array(z.union([s.SolveMathActionSchema, z.string()]))]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -896,7 +896,7 @@ export const MathSolverSchema: z.ZodType<MathSolver> = z.lazy(() => z.object({
 
 export interface MaximumDoseSchedule {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MaximumDoseSchedule' | Array<'MaximumDoseSchedule'>;
   '@id'?: string;
   doseUnit?: string | Array<string>;
   doseValue?: number | s.QualitativeValue | Array<number | s.QualitativeValue>;
@@ -927,7 +927,7 @@ export interface MaximumDoseSchedule {
 
 export const MaximumDoseScheduleSchema: z.ZodType<MaximumDoseSchedule> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MaximumDoseSchedule'), z.array(z.literal('MaximumDoseSchedule'))]).optional(),
   '@id': z.string().optional(),
   doseUnit: z.union([z.string(), z.array(z.string())]).optional(),
   doseValue: z.union([z.union([z.number(), s.QualitativeValueSchema]), z.array(z.union([z.number(), s.QualitativeValueSchema]))]).optional(),
@@ -961,7 +961,7 @@ export const MeasurementMethodEnumSchema = z.union([z.literal('schema:ExampleMea
 
 export interface MeasurementTypeEnumeration {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MeasurementTypeEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration' | Array<'MeasurementTypeEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration'>;
   '@id'?: string;
   supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
   additionalType?: string | Array<string>;
@@ -981,7 +981,7 @@ export interface MeasurementTypeEnumeration {
 
 export const MeasurementTypeEnumerationSchema: z.ZodType<MeasurementTypeEnumeration> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MeasurementTypeEnumeration'), z.literal('BodyMeasurementTypeEnumeration'), z.literal('WearableMeasurementTypeEnumeration')]), z.array(z.union([z.literal('MeasurementTypeEnumeration'), z.literal('BodyMeasurementTypeEnumeration'), z.literal('WearableMeasurementTypeEnumeration')]))]).optional(),
   '@id': z.string().optional(),
   supersededBy: z.union([z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]), z.array(z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]))]).optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -1001,7 +1001,7 @@ export const MeasurementTypeEnumerationSchema: z.ZodType<MeasurementTypeEnumerat
 
 export interface MediaEnumeration {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MediaEnumeration' | 'IPTCDigitalSourceEnumeration' | Array<'MediaEnumeration' | 'IPTCDigitalSourceEnumeration'>;
   '@id'?: string;
   supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
   additionalType?: string | Array<string>;
@@ -1021,7 +1021,7 @@ export interface MediaEnumeration {
 
 export const MediaEnumerationSchema: z.ZodType<MediaEnumeration> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MediaEnumeration'), z.literal('IPTCDigitalSourceEnumeration')]), z.array(z.union([z.literal('MediaEnumeration'), z.literal('IPTCDigitalSourceEnumeration')]))]).optional(),
   '@id': z.string().optional(),
   supersededBy: z.union([z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]), z.array(z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]))]).optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -1041,7 +1041,7 @@ export const MediaEnumerationSchema: z.ZodType<MediaEnumeration> = z.lazy(() => 
 
 export interface MediaGallery {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MediaGallery' | 'ImageGallery' | 'VideoGallery' | Array<'MediaGallery' | 'ImageGallery' | 'VideoGallery'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
   lastReviewed?: string | Array<string>;
@@ -1186,7 +1186,7 @@ export interface MediaGallery {
 
 export const MediaGallerySchema: z.ZodType<MediaGallery> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MediaGallery'), z.literal('ImageGallery'), z.literal('VideoGallery')]), z.array(z.union([z.literal('MediaGallery'), z.literal('ImageGallery'), z.literal('VideoGallery')]))]).optional(),
   '@id': z.string().optional(),
   breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
   lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1334,7 +1334,7 @@ export const MediaManipulationRatingEnumerationSchema = z.union([z.literal('sche
 
 export interface MediaObject {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MediaObject' | '3DModel' | 'AmpStory' | 'AudioObject' | 'AudioObjectSnapshot' | 'Audiobook' | 'DataDownload' | 'ImageObject' | 'Barcode' | 'ImageObjectSnapshot' | 'LegislationObject' | 'MusicVideoObject' | 'TextObject' | 'VideoObject' | 'VideoObjectSnapshot' | Array<'MediaObject' | '3DModel' | 'AmpStory' | 'AudioObject' | 'AudioObjectSnapshot' | 'Audiobook' | 'DataDownload' | 'ImageObject' | 'Barcode' | 'ImageObjectSnapshot' | 'LegislationObject' | 'MusicVideoObject' | 'TextObject' | 'VideoObject' | 'VideoObjectSnapshot'>;
   '@id'?: string;
   associatedArticle?: s.NewsArticle | Array<s.NewsArticle>;
   bitrate?: string | Array<string>;
@@ -1487,7 +1487,7 @@ export interface MediaObject {
 
 export const MediaObjectSchema: z.ZodType<MediaObject> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MediaObject'), z.literal('3DModel'), z.literal('AmpStory'), z.literal('AudioObject'), z.literal('AudioObjectSnapshot'), z.literal('Audiobook'), z.literal('DataDownload'), z.literal('ImageObject'), z.literal('Barcode'), z.literal('ImageObjectSnapshot'), z.literal('LegislationObject'), z.literal('MusicVideoObject'), z.literal('TextObject'), z.literal('VideoObject'), z.literal('VideoObjectSnapshot')]), z.array(z.union([z.literal('MediaObject'), z.literal('3DModel'), z.literal('AmpStory'), z.literal('AudioObject'), z.literal('AudioObjectSnapshot'), z.literal('Audiobook'), z.literal('DataDownload'), z.literal('ImageObject'), z.literal('Barcode'), z.literal('ImageObjectSnapshot'), z.literal('LegislationObject'), z.literal('MusicVideoObject'), z.literal('TextObject'), z.literal('VideoObject'), z.literal('VideoObjectSnapshot')]))]).optional(),
   '@id': z.string().optional(),
   associatedArticle: z.union([s.NewsArticleSchema, z.array(s.NewsArticleSchema)]).optional(),
   bitrate: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1640,7 +1640,7 @@ export const MediaObjectSchema: z.ZodType<MediaObject> = z.lazy(() => z.object({
 
 export interface MediaReview {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MediaReview' | Array<'MediaReview'>;
   '@id'?: string;
   mediaAuthenticityCategory?: s.MediaManipulationRatingEnumeration | Array<s.MediaManipulationRatingEnumeration>;
   originalMediaContextDescription?: string | Array<string>;
@@ -1787,7 +1787,7 @@ export interface MediaReview {
 
 export const MediaReviewSchema: z.ZodType<MediaReview> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MediaReview'), z.array(z.literal('MediaReview'))]).optional(),
   '@id': z.string().optional(),
   mediaAuthenticityCategory: z.union([s.MediaManipulationRatingEnumerationSchema, z.array(s.MediaManipulationRatingEnumerationSchema)]).optional(),
   originalMediaContextDescription: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1934,7 +1934,7 @@ export const MediaReviewSchema: z.ZodType<MediaReview> = z.lazy(() => z.object({
 
 export interface MediaReviewItem {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MediaReviewItem' | Array<'MediaReviewItem'>;
   '@id'?: string;
   mediaItemAppearance?: s.MediaObject | Array<s.MediaObject>;
   about?: s.Thing | Array<s.Thing>;
@@ -2070,7 +2070,7 @@ export interface MediaReviewItem {
 
 export const MediaReviewItemSchema: z.ZodType<MediaReviewItem> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MediaReviewItem'), z.array(z.literal('MediaReviewItem'))]).optional(),
   '@id': z.string().optional(),
   mediaItemAppearance: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -2206,7 +2206,7 @@ export const MediaReviewItemSchema: z.ZodType<MediaReviewItem> = z.lazy(() => z.
 
 export interface MediaSubscription {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MediaSubscription' | Array<'MediaSubscription'>;
   '@id'?: string;
   authenticator?: s.Organization | Array<s.Organization>;
   expectsAcceptanceOf?: s.Offer | Array<s.Offer>;
@@ -2227,7 +2227,7 @@ export interface MediaSubscription {
 
 export const MediaSubscriptionSchema: z.ZodType<MediaSubscription> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MediaSubscription'), z.array(z.literal('MediaSubscription'))]).optional(),
   '@id': z.string().optional(),
   authenticator: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   expectsAcceptanceOf: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -2248,7 +2248,7 @@ export const MediaSubscriptionSchema: z.ZodType<MediaSubscription> = z.lazy(() =
 
 export interface MedicalAudience {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalAudience' | 'Patient' | Array<'MedicalAudience' | 'Patient'>;
   '@id'?: string;
   audienceType?: string | Array<string>;
   geographicArea?: s.AdministrativeArea | Array<s.AdministrativeArea>;
@@ -2278,7 +2278,7 @@ export interface MedicalAudience {
 
 export const MedicalAudienceSchema: z.ZodType<MedicalAudience> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalAudience'), z.literal('Patient')]), z.array(z.union([z.literal('MedicalAudience'), z.literal('Patient')]))]).optional(),
   '@id': z.string().optional(),
   audienceType: z.union([z.string(), z.array(z.string())]).optional(),
   geographicArea: z.union([s.AdministrativeAreaSchema, z.array(s.AdministrativeAreaSchema)]).optional(),
@@ -2311,7 +2311,7 @@ export const MedicalAudienceTypeSchema = z.union([z.literal('schema:Clinician'),
 
 export interface MedicalBusiness {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalBusiness' | 'Dentist' | 'MedicalClinic' | 'CovidTestingFacility' | 'Optician' | 'Pharmacy' | 'Physician' | 'IndividualPhysician' | 'PhysiciansOffice' | Array<'MedicalBusiness' | 'Dentist' | 'MedicalClinic' | 'CovidTestingFacility' | 'Optician' | 'Pharmacy' | 'Physician' | 'IndividualPhysician' | 'PhysiciansOffice'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -2444,7 +2444,7 @@ export interface MedicalBusiness {
 
 export const MedicalBusinessSchema: z.ZodType<MedicalBusiness> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalBusiness'), z.literal('Dentist'), z.literal('MedicalClinic'), z.literal('CovidTestingFacility'), z.literal('Optician'), z.literal('Pharmacy'), z.literal('Physician'), z.literal('IndividualPhysician'), z.literal('PhysiciansOffice')]), z.array(z.union([z.literal('MedicalBusiness'), z.literal('Dentist'), z.literal('MedicalClinic'), z.literal('CovidTestingFacility'), z.literal('Optician'), z.literal('Pharmacy'), z.literal('Physician'), z.literal('IndividualPhysician'), z.literal('PhysiciansOffice')]))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2577,7 +2577,7 @@ export const MedicalBusinessSchema: z.ZodType<MedicalBusiness> = z.lazy(() => z.
 
 export interface MedicalCause {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalCause' | Array<'MedicalCause'>;
   '@id'?: string;
   causeOf?: s.MedicalEntity | Array<s.MedicalEntity>;
   code?: s.MedicalCode | Array<s.MedicalCode>;
@@ -2605,7 +2605,7 @@ export interface MedicalCause {
 
 export const MedicalCauseSchema: z.ZodType<MedicalCause> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalCause'), z.array(z.literal('MedicalCause'))]).optional(),
   '@id': z.string().optional(),
   causeOf: z.union([s.MedicalEntitySchema, z.array(s.MedicalEntitySchema)]).optional(),
   code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
@@ -2633,7 +2633,7 @@ export const MedicalCauseSchema: z.ZodType<MedicalCause> = z.lazy(() => z.object
 
 export interface MedicalClinic {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalClinic' | 'CovidTestingFacility' | Array<'MedicalClinic' | 'CovidTestingFacility'>;
   '@id'?: string;
   availableService?: s.MedicalProcedure | s.MedicalTest | s.MedicalTherapy | Array<s.MedicalProcedure | s.MedicalTest | s.MedicalTherapy>;
   medicalSpecialty?: s.MedicalSpecialty | Array<s.MedicalSpecialty>;
@@ -2770,7 +2770,7 @@ export interface MedicalClinic {
 
 export const MedicalClinicSchema: z.ZodType<MedicalClinic> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalClinic'), z.literal('CovidTestingFacility')]), z.array(z.union([z.literal('MedicalClinic'), z.literal('CovidTestingFacility')]))]).optional(),
   '@id': z.string().optional(),
   availableService: z.union([z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]), z.array(z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]))]).optional(),
   medicalSpecialty: z.union([s.MedicalSpecialtySchema, z.array(s.MedicalSpecialtySchema)]).optional(),
@@ -2907,7 +2907,7 @@ export const MedicalClinicSchema: z.ZodType<MedicalClinic> = z.lazy(() => z.obje
 
 export interface MedicalCode {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalCode' | Array<'MedicalCode'>;
   '@id'?: string;
   codeValue?: string | Array<string>;
   codingSystem?: string | Array<string>;
@@ -2940,7 +2940,7 @@ export interface MedicalCode {
 
 export const MedicalCodeSchema: z.ZodType<MedicalCode> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalCode'), z.array(z.literal('MedicalCode'))]).optional(),
   '@id': z.string().optional(),
   codeValue: z.union([z.string(), z.array(z.string())]).optional(),
   codingSystem: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2973,7 +2973,7 @@ export const MedicalCodeSchema: z.ZodType<MedicalCode> = z.lazy(() => z.object({
 
 export interface MedicalCondition {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalCondition' | 'InfectiousDisease' | 'MedicalSignOrSymptom' | 'MedicalSign' | 'VitalSign' | 'MedicalSymptom' | Array<'MedicalCondition' | 'InfectiousDisease' | 'MedicalSignOrSymptom' | 'MedicalSign' | 'VitalSign' | 'MedicalSymptom'>;
   '@id'?: string;
   associatedAnatomy?: s.AnatomicalStructure | s.AnatomicalSystem | s.SuperficialAnatomy | Array<s.AnatomicalStructure | s.AnatomicalSystem | s.SuperficialAnatomy>;
   cause?: s.MedicalCause | Array<s.MedicalCause>;
@@ -3017,7 +3017,7 @@ export interface MedicalCondition {
 
 export const MedicalConditionSchema: z.ZodType<MedicalCondition> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalCondition'), z.literal('InfectiousDisease'), z.literal('MedicalSignOrSymptom'), z.literal('MedicalSign'), z.literal('VitalSign'), z.literal('MedicalSymptom')]), z.array(z.union([z.literal('MedicalCondition'), z.literal('InfectiousDisease'), z.literal('MedicalSignOrSymptom'), z.literal('MedicalSign'), z.literal('VitalSign'), z.literal('MedicalSymptom')]))]).optional(),
   '@id': z.string().optional(),
   associatedAnatomy: z.union([z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]), z.array(z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]))]).optional(),
   cause: z.union([s.MedicalCauseSchema, z.array(s.MedicalCauseSchema)]).optional(),
@@ -3061,7 +3061,7 @@ export const MedicalConditionSchema: z.ZodType<MedicalCondition> = z.lazy(() => 
 
 export interface MedicalConditionStage {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalConditionStage' | Array<'MedicalConditionStage'>;
   '@id'?: string;
   stageAsNumber?: number | Array<number>;
   subStageSuffix?: string | Array<string>;
@@ -3090,7 +3090,7 @@ export interface MedicalConditionStage {
 
 export const MedicalConditionStageSchema: z.ZodType<MedicalConditionStage> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalConditionStage'), z.array(z.literal('MedicalConditionStage'))]).optional(),
   '@id': z.string().optional(),
   stageAsNumber: z.union([z.number(), z.array(z.number())]).optional(),
   subStageSuffix: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3119,7 +3119,7 @@ export const MedicalConditionStageSchema: z.ZodType<MedicalConditionStage> = z.l
 
 export interface MedicalContraindication {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalContraindication' | Array<'MedicalContraindication'>;
   '@id'?: string;
   code?: s.MedicalCode | Array<s.MedicalCode>;
   funding?: s.Grant | Array<s.Grant>;
@@ -3146,7 +3146,7 @@ export interface MedicalContraindication {
 
 export const MedicalContraindicationSchema: z.ZodType<MedicalContraindication> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalContraindication'), z.array(z.literal('MedicalContraindication'))]).optional(),
   '@id': z.string().optional(),
   code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
   funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
@@ -3173,7 +3173,7 @@ export const MedicalContraindicationSchema: z.ZodType<MedicalContraindication> =
 
 export interface MedicalDevice {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalDevice' | Array<'MedicalDevice'>;
   '@id'?: string;
   adverseOutcome?: s.MedicalEntity | Array<s.MedicalEntity>;
   contraindication?: s.MedicalContraindication | string | Array<s.MedicalContraindication | string>;
@@ -3206,7 +3206,7 @@ export interface MedicalDevice {
 
 export const MedicalDeviceSchema: z.ZodType<MedicalDevice> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalDevice'), z.array(z.literal('MedicalDevice'))]).optional(),
   '@id': z.string().optional(),
   adverseOutcome: z.union([s.MedicalEntitySchema, z.array(s.MedicalEntitySchema)]).optional(),
   contraindication: z.union([z.union([s.MedicalContraindicationSchema, z.string()]), z.array(z.union([s.MedicalContraindicationSchema, z.string()]))]).optional(),
@@ -3242,7 +3242,7 @@ export const MedicalDevicePurposeSchema = z.union([z.literal('schema:Diagnostic'
 
 export interface MedicalEntity {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalEntity' | 'AnatomicalStructure' | 'Bone' | 'BrainStructure' | 'Joint' | 'Ligament' | 'Muscle' | 'Nerve' | 'Vessel' | 'Artery' | 'LymphaticVessel' | 'Vein' | 'AnatomicalSystem' | 'DrugClass' | 'DrugCost' | 'LifestyleModification' | 'Diet' | 'PhysicalActivity' | 'ExercisePlan' | 'MedicalCause' | 'MedicalCondition' | 'InfectiousDisease' | 'MedicalSignOrSymptom' | 'MedicalSign' | 'VitalSign' | 'MedicalSymptom' | 'MedicalContraindication' | 'MedicalDevice' | 'MedicalGuideline' | 'MedicalGuidelineContraindication' | 'MedicalGuidelineRecommendation' | 'MedicalIndication' | 'ApprovedIndication' | 'PreventionIndication' | 'TreatmentIndication' | 'MedicalIntangible' | 'DDxElement' | 'DoseSchedule' | 'MaximumDoseSchedule' | 'RecommendedDoseSchedule' | 'ReportedDoseSchedule' | 'DrugLegalStatus' | 'DrugStrength' | 'MedicalCode' | 'MedicalConditionStage' | 'MedicalProcedure' | 'DiagnosticProcedure' | 'PalliativeProcedure' | 'PhysicalExam' | 'SurgicalProcedure' | 'TherapeuticProcedure' | 'MedicalTherapy' | 'OccupationalTherapy' | 'PhysicalTherapy' | 'RadiationTherapy' | 'PsychologicalTreatment' | 'MedicalRiskEstimator' | 'MedicalRiskCalculator' | 'MedicalRiskScore' | 'MedicalRiskFactor' | 'MedicalStudy' | 'MedicalObservationalStudy' | 'MedicalTrial' | 'MedicalTest' | 'BloodTest' | 'ImagingTest' | 'MedicalTestPanel' | 'PathologyTest' | 'Substance' | 'DietarySupplement' | 'Drug' | 'SuperficialAnatomy' | Array<'MedicalEntity' | 'AnatomicalStructure' | 'Bone' | 'BrainStructure' | 'Joint' | 'Ligament' | 'Muscle' | 'Nerve' | 'Vessel' | 'Artery' | 'LymphaticVessel' | 'Vein' | 'AnatomicalSystem' | 'DrugClass' | 'DrugCost' | 'LifestyleModification' | 'Diet' | 'PhysicalActivity' | 'ExercisePlan' | 'MedicalCause' | 'MedicalCondition' | 'InfectiousDisease' | 'MedicalSignOrSymptom' | 'MedicalSign' | 'VitalSign' | 'MedicalSymptom' | 'MedicalContraindication' | 'MedicalDevice' | 'MedicalGuideline' | 'MedicalGuidelineContraindication' | 'MedicalGuidelineRecommendation' | 'MedicalIndication' | 'ApprovedIndication' | 'PreventionIndication' | 'TreatmentIndication' | 'MedicalIntangible' | 'DDxElement' | 'DoseSchedule' | 'MaximumDoseSchedule' | 'RecommendedDoseSchedule' | 'ReportedDoseSchedule' | 'DrugLegalStatus' | 'DrugStrength' | 'MedicalCode' | 'MedicalConditionStage' | 'MedicalProcedure' | 'DiagnosticProcedure' | 'PalliativeProcedure' | 'PhysicalExam' | 'SurgicalProcedure' | 'TherapeuticProcedure' | 'MedicalTherapy' | 'OccupationalTherapy' | 'PhysicalTherapy' | 'RadiationTherapy' | 'PsychologicalTreatment' | 'MedicalRiskEstimator' | 'MedicalRiskCalculator' | 'MedicalRiskScore' | 'MedicalRiskFactor' | 'MedicalStudy' | 'MedicalObservationalStudy' | 'MedicalTrial' | 'MedicalTest' | 'BloodTest' | 'ImagingTest' | 'MedicalTestPanel' | 'PathologyTest' | 'Substance' | 'DietarySupplement' | 'Drug' | 'SuperficialAnatomy'>;
   '@id'?: string;
   code?: s.MedicalCode | Array<s.MedicalCode>;
   funding?: s.Grant | Array<s.Grant>;
@@ -3269,7 +3269,7 @@ export interface MedicalEntity {
 
 export const MedicalEntitySchema: z.ZodType<MedicalEntity> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalEntity'), z.literal('AnatomicalStructure'), z.literal('Bone'), z.literal('BrainStructure'), z.literal('Joint'), z.literal('Ligament'), z.literal('Muscle'), z.literal('Nerve'), z.literal('Vessel'), z.literal('Artery'), z.literal('LymphaticVessel'), z.literal('Vein'), z.literal('AnatomicalSystem'), z.literal('DrugClass'), z.literal('DrugCost'), z.literal('LifestyleModification'), z.literal('Diet'), z.literal('PhysicalActivity'), z.literal('ExercisePlan'), z.literal('MedicalCause'), z.literal('MedicalCondition'), z.literal('InfectiousDisease'), z.literal('MedicalSignOrSymptom'), z.literal('MedicalSign'), z.literal('VitalSign'), z.literal('MedicalSymptom'), z.literal('MedicalContraindication'), z.literal('MedicalDevice'), z.literal('MedicalGuideline'), z.literal('MedicalGuidelineContraindication'), z.literal('MedicalGuidelineRecommendation'), z.literal('MedicalIndication'), z.literal('ApprovedIndication'), z.literal('PreventionIndication'), z.literal('TreatmentIndication'), z.literal('MedicalIntangible'), z.literal('DDxElement'), z.literal('DoseSchedule'), z.literal('MaximumDoseSchedule'), z.literal('RecommendedDoseSchedule'), z.literal('ReportedDoseSchedule'), z.literal('DrugLegalStatus'), z.literal('DrugStrength'), z.literal('MedicalCode'), z.literal('MedicalConditionStage'), z.literal('MedicalProcedure'), z.literal('DiagnosticProcedure'), z.literal('PalliativeProcedure'), z.literal('PhysicalExam'), z.literal('SurgicalProcedure'), z.literal('TherapeuticProcedure'), z.literal('MedicalTherapy'), z.literal('OccupationalTherapy'), z.literal('PhysicalTherapy'), z.literal('RadiationTherapy'), z.literal('PsychologicalTreatment'), z.literal('MedicalRiskEstimator'), z.literal('MedicalRiskCalculator'), z.literal('MedicalRiskScore'), z.literal('MedicalRiskFactor'), z.literal('MedicalStudy'), z.literal('MedicalObservationalStudy'), z.literal('MedicalTrial'), z.literal('MedicalTest'), z.literal('BloodTest'), z.literal('ImagingTest'), z.literal('MedicalTestPanel'), z.literal('PathologyTest'), z.literal('Substance'), z.literal('DietarySupplement'), z.literal('Drug'), z.literal('SuperficialAnatomy')]), z.array(z.union([z.literal('MedicalEntity'), z.literal('AnatomicalStructure'), z.literal('Bone'), z.literal('BrainStructure'), z.literal('Joint'), z.literal('Ligament'), z.literal('Muscle'), z.literal('Nerve'), z.literal('Vessel'), z.literal('Artery'), z.literal('LymphaticVessel'), z.literal('Vein'), z.literal('AnatomicalSystem'), z.literal('DrugClass'), z.literal('DrugCost'), z.literal('LifestyleModification'), z.literal('Diet'), z.literal('PhysicalActivity'), z.literal('ExercisePlan'), z.literal('MedicalCause'), z.literal('MedicalCondition'), z.literal('InfectiousDisease'), z.literal('MedicalSignOrSymptom'), z.literal('MedicalSign'), z.literal('VitalSign'), z.literal('MedicalSymptom'), z.literal('MedicalContraindication'), z.literal('MedicalDevice'), z.literal('MedicalGuideline'), z.literal('MedicalGuidelineContraindication'), z.literal('MedicalGuidelineRecommendation'), z.literal('MedicalIndication'), z.literal('ApprovedIndication'), z.literal('PreventionIndication'), z.literal('TreatmentIndication'), z.literal('MedicalIntangible'), z.literal('DDxElement'), z.literal('DoseSchedule'), z.literal('MaximumDoseSchedule'), z.literal('RecommendedDoseSchedule'), z.literal('ReportedDoseSchedule'), z.literal('DrugLegalStatus'), z.literal('DrugStrength'), z.literal('MedicalCode'), z.literal('MedicalConditionStage'), z.literal('MedicalProcedure'), z.literal('DiagnosticProcedure'), z.literal('PalliativeProcedure'), z.literal('PhysicalExam'), z.literal('SurgicalProcedure'), z.literal('TherapeuticProcedure'), z.literal('MedicalTherapy'), z.literal('OccupationalTherapy'), z.literal('PhysicalTherapy'), z.literal('RadiationTherapy'), z.literal('PsychologicalTreatment'), z.literal('MedicalRiskEstimator'), z.literal('MedicalRiskCalculator'), z.literal('MedicalRiskScore'), z.literal('MedicalRiskFactor'), z.literal('MedicalStudy'), z.literal('MedicalObservationalStudy'), z.literal('MedicalTrial'), z.literal('MedicalTest'), z.literal('BloodTest'), z.literal('ImagingTest'), z.literal('MedicalTestPanel'), z.literal('PathologyTest'), z.literal('Substance'), z.literal('DietarySupplement'), z.literal('Drug'), z.literal('SuperficialAnatomy')]))]).optional(),
   '@id': z.string().optional(),
   code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
   funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
@@ -3296,7 +3296,7 @@ export const MedicalEntitySchema: z.ZodType<MedicalEntity> = z.lazy(() => z.obje
 
 export interface MedicalEnumeration {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam' | Array<'MedicalEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam'>;
   '@id'?: string;
   supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
   additionalType?: string | Array<string>;
@@ -3316,7 +3316,7 @@ export interface MedicalEnumeration {
 
 export const MedicalEnumerationSchema: z.ZodType<MedicalEnumeration> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalEnumeration'), z.literal('DrugCostCategory'), z.literal('DrugPregnancyCategory'), z.literal('DrugPrescriptionStatus'), z.literal('InfectiousAgentClass'), z.literal('MedicalAudienceType'), z.literal('MedicalDevicePurpose'), z.literal('MedicalEvidenceLevel'), z.literal('MedicalImagingTechnique'), z.literal('MedicalObservationalStudyDesign'), z.literal('MedicalProcedureType'), z.literal('MedicalSpecialty'), z.literal('MedicalStudyStatus'), z.literal('MedicalTrialDesign'), z.literal('MedicineSystem'), z.literal('PhysicalExam')]), z.array(z.union([z.literal('MedicalEnumeration'), z.literal('DrugCostCategory'), z.literal('DrugPregnancyCategory'), z.literal('DrugPrescriptionStatus'), z.literal('InfectiousAgentClass'), z.literal('MedicalAudienceType'), z.literal('MedicalDevicePurpose'), z.literal('MedicalEvidenceLevel'), z.literal('MedicalImagingTechnique'), z.literal('MedicalObservationalStudyDesign'), z.literal('MedicalProcedureType'), z.literal('MedicalSpecialty'), z.literal('MedicalStudyStatus'), z.literal('MedicalTrialDesign'), z.literal('MedicineSystem'), z.literal('PhysicalExam')]))]).optional(),
   '@id': z.string().optional(),
   supersededBy: z.union([z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]), z.array(z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]))]).optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -3339,7 +3339,7 @@ export const MedicalEvidenceLevelSchema = z.union([z.literal('schema:EvidenceLev
 
 export interface MedicalGuideline {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalGuideline' | 'MedicalGuidelineContraindication' | 'MedicalGuidelineRecommendation' | Array<'MedicalGuideline' | 'MedicalGuidelineContraindication' | 'MedicalGuidelineRecommendation'>;
   '@id'?: string;
   evidenceLevel?: s.MedicalEvidenceLevel | Array<s.MedicalEvidenceLevel>;
   evidenceOrigin?: string | Array<string>;
@@ -3370,7 +3370,7 @@ export interface MedicalGuideline {
 
 export const MedicalGuidelineSchema: z.ZodType<MedicalGuideline> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalGuideline'), z.literal('MedicalGuidelineContraindication'), z.literal('MedicalGuidelineRecommendation')]), z.array(z.union([z.literal('MedicalGuideline'), z.literal('MedicalGuidelineContraindication'), z.literal('MedicalGuidelineRecommendation')]))]).optional(),
   '@id': z.string().optional(),
   evidenceLevel: z.union([s.MedicalEvidenceLevelSchema, z.array(s.MedicalEvidenceLevelSchema)]).optional(),
   evidenceOrigin: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3401,7 +3401,7 @@ export const MedicalGuidelineSchema: z.ZodType<MedicalGuideline> = z.lazy(() => 
 
 export interface MedicalGuidelineContraindication {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalGuidelineContraindication' | Array<'MedicalGuidelineContraindication'>;
   '@id'?: string;
   evidenceLevel?: s.MedicalEvidenceLevel | Array<s.MedicalEvidenceLevel>;
   evidenceOrigin?: string | Array<string>;
@@ -3432,7 +3432,7 @@ export interface MedicalGuidelineContraindication {
 
 export const MedicalGuidelineContraindicationSchema: z.ZodType<MedicalGuidelineContraindication> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalGuidelineContraindication'), z.array(z.literal('MedicalGuidelineContraindication'))]).optional(),
   '@id': z.string().optional(),
   evidenceLevel: z.union([s.MedicalEvidenceLevelSchema, z.array(s.MedicalEvidenceLevelSchema)]).optional(),
   evidenceOrigin: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3463,7 +3463,7 @@ export const MedicalGuidelineContraindicationSchema: z.ZodType<MedicalGuidelineC
 
 export interface MedicalGuidelineRecommendation {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalGuidelineRecommendation' | Array<'MedicalGuidelineRecommendation'>;
   '@id'?: string;
   recommendationStrength?: string | Array<string>;
   evidenceLevel?: s.MedicalEvidenceLevel | Array<s.MedicalEvidenceLevel>;
@@ -3495,7 +3495,7 @@ export interface MedicalGuidelineRecommendation {
 
 export const MedicalGuidelineRecommendationSchema: z.ZodType<MedicalGuidelineRecommendation> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalGuidelineRecommendation'), z.array(z.literal('MedicalGuidelineRecommendation'))]).optional(),
   '@id': z.string().optional(),
   recommendationStrength: z.union([z.string(), z.array(z.string())]).optional(),
   evidenceLevel: z.union([s.MedicalEvidenceLevelSchema, z.array(s.MedicalEvidenceLevelSchema)]).optional(),
@@ -3530,7 +3530,7 @@ export const MedicalImagingTechniqueSchema = z.union([z.literal('schema:CT'), z.
 
 export interface MedicalIndication {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalIndication' | 'ApprovedIndication' | 'PreventionIndication' | 'TreatmentIndication' | Array<'MedicalIndication' | 'ApprovedIndication' | 'PreventionIndication' | 'TreatmentIndication'>;
   '@id'?: string;
   code?: s.MedicalCode | Array<s.MedicalCode>;
   funding?: s.Grant | Array<s.Grant>;
@@ -3557,7 +3557,7 @@ export interface MedicalIndication {
 
 export const MedicalIndicationSchema: z.ZodType<MedicalIndication> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalIndication'), z.literal('ApprovedIndication'), z.literal('PreventionIndication'), z.literal('TreatmentIndication')]), z.array(z.union([z.literal('MedicalIndication'), z.literal('ApprovedIndication'), z.literal('PreventionIndication'), z.literal('TreatmentIndication')]))]).optional(),
   '@id': z.string().optional(),
   code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
   funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
@@ -3584,7 +3584,7 @@ export const MedicalIndicationSchema: z.ZodType<MedicalIndication> = z.lazy(() =
 
 export interface MedicalIntangible {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalIntangible' | 'DDxElement' | 'DoseSchedule' | 'MaximumDoseSchedule' | 'RecommendedDoseSchedule' | 'ReportedDoseSchedule' | 'DrugLegalStatus' | 'DrugStrength' | 'MedicalCode' | 'MedicalConditionStage' | Array<'MedicalIntangible' | 'DDxElement' | 'DoseSchedule' | 'MaximumDoseSchedule' | 'RecommendedDoseSchedule' | 'ReportedDoseSchedule' | 'DrugLegalStatus' | 'DrugStrength' | 'MedicalCode' | 'MedicalConditionStage'>;
   '@id'?: string;
   code?: s.MedicalCode | Array<s.MedicalCode>;
   funding?: s.Grant | Array<s.Grant>;
@@ -3611,7 +3611,7 @@ export interface MedicalIntangible {
 
 export const MedicalIntangibleSchema: z.ZodType<MedicalIntangible> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalIntangible'), z.literal('DDxElement'), z.literal('DoseSchedule'), z.literal('MaximumDoseSchedule'), z.literal('RecommendedDoseSchedule'), z.literal('ReportedDoseSchedule'), z.literal('DrugLegalStatus'), z.literal('DrugStrength'), z.literal('MedicalCode'), z.literal('MedicalConditionStage')]), z.array(z.union([z.literal('MedicalIntangible'), z.literal('DDxElement'), z.literal('DoseSchedule'), z.literal('MaximumDoseSchedule'), z.literal('RecommendedDoseSchedule'), z.literal('ReportedDoseSchedule'), z.literal('DrugLegalStatus'), z.literal('DrugStrength'), z.literal('MedicalCode'), z.literal('MedicalConditionStage')]))]).optional(),
   '@id': z.string().optional(),
   code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
   funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
@@ -3638,7 +3638,7 @@ export const MedicalIntangibleSchema: z.ZodType<MedicalIntangible> = z.lazy(() =
 
 export interface MedicalObservationalStudy {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalObservationalStudy' | Array<'MedicalObservationalStudy'>;
   '@id'?: string;
   studyDesign?: s.MedicalObservationalStudyDesign | Array<s.MedicalObservationalStudyDesign>;
   healthCondition?: s.MedicalCondition | Array<s.MedicalCondition>;
@@ -3671,7 +3671,7 @@ export interface MedicalObservationalStudy {
 
 export const MedicalObservationalStudySchema: z.ZodType<MedicalObservationalStudy> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalObservationalStudy'), z.array(z.literal('MedicalObservationalStudy'))]).optional(),
   '@id': z.string().optional(),
   studyDesign: z.union([s.MedicalObservationalStudyDesignSchema, z.array(s.MedicalObservationalStudyDesignSchema)]).optional(),
   healthCondition: z.union([s.MedicalConditionSchema, z.array(s.MedicalConditionSchema)]).optional(),
@@ -3707,7 +3707,7 @@ export const MedicalObservationalStudyDesignSchema = z.union([z.literal('schema:
 
 export interface MedicalOrganization {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalOrganization' | 'Dentist' | 'DiagnosticLab' | 'Hospital' | 'MedicalClinic' | 'CovidTestingFacility' | 'Pharmacy' | 'Physician' | 'IndividualPhysician' | 'PhysiciansOffice' | 'VeterinaryCare' | Array<'MedicalOrganization' | 'Dentist' | 'DiagnosticLab' | 'Hospital' | 'MedicalClinic' | 'CovidTestingFacility' | 'Pharmacy' | 'Physician' | 'IndividualPhysician' | 'PhysiciansOffice' | 'VeterinaryCare'>;
   '@id'?: string;
   healthPlanNetworkId?: string | Array<string>;
   isAcceptingNewPatients?: boolean | Array<boolean>;
@@ -3805,7 +3805,7 @@ export interface MedicalOrganization {
 
 export const MedicalOrganizationSchema: z.ZodType<MedicalOrganization> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalOrganization'), z.literal('Dentist'), z.literal('DiagnosticLab'), z.literal('Hospital'), z.literal('MedicalClinic'), z.literal('CovidTestingFacility'), z.literal('Pharmacy'), z.literal('Physician'), z.literal('IndividualPhysician'), z.literal('PhysiciansOffice'), z.literal('VeterinaryCare')]), z.array(z.union([z.literal('MedicalOrganization'), z.literal('Dentist'), z.literal('DiagnosticLab'), z.literal('Hospital'), z.literal('MedicalClinic'), z.literal('CovidTestingFacility'), z.literal('Pharmacy'), z.literal('Physician'), z.literal('IndividualPhysician'), z.literal('PhysiciansOffice'), z.literal('VeterinaryCare')]))]).optional(),
   '@id': z.string().optional(),
   healthPlanNetworkId: z.union([z.string(), z.array(z.string())]).optional(),
   isAcceptingNewPatients: z.union([z.boolean(), z.array(z.boolean())]).optional(),
@@ -3903,7 +3903,7 @@ export const MedicalOrganizationSchema: z.ZodType<MedicalOrganization> = z.lazy(
 
 export interface MedicalProcedure {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalProcedure' | 'DiagnosticProcedure' | 'PalliativeProcedure' | 'PhysicalExam' | 'SurgicalProcedure' | 'TherapeuticProcedure' | 'MedicalTherapy' | 'OccupationalTherapy' | 'PhysicalTherapy' | 'RadiationTherapy' | 'PsychologicalTreatment' | Array<'MedicalProcedure' | 'DiagnosticProcedure' | 'PalliativeProcedure' | 'PhysicalExam' | 'SurgicalProcedure' | 'TherapeuticProcedure' | 'MedicalTherapy' | 'OccupationalTherapy' | 'PhysicalTherapy' | 'RadiationTherapy' | 'PsychologicalTreatment'>;
   '@id'?: string;
   bodyLocation?: string | Array<string>;
   followup?: string | Array<string>;
@@ -3936,7 +3936,7 @@ export interface MedicalProcedure {
 
 export const MedicalProcedureSchema: z.ZodType<MedicalProcedure> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalProcedure'), z.literal('DiagnosticProcedure'), z.literal('PalliativeProcedure'), z.literal('PhysicalExam'), z.literal('SurgicalProcedure'), z.literal('TherapeuticProcedure'), z.literal('MedicalTherapy'), z.literal('OccupationalTherapy'), z.literal('PhysicalTherapy'), z.literal('RadiationTherapy'), z.literal('PsychologicalTreatment')]), z.array(z.union([z.literal('MedicalProcedure'), z.literal('DiagnosticProcedure'), z.literal('PalliativeProcedure'), z.literal('PhysicalExam'), z.literal('SurgicalProcedure'), z.literal('TherapeuticProcedure'), z.literal('MedicalTherapy'), z.literal('OccupationalTherapy'), z.literal('PhysicalTherapy'), z.literal('RadiationTherapy'), z.literal('PsychologicalTreatment')]))]).optional(),
   '@id': z.string().optional(),
   bodyLocation: z.union([z.string(), z.array(z.string())]).optional(),
   followup: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3972,7 +3972,7 @@ export const MedicalProcedureTypeSchema = z.union([z.literal('schema:Noninvasive
 
 export interface MedicalRiskCalculator {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalRiskCalculator' | Array<'MedicalRiskCalculator'>;
   '@id'?: string;
   estimatesRiskOf?: s.MedicalEntity | Array<s.MedicalEntity>;
   includedRiskFactor?: s.MedicalRiskFactor | Array<s.MedicalRiskFactor>;
@@ -4001,7 +4001,7 @@ export interface MedicalRiskCalculator {
 
 export const MedicalRiskCalculatorSchema: z.ZodType<MedicalRiskCalculator> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalRiskCalculator'), z.array(z.literal('MedicalRiskCalculator'))]).optional(),
   '@id': z.string().optional(),
   estimatesRiskOf: z.union([s.MedicalEntitySchema, z.array(s.MedicalEntitySchema)]).optional(),
   includedRiskFactor: z.union([s.MedicalRiskFactorSchema, z.array(s.MedicalRiskFactorSchema)]).optional(),
@@ -4030,7 +4030,7 @@ export const MedicalRiskCalculatorSchema: z.ZodType<MedicalRiskCalculator> = z.l
 
 export interface MedicalRiskEstimator {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalRiskEstimator' | 'MedicalRiskCalculator' | 'MedicalRiskScore' | Array<'MedicalRiskEstimator' | 'MedicalRiskCalculator' | 'MedicalRiskScore'>;
   '@id'?: string;
   estimatesRiskOf?: s.MedicalEntity | Array<s.MedicalEntity>;
   includedRiskFactor?: s.MedicalRiskFactor | Array<s.MedicalRiskFactor>;
@@ -4059,7 +4059,7 @@ export interface MedicalRiskEstimator {
 
 export const MedicalRiskEstimatorSchema: z.ZodType<MedicalRiskEstimator> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalRiskEstimator'), z.literal('MedicalRiskCalculator'), z.literal('MedicalRiskScore')]), z.array(z.union([z.literal('MedicalRiskEstimator'), z.literal('MedicalRiskCalculator'), z.literal('MedicalRiskScore')]))]).optional(),
   '@id': z.string().optional(),
   estimatesRiskOf: z.union([s.MedicalEntitySchema, z.array(s.MedicalEntitySchema)]).optional(),
   includedRiskFactor: z.union([s.MedicalRiskFactorSchema, z.array(s.MedicalRiskFactorSchema)]).optional(),
@@ -4088,7 +4088,7 @@ export const MedicalRiskEstimatorSchema: z.ZodType<MedicalRiskEstimator> = z.laz
 
 export interface MedicalRiskFactor {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalRiskFactor' | Array<'MedicalRiskFactor'>;
   '@id'?: string;
   increasesRiskOf?: s.MedicalEntity | Array<s.MedicalEntity>;
   code?: s.MedicalCode | Array<s.MedicalCode>;
@@ -4116,7 +4116,7 @@ export interface MedicalRiskFactor {
 
 export const MedicalRiskFactorSchema: z.ZodType<MedicalRiskFactor> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalRiskFactor'), z.array(z.literal('MedicalRiskFactor'))]).optional(),
   '@id': z.string().optional(),
   increasesRiskOf: z.union([s.MedicalEntitySchema, z.array(s.MedicalEntitySchema)]).optional(),
   code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
@@ -4144,7 +4144,7 @@ export const MedicalRiskFactorSchema: z.ZodType<MedicalRiskFactor> = z.lazy(() =
 
 export interface MedicalRiskScore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalRiskScore' | Array<'MedicalRiskScore'>;
   '@id'?: string;
   algorithm?: string | Array<string>;
   estimatesRiskOf?: s.MedicalEntity | Array<s.MedicalEntity>;
@@ -4174,7 +4174,7 @@ export interface MedicalRiskScore {
 
 export const MedicalRiskScoreSchema: z.ZodType<MedicalRiskScore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalRiskScore'), z.array(z.literal('MedicalRiskScore'))]).optional(),
   '@id': z.string().optional(),
   algorithm: z.union([z.string(), z.array(z.string())]).optional(),
   estimatesRiskOf: z.union([s.MedicalEntitySchema, z.array(s.MedicalEntitySchema)]).optional(),
@@ -4204,7 +4204,7 @@ export const MedicalRiskScoreSchema: z.ZodType<MedicalRiskScore> = z.lazy(() => 
 
 export interface MedicalScholarlyArticle {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalScholarlyArticle' | Array<'MedicalScholarlyArticle'>;
   '@id'?: string;
   publicationType?: string | Array<string>;
   articleBody?: string | Array<string>;
@@ -4347,7 +4347,7 @@ export interface MedicalScholarlyArticle {
 
 export const MedicalScholarlyArticleSchema: z.ZodType<MedicalScholarlyArticle> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalScholarlyArticle'), z.array(z.literal('MedicalScholarlyArticle'))]).optional(),
   '@id': z.string().optional(),
   publicationType: z.union([z.string(), z.array(z.string())]).optional(),
   articleBody: z.union([z.string(), z.array(z.string())]).optional(),
@@ -4490,7 +4490,7 @@ export const MedicalScholarlyArticleSchema: z.ZodType<MedicalScholarlyArticle> =
 
 export interface MedicalSign {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalSign' | 'VitalSign' | Array<'MedicalSign' | 'VitalSign'>;
   '@id'?: string;
   identifyingExam?: s.PhysicalExam | Array<s.PhysicalExam>;
   identifyingTest?: s.MedicalTest | Array<s.MedicalTest>;
@@ -4536,7 +4536,7 @@ export interface MedicalSign {
 
 export const MedicalSignSchema: z.ZodType<MedicalSign> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalSign'), z.literal('VitalSign')]), z.array(z.union([z.literal('MedicalSign'), z.literal('VitalSign')]))]).optional(),
   '@id': z.string().optional(),
   identifyingExam: z.union([s.PhysicalExamSchema, z.array(s.PhysicalExamSchema)]).optional(),
   identifyingTest: z.union([s.MedicalTestSchema, z.array(s.MedicalTestSchema)]).optional(),
@@ -4582,7 +4582,7 @@ export const MedicalSignSchema: z.ZodType<MedicalSign> = z.lazy(() => z.object({
 
 export interface MedicalSignOrSymptom {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalSignOrSymptom' | 'MedicalSign' | 'VitalSign' | 'MedicalSymptom' | Array<'MedicalSignOrSymptom' | 'MedicalSign' | 'VitalSign' | 'MedicalSymptom'>;
   '@id'?: string;
   possibleTreatment?: s.Drug | s.DrugClass | s.LifestyleModification | s.MedicalTherapy | Array<s.Drug | s.DrugClass | s.LifestyleModification | s.MedicalTherapy>;
   associatedAnatomy?: s.AnatomicalStructure | s.AnatomicalSystem | s.SuperficialAnatomy | Array<s.AnatomicalStructure | s.AnatomicalSystem | s.SuperficialAnatomy>;
@@ -4626,7 +4626,7 @@ export interface MedicalSignOrSymptom {
 
 export const MedicalSignOrSymptomSchema: z.ZodType<MedicalSignOrSymptom> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalSignOrSymptom'), z.literal('MedicalSign'), z.literal('VitalSign'), z.literal('MedicalSymptom')]), z.array(z.union([z.literal('MedicalSignOrSymptom'), z.literal('MedicalSign'), z.literal('VitalSign'), z.literal('MedicalSymptom')]))]).optional(),
   '@id': z.string().optional(),
   possibleTreatment: z.union([z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]), z.array(z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]))]).optional(),
   associatedAnatomy: z.union([z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]), z.array(z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]))]).optional(),
@@ -4673,7 +4673,7 @@ export const MedicalSpecialtySchema = z.union([z.literal('schema:Anesthesia'), z
 
 export interface MedicalStudy {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalStudy' | 'MedicalObservationalStudy' | 'MedicalTrial' | Array<'MedicalStudy' | 'MedicalObservationalStudy' | 'MedicalTrial'>;
   '@id'?: string;
   healthCondition?: s.MedicalCondition | Array<s.MedicalCondition>;
   sponsor?: s.Organization | s.Person | Array<s.Organization | s.Person>;
@@ -4705,7 +4705,7 @@ export interface MedicalStudy {
 
 export const MedicalStudySchema: z.ZodType<MedicalStudy> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalStudy'), z.literal('MedicalObservationalStudy'), z.literal('MedicalTrial')]), z.array(z.union([z.literal('MedicalStudy'), z.literal('MedicalObservationalStudy'), z.literal('MedicalTrial')]))]).optional(),
   '@id': z.string().optional(),
   healthCondition: z.union([s.MedicalConditionSchema, z.array(s.MedicalConditionSchema)]).optional(),
   sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
@@ -4740,7 +4740,7 @@ export const MedicalStudyStatusSchema = z.union([z.literal('schema:ActiveNotRecr
 
 export interface MedicalSymptom {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalSymptom' | Array<'MedicalSymptom'>;
   '@id'?: string;
   possibleTreatment?: s.Drug | s.DrugClass | s.LifestyleModification | s.MedicalTherapy | Array<s.Drug | s.DrugClass | s.LifestyleModification | s.MedicalTherapy>;
   associatedAnatomy?: s.AnatomicalStructure | s.AnatomicalSystem | s.SuperficialAnatomy | Array<s.AnatomicalStructure | s.AnatomicalSystem | s.SuperficialAnatomy>;
@@ -4784,7 +4784,7 @@ export interface MedicalSymptom {
 
 export const MedicalSymptomSchema: z.ZodType<MedicalSymptom> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalSymptom'), z.array(z.literal('MedicalSymptom'))]).optional(),
   '@id': z.string().optional(),
   possibleTreatment: z.union([z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]), z.array(z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]))]).optional(),
   associatedAnatomy: z.union([z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]), z.array(z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]))]).optional(),
@@ -4828,7 +4828,7 @@ export const MedicalSymptomSchema: z.ZodType<MedicalSymptom> = z.lazy(() => z.ob
 
 export interface MedicalTest {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalTest' | 'BloodTest' | 'ImagingTest' | 'MedicalTestPanel' | 'PathologyTest' | Array<'MedicalTest' | 'BloodTest' | 'ImagingTest' | 'MedicalTestPanel' | 'PathologyTest'>;
   '@id'?: string;
   affectedBy?: s.Drug | Array<s.Drug>;
   normalRange?: s.MedicalEnumeration | string | Array<s.MedicalEnumeration | string>;
@@ -4860,7 +4860,7 @@ export interface MedicalTest {
 
 export const MedicalTestSchema: z.ZodType<MedicalTest> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalTest'), z.literal('BloodTest'), z.literal('ImagingTest'), z.literal('MedicalTestPanel'), z.literal('PathologyTest')]), z.array(z.union([z.literal('MedicalTest'), z.literal('BloodTest'), z.literal('ImagingTest'), z.literal('MedicalTestPanel'), z.literal('PathologyTest')]))]).optional(),
   '@id': z.string().optional(),
   affectedBy: z.union([s.DrugSchema, z.array(s.DrugSchema)]).optional(),
   normalRange: z.union([z.union([s.MedicalEnumerationSchema, z.string()]), z.array(z.union([s.MedicalEnumerationSchema, z.string()]))]).optional(),
@@ -4892,7 +4892,7 @@ export const MedicalTestSchema: z.ZodType<MedicalTest> = z.lazy(() => z.object({
 
 export interface MedicalTestPanel {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalTestPanel' | Array<'MedicalTestPanel'>;
   '@id'?: string;
   subTest?: s.MedicalTest | Array<s.MedicalTest>;
   affectedBy?: s.Drug | Array<s.Drug>;
@@ -4925,7 +4925,7 @@ export interface MedicalTestPanel {
 
 export const MedicalTestPanelSchema: z.ZodType<MedicalTestPanel> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalTestPanel'), z.array(z.literal('MedicalTestPanel'))]).optional(),
   '@id': z.string().optional(),
   subTest: z.union([s.MedicalTestSchema, z.array(s.MedicalTestSchema)]).optional(),
   affectedBy: z.union([s.DrugSchema, z.array(s.DrugSchema)]).optional(),
@@ -4958,7 +4958,7 @@ export const MedicalTestPanelSchema: z.ZodType<MedicalTestPanel> = z.lazy(() => 
 
 export interface MedicalTherapy {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalTherapy' | 'OccupationalTherapy' | 'PalliativeProcedure' | 'PhysicalTherapy' | 'RadiationTherapy' | Array<'MedicalTherapy' | 'OccupationalTherapy' | 'PalliativeProcedure' | 'PhysicalTherapy' | 'RadiationTherapy'>;
   '@id'?: string;
   contraindication?: s.MedicalContraindication | string | Array<s.MedicalContraindication | string>;
   duplicateTherapy?: s.MedicalTherapy | Array<s.MedicalTherapy>;
@@ -4997,7 +4997,7 @@ export interface MedicalTherapy {
 
 export const MedicalTherapySchema: z.ZodType<MedicalTherapy> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MedicalTherapy'), z.literal('OccupationalTherapy'), z.literal('PalliativeProcedure'), z.literal('PhysicalTherapy'), z.literal('RadiationTherapy')]), z.array(z.union([z.literal('MedicalTherapy'), z.literal('OccupationalTherapy'), z.literal('PalliativeProcedure'), z.literal('PhysicalTherapy'), z.literal('RadiationTherapy')]))]).optional(),
   '@id': z.string().optional(),
   contraindication: z.union([z.union([s.MedicalContraindicationSchema, z.string()]), z.array(z.union([s.MedicalContraindicationSchema, z.string()]))]).optional(),
   duplicateTherapy: z.union([s.MedicalTherapySchema, z.array(s.MedicalTherapySchema)]).optional(),
@@ -5036,7 +5036,7 @@ export const MedicalTherapySchema: z.ZodType<MedicalTherapy> = z.lazy(() => z.ob
 
 export interface MedicalTrial {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalTrial' | Array<'MedicalTrial'>;
   '@id'?: string;
   trialDesign?: s.MedicalTrialDesign | Array<s.MedicalTrialDesign>;
   healthCondition?: s.MedicalCondition | Array<s.MedicalCondition>;
@@ -5069,7 +5069,7 @@ export interface MedicalTrial {
 
 export const MedicalTrialSchema: z.ZodType<MedicalTrial> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalTrial'), z.array(z.literal('MedicalTrial'))]).optional(),
   '@id': z.string().optional(),
   trialDesign: z.union([s.MedicalTrialDesignSchema, z.array(s.MedicalTrialDesignSchema)]).optional(),
   healthCondition: z.union([s.MedicalConditionSchema, z.array(s.MedicalConditionSchema)]).optional(),
@@ -5105,7 +5105,7 @@ export const MedicalTrialDesignSchema = z.union([z.literal('schema:DoubleBlinded
 
 export interface MedicalWebPage {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MedicalWebPage' | Array<'MedicalWebPage'>;
   '@id'?: string;
   aspect?: string | Array<string>;
   medicalAudience?: s.MedicalAudience | s.MedicalAudienceType | Array<s.MedicalAudience | s.MedicalAudienceType>;
@@ -5252,7 +5252,7 @@ export interface MedicalWebPage {
 
 export const MedicalWebPageSchema: z.ZodType<MedicalWebPage> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MedicalWebPage'), z.array(z.literal('MedicalWebPage'))]).optional(),
   '@id': z.string().optional(),
   aspect: z.union([z.string(), z.array(z.string())]).optional(),
   medicalAudience: z.union([z.union([s.MedicalAudienceSchema, s.MedicalAudienceTypeSchema]), z.array(z.union([s.MedicalAudienceSchema, s.MedicalAudienceTypeSchema]))]).optional(),
@@ -5402,7 +5402,7 @@ export const MedicineSystemSchema = z.union([z.literal('schema:Ayurvedic'), z.li
 
 export interface MeetingRoom {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MeetingRoom' | Array<'MeetingRoom'>;
   '@id'?: string;
   accommodationCategory?: string | Array<string>;
   accommodationFloorPlan?: s.FloorPlan | Array<s.FloorPlan>;
@@ -5483,7 +5483,7 @@ export interface MeetingRoom {
 
 export const MeetingRoomSchema: z.ZodType<MeetingRoom> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MeetingRoom'), z.array(z.literal('MeetingRoom'))]).optional(),
   '@id': z.string().optional(),
   accommodationCategory: z.union([z.string(), z.array(z.string())]).optional(),
   accommodationFloorPlan: z.union([s.FloorPlanSchema, z.array(s.FloorPlanSchema)]).optional(),
@@ -5564,7 +5564,7 @@ export const MeetingRoomSchema: z.ZodType<MeetingRoom> = z.lazy(() => z.object({
 
 export interface MemberProgram {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MemberProgram' | Array<'MemberProgram'>;
   '@id'?: string;
   hasTiers?: s.MemberProgramTier | Array<s.MemberProgramTier>;
   hostingOrganization?: s.Organization | Array<s.Organization>;
@@ -5585,7 +5585,7 @@ export interface MemberProgram {
 
 export const MemberProgramSchema: z.ZodType<MemberProgram> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MemberProgram'), z.array(z.literal('MemberProgram'))]).optional(),
   '@id': z.string().optional(),
   hasTiers: z.union([s.MemberProgramTierSchema, z.array(s.MemberProgramTierSchema)]).optional(),
   hostingOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
@@ -5606,7 +5606,7 @@ export const MemberProgramSchema: z.ZodType<MemberProgram> = z.lazy(() => z.obje
 
 export interface MemberProgramTier {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MemberProgramTier' | Array<'MemberProgramTier'>;
   '@id'?: string;
   hasTierBenefit?: s.TierBenefitEnumeration | Array<s.TierBenefitEnumeration>;
   hasTierRequirement?: s.CreditCard | s.MonetaryAmount | string | s.UnitPriceSpecification | Array<s.CreditCard | s.MonetaryAmount | string | s.UnitPriceSpecification>;
@@ -5629,7 +5629,7 @@ export interface MemberProgramTier {
 
 export const MemberProgramTierSchema: z.ZodType<MemberProgramTier> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MemberProgramTier'), z.array(z.literal('MemberProgramTier'))]).optional(),
   '@id': z.string().optional(),
   hasTierBenefit: z.union([s.TierBenefitEnumerationSchema, z.array(s.TierBenefitEnumerationSchema)]).optional(),
   hasTierRequirement: z.union([z.union([s.CreditCardSchema, s.MonetaryAmountSchema, z.string(), s.UnitPriceSpecificationSchema]), z.array(z.union([s.CreditCardSchema, s.MonetaryAmountSchema, z.string(), s.UnitPriceSpecificationSchema]))]).optional(),
@@ -5652,7 +5652,7 @@ export const MemberProgramTierSchema: z.ZodType<MemberProgramTier> = z.lazy(() =
 
 export interface MensClothingStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MensClothingStore' | Array<'MensClothingStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -5785,7 +5785,7 @@ export interface MensClothingStore {
 
 export const MensClothingStoreSchema: z.ZodType<MensClothingStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MensClothingStore'), z.array(z.literal('MensClothingStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -5918,7 +5918,7 @@ export const MensClothingStoreSchema: z.ZodType<MensClothingStore> = z.lazy(() =
 
 export interface Menu {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Menu' | Array<'Menu'>;
   '@id'?: string;
   hasMenuItem?: s.MenuItem | Array<s.MenuItem>;
   hasMenuSection?: s.MenuSection | Array<s.MenuSection>;
@@ -6055,7 +6055,7 @@ export interface Menu {
 
 export const MenuSchema: z.ZodType<Menu> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Menu'), z.array(z.literal('Menu'))]).optional(),
   '@id': z.string().optional(),
   hasMenuItem: z.union([s.MenuItemSchema, z.array(s.MenuItemSchema)]).optional(),
   hasMenuSection: z.union([s.MenuSectionSchema, z.array(s.MenuSectionSchema)]).optional(),
@@ -6192,7 +6192,7 @@ export const MenuSchema: z.ZodType<Menu> = z.lazy(() => z.object({
 
 export interface MenuItem {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MenuItem' | Array<'MenuItem'>;
   '@id'?: string;
   menuAddOn?: s.MenuItem | s.MenuSection | Array<s.MenuItem | s.MenuSection>;
   nutrition?: s.NutritionInformation | Array<s.NutritionInformation>;
@@ -6215,7 +6215,7 @@ export interface MenuItem {
 
 export const MenuItemSchema: z.ZodType<MenuItem> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MenuItem'), z.array(z.literal('MenuItem'))]).optional(),
   '@id': z.string().optional(),
   menuAddOn: z.union([z.union([s.MenuItemSchema, s.MenuSectionSchema]), z.array(z.union([s.MenuItemSchema, s.MenuSectionSchema]))]).optional(),
   nutrition: z.union([s.NutritionInformationSchema, z.array(s.NutritionInformationSchema)]).optional(),
@@ -6238,7 +6238,7 @@ export const MenuItemSchema: z.ZodType<MenuItem> = z.lazy(() => z.object({
 
 export interface MenuSection {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MenuSection' | Array<'MenuSection'>;
   '@id'?: string;
   hasMenuItem?: s.MenuItem | Array<s.MenuItem>;
   hasMenuSection?: s.MenuSection | Array<s.MenuSection>;
@@ -6375,7 +6375,7 @@ export interface MenuSection {
 
 export const MenuSectionSchema: z.ZodType<MenuSection> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MenuSection'), z.array(z.literal('MenuSection'))]).optional(),
   '@id': z.string().optional(),
   hasMenuItem: z.union([s.MenuItemSchema, z.array(s.MenuItemSchema)]).optional(),
   hasMenuSection: z.union([s.MenuSectionSchema, z.array(s.MenuSectionSchema)]).optional(),
@@ -6515,7 +6515,7 @@ export const MerchantReturnEnumerationSchema = z.union([z.literal('schema:Mercha
 
 export interface MerchantReturnPolicy {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MerchantReturnPolicy' | Array<'MerchantReturnPolicy'>;
   '@id'?: string;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
   applicableCountry?: s.Country | string | Array<s.Country | string>;
@@ -6556,7 +6556,7 @@ export interface MerchantReturnPolicy {
 
 export const MerchantReturnPolicySchema: z.ZodType<MerchantReturnPolicy> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MerchantReturnPolicy'), z.array(z.literal('MerchantReturnPolicy'))]).optional(),
   '@id': z.string().optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
   applicableCountry: z.union([z.union([s.CountrySchema, z.string()]), z.array(z.union([s.CountrySchema, z.string()]))]).optional(),
@@ -6597,7 +6597,7 @@ export const MerchantReturnPolicySchema: z.ZodType<MerchantReturnPolicy> = z.laz
 
 export interface MerchantReturnPolicySeasonalOverride {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MerchantReturnPolicySeasonalOverride' | Array<'MerchantReturnPolicySeasonalOverride'>;
   '@id'?: string;
   endDate?: string | Array<string>;
   merchantReturnDays?: string | number | Array<string | number>;
@@ -6625,7 +6625,7 @@ export interface MerchantReturnPolicySeasonalOverride {
 
 export const MerchantReturnPolicySeasonalOverrideSchema: z.ZodType<MerchantReturnPolicySeasonalOverride> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MerchantReturnPolicySeasonalOverride'), z.array(z.literal('MerchantReturnPolicySeasonalOverride'))]).optional(),
   '@id': z.string().optional(),
   endDate: z.union([z.string(), z.array(z.string())]).optional(),
   merchantReturnDays: z.union([z.union([z.string(), z.number().int()]), z.array(z.union([z.string(), z.number().int()]))]).optional(),
@@ -6653,7 +6653,7 @@ export const MerchantReturnPolicySeasonalOverrideSchema: z.ZodType<MerchantRetur
 
 export interface Message {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Message' | 'EmailMessage' | Array<'Message' | 'EmailMessage'>;
   '@id'?: string;
   bccRecipient?: s.ContactPoint | s.Organization | s.Person | Array<s.ContactPoint | s.Organization | s.Person>;
   ccRecipient?: s.ContactPoint | s.Organization | s.Person | Array<s.ContactPoint | s.Organization | s.Person>;
@@ -6797,7 +6797,7 @@ export interface Message {
 
 export const MessageSchema: z.ZodType<Message> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('Message'), z.literal('EmailMessage')]), z.array(z.union([z.literal('Message'), z.literal('EmailMessage')]))]).optional(),
   '@id': z.string().optional(),
   bccRecipient: z.union([z.union([s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]))]).optional(),
   ccRecipient: z.union([z.union([s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]))]).optional(),
@@ -6941,7 +6941,7 @@ export const MessageSchema: z.ZodType<Message> = z.lazy(() => z.object({
 
 export interface MiddleSchool {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MiddleSchool' | Array<'MiddleSchool'>;
   '@id'?: string;
   alumni?: s.Person | Array<s.Person>;
   openingHours?: string | Array<string>;
@@ -7069,7 +7069,7 @@ export interface MiddleSchool {
 
 export const MiddleSchoolSchema: z.ZodType<MiddleSchool> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MiddleSchool'), z.array(z.literal('MiddleSchool'))]).optional(),
   '@id': z.string().optional(),
   alumni: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
@@ -7197,7 +7197,7 @@ export const MiddleSchoolSchema: z.ZodType<MiddleSchool> = z.lazy(() => z.object
 
 export interface MobileApplication {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MobileApplication' | Array<'MobileApplication'>;
   '@id'?: string;
   carrierRequirements?: string | Array<string>;
   applicationCategory?: string | Array<string>;
@@ -7358,7 +7358,7 @@ export interface MobileApplication {
 
 export const MobileApplicationSchema: z.ZodType<MobileApplication> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MobileApplication'), z.array(z.literal('MobileApplication'))]).optional(),
   '@id': z.string().optional(),
   carrierRequirements: z.union([z.string(), z.array(z.string())]).optional(),
   applicationCategory: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -7519,7 +7519,7 @@ export const MobileApplicationSchema: z.ZodType<MobileApplication> = z.lazy(() =
 
 export interface MobilePhoneStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MobilePhoneStore' | Array<'MobilePhoneStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -7652,7 +7652,7 @@ export interface MobilePhoneStore {
 
 export const MobilePhoneStoreSchema: z.ZodType<MobilePhoneStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MobilePhoneStore'), z.array(z.literal('MobilePhoneStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -7785,7 +7785,7 @@ export const MobilePhoneStoreSchema: z.ZodType<MobilePhoneStore> = z.lazy(() => 
 
 export interface MolecularEntity {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MolecularEntity' | Array<'MolecularEntity'>;
   '@id'?: string;
   chemicalRole?: s.DefinedTerm | Array<s.DefinedTerm>;
   inChI?: string | Array<string>;
@@ -7826,7 +7826,7 @@ export interface MolecularEntity {
 
 export const MolecularEntitySchema: z.ZodType<MolecularEntity> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MolecularEntity'), z.array(z.literal('MolecularEntity'))]).optional(),
   '@id': z.string().optional(),
   chemicalRole: z.union([s.DefinedTermSchema, z.array(s.DefinedTermSchema)]).optional(),
   inChI: z.union([z.string(), z.array(z.string())]).optional(),
@@ -7867,7 +7867,7 @@ export const MolecularEntitySchema: z.ZodType<MolecularEntity> = z.lazy(() => z.
 
 export interface MonetaryAmount {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MonetaryAmount' | Array<'MonetaryAmount'>;
   '@id'?: string;
   currency?: string | Array<string>;
   maxValue?: number | Array<number>;
@@ -7892,7 +7892,7 @@ export interface MonetaryAmount {
 
 export const MonetaryAmountSchema: z.ZodType<MonetaryAmount> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MonetaryAmount'), z.array(z.literal('MonetaryAmount'))]).optional(),
   '@id': z.string().optional(),
   currency: z.union([z.string(), z.array(z.string())]).optional(),
   maxValue: z.union([z.number(), z.array(z.number())]).optional(),
@@ -7917,7 +7917,7 @@ export const MonetaryAmountSchema: z.ZodType<MonetaryAmount> = z.lazy(() => z.ob
 
 export interface MonetaryAmountDistribution {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MonetaryAmountDistribution' | Array<'MonetaryAmountDistribution'>;
   '@id'?: string;
   currency?: string | Array<string>;
   duration?: s.Duration | s.QuantitativeValue | Array<s.Duration | s.QuantitativeValue>;
@@ -7943,7 +7943,7 @@ export interface MonetaryAmountDistribution {
 
 export const MonetaryAmountDistributionSchema: z.ZodType<MonetaryAmountDistribution> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MonetaryAmountDistribution'), z.array(z.literal('MonetaryAmountDistribution'))]).optional(),
   '@id': z.string().optional(),
   currency: z.union([z.string(), z.array(z.string())]).optional(),
   duration: z.union([z.union([s.DurationSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DurationSchema, s.QuantitativeValueSchema]))]).optional(),
@@ -7969,7 +7969,7 @@ export const MonetaryAmountDistributionSchema: z.ZodType<MonetaryAmountDistribut
 
 export interface MonetaryGrant {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MonetaryGrant' | Array<'MonetaryGrant'>;
   '@id'?: string;
   amount?: s.MonetaryAmount | number | Array<s.MonetaryAmount | number>;
   funder?: s.Organization | s.Person | Array<s.Organization | s.Person>;
@@ -7992,7 +7992,7 @@ export interface MonetaryGrant {
 
 export const MonetaryGrantSchema: z.ZodType<MonetaryGrant> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MonetaryGrant'), z.array(z.literal('MonetaryGrant'))]).optional(),
   '@id': z.string().optional(),
   amount: z.union([z.union([s.MonetaryAmountSchema, z.number()]), z.array(z.union([s.MonetaryAmountSchema, z.number()]))]).optional(),
   funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
@@ -8015,7 +8015,7 @@ export const MonetaryGrantSchema: z.ZodType<MonetaryGrant> = z.lazy(() => z.obje
 
 export interface MoneyTransfer {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MoneyTransfer' | Array<'MoneyTransfer'>;
   '@id'?: string;
   amount?: s.MonetaryAmount | number | Array<s.MonetaryAmount | number>;
   beneficiaryBank?: s.BankOrCreditUnion | string | Array<s.BankOrCreditUnion | string>;
@@ -8051,7 +8051,7 @@ export interface MoneyTransfer {
 
 export const MoneyTransferSchema: z.ZodType<MoneyTransfer> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MoneyTransfer'), z.array(z.literal('MoneyTransfer'))]).optional(),
   '@id': z.string().optional(),
   amount: z.union([z.union([s.MonetaryAmountSchema, z.number()]), z.array(z.union([s.MonetaryAmountSchema, z.number()]))]).optional(),
   beneficiaryBank: z.union([z.union([s.BankOrCreditUnionSchema, z.string()]), z.array(z.union([s.BankOrCreditUnionSchema, z.string()]))]).optional(),
@@ -8087,7 +8087,7 @@ export const MoneyTransferSchema: z.ZodType<MoneyTransfer> = z.lazy(() => z.obje
 
 export interface MortgageLoan {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MortgageLoan' | Array<'MortgageLoan'>;
   '@id'?: string;
   domiciledMortgage?: boolean | Array<boolean>;
   loanMortgageMandateAmount?: s.MonetaryAmount | Array<s.MonetaryAmount>;
@@ -8145,7 +8145,7 @@ export interface MortgageLoan {
 
 export const MortgageLoanSchema: z.ZodType<MortgageLoan> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MortgageLoan'), z.array(z.literal('MortgageLoan'))]).optional(),
   '@id': z.string().optional(),
   domiciledMortgage: z.union([z.boolean(), z.array(z.boolean())]).optional(),
   loanMortgageMandateAmount: z.union([s.MonetaryAmountSchema, z.array(s.MonetaryAmountSchema)]).optional(),
@@ -8203,7 +8203,7 @@ export const MortgageLoanSchema: z.ZodType<MortgageLoan> = z.lazy(() => z.object
 
 export interface Mosque {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Mosque' | Array<'Mosque'>;
   '@id'?: string;
   openingHours?: string | Array<string>;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
@@ -8270,7 +8270,7 @@ export interface Mosque {
 
 export const MosqueSchema: z.ZodType<Mosque> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Mosque'), z.array(z.literal('Mosque'))]).optional(),
   '@id': z.string().optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
@@ -8337,7 +8337,7 @@ export const MosqueSchema: z.ZodType<Mosque> = z.lazy(() => z.object({
 
 export interface Motel {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Motel' | Array<'Motel'>;
   '@id'?: string;
   amenityFeature?: s.LocationFeatureSpecification | Array<s.LocationFeatureSpecification>;
   audience?: s.Audience | Array<s.Audience>;
@@ -8477,7 +8477,7 @@ export interface Motel {
 
 export const MotelSchema: z.ZodType<Motel> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Motel'), z.array(z.literal('Motel'))]).optional(),
   '@id': z.string().optional(),
   amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
   audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
@@ -8617,7 +8617,7 @@ export const MotelSchema: z.ZodType<Motel> = z.lazy(() => z.object({
 
 export interface Motorcycle {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Motorcycle' | Array<'Motorcycle'>;
   '@id'?: string;
   accelerationTime?: s.QuantitativeValue | Array<s.QuantitativeValue>;
   bodyType?: s.QualitativeValue | string | Array<s.QualitativeValue | string>;
@@ -8732,7 +8732,7 @@ export interface Motorcycle {
 
 export const MotorcycleSchema: z.ZodType<Motorcycle> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Motorcycle'), z.array(z.literal('Motorcycle'))]).optional(),
   '@id': z.string().optional(),
   accelerationTime: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
   bodyType: z.union([z.union([s.QualitativeValueSchema, z.string(), z.string().url()]), z.array(z.union([s.QualitativeValueSchema, z.string(), z.string().url()]))]).optional(),
@@ -8847,7 +8847,7 @@ export const MotorcycleSchema: z.ZodType<Motorcycle> = z.lazy(() => z.object({
 
 export interface MotorcycleDealer {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MotorcycleDealer' | Array<'MotorcycleDealer'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -8980,7 +8980,7 @@ export interface MotorcycleDealer {
 
 export const MotorcycleDealerSchema: z.ZodType<MotorcycleDealer> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MotorcycleDealer'), z.array(z.literal('MotorcycleDealer'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -9113,7 +9113,7 @@ export const MotorcycleDealerSchema: z.ZodType<MotorcycleDealer> = z.lazy(() => 
 
 export interface MotorcycleRepair {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MotorcycleRepair' | Array<'MotorcycleRepair'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -9246,7 +9246,7 @@ export interface MotorcycleRepair {
 
 export const MotorcycleRepairSchema: z.ZodType<MotorcycleRepair> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MotorcycleRepair'), z.array(z.literal('MotorcycleRepair'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -9379,7 +9379,7 @@ export const MotorcycleRepairSchema: z.ZodType<MotorcycleRepair> = z.lazy(() => 
 
 export interface MotorizedBicycle {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MotorizedBicycle' | Array<'MotorizedBicycle'>;
   '@id'?: string;
   accelerationTime?: s.QuantitativeValue | Array<s.QuantitativeValue>;
   bodyType?: s.QualitativeValue | string | Array<s.QualitativeValue | string>;
@@ -9494,7 +9494,7 @@ export interface MotorizedBicycle {
 
 export const MotorizedBicycleSchema: z.ZodType<MotorizedBicycle> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MotorizedBicycle'), z.array(z.literal('MotorizedBicycle'))]).optional(),
   '@id': z.string().optional(),
   accelerationTime: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
   bodyType: z.union([z.union([s.QualitativeValueSchema, z.string(), z.string().url()]), z.array(z.union([s.QualitativeValueSchema, z.string(), z.string().url()]))]).optional(),
@@ -9609,7 +9609,7 @@ export const MotorizedBicycleSchema: z.ZodType<MotorizedBicycle> = z.lazy(() => 
 
 export interface Mountain {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Mountain' | Array<'Mountain'>;
   '@id'?: string;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
   address?: s.PostalAddress | string | Array<s.PostalAddress | string>;
@@ -9675,7 +9675,7 @@ export interface Mountain {
 
 export const MountainSchema: z.ZodType<Mountain> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Mountain'), z.array(z.literal('Mountain'))]).optional(),
   '@id': z.string().optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
   address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
@@ -9741,7 +9741,7 @@ export const MountainSchema: z.ZodType<Mountain> = z.lazy(() => z.object({
 
 export interface MoveAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MoveAction' | 'ArriveAction' | 'DepartAction' | 'TravelAction' | Array<'MoveAction' | 'ArriveAction' | 'DepartAction' | 'TravelAction'>;
   '@id'?: string;
   fromLocation?: s.Place | Array<s.Place>;
   toLocation?: s.Place | Array<s.Place>;
@@ -9775,7 +9775,7 @@ export interface MoveAction {
 
 export const MoveActionSchema: z.ZodType<MoveAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MoveAction'), z.literal('ArriveAction'), z.literal('DepartAction'), z.literal('TravelAction')]), z.array(z.union([z.literal('MoveAction'), z.literal('ArriveAction'), z.literal('DepartAction'), z.literal('TravelAction')]))]).optional(),
   '@id': z.string().optional(),
   fromLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
   toLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
@@ -9809,7 +9809,7 @@ export const MoveActionSchema: z.ZodType<MoveAction> = z.lazy(() => z.object({
 
 export interface Movie {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Movie' | Array<'Movie'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -9954,7 +9954,7 @@ export interface Movie {
 
 export const MovieSchema: z.ZodType<Movie> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Movie'), z.array(z.literal('Movie'))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -10099,7 +10099,7 @@ export const MovieSchema: z.ZodType<Movie> = z.lazy(() => z.object({
 
 export interface MovieClip {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MovieClip' | Array<'MovieClip'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -10245,7 +10245,7 @@ export interface MovieClip {
 
 export const MovieClipSchema: z.ZodType<MovieClip> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MovieClip'), z.array(z.literal('MovieClip'))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -10391,7 +10391,7 @@ export const MovieClipSchema: z.ZodType<MovieClip> = z.lazy(() => z.object({
 
 export interface MovieRentalStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MovieRentalStore' | Array<'MovieRentalStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -10524,7 +10524,7 @@ export interface MovieRentalStore {
 
 export const MovieRentalStoreSchema: z.ZodType<MovieRentalStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MovieRentalStore'), z.array(z.literal('MovieRentalStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -10657,7 +10657,7 @@ export const MovieRentalStoreSchema: z.ZodType<MovieRentalStore> = z.lazy(() => 
 
 export interface MovieSeries {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MovieSeries' | Array<'MovieSeries'>;
   '@id'?: string;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
   actors?: s.Person | Array<s.Person>;
@@ -10802,7 +10802,7 @@ export interface MovieSeries {
 
 export const MovieSeriesSchema: z.ZodType<MovieSeries> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MovieSeries'), z.array(z.literal('MovieSeries'))]).optional(),
   '@id': z.string().optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
   actors: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
@@ -10947,7 +10947,7 @@ export const MovieSeriesSchema: z.ZodType<MovieSeries> = z.lazy(() => z.object({
 
 export interface MovieTheater {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MovieTheater' | Array<'MovieTheater'>;
   '@id'?: string;
   screenCount?: number | Array<number>;
   openingHours?: string | Array<string>;
@@ -11081,7 +11081,7 @@ export interface MovieTheater {
 
 export const MovieTheaterSchema: z.ZodType<MovieTheater> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MovieTheater'), z.array(z.literal('MovieTheater'))]).optional(),
   '@id': z.string().optional(),
   screenCount: z.union([z.number(), z.array(z.number())]).optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
@@ -11215,7 +11215,7 @@ export const MovieTheaterSchema: z.ZodType<MovieTheater> = z.lazy(() => z.object
 
 export interface MovingCompany {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MovingCompany' | Array<'MovingCompany'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -11348,7 +11348,7 @@ export interface MovingCompany {
 
 export const MovingCompanySchema: z.ZodType<MovingCompany> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MovingCompany'), z.array(z.literal('MovingCompany'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -11481,7 +11481,7 @@ export const MovingCompanySchema: z.ZodType<MovingCompany> = z.lazy(() => z.obje
 
 export interface Muscle {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Muscle' | Array<'Muscle'>;
   '@id'?: string;
   antagonist?: s.Muscle | Array<s.Muscle>;
   bloodSupply?: s.Vessel | Array<s.Vessel>;
@@ -11521,7 +11521,7 @@ export interface Muscle {
 
 export const MuscleSchema: z.ZodType<Muscle> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Muscle'), z.array(z.literal('Muscle'))]).optional(),
   '@id': z.string().optional(),
   antagonist: z.union([s.MuscleSchema, z.array(s.MuscleSchema)]).optional(),
   bloodSupply: z.union([s.VesselSchema, z.array(s.VesselSchema)]).optional(),
@@ -11561,7 +11561,7 @@ export const MuscleSchema: z.ZodType<Muscle> = z.lazy(() => z.object({
 
 export interface Museum {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Museum' | Array<'Museum'>;
   '@id'?: string;
   openingHours?: string | Array<string>;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
@@ -11628,7 +11628,7 @@ export interface Museum {
 
 export const MuseumSchema: z.ZodType<Museum> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Museum'), z.array(z.literal('Museum'))]).optional(),
   '@id': z.string().optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
@@ -11695,7 +11695,7 @@ export const MuseumSchema: z.ZodType<Museum> = z.lazy(() => z.object({
 
 export interface MusicAlbum {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicAlbum' | Array<'MusicAlbum'>;
   '@id'?: string;
   albumProductionType?: s.MusicAlbumProductionType | Array<s.MusicAlbumProductionType>;
   albumRelease?: s.MusicRelease | Array<s.MusicRelease>;
@@ -11837,7 +11837,7 @@ export interface MusicAlbum {
 
 export const MusicAlbumSchema: z.ZodType<MusicAlbum> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicAlbum'), z.array(z.literal('MusicAlbum'))]).optional(),
   '@id': z.string().optional(),
   albumProductionType: z.union([s.MusicAlbumProductionTypeSchema, z.array(s.MusicAlbumProductionTypeSchema)]).optional(),
   albumRelease: z.union([s.MusicReleaseSchema, z.array(s.MusicReleaseSchema)]).optional(),
@@ -11985,7 +11985,7 @@ export const MusicAlbumReleaseTypeSchema = z.union([z.literal('schema:AlbumRelea
 
 export interface MusicComposition {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicComposition' | Array<'MusicComposition'>;
   '@id'?: string;
   composer?: s.Organization | s.Person | Array<s.Organization | s.Person>;
   firstPerformance?: s.Event | Array<s.Event>;
@@ -12130,7 +12130,7 @@ export interface MusicComposition {
 
 export const MusicCompositionSchema: z.ZodType<MusicComposition> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicComposition'), z.array(z.literal('MusicComposition'))]).optional(),
   '@id': z.string().optional(),
   composer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
   firstPerformance: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
@@ -12275,7 +12275,7 @@ export const MusicCompositionSchema: z.ZodType<MusicComposition> = z.lazy(() => 
 
 export interface MusicEvent {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicEvent' | Array<'MusicEvent'>;
   '@id'?: string;
   about?: s.Thing | Array<s.Thing>;
   actor?: s.PerformingGroup | s.Person | Array<s.PerformingGroup | s.Person>;
@@ -12337,7 +12337,7 @@ export interface MusicEvent {
 
 export const MusicEventSchema: z.ZodType<MusicEvent> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicEvent'), z.array(z.literal('MusicEvent'))]).optional(),
   '@id': z.string().optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   actor: z.union([z.union([s.PerformingGroupSchema, s.PersonSchema]), z.array(z.union([s.PerformingGroupSchema, s.PersonSchema]))]).optional(),
@@ -12399,7 +12399,7 @@ export const MusicEventSchema: z.ZodType<MusicEvent> = z.lazy(() => z.object({
 
 export interface MusicGroup {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicGroup' | Array<'MusicGroup'>;
   '@id'?: string;
   album?: s.MusicAlbum | Array<s.MusicAlbum>;
   albums?: s.MusicAlbum | Array<s.MusicAlbum>;
@@ -12500,7 +12500,7 @@ export interface MusicGroup {
 
 export const MusicGroupSchema: z.ZodType<MusicGroup> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicGroup'), z.array(z.literal('MusicGroup'))]).optional(),
   '@id': z.string().optional(),
   album: z.union([s.MusicAlbumSchema, z.array(s.MusicAlbumSchema)]).optional(),
   albums: z.union([s.MusicAlbumSchema, z.array(s.MusicAlbumSchema)]).optional(),
@@ -12601,7 +12601,7 @@ export const MusicGroupSchema: z.ZodType<MusicGroup> = z.lazy(() => z.object({
 
 export interface MusicPlaylist {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicPlaylist' | 'MusicAlbum' | 'MusicRelease' | Array<'MusicPlaylist' | 'MusicAlbum' | 'MusicRelease'>;
   '@id'?: string;
   numTracks?: number | Array<number>;
   track?: s.ItemList | s.MusicRecording | Array<s.ItemList | s.MusicRecording>;
@@ -12739,7 +12739,7 @@ export interface MusicPlaylist {
 
 export const MusicPlaylistSchema: z.ZodType<MusicPlaylist> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('MusicPlaylist'), z.literal('MusicAlbum'), z.literal('MusicRelease')]), z.array(z.union([z.literal('MusicPlaylist'), z.literal('MusicAlbum'), z.literal('MusicRelease')]))]).optional(),
   '@id': z.string().optional(),
   numTracks: z.union([z.number().int(), z.array(z.number().int())]).optional(),
   track: z.union([z.union([s.ItemListSchema, s.MusicRecordingSchema]), z.array(z.union([s.ItemListSchema, s.MusicRecordingSchema]))]).optional(),
@@ -12877,7 +12877,7 @@ export const MusicPlaylistSchema: z.ZodType<MusicPlaylist> = z.lazy(() => z.obje
 
 export interface MusicRecording {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicRecording' | Array<'MusicRecording'>;
   '@id'?: string;
   byArtist?: s.MusicGroup | s.Person | Array<s.MusicGroup | s.Person>;
   duration?: s.Duration | s.QuantitativeValue | Array<s.Duration | s.QuantitativeValue>;
@@ -13018,7 +13018,7 @@ export interface MusicRecording {
 
 export const MusicRecordingSchema: z.ZodType<MusicRecording> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicRecording'), z.array(z.literal('MusicRecording'))]).optional(),
   '@id': z.string().optional(),
   byArtist: z.union([z.union([s.MusicGroupSchema, s.PersonSchema]), z.array(z.union([s.MusicGroupSchema, s.PersonSchema]))]).optional(),
   duration: z.union([z.union([s.DurationSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DurationSchema, s.QuantitativeValueSchema]))]).optional(),
@@ -13159,7 +13159,7 @@ export const MusicRecordingSchema: z.ZodType<MusicRecording> = z.lazy(() => z.ob
 
 export interface MusicRelease {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicRelease' | Array<'MusicRelease'>;
   '@id'?: string;
   catalogNumber?: string | Array<string>;
   creditedTo?: s.Organization | s.Person | Array<s.Organization | s.Person>;
@@ -13303,7 +13303,7 @@ export interface MusicRelease {
 
 export const MusicReleaseSchema: z.ZodType<MusicRelease> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicRelease'), z.array(z.literal('MusicRelease'))]).optional(),
   '@id': z.string().optional(),
   catalogNumber: z.union([z.string(), z.array(z.string())]).optional(),
   creditedTo: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
@@ -13450,7 +13450,7 @@ export const MusicReleaseFormatTypeSchema = z.union([z.literal('schema:CDFormat'
 
 export interface MusicStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicStore' | Array<'MusicStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -13583,7 +13583,7 @@ export interface MusicStore {
 
 export const MusicStoreSchema: z.ZodType<MusicStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicStore'), z.array(z.literal('MusicStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -13716,7 +13716,7 @@ export const MusicStoreSchema: z.ZodType<MusicStore> = z.lazy(() => z.object({
 
 export interface MusicVenue {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicVenue' | Array<'MusicVenue'>;
   '@id'?: string;
   openingHours?: string | Array<string>;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
@@ -13783,7 +13783,7 @@ export interface MusicVenue {
 
 export const MusicVenueSchema: z.ZodType<MusicVenue> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicVenue'), z.array(z.literal('MusicVenue'))]).optional(),
   '@id': z.string().optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
@@ -13850,7 +13850,7 @@ export const MusicVenueSchema: z.ZodType<MusicVenue> = z.lazy(() => z.object({
 
 export interface MusicVideoObject {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'MusicVideoObject' | Array<'MusicVideoObject'>;
   '@id'?: string;
   associatedArticle?: s.NewsArticle | Array<s.NewsArticle>;
   bitrate?: string | Array<string>;
@@ -14003,7 +14003,7 @@ export interface MusicVideoObject {
 
 export const MusicVideoObjectSchema: z.ZodType<MusicVideoObject> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('MusicVideoObject'), z.array(z.literal('MusicVideoObject'))]).optional(),
   '@id': z.string().optional(),
   associatedArticle: z.union([s.NewsArticleSchema, z.array(s.NewsArticleSchema)]).optional(),
   bitrate: z.union([z.string(), z.array(z.string())]).optional(),

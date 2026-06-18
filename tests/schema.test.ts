@@ -14,6 +14,26 @@ describe('SchemaLD', () => {
     expect(validated.name).toBe('John Doe');
   });
 
+  it('should fail validation for invalid @type', () => {
+    const invalidPerson = {
+      '@type': 'ProductGroup',
+      name: 'Not a person'
+    };
+    // @ts-expect-error - ProductGroup is not a valid @type for Person
+    const person: Person = invalidPerson;
+
+    expect(() => validate(PersonSchema, invalidPerson)).toThrow();
+  });
+
+  it('should allow subclasses in @type', () => {
+    const patient: Person = {
+      '@type': 'Patient',
+      name: 'Jane Doe'
+    };
+    const validated = validate(PersonSchema, patient);
+    expect(validated['@type']).toBe('Patient');
+  });
+
   it('should fail validation for incorrect types', () => {
     const person = {
       '@type': 'Person',

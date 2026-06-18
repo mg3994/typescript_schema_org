@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface _3DModel {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: '3DModel' | Array<'3DModel'>;
   '@id'?: string;
   isResizable?: boolean | Array<boolean>;
   associatedArticle?: s.NewsArticle | Array<s.NewsArticle>;
@@ -157,7 +157,7 @@ export interface _3DModel {
 
 export const _3DModelSchema: z.ZodType<_3DModel> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('3DModel'), z.array(z.literal('3DModel'))]).optional(),
   '@id': z.string().optional(),
   isResizable: z.union([z.boolean(), z.array(z.boolean())]).optional(),
   associatedArticle: z.union([s.NewsArticleSchema, z.array(s.NewsArticleSchema)]).optional(),

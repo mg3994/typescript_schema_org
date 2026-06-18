@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface QAPage {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'QAPage' | Array<'QAPage'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
   lastReviewed?: string | Array<string>;
@@ -148,7 +148,7 @@ export interface QAPage {
 
 export const QAPageSchema: z.ZodType<QAPage> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('QAPage'), z.array(z.literal('QAPage'))]).optional(),
   '@id': z.string().optional(),
   breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
   lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),
@@ -293,7 +293,7 @@ export const QAPageSchema: z.ZodType<QAPage> = z.lazy(() => z.object({
 
 export interface QualitativeValue {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'QualitativeValue' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue' | Array<'QualitativeValue' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue'>;
   '@id'?: string;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
   equal?: s.QualitativeValue | Array<s.QualitativeValue>;
@@ -321,7 +321,7 @@ export interface QualitativeValue {
 
 export const QualitativeValueSchema: z.ZodType<QualitativeValue> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('QualitativeValue'), z.literal('BedType'), z.literal('DriveWheelConfigurationValue'), z.literal('SizeSpecification'), z.literal('SteeringPositionValue')]), z.array(z.union([z.literal('QualitativeValue'), z.literal('BedType'), z.literal('DriveWheelConfigurationValue'), z.literal('SizeSpecification'), z.literal('SteeringPositionValue')]))]).optional(),
   '@id': z.string().optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
   equal: z.union([s.QualitativeValueSchema, z.array(s.QualitativeValueSchema)]).optional(),
@@ -349,7 +349,7 @@ export const QualitativeValueSchema: z.ZodType<QualitativeValue> = z.lazy(() => 
 
 export interface QuantitativeValue {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'QuantitativeValue' | 'Observation' | Array<'QuantitativeValue' | 'Observation'>;
   '@id'?: string;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
   maxValue?: number | Array<number>;
@@ -375,7 +375,7 @@ export interface QuantitativeValue {
 
 export const QuantitativeValueSchema: z.ZodType<QuantitativeValue> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('QuantitativeValue'), z.literal('Observation')]), z.array(z.union([z.literal('QuantitativeValue'), z.literal('Observation')]))]).optional(),
   '@id': z.string().optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
   maxValue: z.union([z.number(), z.array(z.number())]).optional(),
@@ -401,7 +401,7 @@ export const QuantitativeValueSchema: z.ZodType<QuantitativeValue> = z.lazy(() =
 
 export interface QuantitativeValueDistribution {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'QuantitativeValueDistribution' | 'MonetaryAmountDistribution' | Array<'QuantitativeValueDistribution' | 'MonetaryAmountDistribution'>;
   '@id'?: string;
   duration?: s.Duration | s.QuantitativeValue | Array<s.Duration | s.QuantitativeValue>;
   median?: number | Array<number>;
@@ -426,7 +426,7 @@ export interface QuantitativeValueDistribution {
 
 export const QuantitativeValueDistributionSchema: z.ZodType<QuantitativeValueDistribution> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('QuantitativeValueDistribution'), z.literal('MonetaryAmountDistribution')]), z.array(z.union([z.literal('QuantitativeValueDistribution'), z.literal('MonetaryAmountDistribution')]))]).optional(),
   '@id': z.string().optional(),
   duration: z.union([z.union([s.DurationSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DurationSchema, s.QuantitativeValueSchema]))]).optional(),
   median: z.union([z.number(), z.array(z.number())]).optional(),
@@ -451,19 +451,19 @@ export const QuantitativeValueDistributionSchema: z.ZodType<QuantitativeValueDis
 
 export interface Quantity {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Quantity' | 'Distance' | 'Duration' | 'Energy' | 'Mass' | Array<'Quantity' | 'Distance' | 'Duration' | 'Energy' | 'Mass'>;
   '@id'?: string;
 }
 
 export const QuantitySchema: z.ZodType<Quantity> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('Quantity'), z.literal('Distance'), z.literal('Duration'), z.literal('Energy'), z.literal('Mass')]), z.array(z.union([z.literal('Quantity'), z.literal('Distance'), z.literal('Duration'), z.literal('Energy'), z.literal('Mass')]))]).optional(),
   '@id': z.string().optional(),
 }));
 
 export interface Question {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Question' | Array<'Question'>;
   '@id'?: string;
   acceptedAnswer?: s.Answer | s.ItemList | Array<s.Answer | s.ItemList>;
   answerCount?: number | Array<number>;
@@ -606,7 +606,7 @@ export interface Question {
 
 export const QuestionSchema: z.ZodType<Question> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Question'), z.array(z.literal('Question'))]).optional(),
   '@id': z.string().optional(),
   acceptedAnswer: z.union([z.union([s.AnswerSchema, s.ItemListSchema]), z.array(z.union([s.AnswerSchema, s.ItemListSchema]))]).optional(),
   answerCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
@@ -749,7 +749,7 @@ export const QuestionSchema: z.ZodType<Question> = z.lazy(() => z.object({
 
 export interface Quiz {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Quiz' | Array<'Quiz'>;
   '@id'?: string;
   assesses?: s.DefinedTerm | string | Array<s.DefinedTerm | string>;
   competencyRequired?: s.DefinedTerm | string | Array<s.DefinedTerm | string>;
@@ -885,7 +885,7 @@ export interface Quiz {
 
 export const QuizSchema: z.ZodType<Quiz> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Quiz'), z.array(z.literal('Quiz'))]).optional(),
   '@id': z.string().optional(),
   assesses: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
   competencyRequired: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
@@ -1021,7 +1021,7 @@ export const QuizSchema: z.ZodType<Quiz> = z.lazy(() => z.object({
 
 export interface Quotation {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Quotation' | Array<'Quotation'>;
   '@id'?: string;
   spokenByCharacter?: s.Organization | s.Person | Array<s.Organization | s.Person>;
   about?: s.Thing | Array<s.Thing>;
@@ -1157,7 +1157,7 @@ export interface Quotation {
 
 export const QuotationSchema: z.ZodType<Quotation> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Quotation'), z.array(z.literal('Quotation'))]).optional(),
   '@id': z.string().optional(),
   spokenByCharacter: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -1293,7 +1293,7 @@ export const QuotationSchema: z.ZodType<Quotation> = z.lazy(() => z.object({
 
 export interface QuoteAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'QuoteAction' | Array<'QuoteAction'>;
   '@id'?: string;
   price?: number | string | Array<number | string>;
   priceCurrency?: string | Array<string>;
@@ -1328,7 +1328,7 @@ export interface QuoteAction {
 
 export const QuoteActionSchema: z.ZodType<QuoteAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('QuoteAction'), z.array(z.literal('QuoteAction'))]).optional(),
   '@id': z.string().optional(),
   price: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
   priceCurrency: z.union([z.string(), z.array(z.string())]).optional(),

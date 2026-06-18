@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface Observation {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Observation' | Array<'Observation'>;
   '@id'?: string;
   marginOfError?: s.QuantitativeValue | Array<s.QuantitativeValue>;
   measuredProperty?: s.Property | Array<s.Property>;
@@ -39,7 +39,7 @@ export interface Observation {
 
 export const ObservationSchema: z.ZodType<Observation> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Observation'), z.array(z.literal('Observation'))]).optional(),
   '@id': z.string().optional(),
   marginOfError: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
   measuredProperty: z.union([s.PropertySchema, z.array(s.PropertySchema)]).optional(),
@@ -75,7 +75,7 @@ export const ObservationSchema: z.ZodType<Observation> = z.lazy(() => z.object({
 
 export interface Occupation {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Occupation' | Array<'Occupation'>;
   '@id'?: string;
   educationRequirements?: s.EducationalOccupationalCredential | string | Array<s.EducationalOccupationalCredential | string>;
   estimatedSalary?: s.MonetaryAmount | s.MonetaryAmountDistribution | number | Array<s.MonetaryAmount | s.MonetaryAmountDistribution | number>;
@@ -102,7 +102,7 @@ export interface Occupation {
 
 export const OccupationSchema: z.ZodType<Occupation> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Occupation'), z.array(z.literal('Occupation'))]).optional(),
   '@id': z.string().optional(),
   educationRequirements: z.union([z.union([s.EducationalOccupationalCredentialSchema, z.string()]), z.array(z.union([s.EducationalOccupationalCredentialSchema, z.string()]))]).optional(),
   estimatedSalary: z.union([z.union([s.MonetaryAmountSchema, s.MonetaryAmountDistributionSchema, z.number()]), z.array(z.union([s.MonetaryAmountSchema, s.MonetaryAmountDistributionSchema, z.number()]))]).optional(),
@@ -129,7 +129,7 @@ export const OccupationSchema: z.ZodType<Occupation> = z.lazy(() => z.object({
 
 export interface OccupationalExperienceRequirements {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OccupationalExperienceRequirements' | Array<'OccupationalExperienceRequirements'>;
   '@id'?: string;
   monthsOfExperience?: number | Array<number>;
   additionalType?: string | Array<string>;
@@ -149,7 +149,7 @@ export interface OccupationalExperienceRequirements {
 
 export const OccupationalExperienceRequirementsSchema: z.ZodType<OccupationalExperienceRequirements> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OccupationalExperienceRequirements'), z.array(z.literal('OccupationalExperienceRequirements'))]).optional(),
   '@id': z.string().optional(),
   monthsOfExperience: z.union([z.number(), z.array(z.number())]).optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -169,7 +169,7 @@ export const OccupationalExperienceRequirementsSchema: z.ZodType<OccupationalExp
 
 export interface OccupationalTherapy {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OccupationalTherapy' | Array<'OccupationalTherapy'>;
   '@id'?: string;
   contraindication?: s.MedicalContraindication | string | Array<s.MedicalContraindication | string>;
   duplicateTherapy?: s.MedicalTherapy | Array<s.MedicalTherapy>;
@@ -208,7 +208,7 @@ export interface OccupationalTherapy {
 
 export const OccupationalTherapySchema: z.ZodType<OccupationalTherapy> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OccupationalTherapy'), z.array(z.literal('OccupationalTherapy'))]).optional(),
   '@id': z.string().optional(),
   contraindication: z.union([z.union([s.MedicalContraindicationSchema, z.string()]), z.array(z.union([s.MedicalContraindicationSchema, z.string()]))]).optional(),
   duplicateTherapy: z.union([s.MedicalTherapySchema, z.array(s.MedicalTherapySchema)]).optional(),
@@ -247,7 +247,7 @@ export const OccupationalTherapySchema: z.ZodType<OccupationalTherapy> = z.lazy(
 
 export interface OceanBodyOfWater {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OceanBodyOfWater' | Array<'OceanBodyOfWater'>;
   '@id'?: string;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
   address?: s.PostalAddress | string | Array<s.PostalAddress | string>;
@@ -313,7 +313,7 @@ export interface OceanBodyOfWater {
 
 export const OceanBodyOfWaterSchema: z.ZodType<OceanBodyOfWater> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OceanBodyOfWater'), z.array(z.literal('OceanBodyOfWater'))]).optional(),
   '@id': z.string().optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
   address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
@@ -379,7 +379,7 @@ export const OceanBodyOfWaterSchema: z.ZodType<OceanBodyOfWater> = z.lazy(() => 
 
 export interface Offer {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Offer' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase' | Array<'Offer' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase'>;
   '@id'?: string;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
   addOn?: s.Offer | Array<s.Offer>;
@@ -452,7 +452,7 @@ export interface Offer {
 
 export const OfferSchema: z.ZodType<Offer> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('Offer'), z.literal('AggregateOffer'), z.literal('OfferForLease'), z.literal('OfferForPurchase')]), z.array(z.union([z.literal('Offer'), z.literal('AggregateOffer'), z.literal('OfferForLease'), z.literal('OfferForPurchase')]))]).optional(),
   '@id': z.string().optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
   addOn: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -525,7 +525,7 @@ export const OfferSchema: z.ZodType<Offer> = z.lazy(() => z.object({
 
 export interface OfferCatalog {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OfferCatalog' | Array<'OfferCatalog'>;
   '@id'?: string;
   aggregateElement?: s.Thing | Array<s.Thing>;
   itemListElement?: s.ListItem | string | s.Thing | Array<s.ListItem | string | s.Thing>;
@@ -548,7 +548,7 @@ export interface OfferCatalog {
 
 export const OfferCatalogSchema: z.ZodType<OfferCatalog> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OfferCatalog'), z.array(z.literal('OfferCatalog'))]).optional(),
   '@id': z.string().optional(),
   aggregateElement: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
   itemListElement: z.union([z.union([s.ListItemSchema, z.string(), s.ThingSchema]), z.array(z.union([s.ListItemSchema, z.string(), s.ThingSchema]))]).optional(),
@@ -571,7 +571,7 @@ export const OfferCatalogSchema: z.ZodType<OfferCatalog> = z.lazy(() => z.object
 
 export interface OfferForLease {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OfferForLease' | Array<'OfferForLease'>;
   '@id'?: string;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
   addOn?: s.Offer | Array<s.Offer>;
@@ -644,7 +644,7 @@ export interface OfferForLease {
 
 export const OfferForLeaseSchema: z.ZodType<OfferForLease> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OfferForLease'), z.array(z.literal('OfferForLease'))]).optional(),
   '@id': z.string().optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
   addOn: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -717,7 +717,7 @@ export const OfferForLeaseSchema: z.ZodType<OfferForLease> = z.lazy(() => z.obje
 
 export interface OfferForPurchase {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OfferForPurchase' | Array<'OfferForPurchase'>;
   '@id'?: string;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
   addOn?: s.Offer | Array<s.Offer>;
@@ -790,7 +790,7 @@ export interface OfferForPurchase {
 
 export const OfferForPurchaseSchema: z.ZodType<OfferForPurchase> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OfferForPurchase'), z.array(z.literal('OfferForPurchase'))]).optional(),
   '@id': z.string().optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
   addOn: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
@@ -866,7 +866,7 @@ export const OfferItemConditionSchema = z.union([z.literal('schema:DamagedCondit
 
 export interface OfferShippingDetails {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OfferShippingDetails' | Array<'OfferShippingDetails'>;
   '@id'?: string;
   deliveryTime?: s.ShippingDeliveryTime | Array<s.ShippingDeliveryTime>;
   depth?: s.Distance | s.QuantitativeValue | Array<s.Distance | s.QuantitativeValue>;
@@ -896,7 +896,7 @@ export interface OfferShippingDetails {
 
 export const OfferShippingDetailsSchema: z.ZodType<OfferShippingDetails> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OfferShippingDetails'), z.array(z.literal('OfferShippingDetails'))]).optional(),
   '@id': z.string().optional(),
   deliveryTime: z.union([s.ShippingDeliveryTimeSchema, z.array(s.ShippingDeliveryTimeSchema)]).optional(),
   depth: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
@@ -926,7 +926,7 @@ export const OfferShippingDetailsSchema: z.ZodType<OfferShippingDetails> = z.laz
 
 export interface OfficeEquipmentStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OfficeEquipmentStore' | Array<'OfficeEquipmentStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -1059,7 +1059,7 @@ export interface OfficeEquipmentStore {
 
 export const OfficeEquipmentStoreSchema: z.ZodType<OfficeEquipmentStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OfficeEquipmentStore'), z.array(z.literal('OfficeEquipmentStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1192,7 +1192,7 @@ export const OfficeEquipmentStoreSchema: z.ZodType<OfficeEquipmentStore> = z.laz
 
 export interface OnDemandEvent {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OnDemandEvent' | Array<'OnDemandEvent'>;
   '@id'?: string;
   free?: boolean | Array<boolean>;
   publishedBy?: s.Organization | s.Person | Array<s.Organization | s.Person>;
@@ -1257,7 +1257,7 @@ export interface OnDemandEvent {
 
 export const OnDemandEventSchema: z.ZodType<OnDemandEvent> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OnDemandEvent'), z.array(z.literal('OnDemandEvent'))]).optional(),
   '@id': z.string().optional(),
   free: z.union([z.boolean(), z.array(z.boolean())]).optional(),
   publishedBy: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
@@ -1322,7 +1322,7 @@ export const OnDemandEventSchema: z.ZodType<OnDemandEvent> = z.lazy(() => z.obje
 
 export interface OnlineBusiness {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OnlineBusiness' | 'OnlineStore' | 'OnlineMarketplace' | Array<'OnlineBusiness' | 'OnlineStore' | 'OnlineMarketplace'>;
   '@id'?: string;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
   actionableFeedbackPolicy?: s.CreativeWork | string | Array<s.CreativeWork | string>;
@@ -1417,7 +1417,7 @@ export interface OnlineBusiness {
 
 export const OnlineBusinessSchema: z.ZodType<OnlineBusiness> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('OnlineBusiness'), z.literal('OnlineStore'), z.literal('OnlineMarketplace')]), z.array(z.union([z.literal('OnlineBusiness'), z.literal('OnlineStore'), z.literal('OnlineMarketplace')]))]).optional(),
   '@id': z.string().optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
   actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
@@ -1512,7 +1512,7 @@ export const OnlineBusinessSchema: z.ZodType<OnlineBusiness> = z.lazy(() => z.ob
 
 export interface OnlineMarketplace {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OnlineMarketplace' | Array<'OnlineMarketplace'>;
   '@id'?: string;
   hasStore?: s.OnlineStore | Array<s.OnlineStore>;
   isStoreOn?: s.OnlineMarketplace | Array<s.OnlineMarketplace>;
@@ -1609,7 +1609,7 @@ export interface OnlineMarketplace {
 
 export const OnlineMarketplaceSchema: z.ZodType<OnlineMarketplace> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OnlineMarketplace'), z.array(z.literal('OnlineMarketplace'))]).optional(),
   '@id': z.string().optional(),
   hasStore: z.union([s.OnlineStoreSchema, z.array(s.OnlineStoreSchema)]).optional(),
   isStoreOn: z.union([s.OnlineMarketplaceSchema, z.array(s.OnlineMarketplaceSchema)]).optional(),
@@ -1706,7 +1706,7 @@ export const OnlineMarketplaceSchema: z.ZodType<OnlineMarketplace> = z.lazy(() =
 
 export interface OnlineStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OnlineStore' | 'OnlineMarketplace' | Array<'OnlineStore' | 'OnlineMarketplace'>;
   '@id'?: string;
   isStoreOn?: s.OnlineMarketplace | Array<s.OnlineMarketplace>;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
@@ -1802,7 +1802,7 @@ export interface OnlineStore {
 
 export const OnlineStoreSchema: z.ZodType<OnlineStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('OnlineStore'), z.literal('OnlineMarketplace')]), z.array(z.union([z.literal('OnlineStore'), z.literal('OnlineMarketplace')]))]).optional(),
   '@id': z.string().optional(),
   isStoreOn: z.union([s.OnlineMarketplaceSchema, z.array(s.OnlineMarketplaceSchema)]).optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
@@ -1898,7 +1898,7 @@ export const OnlineStoreSchema: z.ZodType<OnlineStore> = z.lazy(() => z.object({
 
 export interface OpeningHoursSpecification {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OpeningHoursSpecification' | Array<'OpeningHoursSpecification'>;
   '@id'?: string;
   closes?: string | Array<string>;
   dayOfWeek?: s.DayOfWeek | Array<s.DayOfWeek>;
@@ -1922,7 +1922,7 @@ export interface OpeningHoursSpecification {
 
 export const OpeningHoursSpecificationSchema: z.ZodType<OpeningHoursSpecification> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OpeningHoursSpecification'), z.array(z.literal('OpeningHoursSpecification'))]).optional(),
   '@id': z.string().optional(),
   closes: z.union([z.string(), z.array(z.string())]).optional(),
   dayOfWeek: z.union([s.DayOfWeekSchema, z.array(s.DayOfWeekSchema)]).optional(),
@@ -1946,7 +1946,7 @@ export const OpeningHoursSpecificationSchema: z.ZodType<OpeningHoursSpecificatio
 
 export interface OperatingSystem {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OperatingSystem' | Array<'OperatingSystem'>;
   '@id'?: string;
   applicationCategory?: string | Array<string>;
   applicationSubCategory?: string | Array<string>;
@@ -2106,7 +2106,7 @@ export interface OperatingSystem {
 
 export const OperatingSystemSchema: z.ZodType<OperatingSystem> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OperatingSystem'), z.array(z.literal('OperatingSystem'))]).optional(),
   '@id': z.string().optional(),
   applicationCategory: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
   applicationSubCategory: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -2266,7 +2266,7 @@ export const OperatingSystemSchema: z.ZodType<OperatingSystem> = z.lazy(() => z.
 
 export interface OpinionNewsArticle {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OpinionNewsArticle' | Array<'OpinionNewsArticle'>;
   '@id'?: string;
   dateline?: string | Array<string>;
   printColumn?: string | Array<string>;
@@ -2413,7 +2413,7 @@ export interface OpinionNewsArticle {
 
 export const OpinionNewsArticleSchema: z.ZodType<OpinionNewsArticle> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OpinionNewsArticle'), z.array(z.literal('OpinionNewsArticle'))]).optional(),
   '@id': z.string().optional(),
   dateline: z.union([z.string(), z.array(z.string())]).optional(),
   printColumn: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2560,7 +2560,7 @@ export const OpinionNewsArticleSchema: z.ZodType<OpinionNewsArticle> = z.lazy(()
 
 export interface Optician {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Optician' | Array<'Optician'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -2693,7 +2693,7 @@ export interface Optician {
 
 export const OpticianSchema: z.ZodType<Optician> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Optician'), z.array(z.literal('Optician'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -2826,7 +2826,7 @@ export const OpticianSchema: z.ZodType<Optician> = z.lazy(() => z.object({
 
 export interface Order {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Order' | Array<'Order'>;
   '@id'?: string;
   acceptedOffer?: s.Offer | Array<s.Offer>;
   billingAddress?: s.PostalAddress | Array<s.PostalAddress>;
@@ -2867,7 +2867,7 @@ export interface Order {
 
 export const OrderSchema: z.ZodType<Order> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Order'), z.array(z.literal('Order'))]).optional(),
   '@id': z.string().optional(),
   acceptedOffer: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
   billingAddress: z.union([s.PostalAddressSchema, z.array(s.PostalAddressSchema)]).optional(),
@@ -2908,7 +2908,7 @@ export const OrderSchema: z.ZodType<Order> = z.lazy(() => z.object({
 
 export interface OrderAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OrderAction' | Array<'OrderAction'>;
   '@id'?: string;
   deliveryMethod?: s.DeliveryMethod | Array<s.DeliveryMethod>;
   price?: number | string | Array<number | string>;
@@ -2944,7 +2944,7 @@ export interface OrderAction {
 
 export const OrderActionSchema: z.ZodType<OrderAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OrderAction'), z.array(z.literal('OrderAction'))]).optional(),
   '@id': z.string().optional(),
   deliveryMethod: z.union([s.DeliveryMethodSchema, z.array(s.DeliveryMethodSchema)]).optional(),
   price: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
@@ -2980,7 +2980,7 @@ export const OrderActionSchema: z.ZodType<OrderAction> = z.lazy(() => z.object({
 
 export interface OrderItem {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OrderItem' | Array<'OrderItem'>;
   '@id'?: string;
   orderDelivery?: s.ParcelDelivery | Array<s.ParcelDelivery>;
   orderItemNumber?: string | Array<string>;
@@ -3004,7 +3004,7 @@ export interface OrderItem {
 
 export const OrderItemSchema: z.ZodType<OrderItem> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OrderItem'), z.array(z.literal('OrderItem'))]).optional(),
   '@id': z.string().optional(),
   orderDelivery: z.union([s.ParcelDeliverySchema, z.array(s.ParcelDeliverySchema)]).optional(),
   orderItemNumber: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3031,7 +3031,7 @@ export const OrderStatusSchema = z.union([z.literal('schema:OrderCancelled'), z.
 
 export interface Organization {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Organization' | 'Airline' | 'Consortium' | 'Cooperative' | 'Corporation' | 'EducationalOrganization' | 'CollegeOrUniversity' | 'ElementarySchool' | 'HighSchool' | 'MiddleSchool' | 'Preschool' | 'School' | 'FundingScheme' | 'GovernmentOrganization' | 'LibrarySystem' | 'LocalBusiness' | 'AnimalShelter' | 'ArchiveOrganization' | 'AutomotiveBusiness' | 'AutoBodyShop' | 'AutoDealer' | 'AutoPartsStore' | 'AutoRental' | 'AutoRepair' | 'AutoWash' | 'GasStation' | 'MotorcycleDealer' | 'MotorcycleRepair' | 'ChildCare' | 'Dentist' | 'DryCleaningOrLaundry' | 'EmergencyService' | 'FireStation' | 'Hospital' | 'PoliceStation' | 'EmploymentAgency' | 'EntertainmentBusiness' | 'AdultEntertainment' | 'AmusementPark' | 'ArtGallery' | 'Casino' | 'ComedyClub' | 'MovieTheater' | 'NightClub' | 'FinancialService' | 'AccountingService' | 'AutomatedTeller' | 'BankOrCreditUnion' | 'InsuranceAgency' | 'FoodEstablishment' | 'Bakery' | 'BarOrPub' | 'Brewery' | 'CafeOrCoffeeShop' | 'Distillery' | 'FastFoodRestaurant' | 'IceCreamShop' | 'Restaurant' | 'Winery' | 'GovernmentOffice' | 'PostOffice' | 'HealthAndBeautyBusiness' | 'BeautySalon' | 'DaySpa' | 'HairSalon' | 'HealthClub' | 'NailSalon' | 'TattooParlor' | 'HomeAndConstructionBusiness' | 'Electrician' | 'GeneralContractor' | 'HVACBusiness' | 'HousePainter' | 'Locksmith' | 'MovingCompany' | 'Plumber' | 'RoofingContractor' | 'InternetCafe' | 'LegalService' | 'Attorney' | 'Notary' | 'Library' | 'LodgingBusiness' | 'BedAndBreakfast' | 'Campground' | 'Hostel' | 'Hotel' | 'Motel' | 'Resort' | 'SkiResort' | 'VacationRental' | 'MedicalBusiness' | 'MedicalClinic' | 'CovidTestingFacility' | 'Optician' | 'Pharmacy' | 'Physician' | 'IndividualPhysician' | 'PhysiciansOffice' | 'ProfessionalService' | 'RadioStation' | 'RealEstateAgent' | 'RecyclingCenter' | 'SelfStorage' | 'ShoppingCenter' | 'SportsActivityLocation' | 'BowlingAlley' | 'ExerciseGym' | 'GolfCourse' | 'PublicSwimmingPool' | 'SportsClub' | 'StadiumOrArena' | 'TennisComplex' | 'Store' | 'BikeStore' | 'BookStore' | 'ClothingStore' | 'ComputerStore' | 'ConvenienceStore' | 'DepartmentStore' | 'ElectronicsStore' | 'Florist' | 'FurnitureStore' | 'GardenStore' | 'GroceryStore' | 'HardwareStore' | 'HobbyShop' | 'HomeGoodsStore' | 'JewelryStore' | 'LiquorStore' | 'MensClothingStore' | 'MobilePhoneStore' | 'MovieRentalStore' | 'MusicStore' | 'OfficeEquipmentStore' | 'OutletStore' | 'PawnShop' | 'PetStore' | 'ShoeStore' | 'SportingGoodsStore' | 'TireShop' | 'ToyStore' | 'WholesaleStore' | 'TelevisionStation' | 'TouristInformationCenter' | 'TravelAgency' | 'MedicalOrganization' | 'DiagnosticLab' | 'VeterinaryCare' | 'NGO' | 'NewsMediaOrganization' | 'OnlineBusiness' | 'OnlineStore' | 'OnlineMarketplace' | 'PerformingGroup' | 'DanceGroup' | 'MusicGroup' | 'TheaterGroup' | 'PoliticalParty' | 'Project' | 'FundingAgency' | 'ResearchProject' | 'ResearchOrganization' | 'SearchRescueOrganization' | 'SportsOrganization' | 'SportsTeam' | 'WorkersUnion' | Array<'Organization' | 'Airline' | 'Consortium' | 'Cooperative' | 'Corporation' | 'EducationalOrganization' | 'CollegeOrUniversity' | 'ElementarySchool' | 'HighSchool' | 'MiddleSchool' | 'Preschool' | 'School' | 'FundingScheme' | 'GovernmentOrganization' | 'LibrarySystem' | 'LocalBusiness' | 'AnimalShelter' | 'ArchiveOrganization' | 'AutomotiveBusiness' | 'AutoBodyShop' | 'AutoDealer' | 'AutoPartsStore' | 'AutoRental' | 'AutoRepair' | 'AutoWash' | 'GasStation' | 'MotorcycleDealer' | 'MotorcycleRepair' | 'ChildCare' | 'Dentist' | 'DryCleaningOrLaundry' | 'EmergencyService' | 'FireStation' | 'Hospital' | 'PoliceStation' | 'EmploymentAgency' | 'EntertainmentBusiness' | 'AdultEntertainment' | 'AmusementPark' | 'ArtGallery' | 'Casino' | 'ComedyClub' | 'MovieTheater' | 'NightClub' | 'FinancialService' | 'AccountingService' | 'AutomatedTeller' | 'BankOrCreditUnion' | 'InsuranceAgency' | 'FoodEstablishment' | 'Bakery' | 'BarOrPub' | 'Brewery' | 'CafeOrCoffeeShop' | 'Distillery' | 'FastFoodRestaurant' | 'IceCreamShop' | 'Restaurant' | 'Winery' | 'GovernmentOffice' | 'PostOffice' | 'HealthAndBeautyBusiness' | 'BeautySalon' | 'DaySpa' | 'HairSalon' | 'HealthClub' | 'NailSalon' | 'TattooParlor' | 'HomeAndConstructionBusiness' | 'Electrician' | 'GeneralContractor' | 'HVACBusiness' | 'HousePainter' | 'Locksmith' | 'MovingCompany' | 'Plumber' | 'RoofingContractor' | 'InternetCafe' | 'LegalService' | 'Attorney' | 'Notary' | 'Library' | 'LodgingBusiness' | 'BedAndBreakfast' | 'Campground' | 'Hostel' | 'Hotel' | 'Motel' | 'Resort' | 'SkiResort' | 'VacationRental' | 'MedicalBusiness' | 'MedicalClinic' | 'CovidTestingFacility' | 'Optician' | 'Pharmacy' | 'Physician' | 'IndividualPhysician' | 'PhysiciansOffice' | 'ProfessionalService' | 'RadioStation' | 'RealEstateAgent' | 'RecyclingCenter' | 'SelfStorage' | 'ShoppingCenter' | 'SportsActivityLocation' | 'BowlingAlley' | 'ExerciseGym' | 'GolfCourse' | 'PublicSwimmingPool' | 'SportsClub' | 'StadiumOrArena' | 'TennisComplex' | 'Store' | 'BikeStore' | 'BookStore' | 'ClothingStore' | 'ComputerStore' | 'ConvenienceStore' | 'DepartmentStore' | 'ElectronicsStore' | 'Florist' | 'FurnitureStore' | 'GardenStore' | 'GroceryStore' | 'HardwareStore' | 'HobbyShop' | 'HomeGoodsStore' | 'JewelryStore' | 'LiquorStore' | 'MensClothingStore' | 'MobilePhoneStore' | 'MovieRentalStore' | 'MusicStore' | 'OfficeEquipmentStore' | 'OutletStore' | 'PawnShop' | 'PetStore' | 'ShoeStore' | 'SportingGoodsStore' | 'TireShop' | 'ToyStore' | 'WholesaleStore' | 'TelevisionStation' | 'TouristInformationCenter' | 'TravelAgency' | 'MedicalOrganization' | 'DiagnosticLab' | 'VeterinaryCare' | 'NGO' | 'NewsMediaOrganization' | 'OnlineBusiness' | 'OnlineStore' | 'OnlineMarketplace' | 'PerformingGroup' | 'DanceGroup' | 'MusicGroup' | 'TheaterGroup' | 'PoliticalParty' | 'Project' | 'FundingAgency' | 'ResearchProject' | 'ResearchOrganization' | 'SearchRescueOrganization' | 'SportsOrganization' | 'SportsTeam' | 'WorkersUnion'>;
   '@id'?: string;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
   actionableFeedbackPolicy?: s.CreativeWork | string | Array<s.CreativeWork | string>;
@@ -3126,7 +3126,7 @@ export interface Organization {
 
 export const OrganizationSchema: z.ZodType<Organization> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('Organization'), z.literal('Airline'), z.literal('Consortium'), z.literal('Cooperative'), z.literal('Corporation'), z.literal('EducationalOrganization'), z.literal('CollegeOrUniversity'), z.literal('ElementarySchool'), z.literal('HighSchool'), z.literal('MiddleSchool'), z.literal('Preschool'), z.literal('School'), z.literal('FundingScheme'), z.literal('GovernmentOrganization'), z.literal('LibrarySystem'), z.literal('LocalBusiness'), z.literal('AnimalShelter'), z.literal('ArchiveOrganization'), z.literal('AutomotiveBusiness'), z.literal('AutoBodyShop'), z.literal('AutoDealer'), z.literal('AutoPartsStore'), z.literal('AutoRental'), z.literal('AutoRepair'), z.literal('AutoWash'), z.literal('GasStation'), z.literal('MotorcycleDealer'), z.literal('MotorcycleRepair'), z.literal('ChildCare'), z.literal('Dentist'), z.literal('DryCleaningOrLaundry'), z.literal('EmergencyService'), z.literal('FireStation'), z.literal('Hospital'), z.literal('PoliceStation'), z.literal('EmploymentAgency'), z.literal('EntertainmentBusiness'), z.literal('AdultEntertainment'), z.literal('AmusementPark'), z.literal('ArtGallery'), z.literal('Casino'), z.literal('ComedyClub'), z.literal('MovieTheater'), z.literal('NightClub'), z.literal('FinancialService'), z.literal('AccountingService'), z.literal('AutomatedTeller'), z.literal('BankOrCreditUnion'), z.literal('InsuranceAgency'), z.literal('FoodEstablishment'), z.literal('Bakery'), z.literal('BarOrPub'), z.literal('Brewery'), z.literal('CafeOrCoffeeShop'), z.literal('Distillery'), z.literal('FastFoodRestaurant'), z.literal('IceCreamShop'), z.literal('Restaurant'), z.literal('Winery'), z.literal('GovernmentOffice'), z.literal('PostOffice'), z.literal('HealthAndBeautyBusiness'), z.literal('BeautySalon'), z.literal('DaySpa'), z.literal('HairSalon'), z.literal('HealthClub'), z.literal('NailSalon'), z.literal('TattooParlor'), z.literal('HomeAndConstructionBusiness'), z.literal('Electrician'), z.literal('GeneralContractor'), z.literal('HVACBusiness'), z.literal('HousePainter'), z.literal('Locksmith'), z.literal('MovingCompany'), z.literal('Plumber'), z.literal('RoofingContractor'), z.literal('InternetCafe'), z.literal('LegalService'), z.literal('Attorney'), z.literal('Notary'), z.literal('Library'), z.literal('LodgingBusiness'), z.literal('BedAndBreakfast'), z.literal('Campground'), z.literal('Hostel'), z.literal('Hotel'), z.literal('Motel'), z.literal('Resort'), z.literal('SkiResort'), z.literal('VacationRental'), z.literal('MedicalBusiness'), z.literal('MedicalClinic'), z.literal('CovidTestingFacility'), z.literal('Optician'), z.literal('Pharmacy'), z.literal('Physician'), z.literal('IndividualPhysician'), z.literal('PhysiciansOffice'), z.literal('ProfessionalService'), z.literal('RadioStation'), z.literal('RealEstateAgent'), z.literal('RecyclingCenter'), z.literal('SelfStorage'), z.literal('ShoppingCenter'), z.literal('SportsActivityLocation'), z.literal('BowlingAlley'), z.literal('ExerciseGym'), z.literal('GolfCourse'), z.literal('PublicSwimmingPool'), z.literal('SportsClub'), z.literal('StadiumOrArena'), z.literal('TennisComplex'), z.literal('Store'), z.literal('BikeStore'), z.literal('BookStore'), z.literal('ClothingStore'), z.literal('ComputerStore'), z.literal('ConvenienceStore'), z.literal('DepartmentStore'), z.literal('ElectronicsStore'), z.literal('Florist'), z.literal('FurnitureStore'), z.literal('GardenStore'), z.literal('GroceryStore'), z.literal('HardwareStore'), z.literal('HobbyShop'), z.literal('HomeGoodsStore'), z.literal('JewelryStore'), z.literal('LiquorStore'), z.literal('MensClothingStore'), z.literal('MobilePhoneStore'), z.literal('MovieRentalStore'), z.literal('MusicStore'), z.literal('OfficeEquipmentStore'), z.literal('OutletStore'), z.literal('PawnShop'), z.literal('PetStore'), z.literal('ShoeStore'), z.literal('SportingGoodsStore'), z.literal('TireShop'), z.literal('ToyStore'), z.literal('WholesaleStore'), z.literal('TelevisionStation'), z.literal('TouristInformationCenter'), z.literal('TravelAgency'), z.literal('MedicalOrganization'), z.literal('DiagnosticLab'), z.literal('VeterinaryCare'), z.literal('NGO'), z.literal('NewsMediaOrganization'), z.literal('OnlineBusiness'), z.literal('OnlineStore'), z.literal('OnlineMarketplace'), z.literal('PerformingGroup'), z.literal('DanceGroup'), z.literal('MusicGroup'), z.literal('TheaterGroup'), z.literal('PoliticalParty'), z.literal('Project'), z.literal('FundingAgency'), z.literal('ResearchProject'), z.literal('ResearchOrganization'), z.literal('SearchRescueOrganization'), z.literal('SportsOrganization'), z.literal('SportsTeam'), z.literal('WorkersUnion')]), z.array(z.union([z.literal('Organization'), z.literal('Airline'), z.literal('Consortium'), z.literal('Cooperative'), z.literal('Corporation'), z.literal('EducationalOrganization'), z.literal('CollegeOrUniversity'), z.literal('ElementarySchool'), z.literal('HighSchool'), z.literal('MiddleSchool'), z.literal('Preschool'), z.literal('School'), z.literal('FundingScheme'), z.literal('GovernmentOrganization'), z.literal('LibrarySystem'), z.literal('LocalBusiness'), z.literal('AnimalShelter'), z.literal('ArchiveOrganization'), z.literal('AutomotiveBusiness'), z.literal('AutoBodyShop'), z.literal('AutoDealer'), z.literal('AutoPartsStore'), z.literal('AutoRental'), z.literal('AutoRepair'), z.literal('AutoWash'), z.literal('GasStation'), z.literal('MotorcycleDealer'), z.literal('MotorcycleRepair'), z.literal('ChildCare'), z.literal('Dentist'), z.literal('DryCleaningOrLaundry'), z.literal('EmergencyService'), z.literal('FireStation'), z.literal('Hospital'), z.literal('PoliceStation'), z.literal('EmploymentAgency'), z.literal('EntertainmentBusiness'), z.literal('AdultEntertainment'), z.literal('AmusementPark'), z.literal('ArtGallery'), z.literal('Casino'), z.literal('ComedyClub'), z.literal('MovieTheater'), z.literal('NightClub'), z.literal('FinancialService'), z.literal('AccountingService'), z.literal('AutomatedTeller'), z.literal('BankOrCreditUnion'), z.literal('InsuranceAgency'), z.literal('FoodEstablishment'), z.literal('Bakery'), z.literal('BarOrPub'), z.literal('Brewery'), z.literal('CafeOrCoffeeShop'), z.literal('Distillery'), z.literal('FastFoodRestaurant'), z.literal('IceCreamShop'), z.literal('Restaurant'), z.literal('Winery'), z.literal('GovernmentOffice'), z.literal('PostOffice'), z.literal('HealthAndBeautyBusiness'), z.literal('BeautySalon'), z.literal('DaySpa'), z.literal('HairSalon'), z.literal('HealthClub'), z.literal('NailSalon'), z.literal('TattooParlor'), z.literal('HomeAndConstructionBusiness'), z.literal('Electrician'), z.literal('GeneralContractor'), z.literal('HVACBusiness'), z.literal('HousePainter'), z.literal('Locksmith'), z.literal('MovingCompany'), z.literal('Plumber'), z.literal('RoofingContractor'), z.literal('InternetCafe'), z.literal('LegalService'), z.literal('Attorney'), z.literal('Notary'), z.literal('Library'), z.literal('LodgingBusiness'), z.literal('BedAndBreakfast'), z.literal('Campground'), z.literal('Hostel'), z.literal('Hotel'), z.literal('Motel'), z.literal('Resort'), z.literal('SkiResort'), z.literal('VacationRental'), z.literal('MedicalBusiness'), z.literal('MedicalClinic'), z.literal('CovidTestingFacility'), z.literal('Optician'), z.literal('Pharmacy'), z.literal('Physician'), z.literal('IndividualPhysician'), z.literal('PhysiciansOffice'), z.literal('ProfessionalService'), z.literal('RadioStation'), z.literal('RealEstateAgent'), z.literal('RecyclingCenter'), z.literal('SelfStorage'), z.literal('ShoppingCenter'), z.literal('SportsActivityLocation'), z.literal('BowlingAlley'), z.literal('ExerciseGym'), z.literal('GolfCourse'), z.literal('PublicSwimmingPool'), z.literal('SportsClub'), z.literal('StadiumOrArena'), z.literal('TennisComplex'), z.literal('Store'), z.literal('BikeStore'), z.literal('BookStore'), z.literal('ClothingStore'), z.literal('ComputerStore'), z.literal('ConvenienceStore'), z.literal('DepartmentStore'), z.literal('ElectronicsStore'), z.literal('Florist'), z.literal('FurnitureStore'), z.literal('GardenStore'), z.literal('GroceryStore'), z.literal('HardwareStore'), z.literal('HobbyShop'), z.literal('HomeGoodsStore'), z.literal('JewelryStore'), z.literal('LiquorStore'), z.literal('MensClothingStore'), z.literal('MobilePhoneStore'), z.literal('MovieRentalStore'), z.literal('MusicStore'), z.literal('OfficeEquipmentStore'), z.literal('OutletStore'), z.literal('PawnShop'), z.literal('PetStore'), z.literal('ShoeStore'), z.literal('SportingGoodsStore'), z.literal('TireShop'), z.literal('ToyStore'), z.literal('WholesaleStore'), z.literal('TelevisionStation'), z.literal('TouristInformationCenter'), z.literal('TravelAgency'), z.literal('MedicalOrganization'), z.literal('DiagnosticLab'), z.literal('VeterinaryCare'), z.literal('NGO'), z.literal('NewsMediaOrganization'), z.literal('OnlineBusiness'), z.literal('OnlineStore'), z.literal('OnlineMarketplace'), z.literal('PerformingGroup'), z.literal('DanceGroup'), z.literal('MusicGroup'), z.literal('TheaterGroup'), z.literal('PoliticalParty'), z.literal('Project'), z.literal('FundingAgency'), z.literal('ResearchProject'), z.literal('ResearchOrganization'), z.literal('SearchRescueOrganization'), z.literal('SportsOrganization'), z.literal('SportsTeam'), z.literal('WorkersUnion')]))]).optional(),
   '@id': z.string().optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
   actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
@@ -3221,7 +3221,7 @@ export const OrganizationSchema: z.ZodType<Organization> = z.lazy(() => z.object
 
 export interface OrganizationRole {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OrganizationRole' | 'EmployeeRole' | Array<'OrganizationRole' | 'EmployeeRole'>;
   '@id'?: string;
   numberedPosition?: number | Array<number>;
   endDate?: string | Array<string>;
@@ -3245,7 +3245,7 @@ export interface OrganizationRole {
 
 export const OrganizationRoleSchema: z.ZodType<OrganizationRole> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('OrganizationRole'), z.literal('EmployeeRole')]), z.array(z.union([z.literal('OrganizationRole'), z.literal('EmployeeRole')]))]).optional(),
   '@id': z.string().optional(),
   numberedPosition: z.union([z.number(), z.array(z.number())]).optional(),
   endDate: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3269,7 +3269,7 @@ export const OrganizationRoleSchema: z.ZodType<OrganizationRole> = z.lazy(() => 
 
 export interface OrganizeAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OrganizeAction' | 'AllocateAction' | 'AcceptAction' | 'AssignAction' | 'AuthorizeAction' | 'RejectAction' | 'ApplyAction' | 'BookmarkAction' | 'PlanAction' | 'CancelAction' | 'ReserveAction' | 'ScheduleAction' | Array<'OrganizeAction' | 'AllocateAction' | 'AcceptAction' | 'AssignAction' | 'AuthorizeAction' | 'RejectAction' | 'ApplyAction' | 'BookmarkAction' | 'PlanAction' | 'CancelAction' | 'ReserveAction' | 'ScheduleAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
   actionStatus?: s.ActionStatusType | Array<s.ActionStatusType>;
@@ -3301,7 +3301,7 @@ export interface OrganizeAction {
 
 export const OrganizeActionSchema: z.ZodType<OrganizeAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('OrganizeAction'), z.literal('AllocateAction'), z.literal('AcceptAction'), z.literal('AssignAction'), z.literal('AuthorizeAction'), z.literal('RejectAction'), z.literal('ApplyAction'), z.literal('BookmarkAction'), z.literal('PlanAction'), z.literal('CancelAction'), z.literal('ReserveAction'), z.literal('ScheduleAction')]), z.array(z.union([z.literal('OrganizeAction'), z.literal('AllocateAction'), z.literal('AcceptAction'), z.literal('AssignAction'), z.literal('AuthorizeAction'), z.literal('RejectAction'), z.literal('ApplyAction'), z.literal('BookmarkAction'), z.literal('PlanAction'), z.literal('CancelAction'), z.literal('ReserveAction'), z.literal('ScheduleAction')]))]).optional(),
   '@id': z.string().optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
   actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
@@ -3333,7 +3333,7 @@ export const OrganizeActionSchema: z.ZodType<OrganizeAction> = z.lazy(() => z.ob
 
 export interface OutletStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OutletStore' | Array<'OutletStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -3466,7 +3466,7 @@ export interface OutletStore {
 
 export const OutletStoreSchema: z.ZodType<OutletStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OutletStore'), z.array(z.literal('OutletStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -3599,7 +3599,7 @@ export const OutletStoreSchema: z.ZodType<OutletStore> = z.lazy(() => z.object({
 
 export interface OwnershipInfo {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'OwnershipInfo' | Array<'OwnershipInfo'>;
   '@id'?: string;
   acquiredFrom?: s.Organization | s.Person | Array<s.Organization | s.Person>;
   ownedFrom?: string | Array<string>;
@@ -3622,7 +3622,7 @@ export interface OwnershipInfo {
 
 export const OwnershipInfoSchema: z.ZodType<OwnershipInfo> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('OwnershipInfo'), z.array(z.literal('OwnershipInfo'))]).optional(),
   '@id': z.string().optional(),
   acquiredFrom: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
   ownedFrom: z.union([z.string(), z.array(z.string())]).optional(),

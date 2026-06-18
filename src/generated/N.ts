@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface NGO {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NGO' | Array<'NGO'>;
   '@id'?: string;
   acceptedPaymentMethod?: s.LoanOrCredit | s.PaymentMethod | string | Array<s.LoanOrCredit | s.PaymentMethod | string>;
   actionableFeedbackPolicy?: s.CreativeWork | string | Array<s.CreativeWork | string>;
@@ -98,7 +98,7 @@ export interface NGO {
 
 export const NGOSchema: z.ZodType<NGO> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('NGO'), z.array(z.literal('NGO'))]).optional(),
   '@id': z.string().optional(),
   acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
   actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
@@ -196,7 +196,7 @@ export const NLNonprofitTypeSchema = z.union([z.literal('schema:NonprofitANBI'),
 
 export interface NailSalon {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NailSalon' | Array<'NailSalon'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -329,7 +329,7 @@ export interface NailSalon {
 
 export const NailSalonSchema: z.ZodType<NailSalon> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('NailSalon'), z.array(z.literal('NailSalon'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -462,7 +462,7 @@ export const NailSalonSchema: z.ZodType<NailSalon> = z.lazy(() => z.object({
 
 export interface Nerve {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Nerve' | Array<'Nerve'>;
   '@id'?: string;
   branch?: s.AnatomicalStructure | Array<s.AnatomicalStructure>;
   nerveMotor?: s.Muscle | Array<s.Muscle>;
@@ -501,7 +501,7 @@ export interface Nerve {
 
 export const NerveSchema: z.ZodType<Nerve> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Nerve'), z.array(z.literal('Nerve'))]).optional(),
   '@id': z.string().optional(),
   branch: z.union([s.AnatomicalStructureSchema, z.array(s.AnatomicalStructureSchema)]).optional(),
   nerveMotor: z.union([s.MuscleSchema, z.array(s.MuscleSchema)]).optional(),
@@ -540,7 +540,7 @@ export const NerveSchema: z.ZodType<Nerve> = z.lazy(() => z.object({
 
 export interface NewsArticle {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NewsArticle' | 'AnalysisNewsArticle' | 'AskPublicNewsArticle' | 'BackgroundNewsArticle' | 'OpinionNewsArticle' | 'ReportageNewsArticle' | 'ReviewNewsArticle' | Array<'NewsArticle' | 'AnalysisNewsArticle' | 'AskPublicNewsArticle' | 'BackgroundNewsArticle' | 'OpinionNewsArticle' | 'ReportageNewsArticle' | 'ReviewNewsArticle'>;
   '@id'?: string;
   dateline?: string | Array<string>;
   printColumn?: string | Array<string>;
@@ -687,7 +687,7 @@ export interface NewsArticle {
 
 export const NewsArticleSchema: z.ZodType<NewsArticle> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('NewsArticle'), z.literal('AnalysisNewsArticle'), z.literal('AskPublicNewsArticle'), z.literal('BackgroundNewsArticle'), z.literal('OpinionNewsArticle'), z.literal('ReportageNewsArticle'), z.literal('ReviewNewsArticle')]), z.array(z.union([z.literal('NewsArticle'), z.literal('AnalysisNewsArticle'), z.literal('AskPublicNewsArticle'), z.literal('BackgroundNewsArticle'), z.literal('OpinionNewsArticle'), z.literal('ReportageNewsArticle'), z.literal('ReviewNewsArticle')]))]).optional(),
   '@id': z.string().optional(),
   dateline: z.union([z.string(), z.array(z.string())]).optional(),
   printColumn: z.union([z.string(), z.array(z.string())]).optional(),
@@ -834,7 +834,7 @@ export const NewsArticleSchema: z.ZodType<NewsArticle> = z.lazy(() => z.object({
 
 export interface NewsMediaOrganization {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NewsMediaOrganization' | Array<'NewsMediaOrganization'>;
   '@id'?: string;
   actionableFeedbackPolicy?: s.CreativeWork | string | Array<s.CreativeWork | string>;
   correctionsPolicy?: s.CreativeWork | string | Array<s.CreativeWork | string>;
@@ -933,7 +933,7 @@ export interface NewsMediaOrganization {
 
 export const NewsMediaOrganizationSchema: z.ZodType<NewsMediaOrganization> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('NewsMediaOrganization'), z.array(z.literal('NewsMediaOrganization'))]).optional(),
   '@id': z.string().optional(),
   actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
   correctionsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
@@ -1032,7 +1032,7 @@ export const NewsMediaOrganizationSchema: z.ZodType<NewsMediaOrganization> = z.l
 
 export interface Newspaper {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Newspaper' | Array<'Newspaper'>;
   '@id'?: string;
   endDate?: string | Array<string>;
   issn?: string | Array<string>;
@@ -1170,7 +1170,7 @@ export interface Newspaper {
 
 export const NewspaperSchema: z.ZodType<Newspaper> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Newspaper'), z.array(z.literal('Newspaper'))]).optional(),
   '@id': z.string().optional(),
   endDate: z.union([z.string(), z.array(z.string())]).optional(),
   issn: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1308,7 +1308,7 @@ export const NewspaperSchema: z.ZodType<Newspaper> = z.lazy(() => z.object({
 
 export interface NightClub {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NightClub' | Array<'NightClub'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -1441,7 +1441,7 @@ export interface NightClub {
 
 export const NightClubSchema: z.ZodType<NightClub> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('NightClub'), z.array(z.literal('NightClub'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1574,7 +1574,7 @@ export const NightClubSchema: z.ZodType<NightClub> = z.lazy(() => z.object({
 
 export interface NonprofitType {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NonprofitType' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType' | Array<'NonprofitType' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType'>;
   '@id'?: string;
   supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
   additionalType?: string | Array<string>;
@@ -1594,7 +1594,7 @@ export interface NonprofitType {
 
 export const NonprofitTypeSchema: z.ZodType<NonprofitType> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.union([z.literal('NonprofitType'), z.literal('DENonprofitType'), z.literal('ITNonprofitType'), z.literal('NLNonprofitType'), z.literal('UKNonprofitType'), z.literal('USNonprofitType')]), z.array(z.union([z.literal('NonprofitType'), z.literal('DENonprofitType'), z.literal('ITNonprofitType'), z.literal('NLNonprofitType'), z.literal('UKNonprofitType'), z.literal('USNonprofitType')]))]).optional(),
   '@id': z.string().optional(),
   supersededBy: z.union([z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]), z.array(z.union([s.ClassSchema, s.EnumerationSchema, s.PropertySchema]))]).optional(),
   additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
@@ -1614,7 +1614,7 @@ export const NonprofitTypeSchema: z.ZodType<NonprofitType> = z.lazy(() => z.obje
 
 export interface Notary {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Notary' | Array<'Notary'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -1747,7 +1747,7 @@ export interface Notary {
 
 export const NotarySchema: z.ZodType<Notary> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Notary'), z.array(z.literal('Notary'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -1880,7 +1880,7 @@ export const NotarySchema: z.ZodType<Notary> = z.lazy(() => z.object({
 
 export interface NoteDigitalDocument {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NoteDigitalDocument' | Array<'NoteDigitalDocument'>;
   '@id'?: string;
   hasDigitalDocumentPermission?: s.DigitalDocumentPermission | Array<s.DigitalDocumentPermission>;
   about?: s.Thing | Array<s.Thing>;
@@ -2016,7 +2016,7 @@ export interface NoteDigitalDocument {
 
 export const NoteDigitalDocumentSchema: z.ZodType<NoteDigitalDocument> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('NoteDigitalDocument'), z.array(z.literal('NoteDigitalDocument'))]).optional(),
   '@id': z.string().optional(),
   hasDigitalDocumentPermission: z.union([s.DigitalDocumentPermissionSchema, z.array(s.DigitalDocumentPermissionSchema)]).optional(),
   about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
@@ -2152,7 +2152,7 @@ export const NoteDigitalDocumentSchema: z.ZodType<NoteDigitalDocument> = z.lazy(
 
 export interface NutritionInformation {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'NutritionInformation' | Array<'NutritionInformation'>;
   '@id'?: string;
   calories?: s.Energy | Array<s.Energy>;
   carbohydrateContent?: s.Mass | Array<s.Mass>;
@@ -2183,7 +2183,7 @@ export interface NutritionInformation {
 
 export const NutritionInformationSchema: z.ZodType<NutritionInformation> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('NutritionInformation'), z.array(z.literal('NutritionInformation'))]).optional(),
   '@id': z.string().optional(),
   calories: z.union([s.EnergySchema, z.array(s.EnergySchema)]).optional(),
   carbohydrateContent: z.union([s.MassSchema, z.array(s.MassSchema)]).optional(),

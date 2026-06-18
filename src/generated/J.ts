@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface JewelryStore {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'JewelryStore' | Array<'JewelryStore'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
   currenciesAccepted?: string | Array<string>;
@@ -136,7 +136,7 @@ export interface JewelryStore {
 
 export const JewelryStoreSchema: z.ZodType<JewelryStore> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('JewelryStore'), z.array(z.literal('JewelryStore'))]).optional(),
   '@id': z.string().optional(),
   branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
   currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
@@ -269,7 +269,7 @@ export const JewelryStoreSchema: z.ZodType<JewelryStore> = z.lazy(() => z.object
 
 export interface JobPosting {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'JobPosting' | Array<'JobPosting'>;
   '@id'?: string;
   applicantLocationRequirements?: s.AdministrativeArea | Array<s.AdministrativeArea>;
   applicationContact?: s.ContactPoint | Array<s.ContactPoint>;
@@ -326,7 +326,7 @@ export interface JobPosting {
 
 export const JobPostingSchema: z.ZodType<JobPosting> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('JobPosting'), z.array(z.literal('JobPosting'))]).optional(),
   '@id': z.string().optional(),
   applicantLocationRequirements: z.union([s.AdministrativeAreaSchema, z.array(s.AdministrativeAreaSchema)]).optional(),
   applicationContact: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
@@ -383,7 +383,7 @@ export const JobPostingSchema: z.ZodType<JobPosting> = z.lazy(() => z.object({
 
 export interface JoinAction {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'JoinAction' | Array<'JoinAction'>;
   '@id'?: string;
   event?: s.Event | Array<s.Event>;
   actionProcess?: s.HowTo | Array<s.HowTo>;
@@ -416,7 +416,7 @@ export interface JoinAction {
 
 export const JoinActionSchema: z.ZodType<JoinAction> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('JoinAction'), z.array(z.literal('JoinAction'))]).optional(),
   '@id': z.string().optional(),
   event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
   actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
@@ -449,7 +449,7 @@ export const JoinActionSchema: z.ZodType<JoinAction> = z.lazy(() => z.object({
 
 export interface Joint {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Joint' | Array<'Joint'>;
   '@id'?: string;
   biomechnicalClass?: string | Array<string>;
   functionalClass?: s.MedicalEntity | string | Array<s.MedicalEntity | string>;
@@ -487,7 +487,7 @@ export interface Joint {
 
 export const JointSchema: z.ZodType<Joint> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Joint'), z.array(z.literal('Joint'))]).optional(),
   '@id': z.string().optional(),
   biomechnicalClass: z.union([z.string(), z.array(z.string())]).optional(),
   functionalClass: z.union([z.union([s.MedicalEntitySchema, z.string()]), z.array(z.union([s.MedicalEntitySchema, z.string()]))]).optional(),

@@ -3,7 +3,7 @@ import * as s from './index';
 
 export interface Zoo {
   '@context'?: s.Context;
-  '@type'?: string | string[];
+  '@type'?: 'Zoo' | Array<'Zoo'>;
   '@id'?: string;
   openingHours?: string | Array<string>;
   additionalProperty?: s.PropertyValue | Array<s.PropertyValue>;
@@ -70,7 +70,7 @@ export interface Zoo {
 
 export const ZooSchema: z.ZodType<Zoo> = z.lazy(() => z.object({
   '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.string(), z.array(z.string())]).optional(),
+  '@type': z.union([z.literal('Zoo'), z.array(z.literal('Zoo'))]).optional(),
   '@id': z.string().optional(),
   openingHours: z.union([z.string(), z.array(z.string())]).optional(),
   additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),

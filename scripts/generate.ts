@@ -32,12 +32,22 @@ async function generate() {
   const properties: Record<string, SchemaNode[]> = {}; // domain -> properties
   const allProperties: Record<string, SchemaNode> = {};
   const enumerations: Record<string, string[]> = {}; // enumId -> values
+  const childMap: Record<string, string[]> = {}; // parentId -> [childIds]
 
   console.log('Processing nodes...');
   for (const node of nodes) {
     const type = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
     if (type.includes('rdfs:Class')) {
       classes[node['@id']] = node;
+
+      const parents = node['rdfs:subClassOf'] ? (Array.isArray(node['rdfs:subClassOf']) ? node['rdfs:subClassOf'] : [node['rdfs:subClassOf']]) : [];
+      for (const parent of parents) {
+        const parentId = parent['@id'];
+        if (parentId) {
+          if (!childMap[parentId]) childMap[parentId] = [];
+          childMap[parentId].push(node['@id']);
+        }
+      }
     } else if (type.includes('rdf:Property')) {
       allProperties[node['@id']] = node;
       const domains = node['schema:domainIncludes'];
@@ -103,6 +113,15 @@ async function generate() {
     return props;
   };
 
+  const getTransitiveSubclasses = (classId: string): string[] => {
+    let result = [classId];
+    const children = childMap[classId] || [];
+    for (const child of children) {
+      result = result.concat(getTransitiveSubclasses(child));
+    }
+    return [...new Set(result)];
+  };
+
   const classIds = Object.keys(classes).sort();
 
   let indexContent = `export * from './base';\n`;
@@ -131,14 +150,20 @@ async function generate() {
       const valLiterals = enumValues.map(v => `z.literal('${v}')`);
       filesContent[fileName] += `export const ${className}Schema = z.union([${valLiterals.join(', ')}]);\n\n`;
     } else {
+      const allowedTypes = getTransitiveSubclasses(classId).map(id => id.replace(/^schema:/, ''));
+      const allowedTypesStr = allowedTypes.map(t => `'${t}'`).join(' | ');
+
       let interfaceContent = `export interface ${className} {\n`;
       interfaceContent += `  '@context'?: s.Context;\n`;
-      interfaceContent += `  '@type'?: string | string[];\n`;
+      interfaceContent += `  '@type'?: ${allowedTypesStr} | Array<${allowedTypesStr}>;\n`;
       interfaceContent += `  '@id'?: string;\n`;
 
       let schemaContent = `export const ${className}Schema: z.ZodType<${className}> = z.lazy(() => z.object({\n`;
       schemaContent += `  '@context': s.ContextSchema.optional(),\n`;
-      schemaContent += `  '@type': z.union([z.string(), z.array(z.string())]).optional(),\n`;
+
+      const typeZodLiterals = allowedTypes.map(t => `z.literal('${t}')`);
+      const typeZodUnion = typeZodLiterals.length > 1 ? `z.union([${typeZodLiterals.join(', ')}])` : typeZodLiterals[0];
+      schemaContent += `  '@type': z.union([${typeZodUnion}, z.array(${typeZodUnion})]).optional(),\n`;
       schemaContent += `  '@id': z.string().optional(),\n`;
 
       const classProps = getInheritedProperties(classId);
