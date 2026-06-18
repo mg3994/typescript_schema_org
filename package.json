@@ -19,7 +19,7 @@
   "scripts": {
     "generate": "tsx scripts/generate.ts",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && tsc -p tsconfig.build.json",
     "test": "vitest run",
     "lint": "tsc --noEmit"
   },
