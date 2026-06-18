@@ -54,6 +54,20 @@ describe('Schema LD Library (Enhanced)', () => {
     expect(Person.validate(patient)).toBe(true);
   });
 
+  it('should support generic validate<Person> syntax', () => {
+    const data = {
+      '@type': 'Person',
+      name: 'John'
+    };
+
+    if (validate<Person>(data, 'Person')) {
+      // TypeScript knows data is Person
+      expect(data.name).toBe('John');
+    } else {
+      throw new Error('Should have validated');
+    }
+  });
+
   it('should serialize with context', () => {
     const person: Person = {
       name: 'John'

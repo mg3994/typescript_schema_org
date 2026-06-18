@@ -70,8 +70,9 @@ export function deserialize<T>(json: string, expectedType: string): T {
 
 /**
  * Validates that an object conforms to the expected Schema.org type based on its @type property.
+ * Can be used as a generic type guard: validate<Person>(data, 'Person')
  */
-export function validate(data: any, expectedType: string): boolean {
+export function validate<T>(data: any, expectedType: string): data is T {
   if (!data || typeof data !== 'object') return false;
 
   const actualTypes = Array.isArray(data['@type']) ? data['@type'] : [data['@type']];
