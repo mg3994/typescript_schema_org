@@ -12,12 +12,9 @@ export default defineConfig({
     sourcemap: false,
     minify: true,
     rollupOptions: {
-      external: ['jsonld', 'zod'],
+      external: [],
       output: {
-        globals: {
-          jsonld: 'jsonld',
-          zod: 'zod',
-        },
+        globals: {},
       },
     },
   },

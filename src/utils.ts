@@ -1,50 +1,55 @@
-import * as jsonld from 'jsonld';
-import { z } from 'zod';
-
-export const SCHEMA_CONTEXT = 'https://schema.org';
+import { typeHierarchy } from './generated/typeHierarchy';
 
 /**
- * Validates an object against a given Zod schema.
+ * Serializes a Schema.org object to a JSON-LD string.
+ * Automatically adds the @context if it's missing.
  */
-export function validate<T>(schema: z.ZodType<T>, data: unknown): T {
-  return schema.parse(data);
+export function serialize(data: any): string {
+  const output = {
+    '@context': 'https://schema.org',
+    ...data,
+  };
+  return JSON.stringify(output);
 }
 
 /**
- * Serializes a TypeScript model to a JSON-LD string.
- * Automatically adds the @context if missing.
+ * Deserializes a JSON-LD string into a Schema.org object.
+ * Does not perform validation.
  */
-export async function serialize(data: any, options: { compact?: boolean } = {}): Promise<string> {
-  let json = { ...data };
-  if (!json['@context']) {
-    json['@context'] = SCHEMA_CONTEXT;
+export function deserialize<T>(json: string): T {
+  return JSON.parse(json) as T;
+}
+
+/**
+ * Validates that an object conforms to the expected Schema.org type based on its @type property.
+ * This is a lightweight check that verifies if the object's @type is the expected type or a valid subclass.
+ *
+ * @param data The object to validate
+ * @param expectedType The Schema.org class name (e.g., 'Person')
+ * @returns boolean
+ */
+export function validate(data: any, expectedType: string): boolean {
+  if (!data || typeof data !== 'object') return false;
+
+  const actualTypes = Array.isArray(data['@type']) ? data['@type'] : [data['@type']];
+  const validTypes = typeHierarchy[expectedType];
+
+  if (!validTypes) {
+    // If the expected type is not in our hierarchy, we can only check for exact match
+    return actualTypes.includes(expectedType);
   }
 
-  if (options.compact) {
-    json = await jsonld.compact(json, SCHEMA_CONTEXT as any);
+  // Check if any of the actual types are valid for the expected type (itself or subclasses)
+  return actualTypes.some((type: string) => validTypes.includes(type));
+}
+
+/**
+ * Asserts that an object is of the expected Schema.org type.
+ * Throws an error if validation fails.
+ */
+export function assertType<T>(data: any, expectedType: string): T {
+  if (!validate(data, expectedType)) {
+    throw new Error(`Object is not a valid ${expectedType}. Found @type: ${data['@type']}`);
   }
-
-  return JSON.stringify(json, null, 2);
-}
-
-/**
- * Deserializes a JSON string into a TypeScript model and validates it.
- */
-export async function deserialize<T>(schema: z.ZodType<T>, jsonStr: string): Promise<T> {
-  const data = JSON.parse(jsonStr);
-  return validate(schema, data);
-}
-
-/**
- * Expands a JSON-LD object to its full form.
- */
-export async function expand(data: any): Promise<any> {
-  return jsonld.expand(data);
-}
-
-/**
- * Compacts a JSON-LD object using a specific context.
- */
-export async function compact(data: any, context: any = SCHEMA_CONTEXT): Promise<any> {
-  return jsonld.compact(data, context);
+  return data as T;
 }

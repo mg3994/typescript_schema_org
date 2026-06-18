@@ -3,220 +3,164 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 
-const SCHEMA_URL = 'https://schema.org/version/latest/schemaorg-current-https.jsonld';
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-interface SchemaNode {
-  '@id': string;
-  '@type': string | string[];
-  'rdfs:comment'?: any;
-  'rdfs:label'?: any;
-  'rdfs:subClassOf'?: any;
-  'schema:domainIncludes'?: any;
-  'schema:rangeIncludes'?: any;
-  'schema:isPartOf'?: any;
-  'schema:source'?: any;
-  'owl:equivalentClass'?: any;
-  [key: string]: any;
-}
+const SCHEMA_URL = 'https://schema.org/version/latest/schemaorg-current-https.jsonld';
+const OUTPUT_DIR = path.join(__dirname, '../src/generated');
 
 async function generate() {
   console.log('Fetching schema...');
   const response = await axios.get(SCHEMA_URL);
   const data = response.data;
-  const nodes: SchemaNode[] = data['@graph'];
+  const nodes = data['@graph'];
 
-  const classes: Record<string, SchemaNode> = {};
-  const properties: Record<string, SchemaNode[]> = {}; // domain -> properties
-  const allProperties: Record<string, SchemaNode> = {};
-  const enumerations: Record<string, string[]> = {}; // enumId -> values
-  const childMap: Record<string, string[]> = {}; // parentId -> [childIds]
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  }
 
-  console.log('Processing nodes...');
-  for (const node of nodes) {
+  const classes: any[] = [];
+  const properties: any[] = [];
+
+  nodes.forEach((node: any) => {
     const type = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
     if (type.includes('rdfs:Class')) {
-      classes[node['@id']] = node;
-
-      const parents = node['rdfs:subClassOf'] ? (Array.isArray(node['rdfs:subClassOf']) ? node['rdfs:subClassOf'] : [node['rdfs:subClassOf']]) : [];
-      for (const parent of parents) {
-        const parentId = parent['@id'];
-        if (parentId) {
-          if (!childMap[parentId]) childMap[parentId] = [];
-          childMap[parentId].push(node['@id']);
-        }
-      }
+      classes.push(node);
     } else if (type.includes('rdf:Property')) {
-      allProperties[node['@id']] = node;
-      const domains = node['schema:domainIncludes'];
-      if (domains) {
-        const domainList = Array.isArray(domains) ? domains : [domains];
-        for (const domain of domainList) {
-          const domainId = domain['@id'];
-          if (!properties[domainId]) properties[domainId] = [];
-          properties[domainId].push(node);
-        }
-      }
-    } else {
-      const nodeTypes = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
-      for (const t of nodeTypes) {
-        if (t && t.startsWith('schema:')) {
-          if (!enumerations[t]) enumerations[t] = [];
-          enumerations[t].push(node['@id']);
-        }
-      }
+      properties.push(node);
     }
+  });
+
+  const classMap = new Map();
+  classes.forEach(c => classMap.set(c['@id'], c));
+
+  const propertyMap = new Map();
+  properties.forEach(p => propertyMap.set(p['@id'], p));
+
+  const subclassesMap = new Map<string, string[]>();
+  classes.forEach(c => {
+    const parents = Array.isArray(c['rdfs:subClassOf']) ? c['rdfs:subClassOf'] : [c['rdfs:subClassOf']].filter(Boolean);
+    parents.forEach((p: any) => {
+      const parentId = p['@id'];
+      if (!subclassesMap.has(parentId)) subclassesMap.set(parentId, []);
+      subclassesMap.get(parentId)!.push(c['@id']);
+    });
+  });
+
+  function getTransitiveSubclasses(classId: string): string[] {
+    const subs = subclassesMap.get(classId) || [];
+    let allSubs = [...subs];
+    subs.forEach(s => {
+      allSubs = allSubs.concat(getTransitiveSubclasses(s));
+    });
+    return Array.from(new Set(allSubs));
   }
 
-  const generatedDir = path.resolve(__dirname, '../src/generated');
-  if (fs.existsSync(generatedDir)) {
-    fs.rmSync(generatedDir, { recursive: true });
+  const typeHierarchy: Record<string, string[]> = {};
+  classes.forEach(c => {
+    const classId = c['@id'];
+    const className = classId.replace('schema:', '');
+    const subs = getTransitiveSubclasses(classId).map(s => s.replace('schema:', ''));
+    typeHierarchy[className] = [className, ...subs];
+  });
+
+  const propertyToRanges = new Map<string, string[]>();
+  properties.forEach(p => {
+    const ranges = Array.isArray(p['schema:rangeIncludes']) ? p['schema:rangeIncludes'] : [p['schema:rangeIncludes']].filter(Boolean);
+    propertyToRanges.set(p['@id'], ranges.map((r: any) => r['@id']));
+  });
+
+  const classToProperties = new Map<string, string[]>();
+  properties.forEach(p => {
+    const domains = Array.isArray(p['schema:domainIncludes']) ? p['schema:domainIncludes'] : [p['schema:domainIncludes']].filter(Boolean);
+    domains.forEach((d: any) => {
+      if (!classToProperties.has(d['@id'])) classToProperties.set(d['@id'], []);
+      classToProperties.get(d['@id'])!.push(p['@id']);
+    });
+  });
+
+  function getInheritedProperties(classId: string): string[] {
+    let props = classToProperties.get(classId) || [];
+    const parents = Array.isArray(classMap.get(classId)?.['rdfs:subClassOf'])
+      ? classMap.get(classId)['rdfs:subClassOf']
+      : [classMap.get(classId)?.['rdfs:subClassOf']].filter(Boolean);
+
+    parents.forEach((p: any) => {
+      props = props.concat(getInheritedProperties(p['@id']));
+    });
+    return Array.from(new Set(props));
   }
-  fs.mkdirSync(generatedDir, { recursive: true });
 
-  console.log('Generating Types and Zod schemas...');
+  const filesByLetter: Record<string, string[]> = {};
 
-  const typeMap: Record<string, { zod: string, ts: string }> = {
-    'schema:Text': { zod: 'z.string()', ts: 'string' },
-    'schema:URL': { zod: 'z.string().url()', ts: 'string' },
-    'schema:Number': { zod: 'z.number()', ts: 'number' },
-    'schema:Integer': { zod: 'z.number().int()', ts: 'number' },
-    'schema:Float': { zod: 'z.number()', ts: 'number' },
-    'schema:Boolean': { zod: 'z.boolean()', ts: 'boolean' },
-    'schema:Date': { zod: 'z.string()', ts: 'string' },
-    'schema:DateTime': { zod: 'z.string()', ts: 'string' },
-    'schema:Time': { zod: 'z.string()', ts: 'string' },
-    'schema:DataType': { zod: 'z.union([z.string(), z.number(), z.boolean()])', ts: 'string | number | boolean' }
-  };
+  console.log('Generating TypeScript interfaces...');
 
-  const getCleanName = (id: string) => {
-    let name = id.replace(/^schema:/, '').replace(/[^a-zA-Z0-9]/g, '_');
-    if (/^[0-9]/.test(name)) {
-      name = '_' + name;
+  classes.forEach(c => {
+    const classId = c['@id'];
+    const className = classId.replace('schema:', '');
+    const sanitizedClassName = className.replace(/[:.-]/g, '_').replace(/^[0-9]/, '_$&');
+
+    let letter = sanitizedClassName[0].toUpperCase();
+    if (/[0-9]/.test(letter) || letter === '_') {
+      letter = 'Special';
     }
-    return name;
-  };
+    if (!filesByLetter[letter]) filesByLetter[letter] = [];
 
-  const getInheritedProperties = (classId: string): SchemaNode[] => {
-    let props = properties[classId] || [];
-    const node = classes[classId];
-    if (node && node['rdfs:subClassOf']) {
-      const parents = Array.isArray(node['rdfs:subClassOf']) ? node['rdfs:subClassOf'] : [node['rdfs:subClassOf']];
-      for (const parent of parents) {
-        if (parent['@id']) {
-          props = props.concat(getInheritedProperties(parent['@id']));
-        }
+    const allowedTypes = typeHierarchy[className] || [className];
+    const allowedTypesStr = allowedTypes.map(t => `'${t}'`).join(' | ');
+
+    let interfaceContent = `export interface ${sanitizedClassName} {\n`;
+    interfaceContent += `  '@context'?: any;\n`;
+    interfaceContent += `  '@type'?: ${allowedTypesStr} | Array<${allowedTypesStr}>;\n`;
+    interfaceContent += `  '@id'?: string;\n`;
+
+    const classProps = getInheritedProperties(classId);
+    classProps.forEach(propId => {
+      const propName = propId.replace('schema:', '');
+      const ranges = propertyToRanges.get(propId) || [];
+      const tsRanges = ranges.map(r => {
+        const rName = r.replace('schema:', '');
+        if (['Text', 'URL', 'CssSelectorType', 'PronounceableText'].includes(rName)) return 'string';
+        if (['Number', 'Integer', 'Float'].includes(rName)) return 'number';
+        if (['Boolean'].includes(rName)) return 'boolean';
+        if (['Date', 'DateTime', 'Time'].includes(rName)) return 'string';
+        const sanitizedRName = rName.replace(/[:.-]/g, '_').replace(/^[0-9]/, '_$&');
+        return `s.${sanitizedRName}`;
+      });
+
+      const uniqueTsRanges = Array.from(new Set(tsRanges));
+      if (uniqueTsRanges.length > 0) {
+        const rangeUnion = uniqueTsRanges.join(' | ');
+        interfaceContent += `  ${propName}?: ${rangeUnion} | Array<${rangeUnion}>;\n`;
+      } else {
+        interfaceContent += `  ${propName}?: any | Array<any>;\n`;
       }
-    }
-    return props;
-  };
+    });
 
-  const getTransitiveSubclasses = (classId: string): string[] => {
-    let result = [classId];
-    const children = childMap[classId] || [];
-    for (const child of children) {
-      result = result.concat(getTransitiveSubclasses(child));
-    }
-    return [...new Set(result)];
-  };
+    interfaceContent += `}\n\n`;
+    filesByLetter[letter].push(interfaceContent);
+  });
 
-  const classIds = Object.keys(classes).sort();
+  // Write files
+  const indexExports: string[] = [];
+  Object.keys(filesByLetter).sort().forEach(letter => {
+    let content = `import * as s from './index';\n\n`;
+    content += filesByLetter[letter].join('\n');
+    fs.writeFileSync(path.join(OUTPUT_DIR, `${letter}.ts`), content);
+    indexExports.push(`export * from './${letter}';`);
+  });
 
-  let indexContent = `export * from './base';\n`;
+  // Export Context and other shared types
+  const sharedTypes = `export type Context = string | Record<string, any>;\n`;
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'shared.ts'), sharedTypes);
+  indexExports.push(`export * from './shared';`);
 
-  const baseContent = `import { z } from 'zod';\n\nexport type Context = string | Record<string, string>;\nexport const ContextSchema = z.union([z.string(), z.record(z.string(), z.string())]);\n`;
-  fs.writeFileSync(path.join(generatedDir, 'base.ts'), baseContent);
+  // Write typeHierarchy for runtime validation
+  const hierarchyContent = `export const typeHierarchy: Record<string, string[]> = ${JSON.stringify(typeHierarchy, null, 2)};\n`;
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'typeHierarchy.ts'), hierarchyContent);
+  indexExports.push(`export * from './typeHierarchy';`);
 
-  const filesContent: Record<string, string> = {};
-
-  for (const classId of classIds) {
-    const className = getCleanName(classId);
-    if (typeMap[classId]) continue;
-
-    const firstChar = className[0].toUpperCase();
-    const fileName = /^[A-Z]/.test(firstChar) ? firstChar : 'Others';
-    if (!filesContent[fileName]) {
-      filesContent[fileName] = `import { z } from 'zod';\nimport * as s from './index';\n\n`;
-      indexContent += `export * from './${fileName}';\n`;
-    }
-
-    const node = classes[classId];
-    const enumValues = enumerations[classId];
-
-    if (enumValues && enumValues.length > 0) {
-      filesContent[fileName] += `export type ${className} = ${enumValues.map(v => `'${v}'`).join(' | ')};\n`;
-      const valLiterals = enumValues.map(v => `z.literal('${v}')`);
-      filesContent[fileName] += `export const ${className}Schema = z.union([${valLiterals.join(', ')}]);\n\n`;
-    } else {
-      const allowedTypes = getTransitiveSubclasses(classId).map(id => id.replace(/^schema:/, ''));
-      const allowedTypesStr = allowedTypes.map(t => `'${t}'`).join(' | ');
-
-      let interfaceContent = `export interface ${className} {\n`;
-      interfaceContent += `  '@context'?: s.Context;\n`;
-      interfaceContent += `  '@type'?: ${allowedTypesStr} | Array<${allowedTypesStr}>;\n`;
-      interfaceContent += `  '@id'?: string;\n`;
-
-      let schemaContent = `export const ${className}Schema: z.ZodType<${className}> = z.lazy(() => z.object({\n`;
-      schemaContent += `  '@context': s.ContextSchema.optional(),\n`;
-
-      const typeZodLiterals = allowedTypes.map(t => `z.literal('${t}')`);
-      const typeZodUnion = typeZodLiterals.length > 1 ? `z.union([${typeZodLiterals.join(', ')}])` : typeZodLiterals[0];
-      schemaContent += `  '@type': z.union([${typeZodUnion}, z.array(${typeZodUnion})]).optional(),\n`;
-      schemaContent += `  '@id': z.string().optional(),\n`;
-
-      const classProps = getInheritedProperties(classId);
-      const seenProps = new Set<string>();
-
-      for (const prop of classProps) {
-        const propId = prop['@id'];
-        if (seenProps.has(propId)) continue;
-        seenProps.add(propId);
-
-        const propName = propId.replace('schema:', '');
-        const ranges = prop['schema:rangeIncludes'];
-        const rangeList = Array.isArray(ranges) ? ranges : [ranges];
-
-        const tsTypes = rangeList.map(r => {
-          if (!r) return 'any';
-          const rId = r['@id'];
-          if (typeMap[rId]) return typeMap[rId].ts;
-          const rName = getCleanName(rId);
-          if (classes[rId]) return `s.${rName}`;
-          return 'any';
-        });
-
-        const zodTypes = rangeList.map(r => {
-          if (!r) return 'z.any()';
-          const rId = r['@id'];
-          if (typeMap[rId]) return typeMap[rId].zod;
-          const rName = getCleanName(rId);
-          if (classes[rId]) return `s.${rName}Schema`;
-          return 'z.any()';
-        });
-
-        const uniqueTsTypes = [...new Set(tsTypes)];
-        const uniqueZodTypes = [...new Set(zodTypes)];
-
-        const tsTypeStr = uniqueTsTypes.join(' | ');
-        const zodTypeStr = uniqueZodTypes.length > 1 ? `z.union([${uniqueZodTypes.join(', ')}])` : uniqueZodTypes[0];
-
-        interfaceContent += `  ${propName}?: ${tsTypeStr} | Array<${tsTypeStr}>;\n`;
-        schemaContent += `  ${propName}: z.union([${zodTypeStr}, z.array(${zodTypeStr})]).optional(),\n`;
-      }
-
-      interfaceContent += `}\n\n`;
-      schemaContent += `}));\n\n`;
-
-      filesContent[fileName] += interfaceContent + schemaContent;
-    }
-  }
-
-  for (const fileName in filesContent) {
-    fs.writeFileSync(path.join(generatedDir, `${fileName}.ts`), filesContent[fileName]);
-  }
-  fs.writeFileSync(path.join(generatedDir, 'index.ts'), indexContent);
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'index.ts'), indexExports.join('\n'));
 
   console.log('Generation complete!');
 }

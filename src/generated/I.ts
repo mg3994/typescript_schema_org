@@ -1,14 +1,49 @@
-import { z } from 'zod';
 import * as s from './index';
 
-export type IPTCDigitalSourceEnumeration = 'schema:AlgorithmicMediaDigitalSource' | 'schema:AlgorithmicallyEnhancedDigitalSource' | 'schema:CompositeCaptureDigitalSource' | 'schema:CompositeDigitalSource' | 'schema:CompositeSyntheticDigitalSource' | 'schema:CompositeWithTrainedAlgorithmicMediaDigitalSource' | 'schema:DataDrivenMediaDigitalSource' | 'schema:DigitalArtDigitalSource' | 'schema:DigitalCaptureDigitalSource' | 'schema:MinorHumanEditsDigitalSource' | 'schema:MultiFrameComputationalCaptureDigitalSource' | 'schema:NegativeFilmDigitalSource' | 'schema:PositiveFilmDigitalSource' | 'schema:PrintDigitalSource' | 'schema:ScreenCaptureDigitalSource' | 'schema:TrainedAlgorithmicMediaDigitalSource' | 'schema:VirtualRecordingDigitalSource';
-export const IPTCDigitalSourceEnumerationSchema = z.union([z.literal('schema:AlgorithmicMediaDigitalSource'), z.literal('schema:AlgorithmicallyEnhancedDigitalSource'), z.literal('schema:CompositeCaptureDigitalSource'), z.literal('schema:CompositeDigitalSource'), z.literal('schema:CompositeSyntheticDigitalSource'), z.literal('schema:CompositeWithTrainedAlgorithmicMediaDigitalSource'), z.literal('schema:DataDrivenMediaDigitalSource'), z.literal('schema:DigitalArtDigitalSource'), z.literal('schema:DigitalCaptureDigitalSource'), z.literal('schema:MinorHumanEditsDigitalSource'), z.literal('schema:MultiFrameComputationalCaptureDigitalSource'), z.literal('schema:NegativeFilmDigitalSource'), z.literal('schema:PositiveFilmDigitalSource'), z.literal('schema:PrintDigitalSource'), z.literal('schema:ScreenCaptureDigitalSource'), z.literal('schema:TrainedAlgorithmicMediaDigitalSource'), z.literal('schema:VirtualRecordingDigitalSource')]);
+export interface IPTCDigitalSourceEnumeration {
+  '@context'?: any;
+  '@type'?: 'IPTCDigitalSourceEnumeration' | Array<'IPTCDigitalSourceEnumeration'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
 
-export type ITNonprofitType = 'schema:ITCooperativeCharity' | 'schema:ITMutualAidCharity' | 'schema:ITSocialCompanyCharity' | 'schema:ITSocialPromotionCharity' | 'schema:ITSportCompanyCharity' | 'schema:ITVolunteerAssociationCharity';
-export const ITNonprofitTypeSchema = z.union([z.literal('schema:ITCooperativeCharity'), z.literal('schema:ITMutualAidCharity'), z.literal('schema:ITSocialCompanyCharity'), z.literal('schema:ITSocialPromotionCharity'), z.literal('schema:ITSportCompanyCharity'), z.literal('schema:ITVolunteerAssociationCharity')]);
+
+export interface ITNonprofitType {
+  '@context'?: any;
+  '@type'?: 'ITNonprofitType' | Array<'ITNonprofitType'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
+
 
 export interface IceCreamShop {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'IceCreamShop' | Array<'IceCreamShop'>;
   '@id'?: string;
   acceptsReservations?: boolean | string | Array<boolean | string>;
@@ -145,146 +180,9 @@ export interface IceCreamShop {
   tourBookingPage?: string | Array<string>;
 }
 
-export const IceCreamShopSchema: z.ZodType<IceCreamShop> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('IceCreamShop'), z.array(z.literal('IceCreamShop'))]).optional(),
-  '@id': z.string().optional(),
-  acceptsReservations: z.union([z.union([z.boolean(), z.string(), z.string().url()]), z.array(z.union([z.boolean(), z.string(), z.string().url()]))]).optional(),
-  hasMenu: z.union([z.union([s.MenuSchema, z.string(), z.string().url()]), z.array(z.union([s.MenuSchema, z.string(), z.string().url()]))]).optional(),
-  menu: z.union([z.union([s.MenuSchema, z.string(), z.string().url()]), z.array(z.union([s.MenuSchema, z.string(), z.string().url()]))]).optional(),
-  servesCuisine: z.union([z.string(), z.array(z.string())]).optional(),
-  starRating: z.union([s.RatingSchema, z.array(s.RatingSchema)]).optional(),
-  branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  floorLevel: z.union([z.string(), z.array(z.string())]).optional(),
-  openingHours: z.union([z.string(), z.array(z.string())]).optional(),
-  paymentAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  priceRange: z.union([z.string(), z.array(z.string())]).optional(),
-  acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
-  actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
-  agentInteractionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alumni: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  areaServed: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  brand: z.union([z.union([s.BrandSchema, s.OrganizationSchema]), z.array(z.union([s.BrandSchema, s.OrganizationSchema]))]).optional(),
-  companyRegistration: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  contactPoint: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  contactPoints: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  correctionsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  department: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  dissolutionDate: z.union([z.string(), z.array(z.string())]).optional(),
-  diversityPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  diversityStaffingReport: z.union([z.union([s.ArticleSchema, z.string().url()]), z.array(z.union([s.ArticleSchema, z.string().url()]))]).optional(),
-  duns: z.union([z.string(), z.array(z.string())]).optional(),
-  email: z.union([z.string(), z.array(z.string())]).optional(),
-  employee: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  employees: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  ethicsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  events: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  faxNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  founder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  founders: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  foundingDate: z.union([z.string(), z.array(z.string())]).optional(),
-  foundingLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  globalLocationNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  hasCertification: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  hasCredential: z.union([s.CredentialSchema, z.array(s.CredentialSchema)]).optional(),
-  hasGS1DigitalLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  hasMemberProgram: z.union([s.MemberProgramSchema, z.array(s.MemberProgramSchema)]).optional(),
-  hasMerchantReturnPolicy: z.union([s.MerchantReturnPolicySchema, z.array(s.MerchantReturnPolicySchema)]).optional(),
-  hasOfferCatalog: z.union([s.OfferCatalogSchema, z.array(s.OfferCatalogSchema)]).optional(),
-  hasPOS: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  hasShippingService: z.union([s.ShippingServiceSchema, z.array(s.ShippingServiceSchema)]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  isicV4: z.union([z.string(), z.array(z.string())]).optional(),
-  iso6523Code: z.union([z.string(), z.array(z.string())]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  knowsAbout: z.union([z.union([z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  knowsLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  legalAddress: z.union([s.PostalAddressSchema, z.array(s.PostalAddressSchema)]).optional(),
-  legalName: z.union([z.string(), z.array(z.string())]).optional(),
-  legalRepresentative: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  leiCode: z.union([z.string(), z.array(z.string())]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  logo: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  makesOffer: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
-  member: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  memberOf: z.union([z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]), z.array(z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]))]).optional(),
-  members: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  naics: z.union([z.string(), z.array(z.string())]).optional(),
-  nonprofitStatus: z.union([s.NonprofitTypeSchema, z.array(s.NonprofitTypeSchema)]).optional(),
-  numberOfEmployees: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
-  ownershipFundingInfo: z.union([z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]), z.array(z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]))]).optional(),
-  owns: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  parentOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  seeks: z.union([s.DemandSchema, z.array(s.DemandSchema)]).optional(),
-  serviceArea: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]))]).optional(),
-  skills: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  slogan: z.union([z.string(), z.array(z.string())]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  subOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  taxID: z.union([z.string(), z.array(z.string())]).optional(),
-  telephone: z.union([z.string(), z.array(z.string())]).optional(),
-  unnamedSourcesPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  vatID: z.union([z.string(), z.array(z.string())]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
-  amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
-  branchCode: z.union([z.string(), z.array(z.string())]).optional(),
-  containedIn: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containedInPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containsPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  geo: z.union([z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]), z.array(z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]))]).optional(),
-  geoContains: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCoveredBy: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCovers: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCrosses: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoDisjoint: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoEquals: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoIntersects: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoOverlaps: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoTouches: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoWithin: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  hasDriveThroughService: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  hasMap: z.union([z.union([s.MapSchema, z.string().url()]), z.array(z.union([s.MapSchema, z.string().url()]))]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  latitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  longitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  map: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maps: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maximumAttendeeCapacity: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  openingHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  photo: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  photos: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  publicAccess: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  smokingAllowed: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  specialOpeningHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  tourBookingPage: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface IgnoreAction {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'IgnoreAction' | Array<'IgnoreAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
@@ -315,40 +213,9 @@ export interface IgnoreAction {
   url?: string | Array<string>;
 }
 
-export const IgnoreActionSchema: z.ZodType<IgnoreAction> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('IgnoreAction'), z.array(z.literal('IgnoreAction'))]).optional(),
-  '@id': z.string().optional(),
-  actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
-  actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
-  agent: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  error: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  instrument: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  object: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  participant: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  result: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  target: z.union([z.union([s.EntryPointSchema, z.string().url()]), z.array(z.union([s.EntryPointSchema, z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface ImageGallery {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'ImageGallery' | Array<'ImageGallery'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
@@ -492,153 +359,9 @@ export interface ImageGallery {
   url?: string | Array<string>;
 }
 
-export const ImageGallerySchema: z.ZodType<ImageGallery> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('ImageGallery'), z.array(z.literal('ImageGallery'))]).optional(),
-  '@id': z.string().optional(),
-  breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
-  lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),
-  mainContentOfPage: z.union([s.WebPageElementSchema, z.array(s.WebPageElementSchema)]).optional(),
-  primaryImageOfPage: z.union([s.ImageObjectSchema, z.array(s.ImageObjectSchema)]).optional(),
-  relatedLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  reviewedBy: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  significantLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  significantLinks: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  speakable: z.union([z.union([s.SpeakableSpecificationSchema, z.string().url()]), z.array(z.union([s.SpeakableSpecificationSchema, z.string().url()]))]).optional(),
-  specialty: z.union([s.SpecialtySchema, z.array(s.SpecialtySchema)]).optional(),
-  about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  abstract: z.union([z.string(), z.array(z.string())]).optional(),
-  accessMode: z.union([z.string(), z.array(z.string())]).optional(),
-  accessModeSufficient: z.union([s.ItemListSchema, z.array(s.ItemListSchema)]).optional(),
-  accessibilityAPI: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityControl: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityFeature: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityHazard: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilitySummary: z.union([z.string(), z.array(z.string())]).optional(),
-  accountablePerson: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  acquireLicensePage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alternativeHeadline: z.union([z.string(), z.array(z.string())]).optional(),
-  archivedAt: z.union([z.union([z.string().url(), s.WebPageSchema]), z.array(z.union([z.string().url(), s.WebPageSchema]))]).optional(),
-  assesses: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  associatedMedia: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  audio: z.union([z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]), z.array(z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]))]).optional(),
-  author: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  character: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  citation: z.union([z.union([s.CreativeWorkSchema, z.string()]), z.array(z.union([s.CreativeWorkSchema, z.string()]))]).optional(),
-  comment: z.union([s.CommentSchema, z.array(s.CommentSchema)]).optional(),
-  commentCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  conditionsOfAccess: z.union([z.string(), z.array(z.string())]).optional(),
-  contentLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  contentRating: z.union([z.union([s.RatingSchema, z.string()]), z.array(z.union([s.RatingSchema, z.string()]))]).optional(),
-  contentReferenceTime: z.union([z.string(), z.array(z.string())]).optional(),
-  contributor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightHolder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightNotice: z.union([z.string(), z.array(z.string())]).optional(),
-  copyrightYear: z.union([z.number(), z.array(z.number())]).optional(),
-  correction: z.union([z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]), z.array(z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]))]).optional(),
-  countryOfOrigin: z.union([s.CountrySchema, z.array(s.CountrySchema)]).optional(),
-  creativeWorkStatus: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  creator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  creditText: z.union([z.string(), z.array(z.string())]).optional(),
-  dateCreated: z.union([z.string(), z.array(z.string())]).optional(),
-  dateModified: z.union([z.string(), z.array(z.string())]).optional(),
-  datePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  digitalSourceType: z.union([s.IPTCDigitalSourceEnumerationSchema, z.array(s.IPTCDigitalSourceEnumerationSchema)]).optional(),
-  discussionUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  displayLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  editEIDR: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  editor: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  educationalAlignment: z.union([s.AlignmentObjectSchema, z.array(s.AlignmentObjectSchema)]).optional(),
-  educationalLevel: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  educationalUse: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  encoding: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  encodingFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  encodings: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  exampleOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  expires: z.union([z.string(), z.array(z.string())]).optional(),
-  fileFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  genre: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  hasPart: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  headline: z.union([z.string(), z.array(z.string())]).optional(),
-  inLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  interactivityType: z.union([z.string(), z.array(z.string())]).optional(),
-  interpretedAsClaim: z.union([s.ClaimSchema, z.array(s.ClaimSchema)]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isBasedOn: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isBasedOnUrl: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isFamilyFriendly: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isPartOf: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  learningResourceType: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  license: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  locationCreated: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  mainEntity: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  maintainer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  material: z.union([z.union([s.ProductSchema, z.string(), z.string().url()]), z.array(z.union([s.ProductSchema, z.string(), z.string().url()]))]).optional(),
-  materialExtent: z.union([z.union([s.QuantitativeValueSchema, z.string()]), z.array(z.union([s.QuantitativeValueSchema, z.string()]))]).optional(),
-  mentions: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  offers: z.union([z.union([s.DemandSchema, s.OfferSchema]), z.array(z.union([s.DemandSchema, s.OfferSchema]))]).optional(),
-  pattern: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  position: z.union([z.union([z.number().int(), z.string()]), z.array(z.union([z.number().int(), z.string()]))]).optional(),
-  producer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publication: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  publisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publisherImprint: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  recordedAt: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  releasedEvent: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  schemaVersion: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  sdDatePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  sdLicense: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  sdPublisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  size: z.union([z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]))]).optional(),
-  sourceOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  spatial: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  spatialCoverage: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  teaches: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  temporal: z.union([z.string(), z.array(z.string())]).optional(),
-  temporalCoverage: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  text: z.union([z.string(), z.array(z.string())]).optional(),
-  thumbnail: z.union([s.ImageObjectSchema, z.array(s.ImageObjectSchema)]).optional(),
-  thumbnailUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  timeRequired: z.union([s.DurationSchema, z.array(s.DurationSchema)]).optional(),
-  translationOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  translator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  typicalAgeRange: z.union([z.string(), z.array(z.string())]).optional(),
-  usageInfo: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  version: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  video: z.union([z.union([s.ClipSchema, s.VideoObjectSchema]), z.array(z.union([s.ClipSchema, s.VideoObjectSchema]))]).optional(),
-  wordCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  workExample: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  workTranslation: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface ImageObject {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'ImageObject' | 'Barcode' | 'ImageObjectSnapshot' | Array<'ImageObject' | 'Barcode' | 'ImageObjectSnapshot'>;
   '@id'?: string;
   caption?: s.MediaObject | string | Array<s.MediaObject | string>;
@@ -794,165 +517,9 @@ export interface ImageObject {
   url?: string | Array<string>;
 }
 
-export const ImageObjectSchema: z.ZodType<ImageObject> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('ImageObject'), z.literal('Barcode'), z.literal('ImageObjectSnapshot')]), z.array(z.union([z.literal('ImageObject'), z.literal('Barcode'), z.literal('ImageObjectSnapshot')]))]).optional(),
-  '@id': z.string().optional(),
-  caption: z.union([z.union([s.MediaObjectSchema, z.string()]), z.array(z.union([s.MediaObjectSchema, z.string()]))]).optional(),
-  embeddedTextCaption: z.union([z.string(), z.array(z.string())]).optional(),
-  exifData: z.union([z.union([s.PropertyValueSchema, z.string()]), z.array(z.union([s.PropertyValueSchema, z.string()]))]).optional(),
-  representativeOfPage: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  associatedArticle: z.union([s.NewsArticleSchema, z.array(s.NewsArticleSchema)]).optional(),
-  bitrate: z.union([z.string(), z.array(z.string())]).optional(),
-  contentSize: z.union([z.string(), z.array(z.string())]).optional(),
-  contentUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  duration: z.union([z.union([s.DurationSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DurationSchema, s.QuantitativeValueSchema]))]).optional(),
-  embedUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  encodesCreativeWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  encodingFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  height: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
-  ineligibleRegion: z.union([z.union([s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  interpretedAsClaim: z.union([s.ClaimSchema, z.array(s.ClaimSchema)]).optional(),
-  playerType: z.union([z.string(), z.array(z.string())]).optional(),
-  productionCompany: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  regionsAllowed: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  requiresSubscription: z.union([z.union([z.boolean(), s.MediaSubscriptionSchema]), z.array(z.union([z.boolean(), s.MediaSubscriptionSchema]))]).optional(),
-  sha256: z.union([z.string(), z.array(z.string())]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  uploadDate: z.union([z.string(), z.array(z.string())]).optional(),
-  width: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
-  about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  abstract: z.union([z.string(), z.array(z.string())]).optional(),
-  accessMode: z.union([z.string(), z.array(z.string())]).optional(),
-  accessModeSufficient: z.union([s.ItemListSchema, z.array(s.ItemListSchema)]).optional(),
-  accessibilityAPI: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityControl: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityFeature: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityHazard: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilitySummary: z.union([z.string(), z.array(z.string())]).optional(),
-  accountablePerson: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  acquireLicensePage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alternativeHeadline: z.union([z.string(), z.array(z.string())]).optional(),
-  archivedAt: z.union([z.union([z.string().url(), s.WebPageSchema]), z.array(z.union([z.string().url(), s.WebPageSchema]))]).optional(),
-  assesses: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  associatedMedia: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  audio: z.union([z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]), z.array(z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]))]).optional(),
-  author: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  character: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  citation: z.union([z.union([s.CreativeWorkSchema, z.string()]), z.array(z.union([s.CreativeWorkSchema, z.string()]))]).optional(),
-  comment: z.union([s.CommentSchema, z.array(s.CommentSchema)]).optional(),
-  commentCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  conditionsOfAccess: z.union([z.string(), z.array(z.string())]).optional(),
-  contentLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  contentRating: z.union([z.union([s.RatingSchema, z.string()]), z.array(z.union([s.RatingSchema, z.string()]))]).optional(),
-  contentReferenceTime: z.union([z.string(), z.array(z.string())]).optional(),
-  contributor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightHolder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightNotice: z.union([z.string(), z.array(z.string())]).optional(),
-  copyrightYear: z.union([z.number(), z.array(z.number())]).optional(),
-  correction: z.union([z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]), z.array(z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]))]).optional(),
-  countryOfOrigin: z.union([s.CountrySchema, z.array(s.CountrySchema)]).optional(),
-  creativeWorkStatus: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  creator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  creditText: z.union([z.string(), z.array(z.string())]).optional(),
-  dateCreated: z.union([z.string(), z.array(z.string())]).optional(),
-  dateModified: z.union([z.string(), z.array(z.string())]).optional(),
-  datePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  digitalSourceType: z.union([s.IPTCDigitalSourceEnumerationSchema, z.array(s.IPTCDigitalSourceEnumerationSchema)]).optional(),
-  discussionUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  displayLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  editEIDR: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  editor: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  educationalAlignment: z.union([s.AlignmentObjectSchema, z.array(s.AlignmentObjectSchema)]).optional(),
-  educationalLevel: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  educationalUse: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  encoding: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  encodings: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  exampleOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  expires: z.union([z.string(), z.array(z.string())]).optional(),
-  fileFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  genre: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  hasPart: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  headline: z.union([z.string(), z.array(z.string())]).optional(),
-  inLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  interactivityType: z.union([z.string(), z.array(z.string())]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isBasedOn: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isBasedOnUrl: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isFamilyFriendly: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isPartOf: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  learningResourceType: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  license: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  locationCreated: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  mainEntity: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  maintainer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  material: z.union([z.union([s.ProductSchema, z.string(), z.string().url()]), z.array(z.union([s.ProductSchema, z.string(), z.string().url()]))]).optional(),
-  materialExtent: z.union([z.union([s.QuantitativeValueSchema, z.string()]), z.array(z.union([s.QuantitativeValueSchema, z.string()]))]).optional(),
-  mentions: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  offers: z.union([z.union([s.DemandSchema, s.OfferSchema]), z.array(z.union([s.DemandSchema, s.OfferSchema]))]).optional(),
-  pattern: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  position: z.union([z.union([z.number().int(), z.string()]), z.array(z.union([z.number().int(), z.string()]))]).optional(),
-  producer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publication: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  publisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publisherImprint: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  recordedAt: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  releasedEvent: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  schemaVersion: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  sdDatePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  sdLicense: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  sdPublisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  size: z.union([z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]))]).optional(),
-  sourceOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  spatial: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  spatialCoverage: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  teaches: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  temporal: z.union([z.string(), z.array(z.string())]).optional(),
-  temporalCoverage: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  text: z.union([z.string(), z.array(z.string())]).optional(),
-  thumbnail: z.union([s.ImageObjectSchema, z.array(s.ImageObjectSchema)]).optional(),
-  thumbnailUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  timeRequired: z.union([s.DurationSchema, z.array(s.DurationSchema)]).optional(),
-  translationOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  translator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  typicalAgeRange: z.union([z.string(), z.array(z.string())]).optional(),
-  usageInfo: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  version: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  video: z.union([z.union([s.ClipSchema, s.VideoObjectSchema]), z.array(z.union([s.ClipSchema, s.VideoObjectSchema]))]).optional(),
-  wordCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  workExample: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  workTranslation: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface ImageObjectSnapshot {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'ImageObjectSnapshot' | Array<'ImageObjectSnapshot'>;
   '@id'?: string;
   caption?: s.MediaObject | string | Array<s.MediaObject | string>;
@@ -1108,165 +675,9 @@ export interface ImageObjectSnapshot {
   url?: string | Array<string>;
 }
 
-export const ImageObjectSnapshotSchema: z.ZodType<ImageObjectSnapshot> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('ImageObjectSnapshot'), z.array(z.literal('ImageObjectSnapshot'))]).optional(),
-  '@id': z.string().optional(),
-  caption: z.union([z.union([s.MediaObjectSchema, z.string()]), z.array(z.union([s.MediaObjectSchema, z.string()]))]).optional(),
-  embeddedTextCaption: z.union([z.string(), z.array(z.string())]).optional(),
-  exifData: z.union([z.union([s.PropertyValueSchema, z.string()]), z.array(z.union([s.PropertyValueSchema, z.string()]))]).optional(),
-  representativeOfPage: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  associatedArticle: z.union([s.NewsArticleSchema, z.array(s.NewsArticleSchema)]).optional(),
-  bitrate: z.union([z.string(), z.array(z.string())]).optional(),
-  contentSize: z.union([z.string(), z.array(z.string())]).optional(),
-  contentUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  duration: z.union([z.union([s.DurationSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DurationSchema, s.QuantitativeValueSchema]))]).optional(),
-  embedUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  encodesCreativeWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  encodingFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  height: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
-  ineligibleRegion: z.union([z.union([s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  interpretedAsClaim: z.union([s.ClaimSchema, z.array(s.ClaimSchema)]).optional(),
-  playerType: z.union([z.string(), z.array(z.string())]).optional(),
-  productionCompany: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  regionsAllowed: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  requiresSubscription: z.union([z.union([z.boolean(), s.MediaSubscriptionSchema]), z.array(z.union([z.boolean(), s.MediaSubscriptionSchema]))]).optional(),
-  sha256: z.union([z.string(), z.array(z.string())]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  uploadDate: z.union([z.string(), z.array(z.string())]).optional(),
-  width: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
-  about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  abstract: z.union([z.string(), z.array(z.string())]).optional(),
-  accessMode: z.union([z.string(), z.array(z.string())]).optional(),
-  accessModeSufficient: z.union([s.ItemListSchema, z.array(s.ItemListSchema)]).optional(),
-  accessibilityAPI: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityControl: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityFeature: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityHazard: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilitySummary: z.union([z.string(), z.array(z.string())]).optional(),
-  accountablePerson: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  acquireLicensePage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alternativeHeadline: z.union([z.string(), z.array(z.string())]).optional(),
-  archivedAt: z.union([z.union([z.string().url(), s.WebPageSchema]), z.array(z.union([z.string().url(), s.WebPageSchema]))]).optional(),
-  assesses: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  associatedMedia: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  audio: z.union([z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]), z.array(z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]))]).optional(),
-  author: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  character: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  citation: z.union([z.union([s.CreativeWorkSchema, z.string()]), z.array(z.union([s.CreativeWorkSchema, z.string()]))]).optional(),
-  comment: z.union([s.CommentSchema, z.array(s.CommentSchema)]).optional(),
-  commentCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  conditionsOfAccess: z.union([z.string(), z.array(z.string())]).optional(),
-  contentLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  contentRating: z.union([z.union([s.RatingSchema, z.string()]), z.array(z.union([s.RatingSchema, z.string()]))]).optional(),
-  contentReferenceTime: z.union([z.string(), z.array(z.string())]).optional(),
-  contributor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightHolder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightNotice: z.union([z.string(), z.array(z.string())]).optional(),
-  copyrightYear: z.union([z.number(), z.array(z.number())]).optional(),
-  correction: z.union([z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]), z.array(z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]))]).optional(),
-  countryOfOrigin: z.union([s.CountrySchema, z.array(s.CountrySchema)]).optional(),
-  creativeWorkStatus: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  creator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  creditText: z.union([z.string(), z.array(z.string())]).optional(),
-  dateCreated: z.union([z.string(), z.array(z.string())]).optional(),
-  dateModified: z.union([z.string(), z.array(z.string())]).optional(),
-  datePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  digitalSourceType: z.union([s.IPTCDigitalSourceEnumerationSchema, z.array(s.IPTCDigitalSourceEnumerationSchema)]).optional(),
-  discussionUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  displayLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  editEIDR: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  editor: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  educationalAlignment: z.union([s.AlignmentObjectSchema, z.array(s.AlignmentObjectSchema)]).optional(),
-  educationalLevel: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  educationalUse: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  encoding: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  encodings: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  exampleOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  expires: z.union([z.string(), z.array(z.string())]).optional(),
-  fileFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  genre: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  hasPart: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  headline: z.union([z.string(), z.array(z.string())]).optional(),
-  inLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  interactivityType: z.union([z.string(), z.array(z.string())]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isBasedOn: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isBasedOnUrl: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isFamilyFriendly: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isPartOf: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  learningResourceType: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  license: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  locationCreated: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  mainEntity: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  maintainer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  material: z.union([z.union([s.ProductSchema, z.string(), z.string().url()]), z.array(z.union([s.ProductSchema, z.string(), z.string().url()]))]).optional(),
-  materialExtent: z.union([z.union([s.QuantitativeValueSchema, z.string()]), z.array(z.union([s.QuantitativeValueSchema, z.string()]))]).optional(),
-  mentions: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  offers: z.union([z.union([s.DemandSchema, s.OfferSchema]), z.array(z.union([s.DemandSchema, s.OfferSchema]))]).optional(),
-  pattern: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  position: z.union([z.union([z.number().int(), z.string()]), z.array(z.union([z.number().int(), z.string()]))]).optional(),
-  producer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publication: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  publisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publisherImprint: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  recordedAt: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  releasedEvent: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  schemaVersion: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  sdDatePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  sdLicense: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  sdPublisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  size: z.union([z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]))]).optional(),
-  sourceOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  spatial: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  spatialCoverage: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  teaches: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  temporal: z.union([z.string(), z.array(z.string())]).optional(),
-  temporalCoverage: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  text: z.union([z.string(), z.array(z.string())]).optional(),
-  thumbnail: z.union([s.ImageObjectSchema, z.array(s.ImageObjectSchema)]).optional(),
-  thumbnailUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  timeRequired: z.union([s.DurationSchema, z.array(s.DurationSchema)]).optional(),
-  translationOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  translator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  typicalAgeRange: z.union([z.string(), z.array(z.string())]).optional(),
-  usageInfo: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  version: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  video: z.union([z.union([s.ClipSchema, s.VideoObjectSchema]), z.array(z.union([s.ClipSchema, s.VideoObjectSchema]))]).optional(),
-  wordCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  workExample: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  workTranslation: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface ImagingTest {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'ImagingTest' | Array<'ImagingTest'>;
   '@id'?: string;
   imagingTechnique?: s.MedicalImagingTechnique | Array<s.MedicalImagingTechnique>;
@@ -1298,50 +709,72 @@ export interface ImagingTest {
   url?: string | Array<string>;
 }
 
-export const ImagingTestSchema: z.ZodType<ImagingTest> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('ImagingTest'), z.array(z.literal('ImagingTest'))]).optional(),
-  '@id': z.string().optional(),
-  imagingTechnique: z.union([s.MedicalImagingTechniqueSchema, z.array(s.MedicalImagingTechniqueSchema)]).optional(),
-  affectedBy: z.union([s.DrugSchema, z.array(s.DrugSchema)]).optional(),
-  normalRange: z.union([z.union([s.MedicalEnumerationSchema, z.string()]), z.array(z.union([s.MedicalEnumerationSchema, z.string()]))]).optional(),
-  signDetected: z.union([s.MedicalSignSchema, z.array(s.MedicalSignSchema)]).optional(),
-  usedToDiagnose: z.union([s.MedicalConditionSchema, z.array(s.MedicalConditionSchema)]).optional(),
-  usesDevice: z.union([s.MedicalDeviceSchema, z.array(s.MedicalDeviceSchema)]).optional(),
-  code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  guideline: z.union([s.MedicalGuidelineSchema, z.array(s.MedicalGuidelineSchema)]).optional(),
-  legalStatus: z.union([z.union([s.DrugLegalStatusSchema, s.MedicalEnumerationSchema, z.string()]), z.array(z.union([s.DrugLegalStatusSchema, s.MedicalEnumerationSchema, z.string()]))]).optional(),
-  medicineSystem: z.union([s.MedicineSystemSchema, z.array(s.MedicineSystemSchema)]).optional(),
-  recognizingAuthority: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  relevantSpecialty: z.union([s.MedicalSpecialtySchema, z.array(s.MedicalSpecialtySchema)]).optional(),
-  study: z.union([s.MedicalStudySchema, z.array(s.MedicalStudySchema)]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
-export type IncentiveQualifiedExpenseType = 'schema:IncentiveQualifiedExpenseTypeGoodsOnly' | 'schema:IncentiveQualifiedExpenseTypeGoodsOrServices' | 'schema:IncentiveQualifiedExpenseTypeServicesOnly' | 'schema:IncentiveQualifiedExpenseTypeUtilityBill';
-export const IncentiveQualifiedExpenseTypeSchema = z.union([z.literal('schema:IncentiveQualifiedExpenseTypeGoodsOnly'), z.literal('schema:IncentiveQualifiedExpenseTypeGoodsOrServices'), z.literal('schema:IncentiveQualifiedExpenseTypeServicesOnly'), z.literal('schema:IncentiveQualifiedExpenseTypeUtilityBill')]);
+export interface IncentiveQualifiedExpenseType {
+  '@context'?: any;
+  '@type'?: 'IncentiveQualifiedExpenseType' | Array<'IncentiveQualifiedExpenseType'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
 
-export type IncentiveStatus = 'schema:IncentiveStatusActive' | 'schema:IncentiveStatusInDevelopment' | 'schema:IncentiveStatusOnHold' | 'schema:IncentiveStatusRetired';
-export const IncentiveStatusSchema = z.union([z.literal('schema:IncentiveStatusActive'), z.literal('schema:IncentiveStatusInDevelopment'), z.literal('schema:IncentiveStatusOnHold'), z.literal('schema:IncentiveStatusRetired')]);
 
-export type IncentiveType = 'schema:IncentiveTypeLoan' | 'schema:IncentiveTypeRebateOrSubsidy' | 'schema:IncentiveTypeTaxCredit' | 'schema:IncentiveTypeTaxDeduction' | 'schema:IncentiveTypeTaxWaiver';
-export const IncentiveTypeSchema = z.union([z.literal('schema:IncentiveTypeLoan'), z.literal('schema:IncentiveTypeRebateOrSubsidy'), z.literal('schema:IncentiveTypeTaxCredit'), z.literal('schema:IncentiveTypeTaxDeduction'), z.literal('schema:IncentiveTypeTaxWaiver')]);
+export interface IncentiveStatus {
+  '@context'?: any;
+  '@type'?: 'IncentiveStatus' | Array<'IncentiveStatus'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
+
+
+export interface IncentiveType {
+  '@context'?: any;
+  '@type'?: 'IncentiveType' | Array<'IncentiveType'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
+
 
 export interface IndividualPhysician {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'IndividualPhysician' | Array<'IndividualPhysician'>;
   '@id'?: string;
   practicesAt?: s.MedicalOrganization | Array<s.MedicalOrganization>;
@@ -1481,149 +914,9 @@ export interface IndividualPhysician {
   isAcceptingNewPatients?: boolean | Array<boolean>;
 }
 
-export const IndividualPhysicianSchema: z.ZodType<IndividualPhysician> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('IndividualPhysician'), z.array(z.literal('IndividualPhysician'))]).optional(),
-  '@id': z.string().optional(),
-  practicesAt: z.union([s.MedicalOrganizationSchema, z.array(s.MedicalOrganizationSchema)]).optional(),
-  availableService: z.union([z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]), z.array(z.union([s.MedicalProcedureSchema, s.MedicalTestSchema, s.MedicalTherapySchema]))]).optional(),
-  hospitalAffiliation: z.union([s.HospitalSchema, z.array(s.HospitalSchema)]).optional(),
-  medicalSpecialty: z.union([s.MedicalSpecialtySchema, z.array(s.MedicalSpecialtySchema)]).optional(),
-  occupationalCategory: z.union([z.union([s.CategoryCodeSchema, z.string()]), z.array(z.union([s.CategoryCodeSchema, z.string()]))]).optional(),
-  usNPI: z.union([z.string(), z.array(z.string())]).optional(),
-  branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  floorLevel: z.union([z.string(), z.array(z.string())]).optional(),
-  openingHours: z.union([z.string(), z.array(z.string())]).optional(),
-  paymentAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  priceRange: z.union([z.string(), z.array(z.string())]).optional(),
-  acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
-  actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
-  agentInteractionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alumni: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  areaServed: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  brand: z.union([z.union([s.BrandSchema, s.OrganizationSchema]), z.array(z.union([s.BrandSchema, s.OrganizationSchema]))]).optional(),
-  companyRegistration: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  contactPoint: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  contactPoints: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  correctionsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  department: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  dissolutionDate: z.union([z.string(), z.array(z.string())]).optional(),
-  diversityPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  diversityStaffingReport: z.union([z.union([s.ArticleSchema, z.string().url()]), z.array(z.union([s.ArticleSchema, z.string().url()]))]).optional(),
-  duns: z.union([z.string(), z.array(z.string())]).optional(),
-  email: z.union([z.string(), z.array(z.string())]).optional(),
-  employee: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  employees: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  ethicsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  events: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  faxNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  founder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  founders: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  foundingDate: z.union([z.string(), z.array(z.string())]).optional(),
-  foundingLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  globalLocationNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  hasCertification: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  hasCredential: z.union([s.CredentialSchema, z.array(s.CredentialSchema)]).optional(),
-  hasGS1DigitalLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  hasMemberProgram: z.union([s.MemberProgramSchema, z.array(s.MemberProgramSchema)]).optional(),
-  hasMerchantReturnPolicy: z.union([s.MerchantReturnPolicySchema, z.array(s.MerchantReturnPolicySchema)]).optional(),
-  hasOfferCatalog: z.union([s.OfferCatalogSchema, z.array(s.OfferCatalogSchema)]).optional(),
-  hasPOS: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  hasShippingService: z.union([s.ShippingServiceSchema, z.array(s.ShippingServiceSchema)]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  isicV4: z.union([z.string(), z.array(z.string())]).optional(),
-  iso6523Code: z.union([z.string(), z.array(z.string())]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  knowsAbout: z.union([z.union([z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  knowsLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  legalAddress: z.union([s.PostalAddressSchema, z.array(s.PostalAddressSchema)]).optional(),
-  legalName: z.union([z.string(), z.array(z.string())]).optional(),
-  legalRepresentative: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  leiCode: z.union([z.string(), z.array(z.string())]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  logo: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  makesOffer: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
-  member: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  memberOf: z.union([z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]), z.array(z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]))]).optional(),
-  members: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  naics: z.union([z.string(), z.array(z.string())]).optional(),
-  nonprofitStatus: z.union([s.NonprofitTypeSchema, z.array(s.NonprofitTypeSchema)]).optional(),
-  numberOfEmployees: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
-  ownershipFundingInfo: z.union([z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]), z.array(z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]))]).optional(),
-  owns: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  parentOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  seeks: z.union([s.DemandSchema, z.array(s.DemandSchema)]).optional(),
-  serviceArea: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]))]).optional(),
-  skills: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  slogan: z.union([z.string(), z.array(z.string())]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  subOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  taxID: z.union([z.string(), z.array(z.string())]).optional(),
-  telephone: z.union([z.string(), z.array(z.string())]).optional(),
-  unnamedSourcesPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  vatID: z.union([z.string(), z.array(z.string())]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
-  amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
-  branchCode: z.union([z.string(), z.array(z.string())]).optional(),
-  containedIn: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containedInPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containsPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  geo: z.union([z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]), z.array(z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]))]).optional(),
-  geoContains: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCoveredBy: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCovers: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCrosses: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoDisjoint: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoEquals: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoIntersects: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoOverlaps: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoTouches: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoWithin: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  hasDriveThroughService: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  hasMap: z.union([z.union([s.MapSchema, z.string().url()]), z.array(z.union([s.MapSchema, z.string().url()]))]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  latitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  longitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  map: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maps: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maximumAttendeeCapacity: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  openingHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  photo: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  photos: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  publicAccess: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  smokingAllowed: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  specialOpeningHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  tourBookingPage: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  healthPlanNetworkId: z.union([z.string(), z.array(z.string())]).optional(),
-  isAcceptingNewPatients: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-}));
 
 export interface IndividualProduct {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'IndividualProduct' | Array<'IndividualProduct'>;
   '@id'?: string;
   serialNumber?: string | Array<string>;
@@ -1701,90 +994,30 @@ export interface IndividualProduct {
   url?: string | Array<string>;
 }
 
-export const IndividualProductSchema: z.ZodType<IndividualProduct> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('IndividualProduct'), z.array(z.literal('IndividualProduct'))]).optional(),
-  '@id': z.string().optional(),
-  serialNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  asin: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  brand: z.union([z.union([s.BrandSchema, s.OrganizationSchema]), z.array(z.union([s.BrandSchema, s.OrganizationSchema]))]).optional(),
-  category: z.union([z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  color: z.union([z.string(), z.array(z.string())]).optional(),
-  colorSwatch: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  countryOfAssembly: z.union([z.string(), z.array(z.string())]).optional(),
-  countryOfLastProcessing: z.union([z.string(), z.array(z.string())]).optional(),
-  countryOfOrigin: z.union([s.CountrySchema, z.array(s.CountrySchema)]).optional(),
-  depth: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
-  displayLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  gtin: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  gtin12: z.union([z.string(), z.array(z.string())]).optional(),
-  gtin13: z.union([z.string(), z.array(z.string())]).optional(),
-  gtin14: z.union([z.string(), z.array(z.string())]).optional(),
-  gtin8: z.union([z.string(), z.array(z.string())]).optional(),
-  hasAdultConsideration: z.union([s.AdultOrientedEnumerationSchema, z.array(s.AdultOrientedEnumerationSchema)]).optional(),
-  hasCertification: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  hasEnergyConsumptionDetails: z.union([s.EnergyConsumptionDetailsSchema, z.array(s.EnergyConsumptionDetailsSchema)]).optional(),
-  hasGS1DigitalLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  hasMeasurement: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
-  hasMerchantReturnPolicy: z.union([s.MerchantReturnPolicySchema, z.array(s.MerchantReturnPolicySchema)]).optional(),
-  height: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
-  inProductGroupWithID: z.union([z.string(), z.array(z.string())]).optional(),
-  isAccessoryOrSparePartFor: z.union([s.ProductSchema, z.array(s.ProductSchema)]).optional(),
-  isConsumableFor: z.union([s.ProductSchema, z.array(s.ProductSchema)]).optional(),
-  isFamilyFriendly: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isRelatedTo: z.union([z.union([s.ProductSchema, s.ServiceSchema]), z.array(z.union([s.ProductSchema, s.ServiceSchema]))]).optional(),
-  isSimilarTo: z.union([z.union([s.ProductSchema, s.ServiceSchema]), z.array(z.union([s.ProductSchema, s.ServiceSchema]))]).optional(),
-  isVariantOf: z.union([z.union([s.ProductGroupSchema, s.ProductModelSchema]), z.array(z.union([s.ProductGroupSchema, s.ProductModelSchema]))]).optional(),
-  itemCondition: z.union([s.OfferItemConditionSchema, z.array(s.OfferItemConditionSchema)]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  logo: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  manufacturer: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  material: z.union([z.union([s.ProductSchema, z.string(), z.string().url()]), z.array(z.union([s.ProductSchema, z.string(), z.string().url()]))]).optional(),
-  mobileUrl: z.union([z.string(), z.array(z.string())]).optional(),
-  model: z.union([z.union([s.ProductModelSchema, z.string()]), z.array(z.union([s.ProductModelSchema, z.string()]))]).optional(),
-  mpn: z.union([z.string(), z.array(z.string())]).optional(),
-  negativeNotes: z.union([z.union([s.ItemListSchema, s.ListItemSchema, z.string(), s.WebContentSchema]), z.array(z.union([s.ItemListSchema, s.ListItemSchema, z.string(), s.WebContentSchema]))]).optional(),
-  nsn: z.union([z.string(), z.array(z.string())]).optional(),
-  offers: z.union([z.union([s.DemandSchema, s.OfferSchema]), z.array(z.union([s.DemandSchema, s.OfferSchema]))]).optional(),
-  pattern: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  positiveNotes: z.union([z.union([s.ItemListSchema, s.ListItemSchema, z.string(), s.WebContentSchema]), z.array(z.union([s.ItemListSchema, s.ListItemSchema, z.string(), s.WebContentSchema]))]).optional(),
-  productID: z.union([z.string(), z.array(z.string())]).optional(),
-  productionDate: z.union([z.string(), z.array(z.string())]).optional(),
-  purchaseDate: z.union([z.string(), z.array(z.string())]).optional(),
-  releaseDate: z.union([z.string(), z.array(z.string())]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  size: z.union([z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]))]).optional(),
-  sku: z.union([z.string(), z.array(z.string())]).optional(),
-  slogan: z.union([z.string(), z.array(z.string())]).optional(),
-  weight: z.union([z.union([s.MassSchema, s.QuantitativeValueSchema]), z.array(z.union([s.MassSchema, s.QuantitativeValueSchema]))]).optional(),
-  width: z.union([z.union([s.DistanceSchema, s.QuantitativeValueSchema]), z.array(z.union([s.DistanceSchema, s.QuantitativeValueSchema]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
-export type InfectiousAgentClass = 'schema:Bacteria' | 'schema:Fungus' | 'schema:MulticellularParasite' | 'schema:Prion' | 'schema:Protozoa' | 'schema:Virus';
-export const InfectiousAgentClassSchema = z.union([z.literal('schema:Bacteria'), z.literal('schema:Fungus'), z.literal('schema:MulticellularParasite'), z.literal('schema:Prion'), z.literal('schema:Protozoa'), z.literal('schema:Virus')]);
+export interface InfectiousAgentClass {
+  '@context'?: any;
+  '@type'?: 'InfectiousAgentClass' | Array<'InfectiousAgentClass'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
+
 
 export interface InfectiousDisease {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InfectiousDisease' | Array<'InfectiousDisease'>;
   '@id'?: string;
   infectiousAgent?: string | Array<string>;
@@ -1830,55 +1063,9 @@ export interface InfectiousDisease {
   url?: string | Array<string>;
 }
 
-export const InfectiousDiseaseSchema: z.ZodType<InfectiousDisease> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('InfectiousDisease'), z.array(z.literal('InfectiousDisease'))]).optional(),
-  '@id': z.string().optional(),
-  infectiousAgent: z.union([z.string(), z.array(z.string())]).optional(),
-  infectiousAgentClass: z.union([s.InfectiousAgentClassSchema, z.array(s.InfectiousAgentClassSchema)]).optional(),
-  transmissionMethod: z.union([z.string(), z.array(z.string())]).optional(),
-  associatedAnatomy: z.union([z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]), z.array(z.union([s.AnatomicalStructureSchema, s.AnatomicalSystemSchema, s.SuperficialAnatomySchema]))]).optional(),
-  cause: z.union([s.MedicalCauseSchema, z.array(s.MedicalCauseSchema)]).optional(),
-  differentialDiagnosis: z.union([s.DDxElementSchema, z.array(s.DDxElementSchema)]).optional(),
-  drug: z.union([s.DrugSchema, z.array(s.DrugSchema)]).optional(),
-  epidemiology: z.union([z.string(), z.array(z.string())]).optional(),
-  expectedPrognosis: z.union([z.string(), z.array(z.string())]).optional(),
-  naturalProgression: z.union([z.string(), z.array(z.string())]).optional(),
-  pathophysiology: z.union([z.string(), z.array(z.string())]).optional(),
-  possibleComplication: z.union([z.string(), z.array(z.string())]).optional(),
-  possibleTreatment: z.union([z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]), z.array(z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]))]).optional(),
-  primaryPrevention: z.union([s.MedicalTherapySchema, z.array(s.MedicalTherapySchema)]).optional(),
-  riskFactor: z.union([s.MedicalRiskFactorSchema, z.array(s.MedicalRiskFactorSchema)]).optional(),
-  secondaryPrevention: z.union([z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]), z.array(z.union([s.DrugSchema, s.DrugClassSchema, s.LifestyleModificationSchema, s.MedicalTherapySchema]))]).optional(),
-  signOrSymptom: z.union([s.MedicalSignOrSymptomSchema, z.array(s.MedicalSignOrSymptomSchema)]).optional(),
-  stage: z.union([s.MedicalConditionStageSchema, z.array(s.MedicalConditionStageSchema)]).optional(),
-  status: z.union([z.union([s.EventStatusTypeSchema, s.MedicalStudyStatusSchema, z.string()]), z.array(z.union([s.EventStatusTypeSchema, s.MedicalStudyStatusSchema, z.string()]))]).optional(),
-  typicalTest: z.union([s.MedicalTestSchema, z.array(s.MedicalTestSchema)]).optional(),
-  code: z.union([s.MedicalCodeSchema, z.array(s.MedicalCodeSchema)]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  guideline: z.union([s.MedicalGuidelineSchema, z.array(s.MedicalGuidelineSchema)]).optional(),
-  legalStatus: z.union([z.union([s.DrugLegalStatusSchema, s.MedicalEnumerationSchema, z.string()]), z.array(z.union([s.DrugLegalStatusSchema, s.MedicalEnumerationSchema, z.string()]))]).optional(),
-  medicineSystem: z.union([s.MedicineSystemSchema, z.array(s.MedicineSystemSchema)]).optional(),
-  recognizingAuthority: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  relevantSpecialty: z.union([s.MedicalSpecialtySchema, z.array(s.MedicalSpecialtySchema)]).optional(),
-  study: z.union([s.MedicalStudySchema, z.array(s.MedicalStudySchema)]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InformAction {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InformAction' | 'ConfirmAction' | 'RsvpAction' | Array<'InformAction' | 'ConfirmAction' | 'RsvpAction'>;
   '@id'?: string;
   event?: s.Event | Array<s.Event>;
@@ -1914,45 +1101,9 @@ export interface InformAction {
   url?: string | Array<string>;
 }
 
-export const InformActionSchema: z.ZodType<InformAction> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction')]), z.array(z.union([z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction')]))]).optional(),
-  '@id': z.string().optional(),
-  event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  inLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  language: z.union([s.LanguageSchema, z.array(s.LanguageSchema)]).optional(),
-  recipient: z.union([z.union([s.AudienceSchema, s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.AudienceSchema, s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
-  actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
-  agent: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  error: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  instrument: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  object: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  participant: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  result: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  target: z.union([z.union([s.EntryPointSchema, z.string().url()]), z.array(z.union([s.EntryPointSchema, z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InsertAction {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InsertAction' | 'AppendAction' | 'PrependAction' | Array<'InsertAction' | 'AppendAction' | 'PrependAction'>;
   '@id'?: string;
   toLocation?: s.Place | Array<s.Place>;
@@ -1986,43 +1137,9 @@ export interface InsertAction {
   url?: string | Array<string>;
 }
 
-export const InsertActionSchema: z.ZodType<InsertAction> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('InsertAction'), z.literal('AppendAction'), z.literal('PrependAction')]), z.array(z.union([z.literal('InsertAction'), z.literal('AppendAction'), z.literal('PrependAction')]))]).optional(),
-  '@id': z.string().optional(),
-  toLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  collection: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  targetCollection: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
-  actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
-  agent: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  error: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  instrument: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  object: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  participant: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  result: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  target: z.union([z.union([s.EntryPointSchema, z.string().url()]), z.array(z.union([s.EntryPointSchema, z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InstallAction {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InstallAction' | Array<'InstallAction'>;
   '@id'?: string;
   actionAccessibilityRequirement?: s.ActionAccessSpecification | Array<s.ActionAccessSpecification>;
@@ -2055,42 +1172,9 @@ export interface InstallAction {
   url?: string | Array<string>;
 }
 
-export const InstallActionSchema: z.ZodType<InstallAction> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('InstallAction'), z.array(z.literal('InstallAction'))]).optional(),
-  '@id': z.string().optional(),
-  actionAccessibilityRequirement: z.union([s.ActionAccessSpecificationSchema, z.array(s.ActionAccessSpecificationSchema)]).optional(),
-  expectsAcceptanceOf: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
-  actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
-  actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
-  agent: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  error: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  instrument: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  object: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  participant: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  result: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  target: z.union([z.union([s.EntryPointSchema, z.string().url()]), z.array(z.union([s.EntryPointSchema, z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InstantaneousEvent {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InstantaneousEvent' | 'Error' | Array<'InstantaneousEvent' | 'Error'>;
   '@id'?: string;
   data?: s.Thing | Array<s.Thing>;
@@ -2111,30 +1195,9 @@ export interface InstantaneousEvent {
   url?: string | Array<string>;
 }
 
-export const InstantaneousEventSchema: z.ZodType<InstantaneousEvent> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('InstantaneousEvent'), z.literal('Error')]), z.array(z.union([z.literal('InstantaneousEvent'), z.literal('Error')]))]).optional(),
-  '@id': z.string().optional(),
-  data: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  source: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  timestamp: z.union([z.string(), z.array(z.string())]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InsuranceAgency {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InsuranceAgency' | Array<'InsuranceAgency'>;
   '@id'?: string;
   feesAndCommissionsSpecification?: string | Array<string>;
@@ -2267,143 +1330,10 @@ export interface InsuranceAgency {
   tourBookingPage?: string | Array<string>;
 }
 
-export const InsuranceAgencySchema: z.ZodType<InsuranceAgency> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('InsuranceAgency'), z.array(z.literal('InsuranceAgency'))]).optional(),
-  '@id': z.string().optional(),
-  feesAndCommissionsSpecification: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  floorLevel: z.union([z.string(), z.array(z.string())]).optional(),
-  openingHours: z.union([z.string(), z.array(z.string())]).optional(),
-  paymentAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  priceRange: z.union([z.string(), z.array(z.string())]).optional(),
-  acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
-  actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
-  agentInteractionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alumni: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  areaServed: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  brand: z.union([z.union([s.BrandSchema, s.OrganizationSchema]), z.array(z.union([s.BrandSchema, s.OrganizationSchema]))]).optional(),
-  companyRegistration: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  contactPoint: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  contactPoints: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  correctionsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  department: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  dissolutionDate: z.union([z.string(), z.array(z.string())]).optional(),
-  diversityPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  diversityStaffingReport: z.union([z.union([s.ArticleSchema, z.string().url()]), z.array(z.union([s.ArticleSchema, z.string().url()]))]).optional(),
-  duns: z.union([z.string(), z.array(z.string())]).optional(),
-  email: z.union([z.string(), z.array(z.string())]).optional(),
-  employee: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  employees: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  ethicsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  events: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  faxNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  founder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  founders: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  foundingDate: z.union([z.string(), z.array(z.string())]).optional(),
-  foundingLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  globalLocationNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  hasCertification: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  hasCredential: z.union([s.CredentialSchema, z.array(s.CredentialSchema)]).optional(),
-  hasGS1DigitalLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  hasMemberProgram: z.union([s.MemberProgramSchema, z.array(s.MemberProgramSchema)]).optional(),
-  hasMerchantReturnPolicy: z.union([s.MerchantReturnPolicySchema, z.array(s.MerchantReturnPolicySchema)]).optional(),
-  hasOfferCatalog: z.union([s.OfferCatalogSchema, z.array(s.OfferCatalogSchema)]).optional(),
-  hasPOS: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  hasShippingService: z.union([s.ShippingServiceSchema, z.array(s.ShippingServiceSchema)]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  isicV4: z.union([z.string(), z.array(z.string())]).optional(),
-  iso6523Code: z.union([z.string(), z.array(z.string())]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  knowsAbout: z.union([z.union([z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  knowsLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  legalAddress: z.union([s.PostalAddressSchema, z.array(s.PostalAddressSchema)]).optional(),
-  legalName: z.union([z.string(), z.array(z.string())]).optional(),
-  legalRepresentative: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  leiCode: z.union([z.string(), z.array(z.string())]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  logo: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  makesOffer: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
-  member: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  memberOf: z.union([z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]), z.array(z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]))]).optional(),
-  members: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  naics: z.union([z.string(), z.array(z.string())]).optional(),
-  nonprofitStatus: z.union([s.NonprofitTypeSchema, z.array(s.NonprofitTypeSchema)]).optional(),
-  numberOfEmployees: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
-  ownershipFundingInfo: z.union([z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]), z.array(z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]))]).optional(),
-  owns: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  parentOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  seeks: z.union([s.DemandSchema, z.array(s.DemandSchema)]).optional(),
-  serviceArea: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]))]).optional(),
-  skills: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  slogan: z.union([z.string(), z.array(z.string())]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  subOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  taxID: z.union([z.string(), z.array(z.string())]).optional(),
-  telephone: z.union([z.string(), z.array(z.string())]).optional(),
-  unnamedSourcesPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  vatID: z.union([z.string(), z.array(z.string())]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
-  amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
-  branchCode: z.union([z.string(), z.array(z.string())]).optional(),
-  containedIn: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containedInPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containsPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  geo: z.union([z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]), z.array(z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]))]).optional(),
-  geoContains: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCoveredBy: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCovers: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCrosses: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoDisjoint: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoEquals: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoIntersects: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoOverlaps: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoTouches: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoWithin: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  hasDriveThroughService: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  hasMap: z.union([z.union([s.MapSchema, z.string().url()]), z.array(z.union([s.MapSchema, z.string().url()]))]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  latitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  longitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  map: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maps: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maximumAttendeeCapacity: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  openingHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  photo: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  photos: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  publicAccess: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  smokingAllowed: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  specialOpeningHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  tourBookingPage: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface Intangible {
-  '@context'?: s.Context;
-  '@type'?: 'Intangible' | 'ActionAccessSpecification' | 'AlignmentObject' | 'Audience' | 'BusinessAudience' | 'EducationalAudience' | 'MedicalAudience' | 'Patient' | 'PeopleAudience' | 'ParentAudience' | 'Researcher' | 'BedDetails' | 'Brand' | 'BroadcastChannel' | 'RadioChannel' | 'AMRadioChannel' | 'FMRadioChannel' | 'TelevisionChannel' | 'BroadcastFrequencySpecification' | 'Class' | 'ComputerLanguage' | 'ConstraintNode' | 'StatisticalVariable' | 'DataFeedItem' | 'DefinedTerm' | 'CategoryCode' | 'MedicalCode' | 'Demand' | 'DigitalDocumentPermission' | 'EducationalOccupationalProgram' | 'WorkBasedProgram' | 'EnergyConsumptionDetails' | 'EntryPoint' | 'Enumeration' | 'AdultOrientedEnumeration' | 'BoardingPolicyType' | 'BookFormatType' | 'BusinessEntityType' | 'BusinessFunction' | 'CarUsageType' | 'CertificationStatusEnumeration' | 'ContactPointOption' | 'DayOfWeek' | 'DeliveryMethod' | 'DigitalDocumentPermissionType' | 'DigitalPlatformEnumeration' | 'EnergyEfficiencyEnumeration' | 'EUEnergyEfficiencyEnumeration' | 'EnergyStarEnergyEfficiencyEnumeration' | 'EventAttendanceModeEnumeration' | 'FulfillmentTypeEnumeration' | 'GameAvailabilityEnumeration' | 'GamePlayMode' | 'GenderType' | 'GovernmentBenefitsType' | 'HealthAspectEnumeration' | 'IncentiveQualifiedExpenseType' | 'IncentiveStatus' | 'IncentiveType' | 'ItemAvailability' | 'ItemListOrderType' | 'LegalValueLevel' | 'MapCategoryType' | 'MeasurementMethodEnum' | 'MeasurementTypeEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration' | 'MediaEnumeration' | 'IPTCDigitalSourceEnumeration' | 'MediaManipulationRatingEnumeration' | 'MedicalEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam' | 'MerchantReturnEnumeration' | 'MusicAlbumProductionType' | 'MusicAlbumReleaseType' | 'MusicReleaseFormatType' | 'NonprofitType' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType' | 'OfferItemCondition' | 'PaymentMethodType' | 'PhysicalActivityCategory' | 'PriceComponentTypeEnumeration' | 'PriceTypeEnumeration' | 'PurchaseType' | 'QualitativeValue' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue' | 'RefundTypeEnumeration' | 'RestrictedDiet' | 'ReturnFeesEnumeration' | 'ReturnLabelSourceEnumeration' | 'ReturnMethodEnumeration' | 'RsvpResponseType' | 'SizeGroupEnumeration' | 'WearableSizeGroupEnumeration' | 'SizeSystemEnumeration' | 'WearableSizeSystemEnumeration' | 'Specialty' | 'StatusEnumeration' | 'ActionStatusType' | 'EventStatusType' | 'GameServerStatus' | 'LegalForceStatus' | 'OrderStatus' | 'PaymentStatusType' | 'ReservationStatusType' | 'TierBenefitEnumeration' | 'WarrantyScope' | 'FinancialIncentive' | 'FloorPlan' | 'GameServer' | 'GeospatialGeometry' | 'Grant' | 'MonetaryGrant' | 'HealthInsurancePlan' | 'HealthPlanCostSharingSpecification' | 'HealthPlanFormulary' | 'HealthPlanNetwork' | 'Invoice' | 'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | 'JobPosting' | 'Language' | 'ListItem' | 'HowToDirection' | 'HowToItem' | 'HowToSupply' | 'HowToTool' | 'HowToTip' | 'MediaSubscription' | 'MemberProgram' | 'MemberProgramTier' | 'MenuItem' | 'MerchantReturnPolicy' | 'MerchantReturnPolicySeasonalOverride' | 'Observation' | 'Occupation' | 'OccupationalExperienceRequirements' | 'Offer' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase' | 'Order' | 'ParcelDelivery' | 'PaymentMethod' | 'PaymentCard' | 'CreditCard' | 'PaymentService' | 'Permit' | 'GovernmentPermit' | 'ProgramMembership' | 'Property' | 'PropertyValueSpecification' | 'Rating' | 'AggregateRating' | 'EmployerAggregateRating' | 'EndorsementRating' | 'Reservation' | 'BoatReservation' | 'BusReservation' | 'EventReservation' | 'FlightReservation' | 'FoodEstablishmentReservation' | 'LodgingReservation' | 'RentalCarReservation' | 'ReservationPackage' | 'TaxiReservation' | 'TrainReservation' | 'Role' | 'LinkRole' | 'OrganizationRole' | 'EmployeeRole' | 'PerformanceRole' | 'Schedule' | 'Seat' | 'Series' | 'CreativeWorkSeries' | 'BookSeries' | 'MovieSeries' | 'Periodical' | 'ComicSeries' | 'Newspaper' | 'PodcastSeries' | 'RadioSeries' | 'TVSeries' | 'VideoGameSeries' | 'EventSeries' | 'Service' | 'BroadcastService' | 'RadioBroadcastService' | 'CableOrSatelliteService' | 'FinancialProduct' | 'BankAccount' | 'DepositAccount' | 'CurrencyConversionService' | 'InvestmentOrDeposit' | 'BrokerageAccount' | 'InvestmentFund' | 'LoanOrCredit' | 'MortgageLoan' | 'FoodService' | 'GovernmentService' | 'Taxi' | 'TaxiService' | 'WebAPI' | 'ServiceChannel' | 'SpeakableSpecification' | 'StatisticalPopulation' | 'StructuredValue' | 'CDCPMDRecord' | 'ContactPoint' | 'PostalAddress' | 'DatedMoneySpecification' | 'DefinedRegion' | 'EngineSpecification' | 'ExchangeRateSpecification' | 'GeoCoordinates' | 'GeoShape' | 'GeoCircle' | 'InstantaneousEvent' | 'Error' | 'InteractionCounter' | 'MonetaryAmount' | 'NutritionInformation' | 'OfferShippingDetails' | 'OpeningHoursSpecification' | 'OrderItem' | 'OwnershipInfo' | 'PostalCodeRangeSpecification' | 'PriceSpecification' | 'CompoundPriceSpecification' | 'DeliveryChargeSpecification' | 'PaymentChargeSpecification' | 'UnitPriceSpecification' | 'PropertyValue' | 'LocationFeatureSpecification' | 'QuantitativeValue' | 'QuantitativeValueDistribution' | 'MonetaryAmountDistribution' | 'RepaymentSpecification' | 'ServicePeriod' | 'ShippingConditions' | 'ShippingDeliveryTime' | 'ShippingRateSettings' | 'ShippingService' | 'TypeAndQuantityNode' | 'WarrantyPromise' | 'Ticket' | 'Trip' | 'BoatTrip' | 'BusTrip' | 'Flight' | 'TouristTrip' | 'TrainTrip' | 'VirtualLocation' | Array<'Intangible' | 'ActionAccessSpecification' | 'AlignmentObject' | 'Audience' | 'BusinessAudience' | 'EducationalAudience' | 'MedicalAudience' | 'Patient' | 'PeopleAudience' | 'ParentAudience' | 'Researcher' | 'BedDetails' | 'Brand' | 'BroadcastChannel' | 'RadioChannel' | 'AMRadioChannel' | 'FMRadioChannel' | 'TelevisionChannel' | 'BroadcastFrequencySpecification' | 'Class' | 'ComputerLanguage' | 'ConstraintNode' | 'StatisticalVariable' | 'DataFeedItem' | 'DefinedTerm' | 'CategoryCode' | 'MedicalCode' | 'Demand' | 'DigitalDocumentPermission' | 'EducationalOccupationalProgram' | 'WorkBasedProgram' | 'EnergyConsumptionDetails' | 'EntryPoint' | 'Enumeration' | 'AdultOrientedEnumeration' | 'BoardingPolicyType' | 'BookFormatType' | 'BusinessEntityType' | 'BusinessFunction' | 'CarUsageType' | 'CertificationStatusEnumeration' | 'ContactPointOption' | 'DayOfWeek' | 'DeliveryMethod' | 'DigitalDocumentPermissionType' | 'DigitalPlatformEnumeration' | 'EnergyEfficiencyEnumeration' | 'EUEnergyEfficiencyEnumeration' | 'EnergyStarEnergyEfficiencyEnumeration' | 'EventAttendanceModeEnumeration' | 'FulfillmentTypeEnumeration' | 'GameAvailabilityEnumeration' | 'GamePlayMode' | 'GenderType' | 'GovernmentBenefitsType' | 'HealthAspectEnumeration' | 'IncentiveQualifiedExpenseType' | 'IncentiveStatus' | 'IncentiveType' | 'ItemAvailability' | 'ItemListOrderType' | 'LegalValueLevel' | 'MapCategoryType' | 'MeasurementMethodEnum' | 'MeasurementTypeEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration' | 'MediaEnumeration' | 'IPTCDigitalSourceEnumeration' | 'MediaManipulationRatingEnumeration' | 'MedicalEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam' | 'MerchantReturnEnumeration' | 'MusicAlbumProductionType' | 'MusicAlbumReleaseType' | 'MusicReleaseFormatType' | 'NonprofitType' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType' | 'OfferItemCondition' | 'PaymentMethodType' | 'PhysicalActivityCategory' | 'PriceComponentTypeEnumeration' | 'PriceTypeEnumeration' | 'PurchaseType' | 'QualitativeValue' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue' | 'RefundTypeEnumeration' | 'RestrictedDiet' | 'ReturnFeesEnumeration' | 'ReturnLabelSourceEnumeration' | 'ReturnMethodEnumeration' | 'RsvpResponseType' | 'SizeGroupEnumeration' | 'WearableSizeGroupEnumeration' | 'SizeSystemEnumeration' | 'WearableSizeSystemEnumeration' | 'Specialty' | 'StatusEnumeration' | 'ActionStatusType' | 'EventStatusType' | 'GameServerStatus' | 'LegalForceStatus' | 'OrderStatus' | 'PaymentStatusType' | 'ReservationStatusType' | 'TierBenefitEnumeration' | 'WarrantyScope' | 'FinancialIncentive' | 'FloorPlan' | 'GameServer' | 'GeospatialGeometry' | 'Grant' | 'MonetaryGrant' | 'HealthInsurancePlan' | 'HealthPlanCostSharingSpecification' | 'HealthPlanFormulary' | 'HealthPlanNetwork' | 'Invoice' | 'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | 'JobPosting' | 'Language' | 'ListItem' | 'HowToDirection' | 'HowToItem' | 'HowToSupply' | 'HowToTool' | 'HowToTip' | 'MediaSubscription' | 'MemberProgram' | 'MemberProgramTier' | 'MenuItem' | 'MerchantReturnPolicy' | 'MerchantReturnPolicySeasonalOverride' | 'Observation' | 'Occupation' | 'OccupationalExperienceRequirements' | 'Offer' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase' | 'Order' | 'ParcelDelivery' | 'PaymentMethod' | 'PaymentCard' | 'CreditCard' | 'PaymentService' | 'Permit' | 'GovernmentPermit' | 'ProgramMembership' | 'Property' | 'PropertyValueSpecification' | 'Rating' | 'AggregateRating' | 'EmployerAggregateRating' | 'EndorsementRating' | 'Reservation' | 'BoatReservation' | 'BusReservation' | 'EventReservation' | 'FlightReservation' | 'FoodEstablishmentReservation' | 'LodgingReservation' | 'RentalCarReservation' | 'ReservationPackage' | 'TaxiReservation' | 'TrainReservation' | 'Role' | 'LinkRole' | 'OrganizationRole' | 'EmployeeRole' | 'PerformanceRole' | 'Schedule' | 'Seat' | 'Series' | 'CreativeWorkSeries' | 'BookSeries' | 'MovieSeries' | 'Periodical' | 'ComicSeries' | 'Newspaper' | 'PodcastSeries' | 'RadioSeries' | 'TVSeries' | 'VideoGameSeries' | 'EventSeries' | 'Service' | 'BroadcastService' | 'RadioBroadcastService' | 'CableOrSatelliteService' | 'FinancialProduct' | 'BankAccount' | 'DepositAccount' | 'CurrencyConversionService' | 'InvestmentOrDeposit' | 'BrokerageAccount' | 'InvestmentFund' | 'LoanOrCredit' | 'MortgageLoan' | 'FoodService' | 'GovernmentService' | 'Taxi' | 'TaxiService' | 'WebAPI' | 'ServiceChannel' | 'SpeakableSpecification' | 'StatisticalPopulation' | 'StructuredValue' | 'CDCPMDRecord' | 'ContactPoint' | 'PostalAddress' | 'DatedMoneySpecification' | 'DefinedRegion' | 'EngineSpecification' | 'ExchangeRateSpecification' | 'GeoCoordinates' | 'GeoShape' | 'GeoCircle' | 'InstantaneousEvent' | 'Error' | 'InteractionCounter' | 'MonetaryAmount' | 'NutritionInformation' | 'OfferShippingDetails' | 'OpeningHoursSpecification' | 'OrderItem' | 'OwnershipInfo' | 'PostalCodeRangeSpecification' | 'PriceSpecification' | 'CompoundPriceSpecification' | 'DeliveryChargeSpecification' | 'PaymentChargeSpecification' | 'UnitPriceSpecification' | 'PropertyValue' | 'LocationFeatureSpecification' | 'QuantitativeValue' | 'QuantitativeValueDistribution' | 'MonetaryAmountDistribution' | 'RepaymentSpecification' | 'ServicePeriod' | 'ShippingConditions' | 'ShippingDeliveryTime' | 'ShippingRateSettings' | 'ShippingService' | 'TypeAndQuantityNode' | 'WarrantyPromise' | 'Ticket' | 'Trip' | 'BoatTrip' | 'BusTrip' | 'Flight' | 'TouristTrip' | 'TrainTrip' | 'VirtualLocation'>;
+  '@context'?: any;
+  '@type'?: 'Intangible' | 'ActionAccessSpecification' | 'AlignmentObject' | 'Audience' | 'BedDetails' | 'Brand' | 'BroadcastChannel' | 'BroadcastFrequencySpecification' | 'Class' | 'ComputerLanguage' | 'ConstraintNode' | 'DataFeedItem' | 'DefinedTerm' | 'Demand' | 'DigitalDocumentPermission' | 'EducationalOccupationalProgram' | 'EnergyConsumptionDetails' | 'EntryPoint' | 'Enumeration' | 'FinancialIncentive' | 'FloorPlan' | 'GameServer' | 'GeospatialGeometry' | 'Grant' | 'HealthInsurancePlan' | 'HealthPlanCostSharingSpecification' | 'HealthPlanFormulary' | 'HealthPlanNetwork' | 'Invoice' | 'ItemList' | 'JobPosting' | 'Language' | 'ListItem' | 'MediaSubscription' | 'MemberProgram' | 'MemberProgramTier' | 'MenuItem' | 'MerchantReturnPolicy' | 'MerchantReturnPolicySeasonalOverride' | 'Observation' | 'Occupation' | 'OccupationalExperienceRequirements' | 'Offer' | 'Order' | 'ParcelDelivery' | 'PaymentMethod' | 'Permit' | 'ProgramMembership' | 'Property' | 'PropertyValueSpecification' | 'Rating' | 'Reservation' | 'Role' | 'Schedule' | 'Seat' | 'Series' | 'Service' | 'ServiceChannel' | 'SpeakableSpecification' | 'StatisticalPopulation' | 'StructuredValue' | 'Ticket' | 'Trip' | 'VirtualLocation' | 'BusinessAudience' | 'EducationalAudience' | 'MedicalAudience' | 'PeopleAudience' | 'Researcher' | 'Patient' | 'ParentAudience' | 'RadioChannel' | 'TelevisionChannel' | 'AMRadioChannel' | 'FMRadioChannel' | 'StatisticalVariable' | 'CategoryCode' | 'MedicalCode' | 'WorkBasedProgram' | 'AdultOrientedEnumeration' | 'BoardingPolicyType' | 'BookFormatType' | 'BusinessEntityType' | 'BusinessFunction' | 'CarUsageType' | 'CertificationStatusEnumeration' | 'ContactPointOption' | 'DayOfWeek' | 'DeliveryMethod' | 'DigitalDocumentPermissionType' | 'DigitalPlatformEnumeration' | 'EnergyEfficiencyEnumeration' | 'EventAttendanceModeEnumeration' | 'FulfillmentTypeEnumeration' | 'GameAvailabilityEnumeration' | 'GamePlayMode' | 'GenderType' | 'GovernmentBenefitsType' | 'HealthAspectEnumeration' | 'IncentiveQualifiedExpenseType' | 'IncentiveStatus' | 'IncentiveType' | 'ItemAvailability' | 'ItemListOrderType' | 'LegalValueLevel' | 'MapCategoryType' | 'MeasurementMethodEnum' | 'MeasurementTypeEnumeration' | 'MediaEnumeration' | 'MediaManipulationRatingEnumeration' | 'MedicalEnumeration' | 'MerchantReturnEnumeration' | 'MusicAlbumProductionType' | 'MusicAlbumReleaseType' | 'MusicReleaseFormatType' | 'NonprofitType' | 'OfferItemCondition' | 'PaymentMethodType' | 'PhysicalActivityCategory' | 'PriceComponentTypeEnumeration' | 'PriceTypeEnumeration' | 'PurchaseType' | 'QualitativeValue' | 'RefundTypeEnumeration' | 'RestrictedDiet' | 'ReturnFeesEnumeration' | 'ReturnLabelSourceEnumeration' | 'ReturnMethodEnumeration' | 'RsvpResponseType' | 'SizeGroupEnumeration' | 'SizeSystemEnumeration' | 'Specialty' | 'StatusEnumeration' | 'TierBenefitEnumeration' | 'WarrantyScope' | 'EUEnergyEfficiencyEnumeration' | 'EnergyStarEnergyEfficiencyEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration' | 'IPTCDigitalSourceEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue' | 'WearableSizeGroupEnumeration' | 'WearableSizeSystemEnumeration' | 'ActionStatusType' | 'EventStatusType' | 'GameServerStatus' | 'LegalForceStatus' | 'OrderStatus' | 'PaymentStatusType' | 'ReservationStatusType' | 'MonetaryGrant' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | 'HowToDirection' | 'HowToItem' | 'HowToTip' | 'HowToSupply' | 'HowToTool' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase' | 'PaymentCard' | 'PaymentService' | 'CreditCard' | 'GovernmentPermit' | 'AggregateRating' | 'EndorsementRating' | 'EmployerAggregateRating' | 'BoatReservation' | 'BusReservation' | 'EventReservation' | 'FlightReservation' | 'FoodEstablishmentReservation' | 'LodgingReservation' | 'RentalCarReservation' | 'ReservationPackage' | 'TaxiReservation' | 'TrainReservation' | 'LinkRole' | 'OrganizationRole' | 'PerformanceRole' | 'EmployeeRole' | 'CreativeWorkSeries' | 'EventSeries' | 'BookSeries' | 'MovieSeries' | 'Periodical' | 'PodcastSeries' | 'RadioSeries' | 'TVSeries' | 'VideoGameSeries' | 'ComicSeries' | 'Newspaper' | 'BroadcastService' | 'CableOrSatelliteService' | 'FinancialProduct' | 'FoodService' | 'GovernmentService' | 'Taxi' | 'TaxiService' | 'WebAPI' | 'RadioBroadcastService' | 'BankAccount' | 'CurrencyConversionService' | 'InvestmentOrDeposit' | 'LoanOrCredit' | 'DepositAccount' | 'BrokerageAccount' | 'InvestmentFund' | 'MortgageLoan' | 'CDCPMDRecord' | 'ContactPoint' | 'DatedMoneySpecification' | 'DefinedRegion' | 'EngineSpecification' | 'ExchangeRateSpecification' | 'GeoCoordinates' | 'GeoShape' | 'InstantaneousEvent' | 'InteractionCounter' | 'MonetaryAmount' | 'NutritionInformation' | 'OfferShippingDetails' | 'OpeningHoursSpecification' | 'OrderItem' | 'OwnershipInfo' | 'PostalCodeRangeSpecification' | 'PriceSpecification' | 'PropertyValue' | 'QuantitativeValue' | 'QuantitativeValueDistribution' | 'RepaymentSpecification' | 'ServicePeriod' | 'ShippingConditions' | 'ShippingDeliveryTime' | 'ShippingRateSettings' | 'ShippingService' | 'TypeAndQuantityNode' | 'WarrantyPromise' | 'PostalAddress' | 'GeoCircle' | 'Error' | 'CompoundPriceSpecification' | 'DeliveryChargeSpecification' | 'PaymentChargeSpecification' | 'UnitPriceSpecification' | 'LocationFeatureSpecification' | 'MonetaryAmountDistribution' | 'BoatTrip' | 'BusTrip' | 'Flight' | 'TouristTrip' | 'TrainTrip' | Array<'Intangible' | 'ActionAccessSpecification' | 'AlignmentObject' | 'Audience' | 'BedDetails' | 'Brand' | 'BroadcastChannel' | 'BroadcastFrequencySpecification' | 'Class' | 'ComputerLanguage' | 'ConstraintNode' | 'DataFeedItem' | 'DefinedTerm' | 'Demand' | 'DigitalDocumentPermission' | 'EducationalOccupationalProgram' | 'EnergyConsumptionDetails' | 'EntryPoint' | 'Enumeration' | 'FinancialIncentive' | 'FloorPlan' | 'GameServer' | 'GeospatialGeometry' | 'Grant' | 'HealthInsurancePlan' | 'HealthPlanCostSharingSpecification' | 'HealthPlanFormulary' | 'HealthPlanNetwork' | 'Invoice' | 'ItemList' | 'JobPosting' | 'Language' | 'ListItem' | 'MediaSubscription' | 'MemberProgram' | 'MemberProgramTier' | 'MenuItem' | 'MerchantReturnPolicy' | 'MerchantReturnPolicySeasonalOverride' | 'Observation' | 'Occupation' | 'OccupationalExperienceRequirements' | 'Offer' | 'Order' | 'ParcelDelivery' | 'PaymentMethod' | 'Permit' | 'ProgramMembership' | 'Property' | 'PropertyValueSpecification' | 'Rating' | 'Reservation' | 'Role' | 'Schedule' | 'Seat' | 'Series' | 'Service' | 'ServiceChannel' | 'SpeakableSpecification' | 'StatisticalPopulation' | 'StructuredValue' | 'Ticket' | 'Trip' | 'VirtualLocation' | 'BusinessAudience' | 'EducationalAudience' | 'MedicalAudience' | 'PeopleAudience' | 'Researcher' | 'Patient' | 'ParentAudience' | 'RadioChannel' | 'TelevisionChannel' | 'AMRadioChannel' | 'FMRadioChannel' | 'StatisticalVariable' | 'CategoryCode' | 'MedicalCode' | 'WorkBasedProgram' | 'AdultOrientedEnumeration' | 'BoardingPolicyType' | 'BookFormatType' | 'BusinessEntityType' | 'BusinessFunction' | 'CarUsageType' | 'CertificationStatusEnumeration' | 'ContactPointOption' | 'DayOfWeek' | 'DeliveryMethod' | 'DigitalDocumentPermissionType' | 'DigitalPlatformEnumeration' | 'EnergyEfficiencyEnumeration' | 'EventAttendanceModeEnumeration' | 'FulfillmentTypeEnumeration' | 'GameAvailabilityEnumeration' | 'GamePlayMode' | 'GenderType' | 'GovernmentBenefitsType' | 'HealthAspectEnumeration' | 'IncentiveQualifiedExpenseType' | 'IncentiveStatus' | 'IncentiveType' | 'ItemAvailability' | 'ItemListOrderType' | 'LegalValueLevel' | 'MapCategoryType' | 'MeasurementMethodEnum' | 'MeasurementTypeEnumeration' | 'MediaEnumeration' | 'MediaManipulationRatingEnumeration' | 'MedicalEnumeration' | 'MerchantReturnEnumeration' | 'MusicAlbumProductionType' | 'MusicAlbumReleaseType' | 'MusicReleaseFormatType' | 'NonprofitType' | 'OfferItemCondition' | 'PaymentMethodType' | 'PhysicalActivityCategory' | 'PriceComponentTypeEnumeration' | 'PriceTypeEnumeration' | 'PurchaseType' | 'QualitativeValue' | 'RefundTypeEnumeration' | 'RestrictedDiet' | 'ReturnFeesEnumeration' | 'ReturnLabelSourceEnumeration' | 'ReturnMethodEnumeration' | 'RsvpResponseType' | 'SizeGroupEnumeration' | 'SizeSystemEnumeration' | 'Specialty' | 'StatusEnumeration' | 'TierBenefitEnumeration' | 'WarrantyScope' | 'EUEnergyEfficiencyEnumeration' | 'EnergyStarEnergyEfficiencyEnumeration' | 'BodyMeasurementTypeEnumeration' | 'WearableMeasurementTypeEnumeration' | 'IPTCDigitalSourceEnumeration' | 'DrugCostCategory' | 'DrugPregnancyCategory' | 'DrugPrescriptionStatus' | 'InfectiousAgentClass' | 'MedicalAudienceType' | 'MedicalDevicePurpose' | 'MedicalEvidenceLevel' | 'MedicalImagingTechnique' | 'MedicalObservationalStudyDesign' | 'MedicalProcedureType' | 'MedicalSpecialty' | 'MedicalStudyStatus' | 'MedicalTrialDesign' | 'MedicineSystem' | 'PhysicalExam' | 'DENonprofitType' | 'ITNonprofitType' | 'NLNonprofitType' | 'UKNonprofitType' | 'USNonprofitType' | 'BedType' | 'DriveWheelConfigurationValue' | 'SizeSpecification' | 'SteeringPositionValue' | 'WearableSizeGroupEnumeration' | 'WearableSizeSystemEnumeration' | 'ActionStatusType' | 'EventStatusType' | 'GameServerStatus' | 'LegalForceStatus' | 'OrderStatus' | 'PaymentStatusType' | 'ReservationStatusType' | 'MonetaryGrant' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | 'HowToDirection' | 'HowToItem' | 'HowToTip' | 'HowToSupply' | 'HowToTool' | 'AggregateOffer' | 'OfferForLease' | 'OfferForPurchase' | 'PaymentCard' | 'PaymentService' | 'CreditCard' | 'GovernmentPermit' | 'AggregateRating' | 'EndorsementRating' | 'EmployerAggregateRating' | 'BoatReservation' | 'BusReservation' | 'EventReservation' | 'FlightReservation' | 'FoodEstablishmentReservation' | 'LodgingReservation' | 'RentalCarReservation' | 'ReservationPackage' | 'TaxiReservation' | 'TrainReservation' | 'LinkRole' | 'OrganizationRole' | 'PerformanceRole' | 'EmployeeRole' | 'CreativeWorkSeries' | 'EventSeries' | 'BookSeries' | 'MovieSeries' | 'Periodical' | 'PodcastSeries' | 'RadioSeries' | 'TVSeries' | 'VideoGameSeries' | 'ComicSeries' | 'Newspaper' | 'BroadcastService' | 'CableOrSatelliteService' | 'FinancialProduct' | 'FoodService' | 'GovernmentService' | 'Taxi' | 'TaxiService' | 'WebAPI' | 'RadioBroadcastService' | 'BankAccount' | 'CurrencyConversionService' | 'InvestmentOrDeposit' | 'LoanOrCredit' | 'DepositAccount' | 'BrokerageAccount' | 'InvestmentFund' | 'MortgageLoan' | 'CDCPMDRecord' | 'ContactPoint' | 'DatedMoneySpecification' | 'DefinedRegion' | 'EngineSpecification' | 'ExchangeRateSpecification' | 'GeoCoordinates' | 'GeoShape' | 'InstantaneousEvent' | 'InteractionCounter' | 'MonetaryAmount' | 'NutritionInformation' | 'OfferShippingDetails' | 'OpeningHoursSpecification' | 'OrderItem' | 'OwnershipInfo' | 'PostalCodeRangeSpecification' | 'PriceSpecification' | 'PropertyValue' | 'QuantitativeValue' | 'QuantitativeValueDistribution' | 'RepaymentSpecification' | 'ServicePeriod' | 'ShippingConditions' | 'ShippingDeliveryTime' | 'ShippingRateSettings' | 'ShippingService' | 'TypeAndQuantityNode' | 'WarrantyPromise' | 'PostalAddress' | 'GeoCircle' | 'Error' | 'CompoundPriceSpecification' | 'DeliveryChargeSpecification' | 'PaymentChargeSpecification' | 'UnitPriceSpecification' | 'LocationFeatureSpecification' | 'MonetaryAmountDistribution' | 'BoatTrip' | 'BusTrip' | 'Flight' | 'TouristTrip' | 'TrainTrip'>;
   '@id'?: string;
   additionalType?: string | Array<string>;
   alternateName?: string | Array<string>;
@@ -2420,28 +1350,17 @@ export interface Intangible {
   url?: string | Array<string>;
 }
 
-export const IntangibleSchema: z.ZodType<Intangible> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('Intangible'), z.literal('ActionAccessSpecification'), z.literal('AlignmentObject'), z.literal('Audience'), z.literal('BusinessAudience'), z.literal('EducationalAudience'), z.literal('MedicalAudience'), z.literal('Patient'), z.literal('PeopleAudience'), z.literal('ParentAudience'), z.literal('Researcher'), z.literal('BedDetails'), z.literal('Brand'), z.literal('BroadcastChannel'), z.literal('RadioChannel'), z.literal('AMRadioChannel'), z.literal('FMRadioChannel'), z.literal('TelevisionChannel'), z.literal('BroadcastFrequencySpecification'), z.literal('Class'), z.literal('ComputerLanguage'), z.literal('ConstraintNode'), z.literal('StatisticalVariable'), z.literal('DataFeedItem'), z.literal('DefinedTerm'), z.literal('CategoryCode'), z.literal('MedicalCode'), z.literal('Demand'), z.literal('DigitalDocumentPermission'), z.literal('EducationalOccupationalProgram'), z.literal('WorkBasedProgram'), z.literal('EnergyConsumptionDetails'), z.literal('EntryPoint'), z.literal('Enumeration'), z.literal('AdultOrientedEnumeration'), z.literal('BoardingPolicyType'), z.literal('BookFormatType'), z.literal('BusinessEntityType'), z.literal('BusinessFunction'), z.literal('CarUsageType'), z.literal('CertificationStatusEnumeration'), z.literal('ContactPointOption'), z.literal('DayOfWeek'), z.literal('DeliveryMethod'), z.literal('DigitalDocumentPermissionType'), z.literal('DigitalPlatformEnumeration'), z.literal('EnergyEfficiencyEnumeration'), z.literal('EUEnergyEfficiencyEnumeration'), z.literal('EnergyStarEnergyEfficiencyEnumeration'), z.literal('EventAttendanceModeEnumeration'), z.literal('FulfillmentTypeEnumeration'), z.literal('GameAvailabilityEnumeration'), z.literal('GamePlayMode'), z.literal('GenderType'), z.literal('GovernmentBenefitsType'), z.literal('HealthAspectEnumeration'), z.literal('IncentiveQualifiedExpenseType'), z.literal('IncentiveStatus'), z.literal('IncentiveType'), z.literal('ItemAvailability'), z.literal('ItemListOrderType'), z.literal('LegalValueLevel'), z.literal('MapCategoryType'), z.literal('MeasurementMethodEnum'), z.literal('MeasurementTypeEnumeration'), z.literal('BodyMeasurementTypeEnumeration'), z.literal('WearableMeasurementTypeEnumeration'), z.literal('MediaEnumeration'), z.literal('IPTCDigitalSourceEnumeration'), z.literal('MediaManipulationRatingEnumeration'), z.literal('MedicalEnumeration'), z.literal('DrugCostCategory'), z.literal('DrugPregnancyCategory'), z.literal('DrugPrescriptionStatus'), z.literal('InfectiousAgentClass'), z.literal('MedicalAudienceType'), z.literal('MedicalDevicePurpose'), z.literal('MedicalEvidenceLevel'), z.literal('MedicalImagingTechnique'), z.literal('MedicalObservationalStudyDesign'), z.literal('MedicalProcedureType'), z.literal('MedicalSpecialty'), z.literal('MedicalStudyStatus'), z.literal('MedicalTrialDesign'), z.literal('MedicineSystem'), z.literal('PhysicalExam'), z.literal('MerchantReturnEnumeration'), z.literal('MusicAlbumProductionType'), z.literal('MusicAlbumReleaseType'), z.literal('MusicReleaseFormatType'), z.literal('NonprofitType'), z.literal('DENonprofitType'), z.literal('ITNonprofitType'), z.literal('NLNonprofitType'), z.literal('UKNonprofitType'), z.literal('USNonprofitType'), z.literal('OfferItemCondition'), z.literal('PaymentMethodType'), z.literal('PhysicalActivityCategory'), z.literal('PriceComponentTypeEnumeration'), z.literal('PriceTypeEnumeration'), z.literal('PurchaseType'), z.literal('QualitativeValue'), z.literal('BedType'), z.literal('DriveWheelConfigurationValue'), z.literal('SizeSpecification'), z.literal('SteeringPositionValue'), z.literal('RefundTypeEnumeration'), z.literal('RestrictedDiet'), z.literal('ReturnFeesEnumeration'), z.literal('ReturnLabelSourceEnumeration'), z.literal('ReturnMethodEnumeration'), z.literal('RsvpResponseType'), z.literal('SizeGroupEnumeration'), z.literal('WearableSizeGroupEnumeration'), z.literal('SizeSystemEnumeration'), z.literal('WearableSizeSystemEnumeration'), z.literal('Specialty'), z.literal('StatusEnumeration'), z.literal('ActionStatusType'), z.literal('EventStatusType'), z.literal('GameServerStatus'), z.literal('LegalForceStatus'), z.literal('OrderStatus'), z.literal('PaymentStatusType'), z.literal('ReservationStatusType'), z.literal('TierBenefitEnumeration'), z.literal('WarrantyScope'), z.literal('FinancialIncentive'), z.literal('FloorPlan'), z.literal('GameServer'), z.literal('GeospatialGeometry'), z.literal('Grant'), z.literal('MonetaryGrant'), z.literal('HealthInsurancePlan'), z.literal('HealthPlanCostSharingSpecification'), z.literal('HealthPlanFormulary'), z.literal('HealthPlanNetwork'), z.literal('Invoice'), z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog'), z.literal('JobPosting'), z.literal('Language'), z.literal('ListItem'), z.literal('HowToDirection'), z.literal('HowToItem'), z.literal('HowToSupply'), z.literal('HowToTool'), z.literal('HowToTip'), z.literal('MediaSubscription'), z.literal('MemberProgram'), z.literal('MemberProgramTier'), z.literal('MenuItem'), z.literal('MerchantReturnPolicy'), z.literal('MerchantReturnPolicySeasonalOverride'), z.literal('Observation'), z.literal('Occupation'), z.literal('OccupationalExperienceRequirements'), z.literal('Offer'), z.literal('AggregateOffer'), z.literal('OfferForLease'), z.literal('OfferForPurchase'), z.literal('Order'), z.literal('ParcelDelivery'), z.literal('PaymentMethod'), z.literal('PaymentCard'), z.literal('CreditCard'), z.literal('PaymentService'), z.literal('Permit'), z.literal('GovernmentPermit'), z.literal('ProgramMembership'), z.literal('Property'), z.literal('PropertyValueSpecification'), z.literal('Rating'), z.literal('AggregateRating'), z.literal('EmployerAggregateRating'), z.literal('EndorsementRating'), z.literal('Reservation'), z.literal('BoatReservation'), z.literal('BusReservation'), z.literal('EventReservation'), z.literal('FlightReservation'), z.literal('FoodEstablishmentReservation'), z.literal('LodgingReservation'), z.literal('RentalCarReservation'), z.literal('ReservationPackage'), z.literal('TaxiReservation'), z.literal('TrainReservation'), z.literal('Role'), z.literal('LinkRole'), z.literal('OrganizationRole'), z.literal('EmployeeRole'), z.literal('PerformanceRole'), z.literal('Schedule'), z.literal('Seat'), z.literal('Series'), z.literal('CreativeWorkSeries'), z.literal('BookSeries'), z.literal('MovieSeries'), z.literal('Periodical'), z.literal('ComicSeries'), z.literal('Newspaper'), z.literal('PodcastSeries'), z.literal('RadioSeries'), z.literal('TVSeries'), z.literal('VideoGameSeries'), z.literal('EventSeries'), z.literal('Service'), z.literal('BroadcastService'), z.literal('RadioBroadcastService'), z.literal('CableOrSatelliteService'), z.literal('FinancialProduct'), z.literal('BankAccount'), z.literal('DepositAccount'), z.literal('CurrencyConversionService'), z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('InvestmentFund'), z.literal('LoanOrCredit'), z.literal('MortgageLoan'), z.literal('FoodService'), z.literal('GovernmentService'), z.literal('Taxi'), z.literal('TaxiService'), z.literal('WebAPI'), z.literal('ServiceChannel'), z.literal('SpeakableSpecification'), z.literal('StatisticalPopulation'), z.literal('StructuredValue'), z.literal('CDCPMDRecord'), z.literal('ContactPoint'), z.literal('PostalAddress'), z.literal('DatedMoneySpecification'), z.literal('DefinedRegion'), z.literal('EngineSpecification'), z.literal('ExchangeRateSpecification'), z.literal('GeoCoordinates'), z.literal('GeoShape'), z.literal('GeoCircle'), z.literal('InstantaneousEvent'), z.literal('Error'), z.literal('InteractionCounter'), z.literal('MonetaryAmount'), z.literal('NutritionInformation'), z.literal('OfferShippingDetails'), z.literal('OpeningHoursSpecification'), z.literal('OrderItem'), z.literal('OwnershipInfo'), z.literal('PostalCodeRangeSpecification'), z.literal('PriceSpecification'), z.literal('CompoundPriceSpecification'), z.literal('DeliveryChargeSpecification'), z.literal('PaymentChargeSpecification'), z.literal('UnitPriceSpecification'), z.literal('PropertyValue'), z.literal('LocationFeatureSpecification'), z.literal('QuantitativeValue'), z.literal('QuantitativeValueDistribution'), z.literal('MonetaryAmountDistribution'), z.literal('RepaymentSpecification'), z.literal('ServicePeriod'), z.literal('ShippingConditions'), z.literal('ShippingDeliveryTime'), z.literal('ShippingRateSettings'), z.literal('ShippingService'), z.literal('TypeAndQuantityNode'), z.literal('WarrantyPromise'), z.literal('Ticket'), z.literal('Trip'), z.literal('BoatTrip'), z.literal('BusTrip'), z.literal('Flight'), z.literal('TouristTrip'), z.literal('TrainTrip'), z.literal('VirtualLocation')]), z.array(z.union([z.literal('Intangible'), z.literal('ActionAccessSpecification'), z.literal('AlignmentObject'), z.literal('Audience'), z.literal('BusinessAudience'), z.literal('EducationalAudience'), z.literal('MedicalAudience'), z.literal('Patient'), z.literal('PeopleAudience'), z.literal('ParentAudience'), z.literal('Researcher'), z.literal('BedDetails'), z.literal('Brand'), z.literal('BroadcastChannel'), z.literal('RadioChannel'), z.literal('AMRadioChannel'), z.literal('FMRadioChannel'), z.literal('TelevisionChannel'), z.literal('BroadcastFrequencySpecification'), z.literal('Class'), z.literal('ComputerLanguage'), z.literal('ConstraintNode'), z.literal('StatisticalVariable'), z.literal('DataFeedItem'), z.literal('DefinedTerm'), z.literal('CategoryCode'), z.literal('MedicalCode'), z.literal('Demand'), z.literal('DigitalDocumentPermission'), z.literal('EducationalOccupationalProgram'), z.literal('WorkBasedProgram'), z.literal('EnergyConsumptionDetails'), z.literal('EntryPoint'), z.literal('Enumeration'), z.literal('AdultOrientedEnumeration'), z.literal('BoardingPolicyType'), z.literal('BookFormatType'), z.literal('BusinessEntityType'), z.literal('BusinessFunction'), z.literal('CarUsageType'), z.literal('CertificationStatusEnumeration'), z.literal('ContactPointOption'), z.literal('DayOfWeek'), z.literal('DeliveryMethod'), z.literal('DigitalDocumentPermissionType'), z.literal('DigitalPlatformEnumeration'), z.literal('EnergyEfficiencyEnumeration'), z.literal('EUEnergyEfficiencyEnumeration'), z.literal('EnergyStarEnergyEfficiencyEnumeration'), z.literal('EventAttendanceModeEnumeration'), z.literal('FulfillmentTypeEnumeration'), z.literal('GameAvailabilityEnumeration'), z.literal('GamePlayMode'), z.literal('GenderType'), z.literal('GovernmentBenefitsType'), z.literal('HealthAspectEnumeration'), z.literal('IncentiveQualifiedExpenseType'), z.literal('IncentiveStatus'), z.literal('IncentiveType'), z.literal('ItemAvailability'), z.literal('ItemListOrderType'), z.literal('LegalValueLevel'), z.literal('MapCategoryType'), z.literal('MeasurementMethodEnum'), z.literal('MeasurementTypeEnumeration'), z.literal('BodyMeasurementTypeEnumeration'), z.literal('WearableMeasurementTypeEnumeration'), z.literal('MediaEnumeration'), z.literal('IPTCDigitalSourceEnumeration'), z.literal('MediaManipulationRatingEnumeration'), z.literal('MedicalEnumeration'), z.literal('DrugCostCategory'), z.literal('DrugPregnancyCategory'), z.literal('DrugPrescriptionStatus'), z.literal('InfectiousAgentClass'), z.literal('MedicalAudienceType'), z.literal('MedicalDevicePurpose'), z.literal('MedicalEvidenceLevel'), z.literal('MedicalImagingTechnique'), z.literal('MedicalObservationalStudyDesign'), z.literal('MedicalProcedureType'), z.literal('MedicalSpecialty'), z.literal('MedicalStudyStatus'), z.literal('MedicalTrialDesign'), z.literal('MedicineSystem'), z.literal('PhysicalExam'), z.literal('MerchantReturnEnumeration'), z.literal('MusicAlbumProductionType'), z.literal('MusicAlbumReleaseType'), z.literal('MusicReleaseFormatType'), z.literal('NonprofitType'), z.literal('DENonprofitType'), z.literal('ITNonprofitType'), z.literal('NLNonprofitType'), z.literal('UKNonprofitType'), z.literal('USNonprofitType'), z.literal('OfferItemCondition'), z.literal('PaymentMethodType'), z.literal('PhysicalActivityCategory'), z.literal('PriceComponentTypeEnumeration'), z.literal('PriceTypeEnumeration'), z.literal('PurchaseType'), z.literal('QualitativeValue'), z.literal('BedType'), z.literal('DriveWheelConfigurationValue'), z.literal('SizeSpecification'), z.literal('SteeringPositionValue'), z.literal('RefundTypeEnumeration'), z.literal('RestrictedDiet'), z.literal('ReturnFeesEnumeration'), z.literal('ReturnLabelSourceEnumeration'), z.literal('ReturnMethodEnumeration'), z.literal('RsvpResponseType'), z.literal('SizeGroupEnumeration'), z.literal('WearableSizeGroupEnumeration'), z.literal('SizeSystemEnumeration'), z.literal('WearableSizeSystemEnumeration'), z.literal('Specialty'), z.literal('StatusEnumeration'), z.literal('ActionStatusType'), z.literal('EventStatusType'), z.literal('GameServerStatus'), z.literal('LegalForceStatus'), z.literal('OrderStatus'), z.literal('PaymentStatusType'), z.literal('ReservationStatusType'), z.literal('TierBenefitEnumeration'), z.literal('WarrantyScope'), z.literal('FinancialIncentive'), z.literal('FloorPlan'), z.literal('GameServer'), z.literal('GeospatialGeometry'), z.literal('Grant'), z.literal('MonetaryGrant'), z.literal('HealthInsurancePlan'), z.literal('HealthPlanCostSharingSpecification'), z.literal('HealthPlanFormulary'), z.literal('HealthPlanNetwork'), z.literal('Invoice'), z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog'), z.literal('JobPosting'), z.literal('Language'), z.literal('ListItem'), z.literal('HowToDirection'), z.literal('HowToItem'), z.literal('HowToSupply'), z.literal('HowToTool'), z.literal('HowToTip'), z.literal('MediaSubscription'), z.literal('MemberProgram'), z.literal('MemberProgramTier'), z.literal('MenuItem'), z.literal('MerchantReturnPolicy'), z.literal('MerchantReturnPolicySeasonalOverride'), z.literal('Observation'), z.literal('Occupation'), z.literal('OccupationalExperienceRequirements'), z.literal('Offer'), z.literal('AggregateOffer'), z.literal('OfferForLease'), z.literal('OfferForPurchase'), z.literal('Order'), z.literal('ParcelDelivery'), z.literal('PaymentMethod'), z.literal('PaymentCard'), z.literal('CreditCard'), z.literal('PaymentService'), z.literal('Permit'), z.literal('GovernmentPermit'), z.literal('ProgramMembership'), z.literal('Property'), z.literal('PropertyValueSpecification'), z.literal('Rating'), z.literal('AggregateRating'), z.literal('EmployerAggregateRating'), z.literal('EndorsementRating'), z.literal('Reservation'), z.literal('BoatReservation'), z.literal('BusReservation'), z.literal('EventReservation'), z.literal('FlightReservation'), z.literal('FoodEstablishmentReservation'), z.literal('LodgingReservation'), z.literal('RentalCarReservation'), z.literal('ReservationPackage'), z.literal('TaxiReservation'), z.literal('TrainReservation'), z.literal('Role'), z.literal('LinkRole'), z.literal('OrganizationRole'), z.literal('EmployeeRole'), z.literal('PerformanceRole'), z.literal('Schedule'), z.literal('Seat'), z.literal('Series'), z.literal('CreativeWorkSeries'), z.literal('BookSeries'), z.literal('MovieSeries'), z.literal('Periodical'), z.literal('ComicSeries'), z.literal('Newspaper'), z.literal('PodcastSeries'), z.literal('RadioSeries'), z.literal('TVSeries'), z.literal('VideoGameSeries'), z.literal('EventSeries'), z.literal('Service'), z.literal('BroadcastService'), z.literal('RadioBroadcastService'), z.literal('CableOrSatelliteService'), z.literal('FinancialProduct'), z.literal('BankAccount'), z.literal('DepositAccount'), z.literal('CurrencyConversionService'), z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('InvestmentFund'), z.literal('LoanOrCredit'), z.literal('MortgageLoan'), z.literal('FoodService'), z.literal('GovernmentService'), z.literal('Taxi'), z.literal('TaxiService'), z.literal('WebAPI'), z.literal('ServiceChannel'), z.literal('SpeakableSpecification'), z.literal('StatisticalPopulation'), z.literal('StructuredValue'), z.literal('CDCPMDRecord'), z.literal('ContactPoint'), z.literal('PostalAddress'), z.literal('DatedMoneySpecification'), z.literal('DefinedRegion'), z.literal('EngineSpecification'), z.literal('ExchangeRateSpecification'), z.literal('GeoCoordinates'), z.literal('GeoShape'), z.literal('GeoCircle'), z.literal('InstantaneousEvent'), z.literal('Error'), z.literal('InteractionCounter'), z.literal('MonetaryAmount'), z.literal('NutritionInformation'), z.literal('OfferShippingDetails'), z.literal('OpeningHoursSpecification'), z.literal('OrderItem'), z.literal('OwnershipInfo'), z.literal('PostalCodeRangeSpecification'), z.literal('PriceSpecification'), z.literal('CompoundPriceSpecification'), z.literal('DeliveryChargeSpecification'), z.literal('PaymentChargeSpecification'), z.literal('UnitPriceSpecification'), z.literal('PropertyValue'), z.literal('LocationFeatureSpecification'), z.literal('QuantitativeValue'), z.literal('QuantitativeValueDistribution'), z.literal('MonetaryAmountDistribution'), z.literal('RepaymentSpecification'), z.literal('ServicePeriod'), z.literal('ShippingConditions'), z.literal('ShippingDeliveryTime'), z.literal('ShippingRateSettings'), z.literal('ShippingService'), z.literal('TypeAndQuantityNode'), z.literal('WarrantyPromise'), z.literal('Ticket'), z.literal('Trip'), z.literal('BoatTrip'), z.literal('BusTrip'), z.literal('Flight'), z.literal('TouristTrip'), z.literal('TrainTrip'), z.literal('VirtualLocation')]))]).optional(),
-  '@id': z.string().optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
+
+export interface Integer {
+  '@context'?: any;
+  '@type'?: 'Integer' | Array<'Integer'>;
+  '@id'?: string;
+}
+
 
 export interface InteractAction {
-  '@context'?: s.Context;
-  '@type'?: 'InteractAction' | 'BefriendAction' | 'CommunicateAction' | 'AskAction' | 'CheckInAction' | 'CheckOutAction' | 'CommentAction' | 'InformAction' | 'ConfirmAction' | 'RsvpAction' | 'InviteAction' | 'ReplyAction' | 'ShareAction' | 'FollowAction' | 'JoinAction' | 'LeaveAction' | 'MarryAction' | 'RegisterAction' | 'SubscribeAction' | 'UnRegisterAction' | Array<'InteractAction' | 'BefriendAction' | 'CommunicateAction' | 'AskAction' | 'CheckInAction' | 'CheckOutAction' | 'CommentAction' | 'InformAction' | 'ConfirmAction' | 'RsvpAction' | 'InviteAction' | 'ReplyAction' | 'ShareAction' | 'FollowAction' | 'JoinAction' | 'LeaveAction' | 'MarryAction' | 'RegisterAction' | 'SubscribeAction' | 'UnRegisterAction'>;
+  '@context'?: any;
+  '@type'?: 'InteractAction' | 'BefriendAction' | 'CommunicateAction' | 'FollowAction' | 'JoinAction' | 'LeaveAction' | 'MarryAction' | 'RegisterAction' | 'SubscribeAction' | 'UnRegisterAction' | 'AskAction' | 'CheckInAction' | 'CheckOutAction' | 'CommentAction' | 'InformAction' | 'InviteAction' | 'ReplyAction' | 'ShareAction' | 'ConfirmAction' | 'RsvpAction' | Array<'InteractAction' | 'BefriendAction' | 'CommunicateAction' | 'FollowAction' | 'JoinAction' | 'LeaveAction' | 'MarryAction' | 'RegisterAction' | 'SubscribeAction' | 'UnRegisterAction' | 'AskAction' | 'CheckInAction' | 'CheckOutAction' | 'CommentAction' | 'InformAction' | 'InviteAction' | 'ReplyAction' | 'ShareAction' | 'ConfirmAction' | 'RsvpAction'>;
   '@id'?: string;
   actionProcess?: s.HowTo | Array<s.HowTo>;
   actionStatus?: s.ActionStatusType | Array<s.ActionStatusType>;
@@ -2471,40 +1390,9 @@ export interface InteractAction {
   url?: string | Array<string>;
 }
 
-export const InteractActionSchema: z.ZodType<InteractAction> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('InteractAction'), z.literal('BefriendAction'), z.literal('CommunicateAction'), z.literal('AskAction'), z.literal('CheckInAction'), z.literal('CheckOutAction'), z.literal('CommentAction'), z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction'), z.literal('InviteAction'), z.literal('ReplyAction'), z.literal('ShareAction'), z.literal('FollowAction'), z.literal('JoinAction'), z.literal('LeaveAction'), z.literal('MarryAction'), z.literal('RegisterAction'), z.literal('SubscribeAction'), z.literal('UnRegisterAction')]), z.array(z.union([z.literal('InteractAction'), z.literal('BefriendAction'), z.literal('CommunicateAction'), z.literal('AskAction'), z.literal('CheckInAction'), z.literal('CheckOutAction'), z.literal('CommentAction'), z.literal('InformAction'), z.literal('ConfirmAction'), z.literal('RsvpAction'), z.literal('InviteAction'), z.literal('ReplyAction'), z.literal('ShareAction'), z.literal('FollowAction'), z.literal('JoinAction'), z.literal('LeaveAction'), z.literal('MarryAction'), z.literal('RegisterAction'), z.literal('SubscribeAction'), z.literal('UnRegisterAction')]))]).optional(),
-  '@id': z.string().optional(),
-  actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
-  actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
-  agent: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  error: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  instrument: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  object: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  participant: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  result: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  target: z.union([z.union([s.EntryPointSchema, z.string().url()]), z.array(z.union([s.EntryPointSchema, z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InteractionCounter {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InteractionCounter' | Array<'InteractionCounter'>;
   '@id'?: string;
   endTime?: string | Array<string>;
@@ -2528,33 +1416,9 @@ export interface InteractionCounter {
   url?: string | Array<string>;
 }
 
-export const InteractionCounterSchema: z.ZodType<InteractionCounter> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('InteractionCounter'), z.array(z.literal('InteractionCounter'))]).optional(),
-  '@id': z.string().optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  interactionService: z.union([z.union([s.SoftwareApplicationSchema, s.WebSiteSchema]), z.array(z.union([s.SoftwareApplicationSchema, s.WebSiteSchema]))]).optional(),
-  interactionType: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  userInteractionCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InternetCafe {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InternetCafe' | Array<'InternetCafe'>;
   '@id'?: string;
   branchOf?: s.Organization | Array<s.Organization>;
@@ -2686,141 +1550,9 @@ export interface InternetCafe {
   tourBookingPage?: string | Array<string>;
 }
 
-export const InternetCafeSchema: z.ZodType<InternetCafe> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('InternetCafe'), z.array(z.literal('InternetCafe'))]).optional(),
-  '@id': z.string().optional(),
-  branchOf: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  currenciesAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  floorLevel: z.union([z.string(), z.array(z.string())]).optional(),
-  openingHours: z.union([z.string(), z.array(z.string())]).optional(),
-  paymentAccepted: z.union([z.string(), z.array(z.string())]).optional(),
-  priceRange: z.union([z.string(), z.array(z.string())]).optional(),
-  acceptedPaymentMethod: z.union([z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]), z.array(z.union([s.LoanOrCreditSchema, s.PaymentMethodSchema, z.string()]))]).optional(),
-  actionableFeedbackPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  address: z.union([z.union([s.PostalAddressSchema, z.string()]), z.array(z.union([s.PostalAddressSchema, z.string()]))]).optional(),
-  agentInteractionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alumni: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  areaServed: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  brand: z.union([z.union([s.BrandSchema, s.OrganizationSchema]), z.array(z.union([s.BrandSchema, s.OrganizationSchema]))]).optional(),
-  companyRegistration: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  contactPoint: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  contactPoints: z.union([s.ContactPointSchema, z.array(s.ContactPointSchema)]).optional(),
-  correctionsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  department: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  dissolutionDate: z.union([z.string(), z.array(z.string())]).optional(),
-  diversityPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  diversityStaffingReport: z.union([z.union([s.ArticleSchema, z.string().url()]), z.array(z.union([s.ArticleSchema, z.string().url()]))]).optional(),
-  duns: z.union([z.string(), z.array(z.string())]).optional(),
-  email: z.union([z.string(), z.array(z.string())]).optional(),
-  employee: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  employees: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  ethicsPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  events: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  faxNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  founder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  founders: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  foundingDate: z.union([z.string(), z.array(z.string())]).optional(),
-  foundingLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  globalLocationNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  hasCertification: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  hasCredential: z.union([s.CredentialSchema, z.array(s.CredentialSchema)]).optional(),
-  hasGS1DigitalLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  hasMemberProgram: z.union([s.MemberProgramSchema, z.array(s.MemberProgramSchema)]).optional(),
-  hasMerchantReturnPolicy: z.union([s.MerchantReturnPolicySchema, z.array(s.MerchantReturnPolicySchema)]).optional(),
-  hasOfferCatalog: z.union([s.OfferCatalogSchema, z.array(s.OfferCatalogSchema)]).optional(),
-  hasPOS: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  hasShippingService: z.union([s.ShippingServiceSchema, z.array(s.ShippingServiceSchema)]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  isicV4: z.union([z.string(), z.array(z.string())]).optional(),
-  iso6523Code: z.union([z.string(), z.array(z.string())]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  knowsAbout: z.union([z.union([z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  knowsLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  legalAddress: z.union([s.PostalAddressSchema, z.array(s.PostalAddressSchema)]).optional(),
-  legalName: z.union([z.string(), z.array(z.string())]).optional(),
-  legalRepresentative: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  leiCode: z.union([z.string(), z.array(z.string())]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  logo: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  makesOffer: z.union([s.OfferSchema, z.array(s.OfferSchema)]).optional(),
-  member: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  memberOf: z.union([z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]), z.array(z.union([s.MemberProgramTierSchema, s.OrganizationSchema, s.ProgramMembershipSchema]))]).optional(),
-  members: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  naics: z.union([z.string(), z.array(z.string())]).optional(),
-  nonprofitStatus: z.union([s.NonprofitTypeSchema, z.array(s.NonprofitTypeSchema)]).optional(),
-  numberOfEmployees: z.union([s.QuantitativeValueSchema, z.array(s.QuantitativeValueSchema)]).optional(),
-  ownershipFundingInfo: z.union([z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]), z.array(z.union([s.AboutPageSchema, s.CreativeWorkSchema, z.string(), z.string().url()]))]).optional(),
-  owns: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  parentOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  seeks: z.union([s.DemandSchema, z.array(s.DemandSchema)]).optional(),
-  serviceArea: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]))]).optional(),
-  skills: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  slogan: z.union([z.string(), z.array(z.string())]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  subOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  taxID: z.union([z.string(), z.array(z.string())]).optional(),
-  telephone: z.union([z.string(), z.array(z.string())]).optional(),
-  unnamedSourcesPolicy: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  vatID: z.union([z.string(), z.array(z.string())]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  additionalProperty: z.union([s.PropertyValueSchema, z.array(s.PropertyValueSchema)]).optional(),
-  amenityFeature: z.union([s.LocationFeatureSpecificationSchema, z.array(s.LocationFeatureSpecificationSchema)]).optional(),
-  branchCode: z.union([z.string(), z.array(z.string())]).optional(),
-  containedIn: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containedInPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  containsPlace: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  geo: z.union([z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]), z.array(z.union([s.GeoCoordinatesSchema, s.GeoShapeSchema]))]).optional(),
-  geoContains: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCoveredBy: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCovers: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoCrosses: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoDisjoint: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoEquals: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoIntersects: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoOverlaps: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoTouches: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  geoWithin: z.union([z.union([s.GeospatialGeometrySchema, s.PlaceSchema]), z.array(z.union([s.GeospatialGeometrySchema, s.PlaceSchema]))]).optional(),
-  hasDriveThroughService: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  hasMap: z.union([z.union([s.MapSchema, z.string().url()]), z.array(z.union([s.MapSchema, z.string().url()]))]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  latitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  longitude: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  map: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maps: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  maximumAttendeeCapacity: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  openingHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  photo: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  photos: z.union([z.union([s.ImageObjectSchema, s.PhotographSchema]), z.array(z.union([s.ImageObjectSchema, s.PhotographSchema]))]).optional(),
-  publicAccess: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  smokingAllowed: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  specialOpeningHoursSpecification: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  tourBookingPage: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InvestmentFund {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InvestmentFund' | Array<'InvestmentFund'>;
   '@id'?: string;
   amount?: s.MonetaryAmount | number | Array<s.MonetaryAmount | number>;
@@ -2867,56 +1599,9 @@ export interface InvestmentFund {
   url?: string | Array<string>;
 }
 
-export const InvestmentFundSchema: z.ZodType<InvestmentFund> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('InvestmentFund'), z.array(z.literal('InvestmentFund'))]).optional(),
-  '@id': z.string().optional(),
-  amount: z.union([z.union([s.MonetaryAmountSchema, z.number()]), z.array(z.union([s.MonetaryAmountSchema, z.number()]))]).optional(),
-  annualPercentageRate: z.union([z.union([z.number(), s.QuantitativeValueSchema]), z.array(z.union([z.number(), s.QuantitativeValueSchema]))]).optional(),
-  feesAndCommissionsSpecification: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  interestRate: z.union([z.union([z.number(), s.QuantitativeValueSchema]), z.array(z.union([z.number(), s.QuantitativeValueSchema]))]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  areaServed: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  availableChannel: z.union([s.ServiceChannelSchema, z.array(s.ServiceChannelSchema)]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  brand: z.union([z.union([s.BrandSchema, s.OrganizationSchema]), z.array(z.union([s.BrandSchema, s.OrganizationSchema]))]).optional(),
-  broker: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  category: z.union([z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  hasCertification: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  hasOfferCatalog: z.union([s.OfferCatalogSchema, z.array(s.OfferCatalogSchema)]).optional(),
-  hoursAvailable: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  isRelatedTo: z.union([z.union([s.ProductSchema, s.ServiceSchema]), z.array(z.union([s.ProductSchema, s.ServiceSchema]))]).optional(),
-  isSimilarTo: z.union([z.union([s.ProductSchema, s.ServiceSchema]), z.array(z.union([s.ProductSchema, s.ServiceSchema]))]).optional(),
-  logo: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  offers: z.union([z.union([s.DemandSchema, s.OfferSchema]), z.array(z.union([s.DemandSchema, s.OfferSchema]))]).optional(),
-  produces: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  providerMobility: z.union([z.string(), z.array(z.string())]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  serviceArea: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]))]).optional(),
-  serviceAudience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  serviceOutput: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  serviceType: z.union([z.union([s.GovernmentBenefitsTypeSchema, z.string()]), z.array(z.union([s.GovernmentBenefitsTypeSchema, z.string()]))]).optional(),
-  slogan: z.union([z.string(), z.array(z.string())]).optional(),
-  termsOfService: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InvestmentOrDeposit {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InvestmentOrDeposit' | 'BrokerageAccount' | 'DepositAccount' | 'InvestmentFund' | Array<'InvestmentOrDeposit' | 'BrokerageAccount' | 'DepositAccount' | 'InvestmentFund'>;
   '@id'?: string;
   amount?: s.MonetaryAmount | number | Array<s.MonetaryAmount | number>;
@@ -2963,56 +1648,9 @@ export interface InvestmentOrDeposit {
   url?: string | Array<string>;
 }
 
-export const InvestmentOrDepositSchema: z.ZodType<InvestmentOrDeposit> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('DepositAccount'), z.literal('InvestmentFund')]), z.array(z.union([z.literal('InvestmentOrDeposit'), z.literal('BrokerageAccount'), z.literal('DepositAccount'), z.literal('InvestmentFund')]))]).optional(),
-  '@id': z.string().optional(),
-  amount: z.union([z.union([s.MonetaryAmountSchema, z.number()]), z.array(z.union([s.MonetaryAmountSchema, z.number()]))]).optional(),
-  annualPercentageRate: z.union([z.union([z.number(), s.QuantitativeValueSchema]), z.array(z.union([z.number(), s.QuantitativeValueSchema]))]).optional(),
-  feesAndCommissionsSpecification: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  interestRate: z.union([z.union([z.number(), s.QuantitativeValueSchema]), z.array(z.union([z.number(), s.QuantitativeValueSchema]))]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  areaServed: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema, z.string()]))]).optional(),
-  audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  availableChannel: z.union([s.ServiceChannelSchema, z.array(s.ServiceChannelSchema)]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  brand: z.union([z.union([s.BrandSchema, s.OrganizationSchema]), z.array(z.union([s.BrandSchema, s.OrganizationSchema]))]).optional(),
-  broker: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  category: z.union([z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  hasCertification: z.union([s.CertificationSchema, z.array(s.CertificationSchema)]).optional(),
-  hasOfferCatalog: z.union([s.OfferCatalogSchema, z.array(s.OfferCatalogSchema)]).optional(),
-  hoursAvailable: z.union([s.OpeningHoursSpecificationSchema, z.array(s.OpeningHoursSpecificationSchema)]).optional(),
-  isRelatedTo: z.union([z.union([s.ProductSchema, s.ServiceSchema]), z.array(z.union([s.ProductSchema, s.ServiceSchema]))]).optional(),
-  isSimilarTo: z.union([z.union([s.ProductSchema, s.ServiceSchema]), z.array(z.union([s.ProductSchema, s.ServiceSchema]))]).optional(),
-  logo: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  offers: z.union([z.union([s.DemandSchema, s.OfferSchema]), z.array(z.union([s.DemandSchema, s.OfferSchema]))]).optional(),
-  produces: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  providerMobility: z.union([z.string(), z.array(z.string())]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  serviceArea: z.union([z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]), z.array(z.union([s.AdministrativeAreaSchema, s.GeoShapeSchema, s.PlaceSchema]))]).optional(),
-  serviceAudience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  serviceOutput: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  serviceType: z.union([z.union([s.GovernmentBenefitsTypeSchema, z.string()]), z.array(z.union([s.GovernmentBenefitsTypeSchema, z.string()]))]).optional(),
-  slogan: z.union([z.string(), z.array(z.string())]).optional(),
-  termsOfService: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface InviteAction {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'InviteAction' | Array<'InviteAction'>;
   '@id'?: string;
   event?: s.Event | Array<s.Event>;
@@ -3048,45 +1686,9 @@ export interface InviteAction {
   url?: string | Array<string>;
 }
 
-export const InviteActionSchema: z.ZodType<InviteAction> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('InviteAction'), z.array(z.literal('InviteAction'))]).optional(),
-  '@id': z.string().optional(),
-  event: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  inLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  language: z.union([s.LanguageSchema, z.array(s.LanguageSchema)]).optional(),
-  recipient: z.union([z.union([s.AudienceSchema, s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.AudienceSchema, s.ContactPointSchema, s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  actionProcess: z.union([s.HowToSchema, z.array(s.HowToSchema)]).optional(),
-  actionStatus: z.union([s.ActionStatusTypeSchema, z.array(s.ActionStatusTypeSchema)]).optional(),
-  agent: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  endTime: z.union([z.string(), z.array(z.string())]).optional(),
-  error: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  instrument: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  location: z.union([z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]), z.array(z.union([s.PlaceSchema, s.PostalAddressSchema, z.string(), s.VirtualLocationSchema]))]).optional(),
-  object: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  participant: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  result: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  startTime: z.union([z.string(), z.array(z.string())]).optional(),
-  target: z.union([z.union([s.EntryPointSchema, z.string().url()]), z.array(z.union([s.EntryPointSchema, z.string().url()]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
 export interface Invoice {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'Invoice' | Array<'Invoice'>;
   '@id'?: string;
   accountId?: string | Array<string>;
@@ -3120,46 +1722,30 @@ export interface Invoice {
   url?: string | Array<string>;
 }
 
-export const InvoiceSchema: z.ZodType<Invoice> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('Invoice'), z.array(z.literal('Invoice'))]).optional(),
-  '@id': z.string().optional(),
-  accountId: z.union([z.string(), z.array(z.string())]).optional(),
-  billingPeriod: z.union([s.DurationSchema, z.array(s.DurationSchema)]).optional(),
-  broker: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  category: z.union([z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]), z.array(z.union([s.CategoryCodeSchema, s.PhysicalActivityCategorySchema, z.string(), s.ThingSchema, z.string().url()]))]).optional(),
-  confirmationNumber: z.union([z.string(), z.array(z.string())]).optional(),
-  customer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  minimumPaymentDue: z.union([z.union([s.MonetaryAmountSchema, s.PriceSpecificationSchema]), z.array(z.union([s.MonetaryAmountSchema, s.PriceSpecificationSchema]))]).optional(),
-  paymentDue: z.union([z.string(), z.array(z.string())]).optional(),
-  paymentDueDate: z.union([z.string(), z.array(z.string())]).optional(),
-  paymentMethod: z.union([z.union([s.PaymentMethodSchema, z.string()]), z.array(z.union([s.PaymentMethodSchema, z.string()]))]).optional(),
-  paymentMethodId: z.union([z.string(), z.array(z.string())]).optional(),
-  paymentStatus: z.union([z.union([s.PaymentStatusTypeSchema, z.string()]), z.array(z.union([s.PaymentStatusTypeSchema, z.string()]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  referencesOrder: z.union([s.OrderSchema, z.array(s.OrderSchema)]).optional(),
-  scheduledPaymentDate: z.union([z.string(), z.array(z.string())]).optional(),
-  totalPaymentDue: z.union([z.union([s.MonetaryAmountSchema, s.PriceSpecificationSchema]), z.array(z.union([s.MonetaryAmountSchema, s.PriceSpecificationSchema]))]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
-export type ItemAvailability = 'schema:BackOrder' | 'schema:Discontinued' | 'schema:InStock' | 'schema:InStoreOnly' | 'schema:LimitedAvailability' | 'schema:MadeToOrder' | 'schema:OnlineOnly' | 'schema:OutOfStock' | 'schema:PreOrder' | 'schema:PreSale' | 'schema:Reserved' | 'schema:SoldOut';
-export const ItemAvailabilitySchema = z.union([z.literal('schema:BackOrder'), z.literal('schema:Discontinued'), z.literal('schema:InStock'), z.literal('schema:InStoreOnly'), z.literal('schema:LimitedAvailability'), z.literal('schema:MadeToOrder'), z.literal('schema:OnlineOnly'), z.literal('schema:OutOfStock'), z.literal('schema:PreOrder'), z.literal('schema:PreSale'), z.literal('schema:Reserved'), z.literal('schema:SoldOut')]);
+export interface ItemAvailability {
+  '@context'?: any;
+  '@type'?: 'ItemAvailability' | Array<'ItemAvailability'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
+
 
 export interface ItemList {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog' | Array<'ItemList' | 'BreadcrumbList' | 'HowToSection' | 'HowToStep' | 'OfferCatalog'>;
   '@id'?: string;
   aggregateElement?: s.Thing | Array<s.Thing>;
@@ -3181,34 +1767,30 @@ export interface ItemList {
   url?: string | Array<string>;
 }
 
-export const ItemListSchema: z.ZodType<ItemList> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.union([z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog')]), z.array(z.union([z.literal('ItemList'), z.literal('BreadcrumbList'), z.literal('HowToSection'), z.literal('HowToStep'), z.literal('OfferCatalog')]))]).optional(),
-  '@id': z.string().optional(),
-  aggregateElement: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  itemListElement: z.union([z.union([s.ListItemSchema, z.string(), s.ThingSchema]), z.array(z.union([s.ListItemSchema, z.string(), s.ThingSchema]))]).optional(),
-  itemListOrder: z.union([z.union([s.ItemListOrderTypeSchema, z.string()]), z.array(z.union([s.ItemListOrderTypeSchema, z.string()]))]).optional(),
-  numberOfItems: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
 
-export type ItemListOrderType = 'schema:ItemListOrderAscending' | 'schema:ItemListOrderDescending' | 'schema:ItemListUnordered';
-export const ItemListOrderTypeSchema = z.union([z.literal('schema:ItemListOrderAscending'), z.literal('schema:ItemListOrderDescending'), z.literal('schema:ItemListUnordered')]);
+export interface ItemListOrderType {
+  '@context'?: any;
+  '@type'?: 'ItemListOrderType' | Array<'ItemListOrderType'>;
+  '@id'?: string;
+  supersededBy?: s.Class | s.Enumeration | s.Property | Array<s.Class | s.Enumeration | s.Property>;
+  additionalType?: string | Array<string>;
+  alternateName?: string | Array<string>;
+  description?: string | s.TextObject | Array<string | s.TextObject>;
+  disambiguatingDescription?: string | Array<string>;
+  identifier?: s.PropertyValue | string | Array<s.PropertyValue | string>;
+  image?: s.ImageObject | string | Array<s.ImageObject | string>;
+  mainEntityOfPage?: s.CreativeWork | string | Array<s.CreativeWork | string>;
+  name?: string | Array<string>;
+  owner?: s.Organization | s.Person | Array<s.Organization | s.Person>;
+  potentialAction?: s.Action | Array<s.Action>;
+  sameAs?: string | Array<string>;
+  subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
+  url?: string | Array<string>;
+}
+
 
 export interface ItemPage {
-  '@context'?: s.Context;
+  '@context'?: any;
   '@type'?: 'ItemPage' | Array<'ItemPage'>;
   '@id'?: string;
   breadcrumb?: s.BreadcrumbList | string | Array<s.BreadcrumbList | string>;
@@ -3351,148 +1933,3 @@ export interface ItemPage {
   subjectOf?: s.CreativeWork | s.Event | Array<s.CreativeWork | s.Event>;
   url?: string | Array<string>;
 }
-
-export const ItemPageSchema: z.ZodType<ItemPage> = z.lazy(() => z.object({
-  '@context': s.ContextSchema.optional(),
-  '@type': z.union([z.literal('ItemPage'), z.array(z.literal('ItemPage'))]).optional(),
-  '@id': z.string().optional(),
-  breadcrumb: z.union([z.union([s.BreadcrumbListSchema, z.string()]), z.array(z.union([s.BreadcrumbListSchema, z.string()]))]).optional(),
-  lastReviewed: z.union([z.string(), z.array(z.string())]).optional(),
-  mainContentOfPage: z.union([s.WebPageElementSchema, z.array(s.WebPageElementSchema)]).optional(),
-  primaryImageOfPage: z.union([s.ImageObjectSchema, z.array(s.ImageObjectSchema)]).optional(),
-  relatedLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  reviewedBy: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  significantLink: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  significantLinks: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  speakable: z.union([z.union([s.SpeakableSpecificationSchema, z.string().url()]), z.array(z.union([s.SpeakableSpecificationSchema, z.string().url()]))]).optional(),
-  specialty: z.union([s.SpecialtySchema, z.array(s.SpecialtySchema)]).optional(),
-  about: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  abstract: z.union([z.string(), z.array(z.string())]).optional(),
-  accessMode: z.union([z.string(), z.array(z.string())]).optional(),
-  accessModeSufficient: z.union([s.ItemListSchema, z.array(s.ItemListSchema)]).optional(),
-  accessibilityAPI: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityControl: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityFeature: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilityHazard: z.union([z.string(), z.array(z.string())]).optional(),
-  accessibilitySummary: z.union([z.string(), z.array(z.string())]).optional(),
-  accountablePerson: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  acquireLicensePage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  aggregateRating: z.union([s.AggregateRatingSchema, z.array(s.AggregateRatingSchema)]).optional(),
-  alternativeHeadline: z.union([z.string(), z.array(z.string())]).optional(),
-  archivedAt: z.union([z.union([z.string().url(), s.WebPageSchema]), z.array(z.union([z.string().url(), s.WebPageSchema]))]).optional(),
-  assesses: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  associatedMedia: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  audience: z.union([s.AudienceSchema, z.array(s.AudienceSchema)]).optional(),
-  audio: z.union([z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]), z.array(z.union([s.AudioObjectSchema, s.ClipSchema, s.MusicRecordingSchema]))]).optional(),
-  author: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  award: z.union([z.string(), z.array(z.string())]).optional(),
-  awards: z.union([z.string(), z.array(z.string())]).optional(),
-  character: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  citation: z.union([z.union([s.CreativeWorkSchema, z.string()]), z.array(z.union([s.CreativeWorkSchema, z.string()]))]).optional(),
-  comment: z.union([s.CommentSchema, z.array(s.CommentSchema)]).optional(),
-  commentCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  conditionsOfAccess: z.union([z.string(), z.array(z.string())]).optional(),
-  contentLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  contentRating: z.union([z.union([s.RatingSchema, z.string()]), z.array(z.union([s.RatingSchema, z.string()]))]).optional(),
-  contentReferenceTime: z.union([z.string(), z.array(z.string())]).optional(),
-  contributor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightHolder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  copyrightNotice: z.union([z.string(), z.array(z.string())]).optional(),
-  copyrightYear: z.union([z.number(), z.array(z.number())]).optional(),
-  correction: z.union([z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]), z.array(z.union([s.CorrectionCommentSchema, z.string(), z.string().url()]))]).optional(),
-  countryOfOrigin: z.union([s.CountrySchema, z.array(s.CountrySchema)]).optional(),
-  creativeWorkStatus: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  creator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  creditText: z.union([z.string(), z.array(z.string())]).optional(),
-  dateCreated: z.union([z.string(), z.array(z.string())]).optional(),
-  dateModified: z.union([z.string(), z.array(z.string())]).optional(),
-  datePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  digitalSourceType: z.union([s.IPTCDigitalSourceEnumerationSchema, z.array(s.IPTCDigitalSourceEnumerationSchema)]).optional(),
-  discussionUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  displayLocation: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  editEIDR: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  editor: z.union([s.PersonSchema, z.array(s.PersonSchema)]).optional(),
-  educationalAlignment: z.union([s.AlignmentObjectSchema, z.array(s.AlignmentObjectSchema)]).optional(),
-  educationalLevel: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  educationalUse: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  encoding: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  encodingFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  encodings: z.union([s.MediaObjectSchema, z.array(s.MediaObjectSchema)]).optional(),
-  exampleOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  expires: z.union([z.string(), z.array(z.string())]).optional(),
-  fileFormat: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  funder: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  funding: z.union([s.GrantSchema, z.array(s.GrantSchema)]).optional(),
-  genre: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  hasPart: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  headline: z.union([z.string(), z.array(z.string())]).optional(),
-  inLanguage: z.union([z.union([s.LanguageSchema, z.string()]), z.array(z.union([s.LanguageSchema, z.string()]))]).optional(),
-  interactionStatistic: z.union([s.InteractionCounterSchema, z.array(s.InteractionCounterSchema)]).optional(),
-  interactivityType: z.union([z.string(), z.array(z.string())]).optional(),
-  interpretedAsClaim: z.union([s.ClaimSchema, z.array(s.ClaimSchema)]).optional(),
-  isAccessibleForFree: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isBasedOn: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isBasedOnUrl: z.union([z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, s.ProductSchema, z.string().url()]))]).optional(),
-  isFamilyFriendly: z.union([z.boolean(), z.array(z.boolean())]).optional(),
-  isPartOf: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  keywords: z.union([z.union([s.DefinedTermSchema, z.string(), z.string().url()]), z.array(z.union([s.DefinedTermSchema, z.string(), z.string().url()]))]).optional(),
-  learningResourceType: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  license: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  locationCreated: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  mainEntity: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  maintainer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  material: z.union([z.union([s.ProductSchema, z.string(), z.string().url()]), z.array(z.union([s.ProductSchema, z.string(), z.string().url()]))]).optional(),
-  materialExtent: z.union([z.union([s.QuantitativeValueSchema, z.string()]), z.array(z.union([s.QuantitativeValueSchema, z.string()]))]).optional(),
-  mentions: z.union([s.ThingSchema, z.array(s.ThingSchema)]).optional(),
-  offers: z.union([z.union([s.DemandSchema, s.OfferSchema]), z.array(z.union([s.DemandSchema, s.OfferSchema]))]).optional(),
-  pattern: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  position: z.union([z.union([z.number().int(), z.string()]), z.array(z.union([z.number().int(), z.string()]))]).optional(),
-  producer: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  provider: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publication: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  publisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  publisherImprint: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  publishingPrinciples: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  recordedAt: z.union([s.EventSchema, z.array(s.EventSchema)]).optional(),
-  releasedEvent: z.union([s.PublicationEventSchema, z.array(s.PublicationEventSchema)]).optional(),
-  review: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  reviews: z.union([s.ReviewSchema, z.array(s.ReviewSchema)]).optional(),
-  schemaVersion: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  sdDatePublished: z.union([z.string(), z.array(z.string())]).optional(),
-  sdLicense: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  sdPublisher: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  size: z.union([z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, s.QuantitativeValueSchema, s.SizeSpecificationSchema, z.string()]))]).optional(),
-  sourceOrganization: z.union([s.OrganizationSchema, z.array(s.OrganizationSchema)]).optional(),
-  spatial: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  spatialCoverage: z.union([s.PlaceSchema, z.array(s.PlaceSchema)]).optional(),
-  sponsor: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  teaches: z.union([z.union([s.DefinedTermSchema, z.string()]), z.array(z.union([s.DefinedTermSchema, z.string()]))]).optional(),
-  temporal: z.union([z.string(), z.array(z.string())]).optional(),
-  temporalCoverage: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  text: z.union([z.string(), z.array(z.string())]).optional(),
-  thumbnail: z.union([s.ImageObjectSchema, z.array(s.ImageObjectSchema)]).optional(),
-  thumbnailUrl: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  timeRequired: z.union([s.DurationSchema, z.array(s.DurationSchema)]).optional(),
-  translationOfWork: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  translator: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  typicalAgeRange: z.union([z.string(), z.array(z.string())]).optional(),
-  usageInfo: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  version: z.union([z.union([z.number(), z.string()]), z.array(z.union([z.number(), z.string()]))]).optional(),
-  video: z.union([z.union([s.ClipSchema, s.VideoObjectSchema]), z.array(z.union([s.ClipSchema, s.VideoObjectSchema]))]).optional(),
-  wordCount: z.union([z.number().int(), z.array(z.number().int())]).optional(),
-  workExample: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  workTranslation: z.union([s.CreativeWorkSchema, z.array(s.CreativeWorkSchema)]).optional(),
-  additionalType: z.union([z.union([z.string(), z.string().url()]), z.array(z.union([z.string(), z.string().url()]))]).optional(),
-  alternateName: z.union([z.string(), z.array(z.string())]).optional(),
-  description: z.union([z.union([z.string(), s.TextObjectSchema]), z.array(z.union([z.string(), s.TextObjectSchema]))]).optional(),
-  disambiguatingDescription: z.union([z.string(), z.array(z.string())]).optional(),
-  identifier: z.union([z.union([s.PropertyValueSchema, z.string(), z.string().url()]), z.array(z.union([s.PropertyValueSchema, z.string(), z.string().url()]))]).optional(),
-  image: z.union([z.union([s.ImageObjectSchema, z.string().url()]), z.array(z.union([s.ImageObjectSchema, z.string().url()]))]).optional(),
-  mainEntityOfPage: z.union([z.union([s.CreativeWorkSchema, z.string().url()]), z.array(z.union([s.CreativeWorkSchema, z.string().url()]))]).optional(),
-  name: z.union([z.string(), z.array(z.string())]).optional(),
-  owner: z.union([z.union([s.OrganizationSchema, s.PersonSchema]), z.array(z.union([s.OrganizationSchema, s.PersonSchema]))]).optional(),
-  potentialAction: z.union([s.ActionSchema, z.array(s.ActionSchema)]).optional(),
-  sameAs: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-  subjectOf: z.union([z.union([s.CreativeWorkSchema, s.EventSchema]), z.array(z.union([s.CreativeWorkSchema, s.EventSchema]))]).optional(),
-  url: z.union([z.string().url(), z.array(z.string().url())]).optional(),
-}));
